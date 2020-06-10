@@ -8,6 +8,14 @@ router.get("/", (req, res) => {
     res.render(path.join(__dirname, '../public/views', 'index.handlebars'));
 })
 
+router.get("/user/:id?", (req, res) => {
+    res.render(path.join(__dirname, '../public/views', 'user.handlebars'));
+})
+
+router.get("/album/", (req, res) => {
+    res.render(path.join(__dirname, '../public/views', 'album.handlebars'));
+})
+
     // router.get("/", (req, res) => {
     //     db.Article.find({}).sort({ time: -1}).lean()
     //         .then(function(dbArticle) {
