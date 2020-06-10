@@ -1,10 +1,11 @@
 const axios = require("axios");
 const db = require("../models");
 const express = require("express");
+const path = require("path");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-    res.send("<p>Hi Bailee</p>");
+    res.render(path.join(__dirname, '../public/views', 'index.handlebars'));
 })
 
     // router.get("/", (req, res) => {
