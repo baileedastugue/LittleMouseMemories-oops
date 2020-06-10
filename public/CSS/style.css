@@ -1,0 +1,154 @@
+/* span {
+  color: #5ba2d5;
+}
+
+span:hover {
+  color: black;
+}
+
+nav {
+  background-color: black;
+  margin-bottom: 1vw;
+}
+
+nav .navbar-brand {
+  color: #5ba2d5;
+}
+
+nav .navbar-brand:hover {
+  color: #F7F7F9;
+}
+
+nav a {
+  color: #F7F7F9;
+}
+
+nav a:hover {
+  color: #eec605;
+}
+
+#myModal .btn {
+  background-color: #F7F7F9;
+}
+
+#myModal .submit-btn {
+  background-color: #eec605;
+  color: #F7F7F9;
+}
+
+#myModal .btn:hover {
+  background-color: black;
+}
+
+#myModal .view-comments {
+  color: #5ba2d5;
+}
+
+#myModal .view-comments:hover {
+  color: black;
+}
+
+.wrapper {
+  margin: auto;
+  display: inline-block;
+  text-align: center;
+}
+
+.wrapper li {
+  display: inline;
+  list-style-type: none;
+}
+
+.wrapper li .article-card {
+  border-radius: 0;
+  background-color: white;
+  border-color: white;
+  border-top-color: #eec605;
+  border-bottom-color: #5ba2d5;
+  border-width: 3px 0px;
+  width: 400px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin: 2vw;
+  height: 400px;
+  overflow: auto;
+}
+
+.wrapper li .article-card .card-text {
+  margin-top: 1vw;
+  padding: 1vw;
+  background-color: #F7F7F9;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.wrapper li .article-card .upper-card {
+  text-align: center;
+}
+
+.wrapper li .article-card .upper-card img {
+  padding: 0vw;
+  width: 200px;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 100%;
+  border-color: #5ba2d5;
+  border-width: 5px;
+}
+
+.wrapper li .article-card .upper-card a {
+  text-align: center;
+  margin-top: 2vw;
+  color: black;
+}
+
+.wrapper li .article-card .upper-card a:hover {
+  color: #5ba2d5;
+  text-decoration: none;
+}
+
+.wrapper li .article-card .upper-card span.star {
+  font-size: 2em;
+  float: right;
+}
+
+.wrapper li .article-card .upper-card span.star.unsaved {
+  color: #5ba2d5;
+}
+
+.wrapper li .article-card .upper-card span.star.saved {
+  color: #eec605;
+}
+
+.wrapper li .article-card .upper-card span.star:hover {
+  color: black;
+}
+
+.wrapper li .article-card .comments-container .card-body {
+  padding: 0.5vw;
+}
+
+.wrapper li .article-card .comments-container .card-text {
+  margin-top: 0vw;
+  background-color: white;
+  padding: 0vw;
+}
+
+#myModal textarea {
+  width: 100%;
+  min-height: 2.8vw;
+}
+
+.desc {
+  max-height: 50px;
+  overflow: hidden;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.desc.expand {
+  max-height: 250px;
+}
+# sourceMappingURL=style.css.map */

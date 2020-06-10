@@ -1,0 +1,40 @@
+MVC:
+    // private but consolidated documentation
+    // add photos and captions
+    // respond to prompts
+
+Where we begin:
+    // create schemas
+        // user
+        // albums
+        // pictures
+        // prompts
+    // associate schemas
+    // create HTML skeletons
+        // login page FIRST - so we can get started on authentication 
+        // user homepage
+            // populated with albums
+            // /user/:id
+        // individual album pages
+            // /user/:id/albums/:albumId
+            // new picture upload form
+            // new post form
+    // user authentication
+    // create HTML and API routes
+    // return items to HTML
+    // functionality
+        // new user
+        // returning user
+        // add album
+        // add pictures to album
+        // add prompt responses to album
+    // deploy to Heroku
+    // create react elements
+        // buttons
+        // login screen
+        // navbar
+        // cards
+        // modals
+    // add CSS + additional styling
+    // responsive
+    // testing
