@@ -16,6 +16,16 @@ router.get("/album/", (req, res) => {
     res.render(path.join(__dirname, '../public/views', 'album.handlebars'));
 })
 
+router.post("/submit", function(req, res) {
+    db.User.create(req.body)
+        .then(dbUser => {
+            res.json(dbUser);
+        })
+        .catch(err => {
+            res.json(err);
+        })
+})
+
     // router.get("/", (req, res) => {
     //     db.Article.find({}).sort({ time: -1}).lean()
     //         .then(function(dbArticle) {
