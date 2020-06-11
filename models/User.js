@@ -5,11 +5,6 @@ const mongoose = require("mongoose");
 // reference to the Schema constructtor
 const Schema = mongoose.Schema;
 const UserSchema = new Schema ({
-    username: {
-        type: String,
-        required: true,
-        unique: true
-    },
     password: {
         type: String,
         trim: true,
@@ -46,11 +41,7 @@ const UserSchema = new Schema ({
             type: Schema.Types.ObjectId,
             ref: "Album"
         }
-    ],
-    signedIn: {
-        type: Boolean,
-        default: true
-    }
+    ]
 });
 
 // create model from the defined schema, using mongoose's model method

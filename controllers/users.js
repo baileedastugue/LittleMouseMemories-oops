@@ -3,27 +3,27 @@ const db = require("../models");
 const express = require("express");
 const path = require("path");
 const router = express.Router();
-
+const User = db.User;
+const bcrypt = require("bcryptjs");
 
 router.get("/register", (req, res) => {
     res.render("register");
 })
 
 router.get("/login", (req, res) => {
-    // res.render(path.join(__dirname, '../public/views', 'index.handlebars'));
     res.render("login");
 })
 
 router.post("/register", (req, res) => {
    const {
-    firstName, lastName, email, username, password, password2
+    firstName, lastName, email, password, password2
    } = req.body;
    console.log(firstName);
 
    let errors = [];
 
    // check required fields
-   if (!firstName || !lastName || !email || !username || !password || !password2) {
+   if (!firstName || !lastName || !email || !password || !password2) {
        errors.push({
            msg: "Please fill in all fields"
        })
@@ -46,12 +46,57 @@ router.post("/register", (req, res) => {
             firstName, 
             lastName, 
             email, 
-            username, 
             password, 
             password2
         })
     } else {
-        res.send("pass");
+        console.log("from line 53");
+        User.findOne({ email: email })
+            .then(user => {
+                if(user) {
+                    // user exists
+                    errors.push( {
+                        msg: "Email is already registered"
+                    })
+                    res.render("register", {
+                        errors, 
+                        firstName, 
+                        lastName, 
+                        email, 
+                        password, 
+                        password2
+                    })
+                } else {
+                    const newUser = User({
+                        firstName,
+                        lastName,
+                        email,
+                        password
+                    });
+
+                    // Hashing the password
+                    bcrypt.genSalt(10, (err, salt) => {
+                        bcrypt.hash(newUser.password, salt, (err, hash) => {
+                            if(err) throw err;
+                            // sets password to hash
+                            newUser.password = hash;
+
+                            newUser.save()
+                                .then(user => {
+                                    req.flash(
+                                        "success_msg", 
+                                        "You are now registered and can log in"
+                                    );
+                                    res.redirect("/users/login");
+                                })
+                                .catch(err => console.log(err));
+                        })
+                    })
+
+
+                    
+                }
+            })
     }
 });
 
