@@ -4,10 +4,14 @@ const express = require("express");
 const path = require("path");
 const router = express.Router();
 
+// Landing page
 router.get("/", (req, res) => {
-    // res.render(path.join(__dirname, '../public/views', 'index.handlebars'));
     res.render("welcome");
 })
 
+// Dashboard
+router.get("/dashboard", (req, res) => {
+    res.render("dashboard");
+})
 
 module.exports = router;

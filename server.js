@@ -4,8 +4,10 @@ const mongoose = require("mongoose");
 const expressLayouts = require("express-ejs-layouts")
 const flash = require("connect-flash");
 const session = require("express-session");
-// const LocalStrategy = require("passport-local");
-// const passportLocalMongoose = require("passport-local-mongoose");
+const passport = require("passport");
+
+// passport config
+require("./config/passport")(passport);
 
 // initializes Express
 let app = express();
@@ -42,6 +44,10 @@ app.use(session({
     saveUninitialized: true,
 }))
 
+// Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
 // connects flash
 app.use(flash());
 
@@ -56,6 +62,7 @@ app.use(function(req, res, next) {
 // routes
 app.use("/", require("./controllers/index.js"));
 app.use("/users", require("./controllers/users.js"));
+
 
 
 app.listen(PORT, () => {
