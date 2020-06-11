@@ -20,3 +20,15 @@
         <button class="btn" id="newAlbum-btn">Create a new album</button>
     </form>
 </div> 
+<br>
+<div class="container">
+    <h4>Your albums</h4><br>
+    
+    <% if (user.album.length > 0) { %>
+        <% user.album.forEach(function(album) { %>
+            <%= album.title %><br>
+        <% }) %>
+    <% } else { %>
+        <p>No albums created</p>
+    <% } %>
+</div>
