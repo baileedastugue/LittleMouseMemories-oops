@@ -7,10 +7,15 @@
 <div class="container">
     <h3>Albums</h3>
 
-    <form>
+    <form action="/dashboard/album" method="POST">
+        <%- include('./partials/messages.ejs') %>
         <div class="form-group">
             <label for="albumName">Create new album</label>
-            <input type="text" name="albumName" class="form-control" id="albumName">
+            <input 
+                type="text" 
+                name="title" 
+                class="form-control" 
+                id="albumName"/>
         </div>
         <button class="btn" id="newAlbum-btn">Create a new album</button>
     </form>
