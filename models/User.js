@@ -1,10 +1,10 @@
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
 // const LocalStrategy = require("passport-local");
 // var passportLocalMongoose = require('passport-local-mongoose');
 
 // reference to the Schema constructtor
-var Schema = mongoose.Schema;
-var UserSchema = new Schema ({
+const Schema = mongoose.Schema;
+const UserSchema = new Schema ({
     username: {
         type: String,
         required: true,
@@ -23,6 +23,7 @@ var UserSchema = new Schema ({
     },
     email: {
         type: String,
+        required: true,
         unique: true,
         match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
     },

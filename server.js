@@ -18,22 +18,28 @@ let PORT = process.env.PORT || 5000;
 
 // use morgan logger for logging requests
 app.use(logger("dev"));
+
 // parse request body as JSON
 app.use(express.urlencoded({extended: true}));
+
 app.use(express.json());
+
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
+
 app.use(express.static(__dirname + "/public"));
 app.set('views', __dirname + '/public/views');
 
 // var exphbs = require("express-handlebars");
 
 
-
+// DB configuration
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/littlemousememories";
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
+    .then(() => console.log("MongoDB connected"))
+    .catch(err => console.log(err));
 
 // routes
 // var routes = ;
