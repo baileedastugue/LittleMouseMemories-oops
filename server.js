@@ -12,6 +12,7 @@ let app = express();
 app.use(expressLayouts);
 // app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "ejs");
+// app.engine('ejs', require('ejs-locals'));
 
 
 let PORT = process.env.PORT || 5000;
