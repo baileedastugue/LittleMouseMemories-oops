@@ -4,9 +4,7 @@ const express = require("express");
 const path = require("path");
 const router = express.Router();
 
-router.get("/", (req, res) => {
-    res.render(path.join(__dirname, '../public/views', 'index.handlebars'));
-})
+
 
 router.get("/user/:id?", (req, res) => {
     res.render(path.join(__dirname, '../public/views', 'user.handlebars'));
@@ -19,9 +17,9 @@ router.get("/album/", (req, res) => {
 router.post("/signup/", (req, res) => {
     console.log("req.body", req.body);
     db.User.create(req.body)
-        // .then(dbUser => {
-        //     console.log("line 23");
-        // })
+        .then(dbUser => {
+            console.log("line 23");
+        })
         .catch(err => {
             console.log("line 26");
             res.json(err);
@@ -40,7 +38,7 @@ router.post("/signin/", (req, res) => {
         if (err) {console.log(err)};
         if (results) {
             console.log("user successfully found + signed in");
-            return res.redirect("/user");
+            return res.redirect("/user/" );
         };
         if (!results) {
             console.log("no user found");
