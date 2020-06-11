@@ -1,11 +1,14 @@
 var mongoose = require("mongoose");
+// const LocalStrategy = require("passport-local");
+// var passportLocalMongoose = require('passport-local-mongoose');
 
 // reference to the Schema constructtor
 var Schema = mongoose.Schema;
 var UserSchema = new Schema ({
     username: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     password: {
         type: String,
@@ -42,10 +45,15 @@ var UserSchema = new Schema ({
             type: Schema.Types.ObjectId,
             ref: "Album"
         }
-    ]
+    ],
+    signedIn: {
+        type: Boolean,
+        default: true
+    }
 });
 
 // create model from the defined schema, using mongoose's model method
+// UserSchema.plugin(passportLocalMongoose);  
 var User =  mongoose.model("User", UserSchema);
 
 module.exports = User;

@@ -1,6 +1,8 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
+// const LocalStrategy = require("passport-local");
+// const passportLocalMongoose = require("passport-local-mongoose");
 
 // initializes Express
 let app = express();
@@ -30,8 +32,10 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 var routes = require("./controllers/apiRoutes.js");
 app.use(routes);
 
-
-
+// // how you use passport in express
+// app.use(passport.initialize());
+// // how to have persistent logins
+// app.use(passport.session());
 
 app.listen(PORT, () => {
     console.log("App running on localhost:" + PORT);
