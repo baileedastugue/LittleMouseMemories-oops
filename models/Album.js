@@ -6,9 +6,9 @@ var AlbumsSchema = new Schema({
         type: String,
         required: true
     },
-    password: {
-        type: String
-    },
+    // password: {
+    //     type: String
+    // },
     picture: [
         {
             type: Schema.Types.ObjectId,

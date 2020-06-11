@@ -5,6 +5,7 @@ const path = require("path");
 const router = express.Router();
 const { ensureAuthenticated } = require("../config/auth");
 const User = db.User;
+const Album = db.Album;
 
 // Landing page
 router.get("/", (req, res) => {
@@ -38,6 +39,38 @@ router.post("/dashboard/album", ensureAuthenticated, (req, res) => {
         })
     } else {
         console.log("good job at title");
+        Album.findOne({ title: title })
+            .then(album => {
+                if(album) {
+                    errors.push({
+                        msg: "Please enter a unique album title"
+                    })
+                    res.render("dashboard", {
+                        errors,
+                        user: req.user
+                    })
+                } else {
+                    console.log("this is a unique album title");
+                    Album.create({ title: title })
+                        .then(album => {
+                            return User.findOneAndUpdate({
+                                _id: req.user._id
+                            }, { $push: { album: album._id} }, 
+                            { new: true });
+                        })
+                        .then(album => {
+                            req.flash(
+                                "success_msg",
+                                "Album created"
+                            );
+                            console.log("hello from line 66");
+                            console.log(album);
+                            console.log("album created")
+                            res.send("you did it");
+                        }) 
+                            
+                }
+            })
     }
 })
 
