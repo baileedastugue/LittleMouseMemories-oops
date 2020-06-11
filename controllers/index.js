@@ -87,10 +87,23 @@ router.post("/dashboard/album", ensureAuthenticated, (req, res) => {
                             
                         }) 
                         .catch(err => console.log(err));
-                            
                 }
             })
     }
+})
+
+router.get("/albums/:id", (req, res) => {
+    User.findOne({
+        _id: req.user._id
+    })
+        .populate("album")
+        .then(user => {
+            // console.log("populated album successful");
+            console.log("hello from line 102");
+            console.log(user);
+            res.send("aw yeah")
+        })
+        .catch(err => console.log(err));
 })
 
 module.exports = router;
