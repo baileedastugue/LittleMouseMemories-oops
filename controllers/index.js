@@ -79,13 +79,12 @@ router.post("/dashboard/album", ensureAuthenticated, (req, res) => {
                             console.log("line 69");
                             // if the album is successfully associated,
                             // send a success message
-                            
-                            res.redirect("/dashboard");
                             req.flash(
                                 "success_msg",
                                 "Album created"
                             );
-                            console.log(req.user);
+                            res.redirect("/dashboard");
+                            
                         }) 
                         .catch(err => console.log(err));
                             
