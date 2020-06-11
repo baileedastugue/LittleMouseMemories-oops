@@ -1,4 +1,17 @@
-<h1 class="mt-4">Dashboard</h1>
+<nav class="navbar navbar-light">
+    <h1>Welcome <b><%= user.firstName %> <%= user.lastName %></b></h1>
+    <a href="/users/logout" class="btn btn-secondary">Logout</a>
+    <p>This will soon be turned into a react component, if you are patient</p>
+</nav>
 
-<p>Welcome <%=  name %></p>
-<a href="/users/logout" class="btn btn-secondary">Logout</a>
+<div class="container">
+    <h3>Albums</h3>
+
+    <form>
+        <div class="form-group">
+            <label for="albumName">Create new album</label>
+            <input type="text" name="albumName" class="form-control" id="albumName">
+        </div>
+        <button class="btn" id="newAlbum-btn">Create a new album</button>
+    </form>
+</div> 
