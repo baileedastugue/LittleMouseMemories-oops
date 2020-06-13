@@ -11,12 +11,12 @@ class Welcome extends Component {
 
             <Container>
                 <h1>Welcome</h1>
-                <div>
-                    New user? <a href="/users/register">Register</a> 
-                </div><br/>
-                <div>
-                    Returning user? <a href="/users/login">Login</a>
-                </div>
+                <p>
+                    New user? <a href='/users/register'>Register</a> 
+                </p>
+                <p>
+                    Returning user? <a href='/users/login'>Login</a>
+                </p>
             </Container>
         )
     }
