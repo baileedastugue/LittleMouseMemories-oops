@@ -4,19 +4,24 @@ import { Container } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Welcome from './pages/Welcome';
 import Login from './pages/Login';
+import Register from './pages/Register';
+import AppNavbar from './components/AppNavbar/index';
 
 import './App.css';
 
 function App() {
   return (
-    <Container>
-      <img src='https://images-na.ssl-images-amazon.com/images/I/41ZztTNk7SL._AC_.jpg'/>
-      <Router>
-          <Route exact path='/' component={ Welcome }/>
-          <Route exact path='/users/register' component={ Welcome }/>
-          <Route exact path='/users/login' component={ Login }/>
-      </Router>
+    <div>
+      <AppNavbar/>
+      <Container>
+        <Router>
+            <Route exact path='/' component={ Welcome }/>
+            <Route exact path='/users/register' component={ Register }/>
+            <Route exact path='/users/login' component={ Login }/>
+            <Route exact path='/dashboard' component={ Login }/>
+        </Router>
     </Container>
+    </div>
   );
 }
 

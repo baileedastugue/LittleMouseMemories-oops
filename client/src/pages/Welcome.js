@@ -4,17 +4,12 @@ import { Container } from 'reactstrap';
 class Welcome extends Component {
     render() {
         return (
-            // <nav class="navbar navbar-light">
-            //     <h1>This is a navigation bar</h1>
-            //     <p>Which will soon be turned into a react component, if you are patient</p>
-            // </nav>
-
             <Container>
+                <img src='https://images-na.ssl-images-amazon.com/images/I/41ZztTNk7SL._AC_.jpg'/>
+
                 <h1>Welcome</h1>
-                <p>
-                    New user? <a href='/users/register'>Register</a> 
-                </p>
-                <p>
+                <p class="lead mt-4">
+                    New user? <a href='/users/register'>Register</a> <br/>
                     Returning user? <a href='/users/login'>Login</a>
                 </p>
             </Container>
