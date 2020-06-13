@@ -26,7 +26,7 @@
     
     <% if (user.album.length > 0) { %>
         <% user.album.forEach(function(album) { %>
-            <a href="/albums/:id" id="<%= album.title %>"> <%= album.title %></a> <br>
+            <a href="/albums/<%= album._id %>" id="<%= album._id %>"> <%= album.title %></a> <br>
         <% }) %>
     <% } else { %>
         <p>No albums created</p>

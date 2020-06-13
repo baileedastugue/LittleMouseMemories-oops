@@ -6,6 +6,7 @@ const router = express.Router();
 const { ensureAuthenticated } = require("../config/auth");
 const User = db.User;
 const Album = db.Album;
+const Pictures = db.Pictures;
 
 // Landing page
 router.get("/", (req, res) => {
@@ -21,8 +22,8 @@ router.get("/dashboard", ensureAuthenticated, (req, res) => {
     })
         .populate("album")
         .then(user => {
-            console.log("populated album successful");
-            console.log(user.album[0]);
+            // console.log("populated album successful");
+            // console.log(user.album[0]);
             res.render("dashboard", {
                 user: user
             });
@@ -76,7 +77,7 @@ router.post("/dashboard/album", ensureAuthenticated, (req, res) => {
                             { new: true });
                         })
                         .then(album => {
-                            console.log("line 69");
+                            // console.log("line 69");
                             // if the album is successfully associated,
                             // send a success message
                             req.flash(
@@ -92,18 +93,69 @@ router.post("/dashboard/album", ensureAuthenticated, (req, res) => {
     }
 })
 
+router.get("/albums/:id/pictures", (req, res) => {
+    res.render("albums", {
+        album: req.params.id
+    });
+    console.log(req.params.id);
+    
+})
+
+router.post("/albums/:id/pictures", (req, res) => {
+    res.send("Aw yeah who wants a picture");
+    const image = req.body.image;
+    console.log(req.params.id);
+    let errors = [];
+    if (!image) {
+        // send an error if the user does not add a title
+        errors.push({
+            msg: "Please upload a picture"
+        });
+    }
+    if (errors.length > 0) {
+        // if there is an error, send it to the page
+        res.render("albums", {
+            errors
+        })
+    } else {
+        console.log("no errors");
+        Pictures.create({ image: image })
+                        // that album is created
+                        .then(picture => {
+                            // return Album.findOneAndUpdate({
+                            //     _id: req.body.id
+                            // }, { $push: { pictures: picture } }, 
+                            // { new: true });
+                            console.log(picture);
+                        })
+                        .then(picture => {
+                            console.log(picture);
+                        })
+                        .catch(err => console.log(err));
+    }
+})
+
 router.get("/albums/:id", (req, res) => {
-    User.findOne({
-        _id: req.user._id
+    // console.log(req.params.id);
+    Album.findOne({
+        title: req.params.id
     })
-        .populate("album")
-        .then(user => {
-            // console.log("populated album successful");
-            console.log("hello from line 102");
-            console.log(user);
-            res.send("aw yeah")
+        .then(album => {
+            // console.log(album);
+            res.redirect("/albums/"+album._id+"/pictures");
         })
         .catch(err => console.log(err));
+    // User.findOne({
+    //     _id: req.user._id
+    // })
+    //     .populate("album")
+    //     .then(user => {
+    //         // console.log("populated album successful");
+    //         console.log("hello from line 102");
+    //         console.log(user);
+    //         res.send("aw yeah")
+    //     })
+    //     .catch(err => console.log(err));
 })
 
 module.exports = router;

@@ -8,7 +8,7 @@ var PicturesSchema = new Schema({
     },
     dateUploaded: {
         type: Date,
-        required: true
+        default: Date.now
     },
     dateRecorded: {
         type: Date,
