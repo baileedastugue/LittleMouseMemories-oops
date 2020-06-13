@@ -7,22 +7,22 @@ class Dashboard extends Component {
             <Container>
                 <form action="/dashboard/album" method="POST">
                     {/* <%- include('./partials/messages.ejs') %> */}
-                    <div class="form-group">
-                        <label for="albumName">Create new album</label>
+                    {/* <div className="form-group">
+                        <label htmlFor="albumName">Create new album</label>
                         <input 
                             type="text" 
                             name="title" 
-                            class="form-control" 
+                            className="form-control" 
                             id="albumName"/>
-                    </div>
-                    <button class="btn" id="newAlbum-btn">Create a new album</button>
+                    </div> */}
+                    <button className="btn" id="newAlbum-btn">Create a new album</button>
                 </form>
                 <br/>
-                <h5 class="lead">Your Memory Albums</h5>
+                <h5 className="lead">Your Memory Albums</h5>
                 <p>Render albums here</p>
             </Container>        
         )
     }
 }
 
-
+export default Dashboard;

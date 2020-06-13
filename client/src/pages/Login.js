@@ -9,7 +9,7 @@ class Login extends Component {
                 <h5>Returning User</h5>
                 <LoginForm/>
                 {/* <%- include('./partials/messages.ejs') %> */}
-                <p class="lead mt-4">Don't have An Account? <a href="/users/register">Register</a></p>
+                <p className="lead mt-4">Don't have An Account? <a href="/users/register">Register</a></p>
             </Container>
            
         )

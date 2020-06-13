@@ -1,28 +1,28 @@
 import React from 'react';
-import { Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup } from 'reactstrap';
 
 const LoginForm = () => {
     return (
       <Form>
         <FormGroup>
-          <label for="emailInput">Email</label>
+          <label htmlFor="emailInput">Email</label>
           <input
             type="text"
             name="email"
-            class="form-control"
+            className="form-control"
             id="emailInput"
           />
         </FormGroup>
         <FormGroup>
-          <label for="passwordInput">Password</label>
+          <label htmlFor="passwordInput">Password</label>
           <input
             type="password"
             name="password"
-            class="form-control"
+            className="form-control"
             id="passwordInput"
           />
         </FormGroup>
-        <Button type="submit" class="btn login-btn">
+        <Button type="submit" className="btn login-btn">
           Login
         </Button>
       </Form>

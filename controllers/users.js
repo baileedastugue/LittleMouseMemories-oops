@@ -7,13 +7,6 @@ const User = db.User;
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
 
-router.get("/register", (req, res) => {
-    res.render("register");
-})
-
-router.get("/login", (req, res) => {
-    res.render("login");
-})
 
 router.post("/register", (req, res) => {
    const {
@@ -74,7 +67,7 @@ router.post("/register", (req, res) => {
                         email,
                         password
                     });
-
+                    
                     // Hashing the password
                     bcrypt.genSalt(10, (err, salt) => {
                         bcrypt.hash(newUser.password, salt, (err, hash) => {
@@ -92,10 +85,7 @@ router.post("/register", (req, res) => {
                                 })
                                 .catch(err => console.log(err));
                         })
-                    })
-
-
-                    
+                    })                    
                 }
             })
     }
