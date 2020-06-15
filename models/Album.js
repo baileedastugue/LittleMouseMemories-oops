@@ -9,6 +9,10 @@ var AlbumsSchema = new Schema({
     // password: {
     //     type: String
     // },
+    date: {
+        type: Date,
+        default: Date.now
+    },
     pictures: [
         {
             type: Schema.Types.ObjectId,
@@ -23,6 +27,5 @@ var AlbumsSchema = new Schema({
     ]
 });
 
-var Album = mongoose.model("Album", AlbumsSchema);
 
-module.exports = Album;
+module.exports = Album = mongoose.model("Album", AlbumsSchema);

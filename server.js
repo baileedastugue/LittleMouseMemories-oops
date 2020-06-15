@@ -1,20 +1,17 @@
+// back-end framework
 const express = require("express");
 const logger = require("morgan");
+// ORM to interact with MongoDB database
 const mongoose = require("mongoose");
-const expressLayouts = require("express-ejs-layouts")
 const flash = require("connect-flash");
 const session = require("express-session");
 const passport = require("passport");
 
 // passport config
-require("./config/passport")(passport);
+// require("./config/passport")(passport);
 
 // initializes Express
 let app = express();
-
-// EJS
-app.use(expressLayouts);
-app.set("view engine", "ejs");
 
 let PORT = process.env.PORT || 5000;
 
@@ -33,7 +30,10 @@ app.set('views', __dirname + '/public/views');
 
 // DB configuration
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/littlemousememories";
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
+mongoose.connect(MONGODB_URI, { 
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true })
     .then(() => console.log("MongoDB connected"))
     .catch(err => console.log(err));
 
@@ -43,10 +43,6 @@ app.use(session({
     resave: true,
     saveUninitialized: true,
 }))
-
-// Passport
-app.use(passport.initialize());
-app.use(passport.session());
 
 // connects flash
 app.use(flash());
@@ -59,11 +55,11 @@ app.use(function(req, res, next) {
     next();
   });
 
-// routes
-app.use("/", require("./controllers/index.js"));
-app.use("/users", require("./controllers/users.js"));
-
-
+// Use Routes
+app.use('/api/albums', require('./routes/api/albums'));
+app.use('/api/pictures', require('./routes/api/pictures'));
+app.use('/api/users', require('./routes/api/users'));
+app.use('/api/auth', require('./routes/api/auth'));
 
 app.listen(PORT, () => {
     console.log("App running on localhost:" + PORT);
