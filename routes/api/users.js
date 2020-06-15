@@ -1,7 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const router = express.Router();
+const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
-require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const { check, validationResult, body } = require('express-validator');
 
@@ -28,69 +29,63 @@ router.post(
           }
           return true;
      }),
-     (req, res) => {
-          const { firstName, lastName, email, password, password2 } = req.body;
+     async (req, res) => {
           const errors = validationResult(req);
           if (!errors.isEmpty()) {
                return res.status(400).json({ errors: errors.array() });
-          } else {
-               User.findOne({ email }).then((user) => {
-                    if (user) {
-                         return res
-                              .status(400)
-                              .json({ msg: 'User already exists ' });
-                    } else {
-                         const newUser = User({
-                              firstName,
-                              lastName,
-                              email,
-                              password,
-                         });
+          }
 
-                         // Hashing the password
-                         bcrypt.genSalt(10, (err, salt) => {
-                              bcrypt.hash(
-                                   newUser.password,
-                                   salt,
-                                   (err, hash) => {
-                                        if (err) throw err;
-                                        // sets password to hash
-                                        newUser.password = hash;
+          const { firstName, lastName, email, password } = req.body;
 
-                                        newUser
-                                             .save()
-                                             .then((user) => {
-                                                  jwt.sign(
-                                                       { id: user.id },
-                                                       // can add name + whatever }
-                                                       process.env.JWT_SECRET,
-                                                       // token lasts for 1 hour
-                                                       { expiresIn: 3600 },
-                                                       (err, token) => {
-                                                            if (err) throw err;
-                                                            res.json({
-                                                                 token,
-                                                                 user: {
-                                                                      id:
-                                                                           user.id,
-                                                                      firstName:
-                                                                           user.firstName,
-                                                                      lastName:
-                                                                           user.lastName,
-                                                                      email:
-                                                                           user.email,
-                                                                 },
-                                                            });
-                                                       }
-                                                  );
-                                                  // res.redirect("/users/login");
-                                             })
-                                             .catch((err) => console.log(err));
-                                   }
-                              );
-                         });
-                    }
+          try {
+               let user = await User.findOne({ email });
+               // See if user exists
+               if (user) {
+                    return res
+                         .status(400)
+                         .json({ errors: [{ msg: 'User already exists' }] });
+               }
+               const avatar = gravatar.url(email, {
+                    s: '200',
+                    r: 'pg',
+                    d: 'mm',
                });
+               user = new User({
+                    firstName,
+                    lastName,
+                    email,
+                    password,
+                    avatar,
+               });
+
+               // Encrypt password
+               const salt = await bcrypt.genSalt(10);
+
+               user.password = await bcrypt.hash(password, salt);
+
+               await user.save();
+
+               // Return json web token
+               const payload = {
+                    user: {
+                         id: user.id,
+                    },
+               };
+
+               jwt.sign(
+                    payload,
+                    process.env.JWT_SECRET,
+                    { expiresIn: 36000 },
+                    (err, token) => {
+                         if (err) throw err;
+                         res.json({ token });
+                    }
+               );
+
+               res.send('User registered');
+          } catch (err) {
+               console.error(err.message);
+               res.status(500).send('Server error');
           }
      }
 );
