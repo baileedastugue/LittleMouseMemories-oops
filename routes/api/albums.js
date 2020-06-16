@@ -8,15 +8,45 @@ const { check, validationResult } = require('express-validator');
 
 // Dashboard
 
-// @route   GET api/albums
+// @route   GET api/albums/user/:user_id
 // @desc    Get current user's albums
 // @access  Private
-router.get('/', auth, async (req, res) => {
+router.get('/user/:user_id', auth, async (req, res) => {
      try {
-          console.log(req.user.id);
+          const user_id = req.params.user_id;
           const album = await Album.find({
-               user: req.user.id,
+               user: user_id,
           }).populate('User', ['firstName']);
+
+          if (!album) {
+               res.status(400).json({
+                    msg: 'There are no albums for this user',
+               });
+          }
+          res.json(album);
+     } catch (err) {
+          console.error(err.message);
+          if (err.kind == 'ObjectId') {
+               res.status(400).json({
+                    msg: 'Albums not found',
+               });
+          }
+          res.status(500).send('Server error');
+     }
+});
+
+// @route   GET api/albums/user/:user_id/:album_id
+// @desc    Get pictures from one album
+// @access  Private
+router.get('/user/:user_id/pictures/:album_id', auth, async (req, res) => {
+     try {
+          const user_id = req.params.user_id;
+          const album_id = req.params.album_id;
+          console.log(user_id);
+          const album = await Album.find({
+               user: user_id,
+               _id: album_id,
+          }).populate('Pictures', ['image']);
 
           if (!album) {
                res.status(400).json({
@@ -61,10 +91,10 @@ router.post(
      }
 );
 
-// @route   DELETE api/albums/:id
+// @route   DELETE api/albums/user/:user_id/:album_id
 // @desc    Delete an album
-// @access  Public
-router.delete('/:id', (req, res) => {
+// @access  Private
+router.delete('/user/:user_id/:album_id', auth, (req, res) => {
      Album.findById(req.params.id)
           .then((album) =>
                album.remove().then(() => res.json({ success: true }))
@@ -72,52 +102,28 @@ router.delete('/:id', (req, res) => {
           .catch((err) => res.status(404).json({ success: false }));
 });
 
+// @route   GET api/albums/:id/pictures
+// @desc    Get all pictures
+// @access  Private
+router.get('/:id/pictures', auth, async (req, res) => {
+     try {
+          console.log(req.user.id);
+          const picture = await Picture.find({
+               user: req.user.id,
+          });
+
+          if (!picture) {
+               res.status(400).json({
+                    msg: 'There are no pictures in this album',
+               });
+          }
+     } catch (err) {
+          console.error(err.message);
+          res.status(500).send('Server error');
+     }
+});
+
 module.exports = router;
-
-// // router.post("/dashboard/album", ensureAuthenticated, (req, res) => {
-
-// //         // if the user actually enters a title,
-// //         // this checks to see if that album name already exists
-// //         Album.findOne({ title: title })
-// //             .then(album => {
-// //                 if(album) {
-// //                     // if there is an album with that name
-// //                     // push an error
-// //                     errors.push({
-// //                         msg: "Please enter a unique album title"
-// //                     })
-// //                     res.render("dashboard", {
-// //                         errors,
-// //                         user: req.user
-// //                     })
-// //                 } else {
-// //                     // if the album title is unique
-// //                     Album.create({ title: title })
-// //                         // that album is created
-// //                         .then(album => {
-// //                             // if the album is successfully created,
-// //                             // update the user's album array so they are associated
-// //                             return User.findOneAndUpdate({
-// //                                 _id: req.user._id
-// //                             }, { $push: { album: album._id} },
-// //                             { new: true });
-// //                         })
-// //                         .then(album => {
-// //                             // console.log("line 69");
-// //                             // if the album is successfully associated,
-// //                             // send a success message
-// //                             req.flash(
-// //                                 "success_msg",
-// //                                 "Album created"
-// //                             );
-// //                             res.redirect("/dashboard");
-
-// //                         })
-// //                         .catch(err => console.log(err));
-// //                 }
-// //             })
-// //     }
-// // })
 
 // // router.get("/albums/:id/pictures", (req, res) => {
 // //     res.render("albums", {

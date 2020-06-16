@@ -1,26 +1,28 @@
-var mongoose = require("mongoose");
+var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var PicturesSchema = new Schema({
-    image: {
-        type: String,
-        required: true
-    },
-    dateUploaded: {
-        type: Date,
-        default: Date.now
-    },
-    dateRecorded: {
-        type: Date,
-    },
-    caption: {
-        type: String
-    },
-    uploadedBy: {
-        type: String
-    }
+     image: {
+          type: String,
+          required: true,
+     },
+     album: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'album',
+     },
+     dateUploaded: {
+          type: Date,
+          default: Date.now,
+     },
+     dateRecorded: {
+          type: Date,
+     },
+     caption: {
+          type: String,
+     },
+     uploadedBy: {
+          type: String,
+     },
 });
 
-var Pictures = mongoose.model("Pictures", PicturesSchema);
-
-module.exports = Pictures;
+module.exports = Picture = mongoose.model('Picture', PicturesSchema);
