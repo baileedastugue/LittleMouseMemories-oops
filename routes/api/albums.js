@@ -8,12 +8,12 @@ const { check, validationResult } = require('express-validator');
 
 // Dashboard
 
-// @route   GET api/albums/user/:user_id
+// @route   GET api/albums/
 // @desc    Get current user's albums
 // @access  Private
-router.get('/user/:user_id', auth, async (req, res) => {
+router.get('/', auth, async (req, res) => {
      try {
-          const user_id = req.params.user_id;
+          const user_id = req.user.id;
           const album = await Album.find({
                user: user_id,
           }).populate('user', ['firstName', 'lastName', '_id']);
@@ -35,12 +35,12 @@ router.get('/user/:user_id', auth, async (req, res) => {
      }
 });
 
-// @route   GET api/albums/user/:user_id/:album_id
+// @route   GET api/albums/:album_id
 // @desc    Get pictures from one album
 // @access  Private
-router.get('/user/:user_id/pictures/:album_id', auth, async (req, res) => {
+router.get('/:album_id', auth, async (req, res) => {
      try {
-          const user_id = req.params.user_id;
+          const user_id = req.user.id;
           const album_id = req.params.album_id;
           console.log(user_id);
           const album = await Album.find({
@@ -64,11 +64,11 @@ router.get('/user/:user_id/pictures/:album_id', auth, async (req, res) => {
      }
 });
 
-// @route   POST api/albums/user/:user_id
+// @route   POST api/albums/
 // @desc    Post a new album
 // @access  Private
 router.post(
-     '/user/:user_id',
+     '/',
      [auth, [check('title', 'A title is required').not().isEmpty()]],
      async (req, res) => {
           const errors = validationResult(req);
@@ -106,10 +106,10 @@ router.post(
      }
 );
 
-// @route   DELETE api/albums/user/:user_id/:album_id
+// @route   DELETE api/albums/:album_id
 // @desc    Delete an album
 // @access  Private
-router.delete('/user/:user_id/:album_id', auth, async (req, res) => {
+router.delete('/:album_id', auth, async (req, res) => {
      console.log(req.params.album_id);
      try {
           // Removes album
@@ -128,7 +128,7 @@ router.delete('/user/:user_id/:album_id', auth, async (req, res) => {
 router.delete('/', auth, async (req, res) => {
      try {
           console.log(req.user.id);
-          // Removes album
+          // Removes albums
           let thisUser = await User.findOne({ _id: req.user.id });
           console.log(thisUser.album.length);
           for (let i = 0; i < thisUser.album.length; i++) {
@@ -136,6 +136,8 @@ router.delete('/', auth, async (req, res) => {
           }
           // Removes user
           await User.findOneAndDelete({ _id: req.user.id });
+
+          // todo - remove pictures
 
           res.json({ msg: 'User deleted' });
      } catch (err) {
@@ -147,23 +149,23 @@ router.delete('/', auth, async (req, res) => {
 // @route   GET api/albums/:id/pictures
 // @desc    Get all pictures
 // @access  Private
-router.get('/:id/pictures', auth, async (req, res) => {
-     try {
-          console.log(req.user.id);
-          const picture = await Picture.find({
-               user: req.user.id,
-          });
+// router.get('/:id/pictures', auth, async (req, res) => {
+//      try {
+//           console.log(req.user.id);
+//           const picture = await Picture.find({
+//                user: req.user.id,
+//           });
 
-          if (!picture) {
-               res.status(400).json({
-                    msg: 'There are no pictures in this album',
-               });
-          }
-     } catch (err) {
-          console.error(err.message);
-          res.status(500).send('Server error');
-     }
-});
+//           if (!picture) {
+//                res.status(400).json({
+//                     msg: 'There are no pictures in this album',
+//                });
+//           }
+//      } catch (err) {
+//           console.error(err.message);
+//           res.status(500).send('Server error');
+//      }
+// });
 
 module.exports = router;
 

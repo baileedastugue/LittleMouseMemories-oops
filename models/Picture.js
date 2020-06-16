@@ -6,8 +6,12 @@ var PicturesSchema = new Schema({
           type: String,
           required: true,
      },
+     user: {
+          type: Schema.Types.ObjectId,
+          ref: 'user',
+     },
      album: {
-          type: mongoose.Schema.Types.ObjectId,
+          type: Schema.Types.ObjectId,
           ref: 'album',
      },
      dateUploaded: {

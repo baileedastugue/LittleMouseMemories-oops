@@ -19,8 +19,10 @@ var AlbumsSchema = new Schema({
      },
      pictures: [
           {
-               type: Schema.Types.ObjectId,
-               ref: 'Picture',
+               picture: {
+                    type: Schema.Types.ObjectId,
+                    ref: 'picture',
+               },
           },
      ],
      prompt: [
