@@ -46,7 +46,7 @@ router.get('/user/:user_id/pictures/:album_id', auth, async (req, res) => {
           const album = await Album.find({
                user: user_id,
                _id: album_id,
-          }).populate('user');
+          }).populate('user', ['firstName', 'lastName', '_id']);
           // need to populate with pictures later
 
           if (!album) {
