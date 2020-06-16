@@ -46,7 +46,9 @@ router.get('/user/:user_id/pictures/:album_id', auth, async (req, res) => {
           const album = await Album.find({
                user: user_id,
                _id: album_id,
-          }).populate('user', ['firstName', 'lastName', '_id']);
+          })
+               .populate('user', ['firstName', 'lastName', '_id'])
+               .populate('picture');
           // need to populate with pictures later
 
           if (!album) {
@@ -62,7 +64,7 @@ router.get('/user/:user_id/pictures/:album_id', auth, async (req, res) => {
      }
 });
 
-// @route   POST api/albums
+// @route   POST api/albums/user/:user_id
 // @desc    Post a new album
 // @access  Private
 router.post(
@@ -107,12 +109,34 @@ router.post(
 // @route   DELETE api/albums/user/:user_id/:album_id
 // @desc    Delete an album
 // @access  Private
-router.delete('/user/:user_id/:album_id', auth, (req, res) => {
-     Album.findById(req.params.id)
-          .then((album) =>
-               album.remove().then(() => res.json({ success: true }))
-          )
-          .catch((err) => res.status(404).json({ success: false }));
+router.delete('/user/:user_id/:album_id', auth, async (req, res) => {
+     console.log(req.params.album_id);
+     try {
+          // Removes album
+          await Album.findOneAndDelete({ _id: req.params.album_id });
+
+          res.json({ msg: 'Album deleted' });
+     } catch (err) {
+          console.error(err.message);
+          res.status(500).send('Server error');
+     }
+});
+
+// @route   DELETE api/albums/
+// @desc    Delete profile, albums, and pictures
+// @access  Private
+router.delete('/', auth, async (req, res) => {
+     try {
+          // Removes album
+          await Album.deleteMany({ user: req.user.id });
+          // Removes user
+          await User.findOneAndRemove({ _id: req.user.id });
+
+          res.json({ msg: 'User deleted' });
+     } catch (err) {
+          console.error(err.message);
+          res.status(500).send('Server error');
+     }
 });
 
 // @route   GET api/albums/:id/pictures
