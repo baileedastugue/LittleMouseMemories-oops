@@ -127,10 +127,15 @@ router.delete('/user/:user_id/:album_id', auth, async (req, res) => {
 // @access  Private
 router.delete('/', auth, async (req, res) => {
      try {
+          console.log(req.user.id);
           // Removes album
-          await Album.deleteMany({ user: req.user.id });
+          let thisUser = await User.findOne({ _id: req.user.id });
+          console.log(thisUser.album.length);
+          for (let i = 0; i < thisUser.album.length; i++) {
+               await Album.findByIdAndDelete({ _id: thisUser.album[i] });
+          }
           // Removes user
-          await User.findOneAndRemove({ _id: req.user.id });
+          await User.findOneAndDelete({ _id: req.user.id });
 
           res.json({ msg: 'User deleted' });
      } catch (err) {
