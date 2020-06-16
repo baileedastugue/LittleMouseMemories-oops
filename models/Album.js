@@ -2,6 +2,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var AlbumsSchema = new Schema({
+     user: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'user',
+     },
      title: {
           type: String,
           required: true,
@@ -13,14 +17,10 @@ var AlbumsSchema = new Schema({
           type: Date,
           default: Date.now,
      },
-     user: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: 'user',
-     },
      pictures: [
           {
                type: Schema.Types.ObjectId,
-               ref: 'Pictures',
+               ref: 'Picture',
           },
      ],
      prompt: [
@@ -31,4 +31,4 @@ var AlbumsSchema = new Schema({
      ],
 });
 
-module.exports = Album = mongoose.model('Album', AlbumsSchema);
+module.exports = Album = mongoose.model('album', AlbumsSchema);

@@ -39,7 +39,7 @@ const UserSchema = new Schema({
      album: [
           {
                type: Schema.Types.ObjectId,
-               ref: 'Album',
+               ref: 'album',
           },
      ],
      avatar: {
@@ -50,4 +50,4 @@ const UserSchema = new Schema({
 // create model from the defined schema, using mongoose's model method
 // UserSchema.plugin(passportLocalMongoose);
 
-module.exports = User = mongoose.model('User', UserSchema);
+module.exports = User = mongoose.model('user', UserSchema);

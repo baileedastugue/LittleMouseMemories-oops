@@ -16,7 +16,7 @@ router.get('/user/:user_id', auth, async (req, res) => {
           const user_id = req.params.user_id;
           const album = await Album.find({
                user: user_id,
-          }).populate('User', ['firstName']);
+          }).populate('album');
 
           if (!album) {
                res.status(400).json({
@@ -46,7 +46,8 @@ router.get('/user/:user_id/pictures/:album_id', auth, async (req, res) => {
           const album = await Album.find({
                user: user_id,
                _id: album_id,
-          }).populate('Pictures', ['image']);
+          }).populate('user');
+          // need to populate with pictures later
 
           if (!album) {
                res.status(400).json({
@@ -65,7 +66,7 @@ router.get('/user/:user_id/pictures/:album_id', auth, async (req, res) => {
 // @desc    Post a new album
 // @access  Private
 router.post(
-     '/',
+     '/user/:user_id',
      [auth, [check('title', 'A title is required').not().isEmpty()]],
      async (req, res) => {
           const errors = validationResult(req);
@@ -76,14 +77,26 @@ router.post(
           const { title } = req.body;
           albumFields.title = title;
           albumFields.user = req.user.id;
-          console.log(albumFields);
 
           try {
-               let album = Album.find({ user: req.user.id });
-               // create album
-               album = new Album(albumFields);
-               await album.save();
-               res.json(album);
+               let objAlbum = Album.find({ user: req.user.id });
+               objAlbum = new Album(albumFields);
+               await objAlbum.save();
+               //    console.log(req.user.id);
+               console.log(req.user.id);
+               User.findOneAndUpdate(
+                    { _id: req.user.id },
+                    { $push: { album: objAlbum } },
+                    function (error, success) {
+                         if (error) {
+                              console.log(error);
+                         } else {
+                              console.log(success);
+                              console.log(96);
+                         }
+                    }
+               );
+               res.json(objAlbum);
           } catch (err) {
                console.error(err.message);
                res.status(500).send('Server Error');
