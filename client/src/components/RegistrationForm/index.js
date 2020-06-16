@@ -1,64 +1,119 @@
-import React from "react";
-import {
-  Button,
-  Form,
-  FormGroup,
-} from "reactstrap";
+import React, { useState } from 'react';
+import axios from 'axios';
+import { Button, Form, FormGroup } from 'reactstrap';
 
 const RegistrationForm = () => {
-  return (
-    <Form action="/users/register" method="POST">
-      <FormGroup>
-        <label for="fNameInput">First Name</label>
-        <input
-          type="text"
-          name="firstName"
-          class="form-control"
-          id="fNameInput"
-        //   value="<%= typeof firstName != 'undefined' ? firstName : '' %>"
-        />
-      </FormGroup>
-      <label for="lNameInput">Last Name</label>
-      <input
-        type="text"
-        name="lastName"
-        class="form-control"
-        id="lNameInput"
-        // value="<%= typeof lastName != 'undefined' ? lastName : '' %>"
-      />
-      <FormGroup>
-        <label for="emailInput">Email</label>
-        <input
-          type="text"
-          name="email"
-          class="form-control"
-          id="emailInput"
-        //   value="<%= typeof email != 'undefined' ? email : '' %>"
-        />
-      </FormGroup>
-      <label for="newPasswordInput">Password</label>
-      <input
-        type="password"
-        name="password"
-        class="form-control"
-        id="newPasswordInput"
-        // value="<%= typeof password != 'undefined' ? password : '' %>"
-      />
-      <FormGroup>
-        <label for="newPasswordInput">Confirm Password</label>
-        <input
-          type="password"
-          name="password2"
-          class="form-control"
-          id="newPasswordInput2"
-        //   value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
-        />
-      </FormGroup>
-      <Button type="submit" class="btn" id="register-btn">
-        Register
-      </Button>
-    </Form>
-  );
+     const [formData, setFormData] = useState({
+          // these are the default values
+          firstName: '',
+          lastName: '',
+          email: '',
+          password: '',
+          password2: '',
+     });
+
+     const { firstName, lastName, email, password, password2 } = formData;
+
+     const onChange = (event) => {
+          setFormData({ ...formData, [event.target.name]: event.target.value });
+     };
+
+     const onSubmit = async (event) => {
+          event.preventDefault();
+          if (password !== password2) {
+               console.log('Passwords do not match');
+          } else {
+               const newUser = {
+                    firstName,
+                    lastName,
+                    email,
+                    password,
+               };
+               try {
+                    const config = {
+                         headers: {
+                              'Content-Type': 'application/json',
+                         },
+                    };
+                    const body = JSON.stringify(newUser);
+                    console.log(body);
+                    const res = await axios.post(
+                         'http://localhost:5000/api/users/',
+                         body,
+                         config
+                    );
+                    console.log(res.data);
+               } catch (err) {
+                    console.error(err.response.data);
+               }
+          }
+     };
+
+     return (
+          <Form className='form' onSubmit={(event) => onSubmit(event)}>
+               <FormGroup>
+                    <label htmlFor='fNameInput'>First Name</label>
+                    <input
+                         type='text'
+                         name='firstName'
+                         className='form-control'
+                         id='firstNameInput'
+                         onChange={(event) => onChange(event)}
+                         value={firstName}
+                         required
+                    />
+               </FormGroup>
+               <label htmlFor='lNameInput'>Last Name</label>
+               <input
+                    type='text'
+                    name='lastName'
+                    className='form-control'
+                    id='lastNameInput'
+                    onChange={(event) => onChange(event)}
+                    value={lastName}
+                    required
+               />
+               <FormGroup>
+                    <label htmlFor='emailInput'>Email</label>
+                    <input
+                         type='text'
+                         name='email'
+                         className='form-control'
+                         id='emailInput'
+                         onChange={(event) => onChange(event)}
+                         value={email}
+                         required
+                    />
+               </FormGroup>
+               <label htmlFor='newPasswordInput'>Password</label>
+               <input
+                    type='password'
+                    name='password'
+                    className='form-control'
+                    id='newPasswordInput'
+                    onChange={(event) => onChange(event)}
+                    value={password}
+                    minLength='6'
+                    required
+               />
+               <FormGroup>
+                    <label htmlFor='newPasswordInput'>Confirm Password</label>
+                    <input
+                         type='password'
+                         name='password2'
+                         className='form-control'
+                         id='newPasswordInput2'
+                         onChange={(event) => onChange(event)}
+                         value={password2}
+                         required
+                         minLength='6'
+                    />
+               </FormGroup>
+               <Button type='submit' className='btn' id='register-btn'>
+                    Register
+               </Button>
+          </Form>
+     );
 };
 
 export default RegistrationForm;

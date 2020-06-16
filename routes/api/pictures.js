@@ -109,9 +109,15 @@ router.delete('/picture/:picture_id', auth, async (req, res) => {
                     .json({ msg: 'User not authorized to delete post' });
           }
           await Picture.findByIdAndDelete(req.params.picture_id);
+          if (!picture) {
+               return res.status(404).json({ msg: 'Image not found' });
+          }
           res.json({ msg: 'Picture deleted' });
      } catch (err) {
           console.error(err.message);
+          if (err.kind === 'ObjectId') {
+               return res.status(404).json({ msg: 'Image not found' });
+          }
           res.status(500).send('Server error');
      }
 });
