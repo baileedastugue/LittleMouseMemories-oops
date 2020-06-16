@@ -146,27 +146,6 @@ router.delete('/', auth, async (req, res) => {
      }
 });
 
-// @route   GET api/albums/:id/pictures
-// @desc    Get all pictures
-// @access  Private
-// router.get('/:id/pictures', auth, async (req, res) => {
-//      try {
-//           console.log(req.user.id);
-//           const picture = await Picture.find({
-//                user: req.user.id,
-//           });
-
-//           if (!picture) {
-//                res.status(400).json({
-//                     msg: 'There are no pictures in this album',
-//                });
-//           }
-//      } catch (err) {
-//           console.error(err.message);
-//           res.status(500).send('Server error');
-//      }
-// });
-
 module.exports = router;
 
 // // router.get("/albums/:id/pictures", (req, res) => {

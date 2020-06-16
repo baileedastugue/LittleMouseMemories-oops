@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var PicturesSchema = new Schema({
+const PictureSchema = new Schema({
      image: {
           type: String,
           required: true,
@@ -29,4 +29,4 @@ var PicturesSchema = new Schema({
      },
 });
 
-module.exports = Picture = mongoose.model('picture', PicturesSchema);
+module.exports = Picture = mongoose.model('picture', PictureSchema);

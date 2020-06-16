@@ -42,6 +42,12 @@ const UserSchema = new Schema({
                ref: 'album',
           },
      ],
+     picture: [
+          {
+               type: Schema.Types.ObjectId,
+               ref: 'picture',
+          },
+     ],
      avatar: {
           type: String,
      },
