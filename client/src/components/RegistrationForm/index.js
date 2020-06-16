@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { setAlert } from '../../actions/alertActions';
 import axios from 'axios';
 import { Button, Form, FormGroup } from 'reactstrap';
+import PropTypes from 'prop-types';
 
-const RegistrationForm = () => {
+const RegistrationForm = (props) => {
      const [formData, setFormData] = useState({
           // these are the default values
           firstName: '',
@@ -21,28 +24,31 @@ const RegistrationForm = () => {
      const onSubmit = async (event) => {
           event.preventDefault();
           if (password !== password2) {
-               console.log('Passwords do not match');
+               // alert type is daaaanger
+               // have to export { setAlert } down below in order to use it here (available within props)
+               props.setAlert('Passwords do not match', 'danger');
           } else {
-               const newUser = {
-                    firstName,
-                    lastName,
-                    email,
-                    password,
-               };
+               // const newUser = {
+               //      firstName,
+               //      lastName,
+               //      email,
+               //      password,
+               // };
                try {
-                    const config = {
-                         headers: {
-                              'Content-Type': 'application/json',
-                         },
-                    };
-                    const body = JSON.stringify(newUser);
-                    console.log(body);
-                    const res = await axios.post(
-                         'http://localhost:5000/api/users/',
-                         body,
-                         config
-                    );
-                    console.log(res.data);
+                    console.log('success');
+                    //      const config = {
+                    //           headers: {
+                    //                'Content-Type': 'application/json',
+                    //           },
+                    //      };
+                    //      const body = JSON.stringify(newUser);
+                    //      console.log(body);
+                    //      const res = await axios.post(
+                    //           'http://localhost:5000/api/users/',
+                    //           body,
+                    //           config
+                    //      );
+                    //      console.log(res.data);
                } catch (err) {
                     console.error(err.response.data);
                }
@@ -109,11 +115,22 @@ const RegistrationForm = () => {
                          minLength='6'
                     />
                </FormGroup>
-               <Button type='submit' className='btn' id='register-btn'>
+               <Button
+                    type='submit'
+                    value='register'
+                    className='btn'
+                    id='register-btn'
+               >
                     Register
                </Button>
           </Form>
      );
 };
 
-export default RegistrationForm;
+RegistrationForm.propTypes = {
+     setAlert: PropTypes.func.isRequired,
+};
+
+// have to export connect and pass in any actions
+// this allows us to access props.setAlert
+export default connect(null, { setAlert })(RegistrationForm);

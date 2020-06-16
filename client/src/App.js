@@ -11,29 +11,41 @@ import AppNavbar from './components/AppNavbar/index';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
+// Redux things
+// Connects React to Redux
+import { Provider } from 'react-redux';
+// Bring in store
+import store from './store';
+
 const App = () => {
      return (
-          <Router>
-               <Fragment>
-                    <AppNavbar />
-                    <Route exact path='/' component={Welcome} />
-                    <section className='container'>
-                         <Switch>
-                              <Route
-                                   exact
-                                   path='/register'
-                                   component={Register}
-                              />
-                              <Route exact path='/login' component={Login} />
-                              <Route
-                                   exact
-                                   path='/dashboard'
-                                   component={Dashboard}
-                              />
-                         </Switch>
-                    </section>
-               </Fragment>
-          </Router>
+          <Provider store={store}>
+               <Router>
+                    <Fragment>
+                         <AppNavbar />
+                         <Route exact path='/' component={Welcome} />
+                         <section className='container'>
+                              <Switch>
+                                   <Route
+                                        exact
+                                        path='/register'
+                                        component={Register}
+                                   />
+                                   <Route
+                                        exact
+                                        path='/login'
+                                        component={Login}
+                                   />
+                                   <Route
+                                        exact
+                                        path='/dashboard'
+                                        component={Dashboard}
+                                   />
+                              </Switch>
+                         </section>
+                    </Fragment>
+               </Router>
+          </Provider>
      );
 };
 

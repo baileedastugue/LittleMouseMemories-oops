@@ -24,7 +24,6 @@ const LoginForm = () => {
                     },
                };
                const body = JSON.stringify(formData);
-               console.log(body);
                const res = await axios.post(
                     'http://localhost:5000/api/auth/',
                     body,
@@ -62,7 +61,7 @@ const LoginForm = () => {
                          required
                     />
                </FormGroup>
-               <Button type='submit' className='btn login-btn'>
+               <Button type='submit' value='login' className='btn login-btn'>
                     Login
                </Button>
           </Form>
