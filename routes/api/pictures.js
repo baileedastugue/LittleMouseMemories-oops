@@ -38,9 +38,15 @@ router.get('/picture/:picture_id', async (req, res) => {
      try {
           console.log(req.params.picture_id);
           const picture = await Picture.findById(req.params.picture_id);
+          if (!picture) {
+               return res.status(404).json({ msg: 'Image not found' });
+          }
           res.json(picture);
      } catch (err) {
           console.error(err.message);
+          if (err.kind === 'ObjectId') {
+               return res.status(404).json({ msg: 'Image not found' });
+          }
           res.status(500).send('Server error');
      }
 });
@@ -87,17 +93,19 @@ router.post(
      }
 );
 
-// @route   DELETE api/pictures/:picture_id
+// @route   DELETE api/pictures/picture/:picture_id
 // @desc    Delete a picture
 // @access  Public
-router.delete('/:picture_id', (req, res) => {
-     Picture.findById(req.params.id)
-          .then((picture) =>
-               picture.remove().then(() => res.json({ success: true }))
-          )
-          .catch((err) => res.status(404).json({ success: false }));
+router.delete('/picture/:picture_id', async (req, res) => {
+     try {
+          console.log(req.params.picture_id);
+          await Picture.findByIdAndDelete(req.params.picture_id);
+          res.json({ msg: 'Picture deleted' });
+     } catch (err) {
+          console.error(err.message);
+          res.status(500).send('Server error');
+     }
 });
-
 module.exports = router;
 
 // @route   GET api/pictures

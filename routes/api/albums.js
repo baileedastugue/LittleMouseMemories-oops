@@ -60,6 +60,11 @@ router.get('/:album_id', auth, async (req, res) => {
           res.json(album);
      } catch (err) {
           console.error(err.message);
+          if (err.kind === 'ObjectId') {
+               return res
+                    .status(404)
+                    .json({ msg: 'There are no albums for this user' });
+          }
           res.status(500).send('Server error');
      }
 });
@@ -110,7 +115,6 @@ router.post(
 // @desc    Delete an album
 // @access  Private
 router.delete('/:album_id', auth, async (req, res) => {
-     console.log(req.params.album_id);
      try {
           // Removes album
           await Album.findOneAndDelete({ _id: req.params.album_id });
