@@ -16,7 +16,7 @@ router.get('/user/:user_id', auth, async (req, res) => {
           const user_id = req.params.user_id;
           const album = await Album.find({
                user: user_id,
-          }).populate('album');
+          }).populate('user', ['firstName', 'lastName', '_id']);
 
           if (!album) {
                res.status(400).json({
@@ -87,7 +87,7 @@ router.post(
                User.findOneAndUpdate(
                     { _id: req.user.id },
                     { $push: { album: objAlbum } },
-                    function (error, success) {
+                    (error, success) => {
                          if (error) {
                               console.log(error);
                          } else {
