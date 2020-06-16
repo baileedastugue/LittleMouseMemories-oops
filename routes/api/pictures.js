@@ -96,9 +96,18 @@ router.post(
 // @route   DELETE api/pictures/picture/:picture_id
 // @desc    Delete a picture
 // @access  Public
-router.delete('/picture/:picture_id', async (req, res) => {
+router.delete('/picture/:picture_id', auth, async (req, res) => {
      try {
-          console.log(req.params.picture_id);
+          const picture = await Picture.findById(req.params.picture_id);
+          const album = picture.album;
+          const objAlbum = await Album.findById(album);
+          const user = objAlbum.user;
+          console.log(user, req.user.id);
+          if (user.toString() !== req.user.id) {
+               return res
+                    .status(401)
+                    .json({ msg: 'User not authorized to delete post' });
+          }
           await Picture.findByIdAndDelete(req.params.picture_id);
           res.json({ msg: 'Picture deleted' });
      } catch (err) {
