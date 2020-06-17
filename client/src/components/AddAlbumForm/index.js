@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { setAlert } from '../../actions/alertActions';
-// import { addAlbum } from '../../actions/albumActions';
+import { addNewAlbum } from '../../actions/albumActions';
 import { Button, Form, FormGroup } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
+import SubmitButton from '../SubmitBtn';
 
 const AddAlbumForm = (props) => {
      // using the UseState hook from react
@@ -19,9 +20,16 @@ const AddAlbumForm = (props) => {
           setFormData({ ...formData, [event.target.name]: event.target.value });
      };
 
-     const onSubmit = (event) => {
+     const onSubmit = async (event) => {
           event.preventDefault();
           console.log(event.target.value);
+          if (title == '') {
+               props.setAlert('All albums need a unique title', 'danger');
+          } else {
+               try {
+                    props.addNewAlbum({ title });
+               } catch (err) {}
+          }
      };
 
      if (!props.isAuth) {
@@ -40,6 +48,7 @@ const AddAlbumForm = (props) => {
                          value={title}
                     />
                </FormGroup>
+               <SubmitButton />
           </Form>
      );
 };
@@ -47,11 +56,13 @@ const AddAlbumForm = (props) => {
 AddAlbumForm.propTypes = {
      isAuth: PropTypes.bool,
      setAlert: PropTypes.func.isRequired,
-     // addAlbum: PropTypes.func.isRequired
+     addNewAlbum: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
      isAuth: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { setAlert })(AddAlbumForm);
+export default connect(mapStateToProps, { setAlert, addNewAlbum })(
+     AddAlbumForm
+);

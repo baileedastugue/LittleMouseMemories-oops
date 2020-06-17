@@ -41,6 +41,7 @@ export const addNewAlbum = ({ title }) => async (dispatch) => {
                type: ADD_ALBUM_SUCCESS,
                payload: res.data,
           });
+          dispatch(getAllAlbums());
      } catch (err) {
           const errors = err.response.data.errors;
           if (errors) {
