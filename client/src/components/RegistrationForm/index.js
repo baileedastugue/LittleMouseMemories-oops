@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { setAlert } from '../../actions/alertActions';
-import axios from 'axios';
+import { register } from '../../actions/authActions';
 import { Button, Form, FormGroup } from 'reactstrap';
 import PropTypes from 'prop-types';
 
@@ -28,32 +29,17 @@ const RegistrationForm = (props) => {
                // have to export { setAlert } down below in order to use it here (available within props)
                props.setAlert('Passwords do not match', 'danger');
           } else {
-               // const newUser = {
-               //      firstName,
-               //      lastName,
-               //      email,
-               //      password,
-               // };
                try {
-                    console.log('success');
-                    //      const config = {
-                    //           headers: {
-                    //                'Content-Type': 'application/json',
-                    //           },
-                    //      };
-                    //      const body = JSON.stringify(newUser);
-                    //      console.log(body);
-                    //      const res = await axios.post(
-                    //           'http://localhost:5000/api/users/',
-                    //           body,
-                    //           config
-                    //      );
-                    //      console.log(res.data);
+                    props.register({ firstName, lastName, email, password });
                } catch (err) {
                     console.error(err.response.data);
                }
           }
      };
+
+     if (props.isAuth) {
+          return <Redirect to='/dashboard' />;
+     }
 
      return (
           <Form className='form' onSubmit={(event) => onSubmit(event)}>
@@ -66,7 +52,7 @@ const RegistrationForm = (props) => {
                          id='firstNameInput'
                          onChange={(event) => onChange(event)}
                          value={firstName}
-                         required
+                         // required
                     />
                </FormGroup>
                <label htmlFor='lNameInput'>Last Name</label>
@@ -77,7 +63,7 @@ const RegistrationForm = (props) => {
                     id='lastNameInput'
                     onChange={(event) => onChange(event)}
                     value={lastName}
-                    required
+                    // required
                />
                <FormGroup>
                     <label htmlFor='emailInput'>Email</label>
@@ -88,7 +74,7 @@ const RegistrationForm = (props) => {
                          id='emailInput'
                          onChange={(event) => onChange(event)}
                          value={email}
-                         required
+                         // required
                     />
                </FormGroup>
                <label htmlFor='newPasswordInput'>Password</label>
@@ -99,8 +85,8 @@ const RegistrationForm = (props) => {
                     id='newPasswordInput'
                     onChange={(event) => onChange(event)}
                     value={password}
-                    minLength='6'
-                    required
+                    // minLength='6'
+                    // required
                />
                <FormGroup>
                     <label htmlFor='newPasswordInput'>Confirm Password</label>
@@ -111,8 +97,8 @@ const RegistrationForm = (props) => {
                          id='newPasswordInput2'
                          onChange={(event) => onChange(event)}
                          value={password2}
-                         required
-                         minLength='6'
+                         // minLength='6'
+                         // required
                     />
                </FormGroup>
                <Button
@@ -129,8 +115,16 @@ const RegistrationForm = (props) => {
 
 RegistrationForm.propTypes = {
      setAlert: PropTypes.func.isRequired,
+     register: PropTypes.func.isRequired,
+     isAuth: PropTypes.bool,
 };
+
+const mapStateToProps = (state) => ({
+     isAuth: state.auth.isAuthenticated,
+});
 
 // have to export connect and pass in any actions
 // this allows us to access props.setAlert
-export default connect(null, { setAlert })(RegistrationForm);
+export default connect(mapStateToProps, { setAlert, register })(
+     RegistrationForm
+);

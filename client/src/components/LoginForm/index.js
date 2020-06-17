@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Button, Form, FormGroup } from 'reactstrap';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { login } from '../../actions/authActions';
+import { Redirect } from 'react-router-dom';
 
-const LoginForm = () => {
+const LoginForm = (props) => {
      const [formData, setFormData] = useState({
           // these are the default values
           email: '',
@@ -18,22 +21,16 @@ const LoginForm = () => {
      const onSubmit = async (event) => {
           event.preventDefault();
           try {
-               const config = {
-                    headers: {
-                         'Content-Type': 'application/json',
-                    },
-               };
-               const body = JSON.stringify(formData);
-               const res = await axios.post(
-                    'http://localhost:5000/api/auth/',
-                    body,
-                    config
-               );
-               console.log(res.data);
+               props.login({ email, password });
           } catch (err) {
                console.error(err.response.data);
           }
      };
+
+     // Redirect if logged in
+     if (props.isAuth) {
+          return <Redirect to='/dashboard' />;
+     }
 
      return (
           <Form className='form' onSubmit={(event) => onSubmit(event)}>
@@ -68,4 +65,14 @@ const LoginForm = () => {
      );
 };
 
-export default LoginForm;
+// login is a prop
+LoginForm.propTypes = {
+     login: PropTypes.func.isRequired,
+     isAuth: PropTypes.bool,
+};
+
+const mapStateToProps = (state) => ({
+     isAuth: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { login })(LoginForm);
