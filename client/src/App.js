@@ -5,6 +5,7 @@ import Welcome from './pages/Welcome';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
+import Album from './pages/Album';
 import AppNavbar from './components/AppNavbar/index';
 import PrivateRoute from './components/PrivateRoute';
 
@@ -57,11 +58,11 @@ const App = () => {
                                         path='/dashboard'
                                         component={Dashboard}
                                    />
-                                   {/* <PrivateRoute
+                                   <PrivateRoute
                                         exact
                                         path='/album'
                                         component={Album}
-                                   /> */}
+                                   />
                               </Switch>
                          </section>
                     </Fragment>

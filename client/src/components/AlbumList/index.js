@@ -1,7 +1,4 @@
 import React, { useEffect } from 'react';
-import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
-// import { CSSTransition, TransitionGroup } from 'react-transition-group';
-// import { v1 as uuid } from 'uuid';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getAllAlbums } from '../../actions/albumActions';
@@ -19,7 +16,9 @@ const AlbumList = (props) => {
 
      return albumLength > 0 && !albumLoading ? (
           props.albums.albums.map((album) => (
-               <div key={album.key}>{album.title}</div>
+               <div key={album.key}>
+                    <a href='/album'>{album.title}</a>
+               </div>
           ))
      ) : (
           <h1>Loading</h1>
