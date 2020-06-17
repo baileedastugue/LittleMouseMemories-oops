@@ -8,5 +8,4 @@ export default combineReducers({
      alert: alertReducer,
      //  error: errorReducer,
      auth: authReducer,
-     //  root: rootReducer,
 });
