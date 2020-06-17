@@ -5,6 +5,8 @@ import {
      ADD_ALBUM_FAIL,
      GET_ALBUMS_SUCCESS,
      GET_ALBUMS_FAIL,
+     GET_ALBUM_SUCCESS,
+     GET_ALBUM_FAIL,
      //  DELETE_ALBUM_SUCCESS,
      //  DELETE_ALBUM_FAIL,
 } from './types';
@@ -55,28 +57,20 @@ export const addNewAlbum = ({ title }) => async (dispatch) => {
      }
 };
 
-// export const deleteAlbum = ({ id }) => async (dispatch) => {
-//   const config = {
-//        headers: {
-//             'Content-Type': 'application/json',
-//        },
-//   };
-//   const body = JSON.stringify({ id });
-//   try {
-//        const res = await axios.post('/api/albums/`, body, config);
-//        dispatch({
-//             type: ADD_ALBUM_SUCCESS,
-//             payload: res.data,
-//        });
-//   } catch (err) {
-//        const errors = err.response.data.errors;
-//        if (errors) {
-//             for (let i = 0; i < errors.length; i++) {
-//                  dispatch(setAlert(errors[i].msg, 'danger'));
-//             }
-//        }
-//        dispatch({
-//             type: ADD_ALBUM_FAIL,
-//        });
-//   }
-// };
+export const getAlbum = (id) => async (dispatch) => {
+     try {
+          const res = await axios.get(`/api/albums/${id}`);
+          dispatch({
+               type: GET_ALBUM_SUCCESS,
+               payload: res.data,
+          });
+     } catch (err) {
+          dispatch({
+               type: GET_ALBUM_FAIL,
+               payload: {
+                    msg: err.response.status.text,
+                    status: err.response.status,
+               },
+          });
+     }
+};

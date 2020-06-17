@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import Moment from 'react-moment';
 import { getAllAlbums } from '../../actions/albumActions';
 
 import './style.css';
@@ -12,12 +14,14 @@ const AlbumList = (props) => {
      }, []);
      let albumLength = props.albums.albums.length;
      let albumLoading = props.albums.isLoading;
-     console.log(albumLength);
+     console.log(props.auth);
 
      return albumLength > 0 && !albumLoading ? (
           props.albums.albums.map((album) => (
-               <div key={album.key}>
-                    <a href='/album'>{album.title}</a>
+               <div key={album._id}>
+                    <Link to={`/album/${album._id}`}>{album.title}</Link>
+                    <br />
+                    Posted on: <Moment format='MM/DD/YYYY'>{album.date}</Moment>
                </div>
           ))
      ) : (
@@ -27,12 +31,12 @@ const AlbumList = (props) => {
 
 AlbumList.propTypes = {
      getAllAlbums: PropTypes.func.isRequired,
-     isAuth: PropTypes.bool,
+     auth: PropTypes.object.isRequired,
      albums: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-     isAuth: state.auth.isAuthenticated,
+     auth: state.auth,
      albums: state.album,
 });
 

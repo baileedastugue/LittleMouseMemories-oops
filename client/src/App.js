@@ -58,9 +58,9 @@ const App = () => {
                                         path='/dashboard'
                                         component={Dashboard}
                                    />
-                                   <PrivateRoute
+                                   <Route
                                         exact
-                                        path='/album'
+                                        path='/album/:id'
                                         component={Album}
                                    />
                               </Switch>
