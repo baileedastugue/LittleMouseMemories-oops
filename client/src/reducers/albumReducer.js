@@ -1,6 +1,9 @@
 import {
      ADD_ALBUM_SUCCESS,
      ADD_ALBUM_FAIL,
+     GET_ALBUMS_SUCCESS,
+     GET_ALBUMS_FAIL,
+     GET_PICTURE_FAIL,
      //  DELETE_ALBUM_SUCCESS,
      //  DELETE_ALBUM_FAIL,
 } from '../actions/types';
@@ -23,6 +26,18 @@ export default function (state = initialState, action) {
           case ADD_ALBUM_FAIL:
                return {
                     ...state,
+               };
+          case GET_ALBUMS_SUCCESS:
+               return {
+                    ...state,
+                    albums: action.payload,
+                    isLoading: false,
+               };
+          case GET_ALBUMS_FAIL:
+               return {
+                    ...state,
+                    error: action.payload,
+                    loading: false,
                };
           default:
                return state;

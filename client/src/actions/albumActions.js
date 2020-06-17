@@ -3,10 +3,30 @@ import { setAlert } from './alertActions';
 import {
      ADD_ALBUM_SUCCESS,
      ADD_ALBUM_FAIL,
-     //  GET_ALBUMS,
+     GET_ALBUMS_SUCCESS,
+     GET_ALBUMS_FAIL,
      //  DELETE_ALBUM_SUCCESS,
      //  DELETE_ALBUM_FAIL,
 } from './types';
+
+export const getAllAlbums = () => async (dispatch) => {
+     try {
+          // knows which album to load from the token sent that contains the user id
+          const res = await axios.get('api/albums/');
+          dispatch({
+               type: GET_ALBUMS_SUCCESS,
+               payload: res.data,
+          });
+     } catch (err) {
+          dispatch({
+               type: GET_ALBUMS_FAIL,
+               payload: {
+                    msg: err.response.status.text,
+                    status: err.response.status,
+               },
+          });
+     }
+};
 
 export const addNewAlbum = ({ title }) => async (dispatch) => {
      const config = {

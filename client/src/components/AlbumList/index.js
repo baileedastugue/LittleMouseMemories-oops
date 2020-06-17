@@ -1,51 +1,40 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { v1 as uuid } from 'uuid';
+// import { CSSTransition, TransitionGroup } from 'react-transition-group';
+// import { v1 as uuid } from 'uuid';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { getAllAlbums } from '../../actions/albumActions';
 
 import './style.css';
 
-class AlbumList extends Component {
-     render() {
-          //   const { albums } = this.state;
-          return (
-               <Container>
-                    <ListGroup>
-                         <TransitionGroup className='album-list'>
-                              {/* {albums.map(({ id, name }) => (
-                                   <CSSTransition
-                                        key={id}
-                                        timeout={500}
-                                        classNames='fade'
-                                   >
-                                        <ListGroupItem>
-                                             <Button
-                                                  className='remove-btn'
-                                                  color='danger'
-                                                  size='sm'
-                                                  //   onClick={() => {
-                                                  //        this.setState(
-                                                  //             (state) => ({
-                                                  //                  albums: state.albums.filter(
-                                                  //                       (album) =>
-                                                  //                            album.id !==
-                                                  //                            id
-                                                  //                  ),
-                                                  //             })
-                                                  //        );
-                                                  //   }}
-                                             >
-                                                  &times;
-                                             </Button>
-                                             {/* {name} */}
-                              {/* </ListGroupItem> */}
-                              {/* </CSSTransition> */}
-                              {/* ))} */}
-                         </TransitionGroup>
-                    </ListGroup>
-               </Container>
-          );
-     }
-}
+const AlbumList = (props) => {
+     // this
+     useEffect(() => {
+          props.getAllAlbums();
+     }, []);
+     let albumLength = props.albums.albums.length;
+     let albumLoading = props.albums.isLoading;
+     console.log(albumLength);
 
-export default AlbumList;
+     return albumLength > 0 && !albumLoading ? (
+          props.albums.albums.map((album) => (
+               <div key={album.key}>{album.title}</div>
+          ))
+     ) : (
+          <h1>Loading</h1>
+     );
+};
+
+AlbumList.propTypes = {
+     getAllAlbums: PropTypes.func.isRequired,
+     isAuth: PropTypes.bool,
+     albums: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+     isAuth: state.auth.isAuthenticated,
+     albums: state.album,
+});
+
+export default connect(mapStateToProps, { getAllAlbums })(AlbumList);
