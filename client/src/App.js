@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import AppNavbar from './components/AppNavbar/index';
+import PrivateRoute from './components/PrivateRoute';
 
 // import { loadUser } from './actions/authActions';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -51,11 +52,16 @@ const App = () => {
                                         path='/login'
                                         component={Login}
                                    />
-                                   <Route
+                                   <PrivateRoute
                                         exact
                                         path='/dashboard'
                                         component={Dashboard}
                                    />
+                                   {/* <PrivateRoute
+                                        exact
+                                        path='/album'
+                                        component={Album}
+                                   /> */}
                               </Switch>
                          </section>
                     </Fragment>

@@ -1,11 +1,12 @@
 // this is the Root reducer
 import { combineReducers } from 'redux';
 import authReducer from './authReducer';
-// import errorReducer from './errorReducer';
 import alertReducer from './alertReducer';
+import albumReducer from './albumReducer';
+// import pictureReducer from './pictureReducer';
 
 export default combineReducers({
      alert: alertReducer,
-     //  error: errorReducer,
+     album: albumReducer,
      auth: authReducer,
 });
