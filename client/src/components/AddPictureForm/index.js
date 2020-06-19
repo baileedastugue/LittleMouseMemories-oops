@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { setAlert } from '../../actions/alertActions';
-import { addNewAlbum } from '../../actions/albumActions';
+import { addNewPicture } from '../../actions/pictureActions';
 import { Form, FormGroup } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import SubmitButton from '../SubmitBtn';
 
-const AddAlbumForm = (props) => {
+const AddPictureForm = (props) => {
      // using the UseState hook from react
      const [formData, setFormData] = useState({
-          title: '',
+          image: '',
      });
 
-     const { title } = formData;
+     const { image, caption } = formData;
 
      // handler to update the data
      const onChange = (event) => {
@@ -22,12 +22,16 @@ const AddAlbumForm = (props) => {
 
      const onSubmit = async (event) => {
           event.preventDefault();
-          console.log(event.target.value);
-          if (title === '') {
-               props.setAlert('All albums need a unique title', 'danger');
+          let pathArray = window.location.pathname.split('/');
+          let albumId = pathArray[pathArray.length - 1];
+          console.log(albumId);
+          console.log({ image });
+          if (image === '') {
+               console.log('line 30');
+               props.setAlert('Pictures must include an image URL', 'danger');
           } else {
                try {
-                    props.addNewAlbum({ title });
+                    props.addNewPicture(albumId, { image, caption });
                } catch (err) {}
           }
      };
@@ -39,13 +43,13 @@ const AddAlbumForm = (props) => {
      return (
           <Form className='form' onSubmit={(event) => onSubmit(event)}>
                <FormGroup>
-                    <label htmlFor='title'>Album title</label>
+                    <label htmlFor='image'>Image URL</label>
                     <input
                          type='text'
-                         name='title'
+                         name='image'
                          className='form-control'
                          onChange={(event) => onChange(event)}
-                         value={title}
+                         value={image}
                     />
                </FormGroup>
                <SubmitButton />
@@ -53,16 +57,16 @@ const AddAlbumForm = (props) => {
      );
 };
 
-AddAlbumForm.propTypes = {
+AddPictureForm.propTypes = {
      isAuth: PropTypes.bool,
      setAlert: PropTypes.func.isRequired,
-     addNewAlbum: PropTypes.func.isRequired,
+     addNewPicture: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
      isAuth: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { setAlert, addNewAlbum })(
-     AddAlbumForm
+export default connect(mapStateToProps, { setAlert, addNewPicture })(
+     AddPictureForm
 );

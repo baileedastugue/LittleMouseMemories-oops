@@ -1,7 +1,7 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import { getPictures } from '../../actions/pictureActions';
 
@@ -11,7 +11,7 @@ const PictureCard = (props) => {
 
      useEffect(() => {
           props.getPictures(albumId);
-     }, [props.getPictures]);
+     }, []);
 
      let picturesLength = props.picture.pictures.length;
      let picturesLoading = props.picture.isLoading;
@@ -19,9 +19,9 @@ const PictureCard = (props) => {
      return picturesLength > 0 && !picturesLoading ? (
           props.picture.pictures.map((picture) => (
                <div key={picture._id}>
-                    <Link>
-                         <img src={picture.image} />
-                    </Link>
+                    {/* <Link> */}
+                    <img src={picture.image} alt={picture.caption} />
+                    {/* </Link> */}
                     <p>{picture.caption}</p>
                     <br />
                     Posted on:{' '}

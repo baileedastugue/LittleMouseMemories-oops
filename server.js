@@ -8,13 +8,11 @@ const session = require('express-session');
 const passport = require('passport');
 const cors = require('cors');
 
-// passport config
-// require("./config/passport")(passport);
-
 // initializes Express
 let app = express();
 
 let PORT = process.env.PORT || 5000;
+console.log(process.env.PORT);
 
 app.use(cors());
 

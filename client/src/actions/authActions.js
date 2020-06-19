@@ -7,7 +7,7 @@ import {
      REGISTER_FAIL,
      AUTH_ERROR,
      USER_LOADED,
-     USER_LOADING,
+     // USER_LOADING,
      LOGIN_SUCCESS,
      LOGIN_FAIL,
 } from './types';

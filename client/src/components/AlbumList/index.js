@@ -1,8 +1,9 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
+import DeleteBtn from '../DeleteBtn';
 import { getAllAlbums } from '../../actions/albumActions';
 
 import './style.css';
@@ -20,6 +21,7 @@ const AlbumList = (props) => {
           props.albums.albums.map((album) => (
                <div key={album._id}>
                     <Link to={`/album/${album._id}`}>{album.title}</Link>
+                    <DeleteBtn />
                     <br />
                     Posted on: <Moment format='MM/DD/YYYY'>{album.date}</Moment>
                </div>
