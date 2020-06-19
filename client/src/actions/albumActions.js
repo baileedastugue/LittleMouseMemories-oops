@@ -7,8 +7,8 @@ import {
      GET_ALBUMS_FAIL,
      GET_ALBUM_SUCCESS,
      GET_ALBUM_FAIL,
-     //  DELETE_ALBUM_SUCCESS,
-     //  DELETE_ALBUM_FAIL,
+     DELETE_ALBUM_SUCCESS,
+     DELETE_ALBUM_FAIL,
 } from './types';
 
 export const getAllAlbums = () => async (dispatch) => {
@@ -61,7 +61,7 @@ export const getAlbum = (id) => async (dispatch) => {
      try {
           console.log('line 62');
           console.log(id);
-          const res = await axios.get(`/api/albums/${id}`);
+          const res = await axios.get(`/api/album/${id}`);
           console.log(res.data);
           dispatch({
                type: GET_ALBUM_SUCCESS,
@@ -74,6 +74,33 @@ export const getAlbum = (id) => async (dispatch) => {
                     msg: err.response.status.text,
                     status: err.response.status,
                },
+          });
+     }
+};
+
+export const deleteAlbum = (id) => async (dispatch) => {
+     const config = {
+          headers: {
+               'Content-Type': 'application/json',
+               'Access-Control-Allow-Origin': '*',
+          },
+     };
+     try {
+          const res = await axios.delete(`/api/albums/${id}`, config);
+          dispatch({
+               type: DELETE_ALBUM_SUCCESS,
+               payload: res.data,
+          });
+          dispatch(getAllAlbums());
+     } catch (err) {
+          const errors = err.response;
+          if (errors) {
+               for (let i = 0; i < errors.length; i++) {
+                    dispatch(setAlert(errors[i].msg, 'danger'));
+               }
+          }
+          dispatch({
+               type: DELETE_ALBUM_FAIL,
           });
      }
 };

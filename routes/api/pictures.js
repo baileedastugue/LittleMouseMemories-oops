@@ -7,7 +7,7 @@ const router = express.Router();
 const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator');
 
-// @route   GET api/pictures/:album_id
+// @route   GET api/pictures/album/:album_id
 // @desc    Get all pictures from a single album
 // @access  Public
 router.get('/album/:album_id', async (req, res) => {
@@ -34,7 +34,7 @@ router.get('/album/:album_id', async (req, res) => {
 // @route   GET api/pictures/:picture_id
 // @desc    Get a single picture
 // @access  Private
-router.get('/picture/:picture_id', async (req, res) => {
+router.get('/:picture_id', async (req, res) => {
      try {
           console.log(req.params.picture_id);
           const picture = await Picture.findById(req.params.picture_id);
@@ -51,7 +51,7 @@ router.get('/picture/:picture_id', async (req, res) => {
      }
 });
 
-// @route   POST api/pictures
+// @route   POST api/pictures/:album_id
 // @desc    Post a new picture
 // @access  Public
 router.post(
@@ -93,10 +93,10 @@ router.post(
      }
 );
 
-// @route   DELETE api/pictures/picture/:picture_id
+// @route   DELETE api/pictures/:picture_id
 // @desc    Delete a picture
 // @access  Public
-router.delete('/picture/:picture_id', auth, async (req, res) => {
+router.delete('/:picture_id', auth, async (req, res) => {
      try {
           const picture = await Picture.findById(req.params.picture_id);
           const album = picture.album;

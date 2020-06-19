@@ -12,7 +12,6 @@ const cors = require('cors');
 let app = express();
 
 let PORT = process.env.PORT || 5000;
-console.log(process.env.PORT);
 
 app.use(cors());
 

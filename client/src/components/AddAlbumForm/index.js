@@ -22,7 +22,6 @@ const AddAlbumForm = (props) => {
 
      const onSubmit = async (event) => {
           event.preventDefault();
-          console.log(event.target.value);
           if (title === '') {
                props.setAlert('All albums need a unique title', 'danger');
           } else {

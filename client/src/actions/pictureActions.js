@@ -3,8 +3,10 @@ import { setAlert } from './alertActions';
 import {
      GET_PICTURES_SUCCESS,
      GET_PICTURES_FAIL,
-     // ADD_PICTURE_SUCCESS,
+     ADD_PICTURE_SUCCESS,
      ADD_PICTURE_FAIL,
+     DELETE_PICTURE_SUCCESS,
+     DELETE_PICTURE_FAIL,
 } from './types';
 
 export const getPictures = (id) => async (dispatch) => {
@@ -29,22 +31,17 @@ export const addNewPicture = (id, { image }) => async (dispatch) => {
      const config = {
           headers: {
                'Content-Type': 'application/json',
+               'Access-Control-Allow-Origin': '*',
           },
      };
      const body = JSON.stringify({ image });
      try {
-          const res = await axios.post(
-               `/api/pictures/album/${id}`,
-               body,
-               config
-          );
-          console.log('line 41');
-          console.log(res);
-          // dispatch({
-          //      type: ADD_PICTURE_SUCCESS,
-          //      payload: res.data,
-          // });
-          // dispatch(getPictures());
+          const res = await axios.post(`/api/pictures/${id}`, body, config);
+          dispatch({
+               type: ADD_PICTURE_SUCCESS,
+               payload: res.data,
+          });
+          dispatch(getPictures(id));
      } catch (err) {
           const errors = err.response;
           if (errors) {
@@ -54,6 +51,35 @@ export const addNewPicture = (id, { image }) => async (dispatch) => {
           }
           dispatch({
                type: ADD_PICTURE_FAIL,
+          });
+     }
+};
+
+export const deletePicture = (id) => async (dispatch) => {
+     const config = {
+          headers: {
+               'Content-Type': 'application/json',
+               'Access-Control-Allow-Origin': '*',
+          },
+     };
+     try {
+          const res = await axios.delete(`/api/pictures/${id}`, config);
+          console.log('line 41');
+          console.log(res);
+          dispatch({
+               type: DELETE_PICTURE_SUCCESS,
+               payload: res.data,
+          });
+          dispatch(getPictures(id));
+     } catch (err) {
+          const errors = err.response;
+          if (errors) {
+               for (let i = 0; i < errors.length; i++) {
+                    dispatch(setAlert(errors[i].msg, 'danger'));
+               }
+          }
+          dispatch({
+               type: DELETE_PICTURE_FAIL,
           });
      }
 };
