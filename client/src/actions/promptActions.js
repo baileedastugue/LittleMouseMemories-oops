@@ -3,8 +3,8 @@ import { setAlert } from './alertActions';
 import {
      GET_PROMPTS_SUCCESS,
      GET_PROMPTS_FAIL,
-     //  ADD_PICTURE_SUCCESS,
-     //  ADD_PICTURE_FAIL,
+     ADD_PROMPT_SUCCESS,
+     ADD_PROMPT_FAIL,
      DELETE_PROMPT_SUCCESS,
      DELETE_PROMPT_FAIL,
 } from './types';
@@ -27,33 +27,39 @@ export const getPrompts = (album_id) => async (dispatch) => {
      }
 };
 
-// export const addNewPicture = (id, { image, caption }) => async (dispatch) => {
-//      const config = {
-//           headers: {
-//                'Content-Type': 'application/json',
-//                'Access-Control-Allow-Origin': '*',
-//           },
-//      };
-//      const body = JSON.stringify({ image, caption });
-//      try {
-//           const res = await axios.post(`/api/pictures/${id}`, body, config);
-//           dispatch({
-//                type: ADD_PICTURE_SUCCESS,
-//                payload: res.data,
-//           });
-//           dispatch(getPictures(id));
-//      } catch (err) {
-//           const errors = err.response;
-//           if (errors) {
-//                for (let i = 0; i < errors.length; i++) {
-//                     dispatch(setAlert(errors[i].msg, 'danger'));
-//                }
-//           }
-//           dispatch({
-//                type: ADD_PICTURE_FAIL,
-//           });
-//      }
-// };
+export const addNewPrompt = (album_id, { prompt, response }) => async (
+     dispatch
+) => {
+     const config = {
+          headers: {
+               'Content-Type': 'application/json',
+               'Access-Control-Allow-Origin': '*',
+          },
+     };
+     const body = JSON.stringify({ prompt, response });
+     try {
+          const res = await axios.post(
+               `/api/prompts/${album_id}`,
+               body,
+               config
+          );
+          dispatch({
+               type: ADD_PROMPT_SUCCESS,
+               payload: res.data,
+          });
+          dispatch(getPrompts(album_id));
+     } catch (err) {
+          const errors = err.response;
+          if (errors) {
+               for (let i = 0; i < errors.length; i++) {
+                    dispatch(setAlert(errors[i].msg, 'danger'));
+               }
+          }
+          dispatch({
+               type: ADD_PROMPT_FAIL,
+          });
+     }
+};
 
 export const deletePrompt = (prompt_id, album_id) => async (dispatch) => {
      const config = {

@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { setAlert } from '../../actions/alertActions';
-import { addNewPicture } from '../../actions/pictureActions';
+import { addNewPrompt } from '../../actions/promptActions';
 import { Form, FormGroup } from 'reactstrap';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 import SubmitButton from '../SubmitBtn';
 
-const AddPictureForm = (props) => {
+const AddPromptForm = (props) => {
      // using the UseState hook from react
      const [formData, setFormData] = useState({
-          image: '',
-          caption: '',
+          prompt: '',
+          response: '',
      });
 
-     const { image, caption } = formData;
+     const { prompt, response } = formData;
 
      // handler to update the data
      const onChange = (event) => {
@@ -25,12 +25,15 @@ const AddPictureForm = (props) => {
           event.preventDefault();
           let pathArray = window.location.pathname.split('/');
           let albumId = pathArray[pathArray.length - 1];
-          if (image === '') {
-               props.setAlert('Pictures must include an image URL', 'danger');
+          if (prompt === '' || response === '') {
+               props.setAlert(
+                    'Please include a prompt and a response in your memory submission',
+                    'danger'
+               );
           } else {
                try {
-                    props.addNewPicture(albumId, { image, caption });
-                    setFormData({ ...formData, image: '', caption: '' });
+                    props.addNewPrompt(albumId, { prompt, response });
+                    setFormData({ ...formData, prompt: '', response: '' });
                } catch (err) {}
           }
      };
@@ -42,23 +45,23 @@ const AddPictureForm = (props) => {
      return (
           <Form className='form' onSubmit={(event) => onSubmit(event)}>
                <FormGroup>
-                    <label htmlFor='image'>Image URL</label>
+                    <label htmlFor='prompt'>Prompt</label>
                     <input
                          type='text'
-                         name='image'
+                         name='prompt'
                          className='form-control'
                          onChange={(event) => onChange(event)}
-                         value={image}
+                         value={prompt}
                     />
                </FormGroup>
                <FormGroup>
-                    <label htmlFor='caption'>Caption</label>
+                    <label htmlFor='response'>Response</label>
                     <input
                          type='text'
-                         name='caption'
+                         name='response'
                          className='form-control'
                          onChange={(event) => onChange(event)}
-                         value={caption}
+                         value={response}
                     />
                </FormGroup>
                <SubmitButton />
@@ -66,16 +69,16 @@ const AddPictureForm = (props) => {
      );
 };
 
-AddPictureForm.propTypes = {
+AddPromptForm.propTypes = {
      isAuth: PropTypes.bool,
      setAlert: PropTypes.func.isRequired,
-     addNewPicture: PropTypes.func.isRequired,
+     addNewPrompt: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
      isAuth: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { setAlert, addNewPicture })(
-     AddPictureForm
+export default connect(mapStateToProps, { setAlert, addNewPrompt })(
+     AddPromptForm
 );
