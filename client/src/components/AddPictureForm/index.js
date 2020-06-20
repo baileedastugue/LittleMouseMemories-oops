@@ -11,6 +11,7 @@ const AddPictureForm = (props) => {
      // using the UseState hook from react
      const [formData, setFormData] = useState({
           image: '',
+          caption: '',
      });
 
      const { image, caption } = formData;
@@ -24,14 +25,12 @@ const AddPictureForm = (props) => {
           event.preventDefault();
           let pathArray = window.location.pathname.split('/');
           let albumId = pathArray[pathArray.length - 1];
-          console.log(albumId);
-          console.log({ image });
           if (image === '') {
-               console.log('line 30');
                props.setAlert('Pictures must include an image URL', 'danger');
           } else {
                try {
                     props.addNewPicture(albumId, { image, caption });
+                    setFormData({ ...formData, image: '', caption: '' });
                } catch (err) {}
           }
      };
@@ -50,6 +49,16 @@ const AddPictureForm = (props) => {
                          className='form-control'
                          onChange={(event) => onChange(event)}
                          value={image}
+                    />
+               </FormGroup>
+               <FormGroup>
+                    <label htmlFor='caption'>Caption</label>
+                    <input
+                         type='text'
+                         name='caption'
+                         className='form-control'
+                         onChange={(event) => onChange(event)}
+                         value={caption}
                     />
                </FormGroup>
                <SubmitButton />

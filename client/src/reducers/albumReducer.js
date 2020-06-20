@@ -7,6 +7,8 @@ import {
      GET_ALBUM_FAIL,
      DELETE_ALBUM_SUCCESS,
      DELETE_ALBUM_FAIL,
+     DELETE_PICTURE_SUCCESS,
+     DELETE_PICTURE_FAIL,
 } from '../actions/types';
 
 const initialState = {
@@ -36,11 +38,13 @@ export default function (state = initialState, action) {
                     album: action.payload,
                     isLoading: false,
                };
+          case DELETE_PICTURE_SUCCESS:
           case DELETE_ALBUM_SUCCESS:
                return {
                     ...state,
                     isLoading: false,
                };
+          case DELETE_PICTURE_FAIL:
           case DELETE_ALBUM_FAIL:
           case ADD_ALBUM_FAIL:
           case GET_ALBUM_FAIL:

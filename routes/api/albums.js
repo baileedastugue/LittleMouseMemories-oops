@@ -36,20 +36,18 @@ router.get('/', auth, async (req, res) => {
 });
 
 // @route   GET api/albums/:album_id
-// @desc    Get pictures from one album
-// @access  Private
-router.get('/:album_id', auth, async (req, res) => {
+// @desc    Get pictures and prompts from one album
+// @access  Public
+router.get('/:album_id', async (req, res) => {
      try {
-          const user_id = req.user.id;
+          // const user_id = req.user.id;
           const album_id = req.params.album_id;
-          console.log(user_id);
           const album = await Album.find({
-               user: user_id,
                _id: album_id,
           })
                .populate('user', ['firstName', 'lastName', '_id'])
-               .populate('picture');
-          // need to populate with pictures later
+               .populate('picture')
+               .populate('prompt');
 
           if (!album) {
                res.status(400).json({

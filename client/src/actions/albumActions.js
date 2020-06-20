@@ -59,8 +59,6 @@ export const addNewAlbum = ({ title }) => async (dispatch) => {
 
 export const getAlbum = (id) => async (dispatch) => {
      try {
-          console.log('line 62');
-          console.log(id);
           const res = await axios.get(`/api/album/${id}`);
           console.log(res.data);
           dispatch({

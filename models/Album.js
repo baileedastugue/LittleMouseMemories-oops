@@ -23,10 +23,10 @@ var AlbumsSchema = new Schema({
                ref: 'picture',
           },
      ],
-     prompt: [
+     prompts: [
           {
                type: Schema.Types.ObjectId,
-               ref: 'Prompt',
+               ref: 'prompt',
           },
      ],
 });

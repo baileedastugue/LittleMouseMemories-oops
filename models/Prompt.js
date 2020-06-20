@@ -1,26 +1,34 @@
-// var mongoose = require("mongoose");
-// var Schema = mongoose.Schema;
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-// var PicturesSchema = new Schema({
-//     image: {
-//         type: String,
-//         required: true
-//     },
-//     dateUploaded: {
-//         type: Date,
-//         required: true
-//     },
-//     dateRecorded: {
-//         type: Date,
-//     },
-//     caption: {
-//         type: String
-//     },
-//     uploadedBy: {
-//         type: String
-//     }
-// });
+var PromptSchema = new Schema({
+     prompt: {
+          type: String,
+          required: true,
+     },
+     response: {
+          type: String,
+          required: true,
+     },
+     user: {
+          type: Schema.Types.ObjectId,
+          ref: 'user',
+     },
+     album: {
+          type: Schema.Types.ObjectId,
+          ref: 'album',
+     },
+     dateUploaded: {
+          type: Date,
+          required: true,
+          default: Date.now,
+     },
+     dateRecorded: {
+          type: Date,
+     },
+     uploadedBy: {
+          type: String,
+     },
+});
 
-// var Pictures = mongoose.model("Pictures", PicturesSchema);
-
-// module.exports = Pictures;
+module.exports = Prompt = mongoose.model('prompt', PromptSchema);

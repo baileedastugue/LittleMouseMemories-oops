@@ -66,6 +66,7 @@ app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/albums', require('./routes/api/albums'));
 app.use('/api/pictures', require('./routes/api/pictures'));
+app.use('/api/prompts', require('./routes/api/prompts'));
 
 app.listen(PORT, () => {
      console.log('App running on localhost:' + PORT);

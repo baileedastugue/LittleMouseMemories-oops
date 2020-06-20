@@ -1,15 +1,15 @@
 import {
-     GET_PICTURES_SUCCESS,
-     GET_PICTURES_FAIL,
-     ADD_PICTURE_SUCCESS,
-     ADD_PICTURE_FAIL,
-     DELETE_PICTURE_SUCCESS,
-     DELETE_PICTURE_FAIL,
+     GET_PROMPTS_SUCCESS,
+     GET_PROMPTS_FAIL,
+     // ADD_PICTURE_SUCCESS,
+     // ADD_PICTURE_FAIL,
+     DELETE_PROMPT_SUCCESS,
+     DELETE_PROMPT_FAIL,
 } from '../actions/types';
 
 const initialState = {
-     pictures: [],
-     picture: {},
+     prompts: [],
+     prompt: {},
      album: null,
      isLoading: true,
      error: {},
@@ -17,18 +17,18 @@ const initialState = {
 
 export default function (state = initialState, action) {
      switch (action.type) {
-          case DELETE_PICTURE_SUCCESS:
-          case ADD_PICTURE_SUCCESS:
-          case GET_PICTURES_SUCCESS:
+          case DELETE_PROMPT_SUCCESS:
+          //  case ADD_PICTURE_SUCCESS:
+          case GET_PROMPTS_SUCCESS:
                return {
                     ...state,
-                    pictures: action.payload,
+                    prompts: action.payload,
                     album: action.payload.album,
                     isLoading: false,
                };
-          case DELETE_PICTURE_FAIL:
-          case ADD_PICTURE_FAIL:
-          case GET_PICTURES_FAIL:
+          case DELETE_PROMPT_FAIL:
+          //  case ADD_PICTURE_FAIL:
+          case GET_PROMPTS_FAIL:
                return {
                     ...state,
                     error: action.payload,

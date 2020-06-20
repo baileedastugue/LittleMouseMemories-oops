@@ -27,14 +27,14 @@ export const getPictures = (id) => async (dispatch) => {
      }
 };
 
-export const addNewPicture = (id, { image }) => async (dispatch) => {
+export const addNewPicture = (id, { image, caption }) => async (dispatch) => {
      const config = {
           headers: {
                'Content-Type': 'application/json',
                'Access-Control-Allow-Origin': '*',
           },
      };
-     const body = JSON.stringify({ image });
+     const body = JSON.stringify({ image, caption });
      try {
           const res = await axios.post(`/api/pictures/${id}`, body, config);
           dispatch({
@@ -55,7 +55,7 @@ export const addNewPicture = (id, { image }) => async (dispatch) => {
      }
 };
 
-export const deletePicture = (id) => async (dispatch) => {
+export const deletePicture = (picture_id, album_id) => async (dispatch) => {
      const config = {
           headers: {
                'Content-Type': 'application/json',
@@ -63,14 +63,12 @@ export const deletePicture = (id) => async (dispatch) => {
           },
      };
      try {
-          const res = await axios.delete(`/api/pictures/${id}`, config);
-          console.log('line 41');
-          console.log(res);
+          const res = await axios.delete(`/api/pictures/${picture_id}`, config);
           dispatch({
                type: DELETE_PICTURE_SUCCESS,
                payload: res.data,
           });
-          dispatch(getPictures(id));
+          dispatch(getPictures(album_id));
      } catch (err) {
           const errors = err.response;
           if (errors) {

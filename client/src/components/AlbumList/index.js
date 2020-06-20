@@ -6,7 +6,6 @@ import Moment from 'react-moment';
 import DeleteBtn from '../DeleteBtn';
 import { getAllAlbums, deleteAlbum } from '../../actions/albumActions';
 
-import axios from 'axios';
 import './style.css';
 
 const AlbumList = (props) => {
@@ -30,7 +29,8 @@ const AlbumList = (props) => {
                     <Link to={`/album/${album._id}`}>{album.title}</Link>
                     <DeleteBtn id={album._id} deleteClick={deleteClick} />
                     <br />
-                    Posted on: <Moment format='MM/DD/YYYY'>{album.date}</Moment>
+                    Posted on:{' '}
+                    <Moment format='MM/DD/YYYY' date={album.date}></Moment>
                </div>
           ))
      ) : (
