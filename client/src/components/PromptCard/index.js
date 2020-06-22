@@ -45,7 +45,7 @@ const PromptCard = (props) => {
 
 PromptCard.propTypes = {
      getPrompts: PropTypes.func.isRequired,
-     deletePrompts: PropTypes.func.isRequired,
+     deletePrompt: PropTypes.func.isRequired,
      prompt: PropTypes.object.isRequired,
      auth: PropTypes.object.isRequired,
 };

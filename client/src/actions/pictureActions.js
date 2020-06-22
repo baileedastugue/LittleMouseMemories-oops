@@ -27,21 +27,32 @@ export const getPictures = (id) => async (dispatch) => {
      }
 };
 
-export const addNewPicture = (id, { image, caption }) => async (dispatch) => {
+export const addNewPicture = (album_id, formData) => async (dispatch) => {
      const config = {
           headers: {
-               'Content-Type': 'application/json',
+               // 'Content-Type': 'application/json',
+               'Content-Type': 'multipart/form-data',
                'Access-Control-Allow-Origin': '*',
           },
      };
-     const body = JSON.stringify({ image, caption });
+     // const body = JSON.stringify({
+     //      caption,
+     //      dateRecorded,
+     //      uploadedBy,
+     // });
+     // console.log(body);
+     console.log(formData);
      try {
-          const res = await axios.post(`/api/pictures/${id}`, body, config);
+          const res = await axios.post(
+               `/api/pictures/${album_id}`,
+               formData,
+               config
+          );
           dispatch({
                type: ADD_PICTURE_SUCCESS,
                payload: res.data,
           });
-          dispatch(getPictures(id));
+          dispatch(getPictures(album_id));
      } catch (err) {
           const errors = err.response;
           if (errors) {

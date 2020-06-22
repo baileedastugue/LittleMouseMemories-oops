@@ -19,4 +19,8 @@ const store = createStore(
      )
 );
 
+// store.dispatch
+
+// connectRouter(history)
+// manipulate router history in
 export default store;

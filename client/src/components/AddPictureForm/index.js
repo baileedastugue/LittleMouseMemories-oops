@@ -4,34 +4,64 @@ import { setAlert } from '../../actions/alertActions';
 import { addNewPicture } from '../../actions/pictureActions';
 import { Form, FormGroup } from 'reactstrap';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
+
 import SubmitButton from '../SubmitBtn';
 
 const AddPictureForm = (props) => {
      // using the UseState hook from react
-     const [formData, setFormData] = useState({
-          image: '',
+     const [imageData, setImageData] = useState({
           caption: '',
+          dateRecorded: '',
+          uploadedBy: '',
      });
 
-     const { image, caption } = formData;
+     const [file, setFile] = useState({});
+     const [fileName, setFileName] = useState('Upload image');
+
+     const { caption, uploadedBy } = imageData;
+     const { image } = file;
 
      // handler to update the data
      const onChange = (event) => {
-          setFormData({ ...formData, [event.target.name]: event.target.value });
+          setImageData({
+               ...ImageData,
+               [event.target.name]: event.target.value,
+          });
+     };
+
+     const onDrop = (event) => {
+          console.log(event.target.files[0]);
+          setFile(event.target.files[0]);
+          setFileName(event.target.files[0].name);
      };
 
      const onSubmit = async (event) => {
           event.preventDefault();
           let pathArray = window.location.pathname.split('/');
           let albumId = pathArray[pathArray.length - 1];
+          const formData = new FormData();
+
+          await formData.append('file', file);
+          await formData.append('uploadedBy', uploadedBy);
+          await formData.append('caption', caption);
+
           if (image === '') {
                props.setAlert('Pictures must include an image URL', 'danger');
           } else {
                try {
-                    props.addNewPicture(albumId, { image, caption });
-                    setFormData({ ...formData, image: '', caption: '' });
-               } catch (err) {}
+                    await props.addNewPicture(albumId, formData);
+                    setImageData({
+                         ...imageData,
+                         caption: '',
+                         uploadedBy: '',
+                    });
+               } catch (err) {
+                    if (err.response.status === 500) {
+                         console.log('Server problem');
+                    } else {
+                         console.log(err.response.data.msg);
+                    }
+               }
           }
      };
 
@@ -40,16 +70,13 @@ const AddPictureForm = (props) => {
      // }
 
      return (
-          <Form className='form' onSubmit={(event) => onSubmit(event)}>
+          <Form
+               className='form'
+               encType='multipart/form-data'
+               onSubmit={onSubmit}
+          >
                <FormGroup>
-                    <label htmlFor='image'>Image URL</label>
-                    <input
-                         type='text'
-                         name='image'
-                         className='form-control'
-                         onChange={(event) => onChange(event)}
-                         value={image}
-                    />
+                    <input type='file' name='image' onChange={onDrop} />
                </FormGroup>
                <FormGroup>
                     <label htmlFor='caption'>Caption</label>
@@ -61,6 +88,16 @@ const AddPictureForm = (props) => {
                          value={caption}
                     />
                </FormGroup>
+               <FormGroup>
+                    <label htmlFor='uploadedBy'>Memory uploaded by:</label>
+                    <input
+                         type='text'
+                         name='uploadedBy'
+                         className='form-control'
+                         onChange={(event) => onChange(event)}
+                         value={uploadedBy}
+                    />
+               </FormGroup>
                <SubmitButton />
           </Form>
      );
@@ -70,12 +107,14 @@ AddPictureForm.propTypes = {
      isAuth: PropTypes.bool,
      setAlert: PropTypes.func.isRequired,
      addNewPicture: PropTypes.func.isRequired,
+     // uploadPicture: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
      isAuth: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { setAlert, addNewPicture })(
-     AddPictureForm
-);
+export default connect(mapStateToProps, {
+     setAlert,
+     addNewPicture,
+})(AddPictureForm);

@@ -6,6 +6,13 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator');
+const cloudinary = require('cloudinary').v2;
+
+cloudinary.config({
+     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+     api_key: process.env.CLOUDINARY_API_KEY,
+     api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 // @route   GET api/pictures/album/:album_id
 // @desc    Get all pictures from a single album
@@ -51,41 +58,67 @@ router.get('/:picture_id', async (req, res) => {
      }
 });
 
+router.post('/upload', function (req, res, next) {
+     const file = req.files.image;
+     // console.log('line 63');
+     // console.log(file);
+     cloudinary.uploader.upload(file.tempFilePath, function (err, result) {
+          res.send({
+               success: true,
+               result,
+          });
+     });
+});
+
 // @route   POST api/pictures/:album_id
 // @desc    Post a new picture
 // @access  Public
 router.post(
      '/:album_id',
-     [check('image', 'Please inclde a picture').not().isEmpty()],
+     // [check('image', 'Please include a picture').not().isEmpty()],
      async (req, res) => {
           const errors = validationResult(req);
           if (!errors.isEmpty()) {
                return res.status(400).json({ errors: errors.array() });
           }
+          if (req.files === null) {
+               return res.status(400).json({ msg: 'No file uploaded' });
+          }
+          const file = req.files.file;
+          // console.log('line 63');
+          // console.log(file);
 
           try {
-               const newPicture = new Picture({
-                    image: req.body.image,
-                    caption: req.body.caption,
-                    album: req.params.album_id,
-                    dateRecorded: req.body.dateRecorded,
-                    uploadedBy: req.body.uploadedBy,
-               });
-               const picture = await newPicture.save();
+               cloudinary.uploader.upload(
+                    file.tempFilePath,
+                    async (err, result) => {
+                         const uploadedPicture = result.url;
+                         // console.log(uploadedPicture);
+                         const newPicture = await new Picture({
+                              image: uploadedPicture,
+                              caption: req.body.caption,
+                              album: req.params.album_id,
+                              dateRecorded: req.body.dateRecorded,
+                              uploadedBy: req.body.uploadedBy,
+                         });
+                         const picture = await newPicture.save();
+                         console.log(picture);
 
-               Album.findOneAndUpdate(
-                    { _id: req.params.album_id },
-                    { $push: { pictures: picture } },
-                    (error, success) => {
-                         if (error) {
-                              console.log(error);
-                         } else {
-                              console.log(success);
-                              console.log(61);
-                         }
+                         Album.findOneAndUpdate(
+                              { _id: req.params.album_id },
+                              { $push: { pictures: picture } },
+                              (error, success) => {
+                                   if (error) {
+                                        console.log(error);
+                                   } else {
+                                        console.log(success);
+                                        console.log(61);
+                                   }
+                              }
+                         );
+                         res.json(picture);
                     }
                );
-               res.json(picture);
           } catch (err) {
                console.error(err.message);
                res.status(500).send('Server Error');

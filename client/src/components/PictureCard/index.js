@@ -28,6 +28,7 @@ const PictureCard = (props) => {
                <div key={picture._id}>
                     <img src={picture.image} alt={picture.caption} />
                     <p>{picture.caption}</p>
+                    {picture.uploadedBy}
                     <br />
                     Posted on:{' '}
                     <Moment
