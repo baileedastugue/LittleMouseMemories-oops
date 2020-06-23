@@ -1,13 +1,15 @@
 /* global style */
-div.buttonContainer {
+.buttonContainer {
   position: sticky;
   bottom: 10vw;
-  Button.albumButton, Button.photoButton, Button.promptButton {
-    right: -5vw;
+  Button.albumButton, Button.photoButton {
     bottom: 1vw;
   }
-  
   Button.promptButton {
     bottom: 10vw;
+  }
+  Button.albumButton {
+    padding-top: 15px;
+    padding-left: 0px;
   }
 }

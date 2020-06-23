@@ -20,7 +20,6 @@ const AddPictureForm = (props) => {
      // const [fileName, setFileName] = useState('Upload image');
 
      const { caption, uploadedBy, dateRecorded } = imageData;
-     const { image } = file;
 
      // handler to update the data
      const onChange = (event) => {

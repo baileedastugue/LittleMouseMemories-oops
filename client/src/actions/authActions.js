@@ -10,6 +10,7 @@ import {
      // USER_LOADING,
      LOGIN_SUCCESS,
      LOGIN_FAIL,
+     LOGOUT_SUCCESS,
 } from './types';
 
 // Load User
@@ -79,14 +80,21 @@ export const login = ({ email, password }) => async (dispatch) => {
 
           dispatch(loadUser());
      } catch (err) {
-          const errors = err.response.data.errors;
-          if (errors) {
-               for (let i = 0; i < errors.length; i++) {
-                    dispatch(setAlert(errors[i].msg, 'danger'));
-               }
-          }
+          // const errors = err.response.data.errors;
+          // if (errors) {
+          //      for (let i = 0; i < errors.length; i++) {
+          //           dispatch(setAlert(errors[i].msg, 'danger'));
+          //      }
+          // }
+          console.log(err);
           dispatch({
                type: LOGIN_FAIL,
           });
      }
+};
+
+export const logout = () => (dispatch) => {
+     dispatch({
+          type: LOGOUT_SUCCESS,
+     });
 };

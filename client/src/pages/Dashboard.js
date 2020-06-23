@@ -1,14 +1,15 @@
 import React, { useState, Fragment } from 'react';
+import MaterialIcon from 'material-icons-react';
+import PropTypes from 'prop-types';
 import { Container } from 'reactstrap';
 import { connect } from 'react-redux';
-import AddAlbumForm from '../components/Album/AddAlbumForm';
-import AlbumList from '../components/Album/AlbumList';
-import PageTitle from '../components/Layout/PageTitle';
-import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
+
+import PageTitle from '../components/Layout/PageTitle';
+import AlbumList from '../components/Album/AlbumList';
+import AddAlbumForm from '../components/Album/AddAlbumForm';
 import AddAlbumModal from '../components/Album/AddAlbumModal';
 import ModalButton from '../components/Buttons/ModalButton';
-import MaterialIcon, { colorPalette } from 'material-icons-react';
 import '../App.css';
 
 const Dashboard = (props) => {
@@ -21,23 +22,27 @@ const Dashboard = (props) => {
      }
 
      const toggle = () => {
-          console.log(modal);
           setModal(!modal);
      };
 
+     console.log(props.auth.isLoading);
      return (
           <Fragment>
                <Container>
-                    <PageTitle />
+                    {/* <PageTitle>
+                         Welcome to your memories, {props.auth.user.firstName}{' '}
+                         {props.auth.user.lastName}
+                    </PageTitle> */}
                     <h5 className='lead'>Your Memory Albums</h5>
                     <AlbumList />
                </Container>
-
-               <ModalButton
-                    className='albumButton modalButton'
-                    action={addIcon}
-                    onClick={toggle}
-               />
+               <Container className='buttonContainer'>
+                    <ModalButton
+                         className='albumButton modalButton'
+                         action={addIcon}
+                         onClick={toggle}
+                    />
+               </Container>
                <AddAlbumModal toggle={toggle} isOpen={modal}>
                     <AddAlbumForm toggle={toggle} />
                </AddAlbumModal>
@@ -47,10 +52,12 @@ const Dashboard = (props) => {
 
 AddAlbumForm.propTypes = {
      isAuth: PropTypes.bool,
+     auth: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
      isAuth: state.auth.isAuthenticated,
+     auth: state.auth,
 });
 
 export default connect(mapStateToProps)(Dashboard);

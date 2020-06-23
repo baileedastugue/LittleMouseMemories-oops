@@ -1,14 +1,17 @@
 import React, { Fragment, useState } from 'react';
+import { connect } from 'react-redux';
+import { Container } from 'reactstrap';
+import MaterialIcon from 'material-icons-react';
+import PropTypes from 'prop-types';
+
 import PictureCard from '../components/Posts/PictureCard';
 import AddPictureForm from '../components/Posts/AddPictureForm';
+import AddPictureModal from '../components/Posts/AddPictureModal';
 import PromptCard from '../components/Posts/PromptCard';
 import AddPromptForm from '../components/Posts/AddPromptForm';
-import { Container } from 'reactstrap';
-import AddPictureModal from '../components/Posts/AddPictureModal';
 import AddPromptModal from '../components/Posts/AddPromptModal';
 import ModalButton from '../components/Buttons/ModalButton';
-
-import MaterialIcon, { colorPalette } from 'material-icons-react';
+import { getAlbum } from '../actions/albumActions';
 
 const Album = (props) => {
      const photoIcon = (
@@ -22,7 +25,6 @@ const Album = (props) => {
      const [photoModal, setPhotoModal] = useState(false);
 
      const photoToggle = () => {
-          // console.log(modal);
           setPhotoModal(!photoModal);
      };
 
@@ -40,10 +42,8 @@ const Album = (props) => {
      return (
           <Fragment>
                <PictureCard />
-
                <PromptCard />
-
-               <Container fluid='md' className='buttonContainer'>
+               <Container className='buttonContainer'>
                     <ModalButton
                          className='photoButton modalButton'
                          action={photoIcon}
@@ -72,4 +72,16 @@ const Album = (props) => {
      );
 };
 
-export default Album;
+Album.propTypes = {
+     isAuth: PropTypes.bool,
+     auth: PropTypes.object.isRequired,
+     album: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+     isAuth: state.auth.isAuthenticated,
+     auth: state.auth,
+     album: state.album,
+});
+
+export default connect(mapStateToProps, { getAlbum })(Album);

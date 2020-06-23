@@ -28,13 +28,14 @@ const PromptCard = (props) => {
                <div key={prompt._id}>
                     <p>{prompt.prompt}</p>
                     <p>{prompt.response}</p>
-                    <br />
                     Posted on:{' '}
                     <Moment
                          format='MM/DD/YYYY'
                          date={prompt.dateUploaded}
                     ></Moment>
-                    <DeleteBtn id={prompt._id} deleteClick={deleteClick} />
+                    {props.auth.isAuthenticated ? (
+                         <DeleteBtn id={prompt._id} deleteClick={deleteClick} />
+                    ) : null}
                     <hr />
                </div>
           ))

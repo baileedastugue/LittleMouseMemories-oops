@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
@@ -8,13 +8,6 @@ import DeleteBtn from '../../Buttons/DeleteBtn';
 import './style.css';
 
 const PictureCard = (props) => {
-     const [modal, setModal] = useState(false);
-
-     const toggle = () => {
-          setModal(!modal);
-          console.log(modal);
-     };
-
      let pathArray = window.location.pathname.split('/');
      let albumId = pathArray[pathArray.length - 1];
 
@@ -27,7 +20,7 @@ const PictureCard = (props) => {
           const picture_id = event.target.getAttribute('data-id');
           props.deletePicture(picture_id, albumId);
      };
-
+     console.log(props);
      let picturesLength = props.picture.pictures.length;
      let picturesLoading = props.picture.isLoading;
 
@@ -49,10 +42,12 @@ const PictureCard = (props) => {
                                    format='MM/DD/YYYY'
                                    date={picture.dateUploaded}
                               ></Moment>
-                              <DeleteBtn
-                                   id={picture._id}
-                                   deleteClick={deleteClick}
-                              />
+                              {props.auth.isAuthenticated ? (
+                                   <DeleteBtn
+                                        id={picture._id}
+                                        deleteClick={deleteClick}
+                                   />
+                              ) : null}
                          </div>
                     ))
                ) : (

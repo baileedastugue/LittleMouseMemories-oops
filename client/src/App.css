@@ -1,16 +1,20 @@
 /* global style */
-div.buttonContainer {
+.buttonContainer {
   position: -webkit-sticky;
   position: sticky;
   bottom: 10vw;
 }
 
-div.buttonContainer Button.albumButton, div.buttonContainer Button.photoButton, div.buttonContainer Button.promptButton {
-  right: -5vw;
+.buttonContainer Button.albumButton, .buttonContainer Button.photoButton {
   bottom: 1vw;
 }
 
-div.buttonContainer Button.promptButton {
+.buttonContainer Button.promptButton {
   bottom: 10vw;
+}
+
+.buttonContainer Button.albumButton {
+  padding-top: 15px;
+  padding-left: 0px;
 }
 /*# sourceMappingURL=App.css.map */

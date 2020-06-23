@@ -13,7 +13,7 @@ import {
 
 const initialState = {
      albums: [],
-     album: null,
+     album: '',
      isLoading: true,
      error: {},
 };
