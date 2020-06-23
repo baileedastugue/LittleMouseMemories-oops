@@ -1,7 +1,16 @@
 /* global style */
-Button.modalButton {
-  position: absolute;
-  right: 5vw;
-  bottom: 5vw;
+div.buttonContainer {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 10vw;
+}
+
+div.buttonContainer Button.albumButton, div.buttonContainer Button.photoButton, div.buttonContainer Button.promptButton {
+  right: -5vw;
+  bottom: 1vw;
+}
+
+div.buttonContainer Button.promptButton {
+  bottom: 10vw;
 }
 /*# sourceMappingURL=App.css.map */

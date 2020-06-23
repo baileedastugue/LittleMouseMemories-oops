@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { setAlert } from '../../actions/alertActions';
-import { addNewPrompt } from '../../actions/promptActions';
+import { setAlert } from '../../../actions/alertActions';
+import { addNewPrompt } from '../../../actions/promptActions';
 import { Form, FormGroup } from 'reactstrap';
 import PropTypes from 'prop-types';
 // import { Redirect } from 'react-router-dom';
-import SubmitButton from '../SubmitBtn';
+import SubmitButton from '../../Buttons/SubmitBtn';
 
 const AddPromptForm = (props) => {
      // using the UseState hook from react

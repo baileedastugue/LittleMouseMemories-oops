@@ -1,7 +1,13 @@
 /* global style */
-
-Button.modalButton {
-  position: absolute;
-  right: 5vw;
-  bottom: 5vw;
+div.buttonContainer {
+  position: sticky;
+  bottom: 10vw;
+  Button.albumButton, Button.photoButton, Button.promptButton {
+    right: -5vw;
+    bottom: 1vw;
+  }
+  
+  Button.promptButton {
+    bottom: 10vw;
+  }
 }

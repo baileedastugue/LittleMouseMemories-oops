@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
-import { getPrompts, deletePrompt } from '../../actions/promptActions';
-import DeleteBtn from '../DeleteBtn';
+import { getPrompts, deletePrompt } from '../../../actions/promptActions';
+import DeleteBtn from '../../Buttons/DeleteBtn';
 
 const PromptCard = (props) => {
      let pathArray = window.location.pathname.split('/');

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
-import { getPictures, deletePicture } from '../../actions/pictureActions';
-import DeleteBtn from '../DeleteBtn';
+import { getPictures, deletePicture } from '../../../actions/pictureActions';
+import DeleteBtn from '../../Buttons/DeleteBtn';
 import './style.css';
 
 const PictureCard = (props) => {

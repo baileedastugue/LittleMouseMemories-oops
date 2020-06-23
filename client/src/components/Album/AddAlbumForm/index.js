@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { setAlert } from '../../actions/alertActions';
-import { addNewAlbum } from '../../actions/albumActions';
+import { setAlert } from '../../../actions/alertActions';
+import { addNewAlbum } from '../../../actions/albumActions';
 import { Form, FormGroup } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
-import SubmitButton from '../SubmitBtn';
+import SubmitButton from '../../Buttons/SubmitBtn';
+import AlertDiv from '../../Layout/AlertDiv';
 
 const AddAlbumForm = (props) => {
      // using the UseState hook from react
@@ -23,7 +24,7 @@ const AddAlbumForm = (props) => {
      const onSubmit = async (event) => {
           event.preventDefault();
           if (title === '') {
-               props.setAlert('All albums need a unique title', 'danger');
+               props.setAlert('All albums need a title', 'danger');
           } else {
                try {
                     props.addNewAlbum({ title });
@@ -37,19 +38,22 @@ const AddAlbumForm = (props) => {
      }
 
      return (
-          <Form className='form' onSubmit={onSubmit}>
-               <FormGroup>
-                    <label htmlFor='title'>Album title</label>
-                    <input
-                         type='text'
-                         name='title'
-                         className='form-control'
-                         onChange={onChange}
-                         value={title}
-                    />
-               </FormGroup>
-               <SubmitButton onClick={props.toggle} />
-          </Form>
+          <Fragment>
+               <AlertDiv />
+               <Form className='form' onSubmit={onSubmit}>
+                    <FormGroup>
+                         <label htmlFor='title'>Album title</label>
+                         <input
+                              type='text'
+                              name='title'
+                              className='form-control'
+                              onChange={onChange}
+                              value={title}
+                         />
+                    </FormGroup>
+                    <SubmitButton onClick={props.toggle} />
+               </Form>
+          </Fragment>
      );
 };
 

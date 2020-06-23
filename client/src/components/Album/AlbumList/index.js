@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
-import DeleteBtn from '../DeleteBtn';
-import { getAllAlbums, deleteAlbum } from '../../actions/albumActions';
+import DeleteBtn from '../../Buttons/DeleteBtn';
+import { getAllAlbums, deleteAlbum } from '../../../actions/albumActions';
 
 import './style.css';
 

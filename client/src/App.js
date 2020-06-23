@@ -6,9 +6,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Album from './pages/Album';
-import AppNavbar from './components/AppNavbar/index';
-import PrivateRoute from './components/PrivateRoute';
-
+import AppNavbar from './components/Layout/AppNavbar/index';
+import PrivateRoute from './components/Auth/PrivateRoute';
 // import { loadUser } from './actions/authActions';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -38,34 +37,28 @@ const App = () => {
      return (
           <Provider store={store}>
                <Router>
-                    <Fragment>
-                         <AppNavbar />
-                         <Route exact path='/' component={Welcome} />
-                         <section className='container'>
-                              <Switch>
-                                   <Route
-                                        exact
-                                        path='/register'
-                                        component={Register}
-                                   />
-                                   <Route
-                                        exact
-                                        path='/login'
-                                        component={Login}
-                                   />
-                                   <PrivateRoute
-                                        exact
-                                        path='/dashboard'
-                                        component={Dashboard}
-                                   />
-                                   <Route
-                                        exact
-                                        path='/album/:id'
-                                        component={Album}
-                                   />
-                              </Switch>
-                         </section>
-                    </Fragment>
+                    <AppNavbar />
+                    <Route exact path='/' component={Welcome} />
+                    <section className='container-fluid'>
+                         <Switch>
+                              <Route
+                                   exact
+                                   path='/register'
+                                   component={Register}
+                              />
+                              <Route exact path='/login' component={Login} />
+                              <PrivateRoute
+                                   exact
+                                   path='/dashboard'
+                                   component={Dashboard}
+                              />
+                              <Route
+                                   exact
+                                   path='/album/:id'
+                                   component={Album}
+                              />
+                         </Switch>
+                    </section>
                </Router>
           </Provider>
      );
