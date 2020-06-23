@@ -25,17 +25,25 @@ const Dashboard = (props) => {
           setModal(!modal);
      };
 
-     console.log(props.auth.isLoading);
+     let userLoading = props.auth.isLoading;
+     console.log(userLoading);
+
      return (
           <Fragment>
-               <Container>
-                    {/* <PageTitle>
+               {!userLoading ? (
+                    <PageTitle>
                          Welcome to your memories, {props.auth.user.firstName}{' '}
                          {props.auth.user.lastName}
-                    </PageTitle> */}
+                    </PageTitle>
+               ) : (
+                    <h1>Loading User Data</h1>
+               )}
+
+               <Container>
                     <h5 className='lead'>Your Memory Albums</h5>
                     <AlbumList />
                </Container>
+
                <Container className='buttonContainer'>
                     <ModalButton
                          className='albumButton modalButton'
@@ -52,7 +60,7 @@ const Dashboard = (props) => {
 
 AddAlbumForm.propTypes = {
      isAuth: PropTypes.bool,
-     auth: PropTypes.object.isRequired,
+     auth: PropTypes.object,
 };
 
 const mapStateToProps = (state) => ({

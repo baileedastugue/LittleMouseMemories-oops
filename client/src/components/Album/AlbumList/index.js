@@ -34,7 +34,7 @@ const AlbumList = (props) => {
                </div>
           ))
      ) : (
-          <h1>Loading</h1>
+          <h1>Loading your albums</h1>
      );
 };
 
