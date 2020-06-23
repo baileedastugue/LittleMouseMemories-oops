@@ -37,18 +37,18 @@ const AddAlbumForm = (props) => {
      }
 
      return (
-          <Form className='form' onSubmit={(event) => onSubmit(event)}>
+          <Form className='form' onSubmit={onSubmit}>
                <FormGroup>
                     <label htmlFor='title'>Album title</label>
                     <input
                          type='text'
                          name='title'
                          className='form-control'
-                         onChange={(event) => onChange(event)}
+                         onChange={onChange}
                          value={title}
                     />
                </FormGroup>
-               <SubmitButton />
+               <SubmitButton onClick={props.toggle} />
           </Form>
      );
 };
