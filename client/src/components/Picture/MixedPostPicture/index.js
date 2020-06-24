@@ -6,9 +6,14 @@ import Moment from 'react-moment';
 const MixedPostPicture = (props) => {
      return (
           <Card>
-               <CardImg src={props.image} alt={props.caption} />
-               {/* <CardBody>
-                    <CardTitle>
+               <CardImg
+                    src={props.image}
+                    alt={props.caption}
+                    className='image'
+               />
+               <CardBody className='overlay'>
+                    {/* <CardTitle> */}
+                    <div className='text'>
                          Uploaded{' '}
                          {props.uploadedBy ? (
                               <Fragment>by {props.uploadedBy} </Fragment>
@@ -18,9 +23,10 @@ const MixedPostPicture = (props) => {
                               format='MM/DD/YYYY'
                               date={props.dateUploaded}
                          />
-                    </CardTitle>
-                    <CardText>{props.caption}</CardText>
-               </CardBody> */}
+                    </div>
+                    {/* </CardTitle> */}
+                    {/* <CardText>{props.caption}</CardText> */}
+               </CardBody>
           </Card>
      );
 };

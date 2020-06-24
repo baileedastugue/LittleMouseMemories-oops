@@ -7,22 +7,24 @@ const MixedPostPrompt = (props) => {
      return (
           <Card>
                <CardBody>
-                    {/* <CardTitle>
-                         Uploaded{' '}
-                         {props.uploadedBy ? (
-                              <Fragment>by {props.uploadedBy} </Fragment>
-                         ) : null}
-                         on{' '}
-                         <Moment
-                              format='MM/DD/YYYY'
-                              date={props.dateUploaded}
-                         />
-                    </CardTitle> */}
                     <CardText>
                          {props.prompt}
                          <br />
                          {props.response}
                     </CardText>
+                    <div className='overlay'>
+                         <CardTitle className='text'>
+                              Uploaded{' '}
+                              {props.uploadedBy ? (
+                                   <Fragment>by {props.uploadedBy} </Fragment>
+                              ) : null}
+                              on{' '}
+                              <Moment
+                                   format='MM/DD/YYYY'
+                                   date={props.dateUploaded}
+                              />
+                         </CardTitle>
+                    </div>
                </CardBody>
           </Card>
      );
