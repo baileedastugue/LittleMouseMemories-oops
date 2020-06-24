@@ -58,25 +58,26 @@ router.get('/:picture_id', async (req, res) => {
      }
 });
 
-router.post('/upload', function (req, res, next) {
-     const file = req.files.image;
-     // console.log('line 63');
-     // console.log(file);
-     cloudinary.uploader.upload(file.tempFilePath, function (err, result) {
-          res.send({
-               success: true,
-               result,
-          });
-     });
-});
+// router.post('/upload', function (req, res, next) {
+//      const file = req.files.image;
+//      // console.log('line 63');
+//      // console.log(file);
+//      cloudinary.uploader.upload(file.tempFilePath, function (err, result) {
+//           res.send({
+//                success: true,
+//                result,
+//           });
+//      });
+// });
 
 // @route   POST api/pictures/:album_id
 // @desc    Post a new picture
 // @access  Public
 router.post(
      '/:album_id',
+
      // [check('image', 'Please include a picture').not().isEmpty()],
-     async (req, res) => {
+     async (req, res, next) => {
           const errors = validationResult(req);
           if (!errors.isEmpty()) {
                return res.status(400).json({ errors: errors.array() });
@@ -84,25 +85,28 @@ router.post(
           if (req.files === null) {
                return res.status(400).json({ msg: 'No file uploaded' });
           }
-          const file = req.files.file;
+          const image = req.files.image;
           // console.log('line 63');
           // console.log(file);
+          console.log('line 90');
+          console.log(req.body);
+          // console.log(res);
 
           try {
                cloudinary.uploader.upload(
-                    file.tempFilePath,
+                    image.tempFilePath,
                     async (err, result) => {
                          const uploadedPicture = result.url;
                          // console.log(uploadedPicture);
                          const newPicture = await new Picture({
-                              image: uploadedPicture,
                               caption: req.body.caption,
                               album: req.params.album_id,
                               dateRecorded: req.body.dateRecorded,
+                              image: uploadedPicture,
                               uploadedBy: req.body.uploadedBy,
                          });
                          const picture = await newPicture.save();
-                         console.log(picture);
+                         // console.log(picture);
 
                          Album.findOneAndUpdate(
                               { _id: req.params.album_id },
@@ -111,8 +115,8 @@ router.post(
                                    if (error) {
                                         console.log(error);
                                    } else {
-                                        console.log(success);
-                                        console.log(61);
+                                        // console.log(success);
+                                        // console.log(61);
                                    }
                               }
                          );
