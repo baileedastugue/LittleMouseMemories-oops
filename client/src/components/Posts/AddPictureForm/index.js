@@ -10,44 +10,54 @@ import SubmitButton from '../../Buttons/SubmitBtn';
 
 const AddPictureForm = (props) => {
      // using the UseState hook from react
-     const [imageData, setImageData] = useState({
-          caption: '',
-          dateRecorded: '',
-          uploadedBy: '',
-     });
+     const [caption, setCaption] = useState('');
+     const [uploadedBy, setUploadedBy] = useState('');
+     const [dateRecorded, setDateRecorded] = useState('');
 
-     const [file, setFile] = useState({});
+     const [image, setImage] = useState({});
      // const [fileName, setFileName] = useState('Upload image');
 
-     const { caption, uploadedBy, dateRecorded } = imageData;
-
      // handler to update the data
-     const onChange = (event) => {
-          setImageData({
-               ...ImageData,
-               [event.target.name]: event.target.value,
-          });
+     // const onChange = (event) => {
+     //      setImageData({
+     //           ...ImageData,
+     //           [event.target.name]: event.target.value,
+     //      });
+     // };
+     const onCaptionChange = (event) => {
+          setCaption(event.target.value);
+     };
+
+     const onUploadedByChange = (event) => {
+          setUploadedBy(event.target.value);
+     };
+
+     const onDateRecordedChange = (event) => {
+          setDateRecorded(event.target.value);
      };
 
      const onDrop = (event) => {
-          setFile(event.target.files[0]);
+          setImage(event.target.files[0]);
+          console.log(caption);
+          console.log(uploadedBy);
           // setFileName(event.target.files[0].name);
      };
 
      const onSubmit = async (event) => {
           event.preventDefault();
+
           let pathArray = window.location.pathname.split('/');
           let albumId = pathArray[pathArray.length - 1];
           const formData = new FormData();
 
-          await formData.append('file', file);
-          await formData.append('uploadedBy', uploadedBy);
-          await formData.append('caption', caption);
-          await formData.append('dateRecorded', dateRecorded);
+          formData.append('caption', caption);
+          formData.append('uploadedBy', uploadedBy);
+          formData.append('dateRecorded', dateRecorded);
+          formData.append('image', image);
+          console.log(formData.get('image'));
 
-          if (formData.get('file') === '[object Object]') {
-               console.log(123);
-               console.log(props);
+          console.log(formData);
+          if (formData.get('image') === '[object Object]') {
                props.setAlert(
                     'Picture memories must include an image',
                     'danger'
@@ -55,13 +65,10 @@ const AddPictureForm = (props) => {
           } else {
                try {
                     await props.addNewPicture(albumId, formData);
-                    setImageData({
-                         ...imageData,
-                         caption: '',
-                         uploadedBy: '',
-                         dateRecorded: '',
-                    });
-                    setFile({});
+                    setCaption('');
+                    setUploadedBy('');
+                    setDateRecorded('');
+                    setImage({});
                } catch (err) {
                     if (err.response.status === 500) {
                          console.log('Server problem');
@@ -85,15 +92,12 @@ const AddPictureForm = (props) => {
                     onSubmit={onSubmit}
                >
                     <FormGroup>
-                         <input type='file' name='image' onChange={onDrop} />
-                    </FormGroup>
-                    <FormGroup>
                          <label htmlFor='caption'>Caption</label>
                          <input
                               type='text'
                               name='caption'
                               className='form-control'
-                              onChange={(event) => onChange(event)}
+                              onChange={onCaptionChange}
                               value={caption}
                          />
                     </FormGroup>
@@ -103,7 +107,7 @@ const AddPictureForm = (props) => {
                               type='text'
                               name='uploadedBy'
                               className='form-control'
-                              onChange={(event) => onChange(event)}
+                              onChange={onUploadedByChange}
                               value={uploadedBy}
                          />
                     </FormGroup>
@@ -115,9 +119,12 @@ const AddPictureForm = (props) => {
                               type='text'
                               name='dateRecorded'
                               className='form-control'
-                              onChange={(event) => onChange(event)}
+                              onChange={onDateRecordedChange}
                               value={dateRecorded}
                          />
+                    </FormGroup>
+                    <FormGroup>
+                         <input type='file' name='image' onChange={onDrop} />
                     </FormGroup>
                     <SubmitButton />
                </Form>

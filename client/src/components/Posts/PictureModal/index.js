@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
-const ImageModal = (props) => {
+const PictureModal = (props) => {
      return (
           <div>
                <Modal isOpen={props.modal} toggle={props.toggle}>
                     <ModalHeader toggle={props.toggle} charCode='X'>
                          Modal Header
                     </ModalHeader>
-                    <ModalBody />
+                    <ModalBody>{props.image}</ModalBody>
                     <ModalFooter>
                          <Button color='primary' onClick={props.toggle}>
                               Close
@@ -19,4 +19,4 @@ const ImageModal = (props) => {
      );
 };
 
-export default ImageModal;
+export default PictureModal;

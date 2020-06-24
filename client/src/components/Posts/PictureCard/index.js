@@ -6,10 +6,15 @@ import Moment from 'react-moment';
 import { getPictures, deletePicture } from '../../../actions/pictureActions';
 import DeleteBtn from '../../Buttons/DeleteBtn';
 import './style.css';
+import PictureModal from '../PictureModal';
+// import { SRLWrapper } from 'simple-react-lightbox';
+// import SimpleModalSlideshow from 'react-simple-modal-slideshow';
 
 const PictureCard = (props) => {
      let pathArray = window.location.pathname.split('/');
      let albumId = pathArray[pathArray.length - 1];
+     let picturesLength = props.picture.pictures.length;
+     let picturesLoading = props.picture.isLoading;
 
      useEffect(() => {
           props.getPictures(albumId);
@@ -20,11 +25,10 @@ const PictureCard = (props) => {
           const picture_id = event.target.getAttribute('data-id');
           props.deletePicture(picture_id, albumId);
      };
-     console.log(props);
-     let picturesLength = props.picture.pictures.length;
-     let picturesLoading = props.picture.isLoading;
+     // console.log(props);
 
      return (
+          // <SRLWrapper>
           <div>
                {picturesLength > 0 && !picturesLoading ? (
                     props.picture.pictures.map((picture) => (
@@ -32,7 +36,7 @@ const PictureCard = (props) => {
                               <img
                                    src={picture.image}
                                    alt={picture.caption}
-                                   className='pictureCardImage'
+                                   className='pictureCardImage SRLCustomCaption'
                               />
                               <p>{picture.caption}</p>
                               {picture.uploadedBy}
@@ -48,11 +52,13 @@ const PictureCard = (props) => {
                                         deleteClick={deleteClick}
                                    />
                               ) : null}
+                              <PictureModal />
                          </div>
                     ))
                ) : (
                     <h1>No pictures added yet!</h1>
                )}
+               {/* // </SRLWrapper> */}
           </div>
      );
 };
