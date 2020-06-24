@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Container } from 'reactstrap';
+import { Container, CardColumns } from 'reactstrap';
 import MaterialIcon from 'material-icons-react';
 import PropTypes from 'prop-types';
 
@@ -12,7 +12,8 @@ import AddPromptForm from '../components/Posts/AddPromptForm';
 import AddPromptModal from '../components/Posts/AddPromptModal';
 import ModalButton from '../components/Buttons/ModalButton';
 import { getAlbum } from '../actions/albumActions';
-import Moment from 'react-moment';
+import MixedPostPicture from '../components/Picture/MixedPostPicture';
+import MixedPostPrompt from '../components/Prompt/MixedPostPrompt';
 // import SimpleReactLightbox from 'simple-react-lightbox';
 
 const Album = (props) => {
@@ -59,7 +60,7 @@ const Album = (props) => {
      // view all memories --> view both in chronological order
      console.log(albumContents);
      return (
-          <Fragment>
+          <Container>
                {albumDoneLoading ? (
                     <h1>
                          {albumContents.title} by {albumContents.user.firstName}{' '}
@@ -68,57 +69,35 @@ const Album = (props) => {
                ) : (
                     <h1>Memory album</h1>
                )}
-
-               {albumDoneLoading ? (
-                    posts.map((post) => (
-                         <div key={post._id}>
-                              {'image' in post ? (
-                                   <Fragment>
-                                        <img
-                                             src={post.image}
-                                             alt={post.caption}
+               <CardColumns>
+                    {albumDoneLoading ? (
+                         posts.map((post) => (
+                              <Fragment key={post._id}>
+                                   {'image' in post ? (
+                                        <MixedPostPicture
+                                             key={post._id}
+                                             image={post.image}
+                                             caption={post.caption}
+                                             dateRecorded={post.dateRecorded}
+                                             dateUploaded={post.dateUploaded}
+                                             uploadedBy={post.uploadedBy}
                                         />
-                                        <p>
-                                             {post.caption}
-                                             <br />
-                                             Uploaded by: {post.uploadedBy}
-                                        </p>
-                                        {/* <p>
-                                             Memory from :{' '}
-                                             <Moment
-                                                  format='MM/DD/YYYY'
-                                                  date={prompt.dateRecorded}
-                                             ></Moment>
-                                        </p> */}
-                                        <p>
-                                             Posted on:{' '}
-                                             <Moment
-                                                  format='MM/DD/YYYY'
-                                                  date={post.dateUploaded}
-                                             ></Moment>
-                                        </p>
-                                   </Fragment>
-                              ) : (
-                                   <Fragment>
-                                        <p>
-                                             Prompt: {post.prompt}
-                                             <br />
-                                             Response: {post.response}
-                                        </p>
-                                        <p>
-                                             Posted on:{' '}
-                                             <Moment
-                                                  format='MM/DD/YYYY'
-                                                  date={post.dateUploaded}
-                                             ></Moment>
-                                        </p>
-                                   </Fragment>
-                              )}
-                         </div>
-                    ))
-               ) : (
-                    <h1>Loading</h1>
-               )}
+                                   ) : (
+                                        <MixedPostPrompt
+                                             key={post._id}
+                                             prompt={post.prompt}
+                                             response={post.response}
+                                             dateRecorded={post.dateRecorded}
+                                             dateUploaded={post.dateUploaded}
+                                             uploadedBy={post.uploadedBy}
+                                        />
+                                   )}
+                              </Fragment>
+                         ))
+                    ) : (
+                         <h1>Loading</h1>
+                    )}
+               </CardColumns>
 
                {/* <SimpleReactLightbox autoplaySpeed='0'> */}
                {/* <PictureCard /> */}
@@ -151,7 +130,7 @@ const Album = (props) => {
                <AddPromptModal toggle={promptToggle} isOpen={promptModal}>
                     <AddPromptForm toggle={promptToggle} />
                </AddPromptModal>
-          </Fragment>
+          </Container>
      );
 };
 
