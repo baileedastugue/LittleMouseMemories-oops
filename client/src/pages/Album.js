@@ -12,6 +12,7 @@ import AddPromptForm from '../components/Posts/AddPromptForm';
 import AddPromptModal from '../components/Posts/AddPromptModal';
 import ModalButton from '../components/Buttons/ModalButton';
 import { getAlbum } from '../actions/albumActions';
+// import SimpleReactLightbox from 'simple-react-lightbox';
 
 const Album = (props) => {
      const photoIcon = (
@@ -38,10 +39,12 @@ const Album = (props) => {
      // only view posts --> hide PictureCards
      // only view picture --> hide PostsCards
      // view all memories --> view both in chronological order
-
+     // console.log(props);
      return (
           <Fragment>
+               {/* <SimpleReactLightbox autoplaySpeed='0'> */}
                <PictureCard />
+               {/* </SimpleReactLightbox> */}
                <PromptCard />
                <Container className='buttonContainer'>
                     <ModalButton

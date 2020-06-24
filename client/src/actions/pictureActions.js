@@ -32,22 +32,20 @@ export const addNewPicture = (album_id, formData) => async (dispatch) => {
           headers: {
                // 'Content-Type': 'application/json',
                'Content-Type': 'multipart/form-data',
-               'Access-Control-Allow-Origin': '*',
+               // encType: 'multipart/form-data',
+               mode: 'no-cors',
           },
      };
-     // const body = JSON.stringify({
-     //      caption,
-     //      dateRecorded,
-     //      uploadedBy,
-     // });
-     // console.log(body);
-     console.log(formData);
+     console.log(formData.get('caption'));
+     console.log(formData.get('uploadedBy'));
+     console.log(formData.get('dateRecorded'));
      try {
           const res = await axios.post(
                `/api/pictures/${album_id}`,
                formData,
                config
           );
+
           dispatch({
                type: ADD_PICTURE_SUCCESS,
                payload: res.data,

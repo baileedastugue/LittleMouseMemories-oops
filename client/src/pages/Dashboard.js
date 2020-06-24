@@ -30,15 +30,17 @@ const Dashboard = (props) => {
 
      return (
           <Fragment>
-               {!userLoading ? (
-                    <PageTitle>
-                         Welcome to your memories, {props.auth.user.firstName}{' '}
-                         {props.auth.user.lastName}
-                    </PageTitle>
-               ) : (
-                    <h1>Loading User Data</h1>
-               )}
-
+               <Container>
+                    {!userLoading ? (
+                         <PageTitle>
+                              Welcome to your memories,{' '}
+                              {props.auth.user.firstName}{' '}
+                              {props.auth.user.lastName}
+                         </PageTitle>
+                    ) : (
+                         <h1>Loading User Data</h1>
+                    )}
+               </Container>
                <Container>
                     <h5 className='lead'>Your Memory Albums</h5>
                     <AlbumList />

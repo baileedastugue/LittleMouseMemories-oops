@@ -8,6 +8,7 @@ import { Redirect } from 'react-router-dom';
 const AppNavbar = (props) => {
      const logout = () => {
           props.logout();
+          return <Redirect to='/login' />;
      };
 
      const loggedInLinks = (
@@ -42,10 +43,11 @@ const AppNavbar = (props) => {
           <div>
                <Navbar color='dark' dark className='mb-5'>
                     <NavbarBrand href='/'>Little Mouse Memories</NavbarBrand>
-                    {!props.auth.isLoading &&
-                         (props.auth.isAuthenticated
-                              ? loggedInLinks
-                              : loggedOutLinks)}
+                    {!props.auth.isLoading
+                         ? loggedOutLinks
+                         : props.auth.isAuthenticated
+                         ? loggedInLinks
+                         : loggedOutLinks}
                </Navbar>
           </div>
      );
