@@ -19,13 +19,13 @@ var AlbumsSchema = new Schema({
      },
      pictures: [
           {
-               type: Schema.Types.ObjectId,
+               type: mongoose.Schema.Types.ObjectId,
                ref: 'picture',
           },
      ],
      prompts: [
           {
-               type: Schema.Types.ObjectId,
+               type: mongoose.Schema.Types.ObjectId,
                ref: 'prompt',
           },
      ],

@@ -42,12 +42,25 @@ router.get('/:album_id', async (req, res) => {
      try {
           // const user_id = req.user.id;
           const album_id = req.params.album_id;
+          console.log(album_id);
           const album = await Album.find({
                _id: album_id,
           })
                .populate('user', ['firstName', 'lastName', '_id'])
-               .populate('picture')
-               .populate('prompt');
+               .populate('pictures', [
+                    'image',
+                    'dateUploaded',
+                    'dateRecorded',
+                    'uploadedBy',
+                    'caption',
+               ])
+               .populate('prompts', [
+                    'prompt',
+                    'response',
+                    'dateUploaded',
+                    'dateRecorded',
+                    'uploadedBy',
+               ]);
 
           if (!album) {
                res.status(400).json({

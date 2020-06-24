@@ -59,8 +59,9 @@ export const addNewAlbum = ({ title }) => async (dispatch) => {
 
 export const getAlbum = (id) => async (dispatch) => {
      try {
-          const res = await axios.get(`/api/album/${id}`);
-          console.log(res.data);
+          // console.log('line 62 in aA');
+          const res = await axios.get(`/api/albums/${id}`);
+          // console.log(res.data);
           dispatch({
                type: GET_ALBUM_SUCCESS,
                payload: res.data,

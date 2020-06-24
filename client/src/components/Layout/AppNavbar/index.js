@@ -39,9 +39,9 @@ const AppNavbar = (props) => {
           </Nav>
      );
      const loading = props.auth.isLoading;
-     console.log('loading', loading);
+     // console.log('loading', loading);
      const isAuth = props.auth.isAuthenticated;
-     console.log('authenticated', isAuth);
+     // console.log('authenticated', isAuth);
      return (
           <div>
                <Navbar color='dark' dark className='mb-5'>

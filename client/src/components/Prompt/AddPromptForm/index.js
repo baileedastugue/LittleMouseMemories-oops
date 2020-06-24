@@ -12,9 +12,11 @@ const AddPromptForm = (props) => {
      const [formData, setFormData] = useState({
           prompt: '',
           response: '',
+          uploadedBy: '',
+          dateRecorded: '',
      });
 
-     const { prompt, response } = formData;
+     const { prompt, response, uploadedBy, dateRecorded } = formData;
 
      // handler to update the data
      const onChange = (event) => {
@@ -38,10 +40,6 @@ const AddPromptForm = (props) => {
           }
      };
 
-     // if (!props.isAuth) {
-     //      return <Redirect to='/login' />;
-     // }
-
      return (
           <Form className='form' onSubmit={(event) => onSubmit(event)}>
                <FormGroup>
@@ -64,6 +62,27 @@ const AddPromptForm = (props) => {
                          value={response}
                     />
                </FormGroup>
+               <FormGroup>
+                    <label htmlFor='uploadedBy'>Uploaded By:</label>
+                    <input
+                         type='text'
+                         name='uploadedBy'
+                         className='form-control'
+                         onChange={(event) => onChange(event)}
+                         value={uploadedBy}
+                    />
+               </FormGroup>
+               <FormGroup>
+                    <label htmlFor='dateRecorded'>Date Recorded:</label>
+                    <input
+                         type='text'
+                         name='dateRecorded'
+                         className='form-control'
+                         onChange={(event) => onChange(event)}
+                         value={dateRecorded}
+                    />
+               </FormGroup>
+
                <SubmitButton />
           </Form>
      );
