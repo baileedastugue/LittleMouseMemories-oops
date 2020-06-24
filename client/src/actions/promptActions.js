@@ -68,22 +68,31 @@ export const deletePrompt = (prompt_id, album_id) => async (dispatch) => {
                'Access-Control-Allow-Origin': '*',
           },
      };
-     try {
-          const res = await axios.delete(`/api/prompts/${prompt_id}`, config);
-          dispatch({
-               type: DELETE_PROMPT_SUCCESS,
-               payload: res.data,
-          });
-          dispatch(getPrompts(album_id));
-     } catch (err) {
-          const errors = err.response;
-          if (errors) {
-               for (let i = 0; i < errors.length; i++) {
-                    dispatch(setAlert(errors[i].msg, 'danger'));
+     if (
+          window.confirm(
+               'Are you sure you want to delete this memory? This action cannot be undone'
+          )
+     ) {
+          try {
+               const res = await axios.delete(
+                    `/api/prompts/${prompt_id}`,
+                    config
+               );
+               dispatch({
+                    type: DELETE_PROMPT_SUCCESS,
+                    payload: res.data,
+               });
+               dispatch(getPrompts(album_id));
+          } catch (err) {
+               const errors = err.response;
+               if (errors) {
+                    for (let i = 0; i < errors.length; i++) {
+                         dispatch(setAlert(errors[i].msg, 'danger'));
+                    }
                }
+               dispatch({
+                    type: DELETE_PROMPT_FAIL,
+               });
           }
-          dispatch({
-               type: DELETE_PROMPT_FAIL,
-          });
      }
 };

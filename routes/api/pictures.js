@@ -58,25 +58,14 @@ router.get('/:picture_id', async (req, res) => {
      }
 });
 
-router.post('/upload', function (req, res, next) {
-     const file = req.files.image;
-     // console.log('line 63');
-     // console.log(file);
-     cloudinary.uploader.upload(file.tempFilePath, function (err, result) {
-          res.send({
-               success: true,
-               result,
-          });
-     });
-});
-
 // @route   POST api/pictures/:album_id
 // @desc    Post a new picture
 // @access  Public
 router.post(
      '/:album_id',
+
      // [check('image', 'Please include a picture').not().isEmpty()],
-     async (req, res) => {
+     async (req, res, next) => {
           const errors = validationResult(req);
           if (!errors.isEmpty()) {
                return res.status(400).json({ errors: errors.array() });
@@ -84,16 +73,12 @@ router.post(
           if (req.files === null) {
                return res.status(400).json({ msg: 'No file uploaded' });
           }
-          const file = req.files.file;
-          // console.log('line 63');
-          // console.log(file);
-
+          const image = req.files.image;
           try {
                cloudinary.uploader.upload(
-                    file.tempFilePath,
+                    image.tempFilePath,
                     async (err, result) => {
                          const uploadedPicture = result.url;
-                         // console.log(uploadedPicture);
                          const newPicture = await new Picture({
                               image: uploadedPicture,
                               caption: req.body.caption,
@@ -102,8 +87,6 @@ router.post(
                               uploadedBy: req.body.uploadedBy,
                          });
                          const picture = await newPicture.save();
-                         console.log(picture);
-
                          Album.findOneAndUpdate(
                               { _id: req.params.album_id },
                               { $push: { pictures: picture } },
@@ -111,8 +94,8 @@ router.post(
                                    if (error) {
                                         console.log(error);
                                    } else {
-                                        console.log(success);
-                                        console.log(61);
+                                        // console.log(success);
+                                        // console.log(61);
                                    }
                               }
                          );
@@ -142,9 +125,21 @@ router.delete('/:picture_id', auth, async (req, res) => {
                     .json({ msg: 'User not authorized to delete post' });
           }
           await Picture.findByIdAndDelete(req.params.picture_id);
+
+          await Album.update(
+               {},
+               { $pull: { pictures: { $in: [req.params.picture_id] } } },
+               { multi: true }
+          );
+          // await User.update(
+          //      {},
+          //      { $pull: { pictures: { $in: [req.params.picture_id] } } },
+          //      { multi: true }
+          // );
           if (!picture) {
                return res.status(404).json({ msg: 'Image not found' });
           }
+
           res.json({ msg: 'Picture deleted' });
      } catch (err) {
           console.error(err.message);

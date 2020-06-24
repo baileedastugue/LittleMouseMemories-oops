@@ -39,12 +39,12 @@ export default function (state = initialState, action) {
           case REGISTER_FAIL:
           case AUTH_ERROR:
                localStorage.removeItem('token');
-               console.log(123);
                return {
                     ...state,
                     token: null,
                     isAuthenticated: false,
                     isloading: false,
+                    user: null,
                };
           default:
                return state;

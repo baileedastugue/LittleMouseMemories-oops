@@ -26,7 +26,6 @@ const Dashboard = (props) => {
      };
 
      let userLoading = props.auth.isLoading;
-     console.log(userLoading);
 
      return (
           <Fragment>

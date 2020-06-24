@@ -83,22 +83,29 @@ export const deleteAlbum = (id) => async (dispatch) => {
                'Access-Control-Allow-Origin': '*',
           },
      };
-     try {
-          const res = await axios.delete(`/api/albums/${id}`, config);
-          dispatch({
-               type: DELETE_ALBUM_SUCCESS,
-               payload: res.data,
-          });
-          dispatch(getAllAlbums());
-     } catch (err) {
-          const errors = err.response;
-          if (errors) {
-               for (let i = 0; i < errors.length; i++) {
-                    dispatch(setAlert(errors[i].msg, 'danger'));
+     if (
+          window.confirm(
+               'Are you sure you want to delete this album? This action cannot be undone and all posts within the album will be permanently deleted'
+          )
+     ) {
+          try {
+               const res = await axios.delete(`/api/albums/${id}`, config);
+               dispatch({
+                    type: DELETE_ALBUM_SUCCESS,
+                    payload: res.data,
+               });
+               dispatch(getAllAlbums());
+               dispatch(setAlert('This album has been permanentely deleted'));
+          } catch (err) {
+               const errors = err.response;
+               if (errors) {
+                    for (let i = 0; i < errors.length; i++) {
+                         dispatch(setAlert(errors[i].msg, 'danger'));
+                    }
                }
+               dispatch({
+                    type: DELETE_ALBUM_FAIL,
+               });
           }
-          dispatch({
-               type: DELETE_ALBUM_FAIL,
-          });
      }
 };

@@ -7,7 +7,6 @@ import {
      REGISTER_FAIL,
      AUTH_ERROR,
      USER_LOADED,
-     // USER_LOADING,
      LOGIN_SUCCESS,
      LOGIN_FAIL,
      LOGOUT_SUCCESS,
@@ -50,10 +49,11 @@ export const register = ({ firstName, lastName, email, password }) => async (
           dispatch(loadUser());
      } catch (err) {
           const errors = err.response.data.errors;
+
           if (errors) {
-               for (let i = 0; i < errors.length; i++) {
-                    dispatch(setAlert(errors[i].msg, 'danger'));
-               }
+               errors.forEach((error) =>
+                    dispatch(setAlert(error.msg, 'danger'))
+               );
           }
           dispatch({
                type: REGISTER_FAIL,
@@ -80,13 +80,13 @@ export const login = ({ email, password }) => async (dispatch) => {
 
           dispatch(loadUser());
      } catch (err) {
-          // const errors = err.response.data.errors;
-          // if (errors) {
-          //      for (let i = 0; i < errors.length; i++) {
-          //           dispatch(setAlert(errors[i].msg, 'danger'));
-          //      }
-          // }
-          console.log(err);
+          const errors = err.response.data.errors;
+
+          if (errors) {
+               errors.forEach((error) =>
+                    dispatch(setAlert(error.msg, 'danger'))
+               );
+          }
           dispatch({
                type: LOGIN_FAIL,
           });

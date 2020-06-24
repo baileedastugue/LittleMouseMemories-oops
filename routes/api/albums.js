@@ -54,7 +54,7 @@ router.get('/:album_id', async (req, res) => {
                     msg: 'There are no albums for this user',
                });
           }
-
+          console.log(album);
           res.json(album);
      } catch (err) {
           console.error(err.message);
@@ -115,8 +115,13 @@ router.post(
 router.delete('/:album_id', auth, async (req, res) => {
      try {
           // Removes album
+          console.log(req.user.id);
           await Album.findOneAndDelete({ _id: req.params.album_id });
-
+          await User.update(
+               { _id: req.user.id },
+               { $pull: { album: { $in: [req.params.album_id] } } },
+               { multi: true }
+          );
           res.json({ msg: 'Album deleted' });
      } catch (err) {
           console.error(err.message);
@@ -149,68 +154,3 @@ router.delete('/', auth, async (req, res) => {
 });
 
 module.exports = router;
-
-// // router.get("/albums/:id/pictures", (req, res) => {
-// //     res.render("albums", {
-// //         album: req.params.id
-// //     });
-// //     console.log(req.params.id);
-
-// // })
-
-// // router.post("/albums/:id/pictures", (req, res) => {
-// //     res.send("Aw yeah who wants a picture");
-// //     const image = req.body.image;
-// //     console.log(req.params.id);
-// //     let errors = [];
-// //     if (!image) {
-// //         // send an error if the user does not add a title
-// //         errors.push({
-// //             msg: "Please upload a picture"
-// //         });
-// //     }
-// //     if (errors.length > 0) {
-// //         // if there is an error, send it to the page
-// //         res.render("albums", {
-// //             errors
-// //         })
-// //     } else {
-// //         console.log("no errors");
-// //         Pictures.create({ image: image })
-// //                         // that album is created
-// //                         .then(picture => {
-// //                             // return Album.findOneAndUpdate({
-// //                             //     _id: req.body.id
-// //                             // }, { $push: { pictures: picture } },
-// //                             // { new: true });
-// //                             console.log(picture);
-// //                         })
-// //                         .then(picture => {
-// //                             console.log(picture);
-// //                         })
-// //                         .catch(err => console.log(err));
-// //     }
-// // })
-
-// // router.get("/albums/:id", (req, res) => {
-// //     // console.log(req.params.id);
-// //     Album.findOne({
-// //         title: req.params.id
-// //     })
-// //         .then(album => {
-// //             // console.log(album);
-// //             res.redirect("/albums/"+album._id+"/pictures");
-// //         })
-// //         .catch(err => console.log(err));
-// //     // User.findOne({
-// //     //     _id: req.user._id
-// //     // })
-// //     //     .populate("album")
-// //     //     .then(user => {
-// //     //         // console.log("populated album successful");
-// //     //         console.log("hello from line 102");
-// //     //         console.log(user);
-// //     //         res.send("aw yeah")
-// //     //     })
-// //     //     .catch(err => console.log(err));
-// // })

@@ -5,7 +5,6 @@ import { addNewPicture } from '../../../actions/pictureActions';
 import { Form, FormGroup } from 'reactstrap';
 import PropTypes from 'prop-types';
 import AlertDiv from '../../Layout/AlertDiv';
-
 import SubmitButton from '../../Buttons/SubmitBtn';
 
 const AddPictureForm = (props) => {
@@ -13,17 +12,8 @@ const AddPictureForm = (props) => {
      const [caption, setCaption] = useState('');
      const [uploadedBy, setUploadedBy] = useState('');
      const [dateRecorded, setDateRecorded] = useState('');
-
      const [image, setImage] = useState({});
-     // const [fileName, setFileName] = useState('Upload image');
 
-     // handler to update the data
-     // const onChange = (event) => {
-     //      setImageData({
-     //           ...ImageData,
-     //           [event.target.name]: event.target.value,
-     //      });
-     // };
      const onCaptionChange = (event) => {
           setCaption(event.target.value);
      };
@@ -38,9 +28,6 @@ const AddPictureForm = (props) => {
 
      const onDrop = (event) => {
           setImage(event.target.files[0]);
-          console.log(caption);
-          console.log(uploadedBy);
-          // setFileName(event.target.files[0].name);
      };
 
      const onSubmit = async (event) => {
@@ -54,9 +41,7 @@ const AddPictureForm = (props) => {
           formData.append('uploadedBy', uploadedBy);
           formData.append('dateRecorded', dateRecorded);
           formData.append('image', image);
-          console.log(formData.get('image'));
 
-          console.log(formData);
           if (formData.get('image') === '[object Object]') {
                props.setAlert(
                     'Picture memories must include an image',
@@ -78,10 +63,6 @@ const AddPictureForm = (props) => {
                }
           }
      };
-
-     // if (!props.isAuth) {
-     //      return <Redirect to='/login' />;
-     // }
 
      return (
           <Fragment>

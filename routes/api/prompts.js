@@ -108,6 +108,16 @@ router.delete('/:prompt_id', auth, async (req, res) => {
                     .json({ msg: 'User not authorized to delete post' });
           }
           await Prompt.findByIdAndDelete(req.params.prompt_id);
+          await Album.update(
+               {},
+               { $pull: { prompts: { $in: [req.params.prompt_id] } } },
+               { multi: true }
+          );
+          // await User.update(
+          //      {},
+          //      { $pull: { pictures: { $in: [req.params.prompt_id] } } },
+          //      { multi: true }
+          // );
           if (!prompt) {
                return res.status(404).json({ msg: 'Post not found' });
           }
