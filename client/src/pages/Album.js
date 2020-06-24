@@ -29,6 +29,7 @@ const Album = (props) => {
      const albumContents = props.album.album[0];
      let posts = [];
      let albumDoneLoading = !props.album.isLoading;
+     console.log(albumDoneLoading);
 
      albumDoneLoading
           ? albumContents.pictures.map((picture) => posts.push(picture)) &&
