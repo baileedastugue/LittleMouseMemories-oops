@@ -1,10 +1,11 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Container, CardColumns } from 'reactstrap';
+import { Container, Row } from 'reactstrap';
 import MaterialIcon from 'material-icons-react';
 import PropTypes from 'prop-types';
 
 // import PictureCard from '../components/Posts/PictureCard';
+import Wrapper from '../components/Layout/Wrapper';
 import AddPictureForm from '../components/Posts/AddPictureForm';
 import AddPictureModal from '../components/Posts/AddPictureModal';
 // import PromptCard from '../components/Posts/PromptCard';
@@ -15,6 +16,7 @@ import { getAlbum } from '../actions/albumActions';
 import MixedPostPicture from '../components/Picture/MixedPostPicture';
 import MixedPostPrompt from '../components/Prompt/MixedPostPrompt';
 // import SimpleReactLightbox from 'simple-react-lightbox';
+import '../App.css';
 
 const Album = (props) => {
      let pathArray = window.location.pathname.split('/');
@@ -33,7 +35,7 @@ const Album = (props) => {
             albumContents.prompts.map((prompt) => posts.push(prompt))
           : console.log('waiting');
 
-     posts.sort((a, b) => (a.dateUploaded > b.dateUploaded ? 1 : -1));
+     posts.sort((a, b) => (a.dateUploaded < b.dateUploaded ? 1 : -1));
 
      const photoIcon = (
           <MaterialIcon icon='add_a_photo' color='#ffffff' size='medium' />
@@ -60,7 +62,7 @@ const Album = (props) => {
      // view all memories --> view both in chronological order
      console.log(albumContents);
      return (
-          <Container>
+          <Fragment>
                {albumDoneLoading ? (
                     <h1>
                          {albumContents.title} by {albumContents.user.firstName}{' '}
@@ -69,7 +71,7 @@ const Album = (props) => {
                ) : (
                     <h1>Memory album</h1>
                )}
-               <CardColumns>
+               <Wrapper>
                     {albumDoneLoading ? (
                          posts.map((post) => (
                               <Fragment key={post._id}>
@@ -97,7 +99,7 @@ const Album = (props) => {
                     ) : (
                          <h1>Loading</h1>
                     )}
-               </CardColumns>
+               </Wrapper>
 
                {/* <SimpleReactLightbox autoplaySpeed='0'> */}
                {/* <PictureCard /> */}
@@ -130,7 +132,7 @@ const Album = (props) => {
                <AddPromptModal toggle={promptToggle} isOpen={promptModal}>
                     <AddPromptForm toggle={promptToggle} />
                </AddPromptModal>
-          </Container>
+          </Fragment>
      );
 };
 

@@ -1,4 +1,18 @@
-.card-deck .card {
-  width: 20vw;
+.card img.card-img {
+  height: 400px;
+  /* height of container */
+  width: 400px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+div.card {
+  display: inline-block;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 1vw;
+  padding: 0px;
 }
 /*# sourceMappingURL=style.css.map */

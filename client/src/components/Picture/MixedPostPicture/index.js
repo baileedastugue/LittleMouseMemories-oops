@@ -5,9 +5,9 @@ import Moment from 'react-moment';
 
 const MixedPostPicture = (props) => {
      return (
-          <Card style={{ width: '18rem' }}>
+          <Card>
                <CardImg src={props.image} alt={props.caption} />
-               <CardBody>
+               {/* <CardBody>
                     <CardTitle>
                          Uploaded{' '}
                          {props.uploadedBy ? (
@@ -20,7 +20,7 @@ const MixedPostPicture = (props) => {
                          />
                     </CardTitle>
                     <CardText>{props.caption}</CardText>
-               </CardBody>
+               </CardBody> */}
           </Card>
      );
 };

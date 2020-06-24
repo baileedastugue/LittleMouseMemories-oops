@@ -1,4 +1,16 @@
-.card-deck .card {
-  width: 20vw;
+.card {
+  height: 400px;
+  width: 400px;
+}
+
+div.card {
+  display: inline-block;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 1vw;
+  color: purple;
+  padding: 0px;
 }
 /*# sourceMappingURL=style.css.map */

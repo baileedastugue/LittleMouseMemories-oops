@@ -1,5 +1,14 @@
-.card-deck {
-  .card {
-    width: 20vw;
-  }
+.card {
+  height: 400px;
+  width: 400px;
+}
+
+div.card {
+  display: inline-block;
+  flex-direction: row;
+  // justify-content: space-between;
+  margin: 1vw;
+
+  color: purple;
+  padding: 0px;
 }

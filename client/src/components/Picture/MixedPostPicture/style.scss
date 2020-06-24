@@ -1,5 +1,15 @@
-.card-deck {
-  .card {
-    width: 20vw;
+.card {
+  img.card-img {
+    height: 400px; /* height of container */
+    width: 400px;
+    object-fit: cover;
   }
+}
+
+div.card {
+  display: inline-block;
+  flex-direction: row;
+  // justify-content: space-between;
+  margin: 1vw;
+  padding: 0px;
 }

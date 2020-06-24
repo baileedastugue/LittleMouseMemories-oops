@@ -5,9 +5,9 @@ import Moment from 'react-moment';
 
 const MixedPostPrompt = (props) => {
      return (
-          <Card style={{ width: '18rem' }}>
+          <Card>
                <CardBody>
-                    <CardTitle>
+                    {/* <CardTitle>
                          Uploaded{' '}
                          {props.uploadedBy ? (
                               <Fragment>by {props.uploadedBy} </Fragment>
@@ -17,7 +17,7 @@ const MixedPostPrompt = (props) => {
                               format='MM/DD/YYYY'
                               date={props.dateUploaded}
                          />
-                    </CardTitle>
+                    </CardTitle> */}
                     <CardText>
                          {props.prompt}
                          <br />
