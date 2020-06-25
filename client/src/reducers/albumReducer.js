@@ -13,7 +13,7 @@ import {
 
 const initialState = {
      albums: [],
-     album: '',
+     album: [],
      isLoading: true,
      error: {},
 };
@@ -35,7 +35,8 @@ export default function (state = initialState, action) {
           case GET_ALBUM_SUCCESS:
                return {
                     ...state,
-                    album: action.payload,
+                    album: action.payload.posts,
+                    albums: action.payload.data,
                     isLoading: false,
                };
           case DELETE_PICTURE_SUCCESS:
@@ -52,7 +53,7 @@ export default function (state = initialState, action) {
                return {
                     ...state,
                     error: action.payload,
-                    loading: false,
+                    isLoading: false,
                };
           default:
                return state;

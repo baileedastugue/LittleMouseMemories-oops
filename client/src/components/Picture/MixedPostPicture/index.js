@@ -5,7 +5,7 @@ import Moment from 'react-moment';
 
 const MixedPostPicture = (props) => {
      return (
-          <Card>
+          <Card onClick={props.onClick} index={props.index}>
                <CardImg
                     src={props.image}
                     alt={props.caption}

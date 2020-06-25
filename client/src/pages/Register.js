@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container } from 'reactstrap';
-import RegistrationForm from '../components/RegistrationForm';
-import AlertDiv from '../components/Alert/index';
+import RegistrationForm from '../components/Auth/RegistrationForm';
+import AlertDiv from '../components/Layout/AlertDiv';
 
 class Register extends Component {
      render() {

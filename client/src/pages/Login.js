@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LoginForm from '../components/LoginForm/index';
+import LoginForm from '../components/Auth/LoginForm';
 import { Container } from 'reactstrap';
 import AlertDiv from '../components/Layout/AlertDiv';
 

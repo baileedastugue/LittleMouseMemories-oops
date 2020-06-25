@@ -8,6 +8,7 @@ import {
      DELETE_PROMPT_SUCCESS,
      DELETE_PROMPT_FAIL,
 } from './types';
+import { getAlbum } from './albumActions';
 
 export const getPrompts = (album_id) => async (dispatch) => {
      try {
@@ -27,26 +28,34 @@ export const getPrompts = (album_id) => async (dispatch) => {
      }
 };
 
-export const addNewPrompt = (album_id, { prompt, response }) => async (
-     dispatch
-) => {
+export const addNewPrompt = (
+     album_id,
+     { prompt, response, uploadedBy, dateRecorded }
+) => async (dispatch) => {
      const config = {
           headers: {
                'Content-Type': 'application/json',
                'Access-Control-Allow-Origin': '*',
           },
      };
-     const body = JSON.stringify({ prompt, response });
+     const body = JSON.stringify({
+          prompt,
+          response,
+          uploadedBy,
+          dateRecorded,
+     });
      try {
           const res = await axios.post(
                `/api/prompts/${album_id}`,
                body,
                config
           );
+
           dispatch({
                type: ADD_PROMPT_SUCCESS,
                payload: res.data,
           });
+          dispatch(getAlbum(album_id));
           dispatch(getPrompts(album_id));
      } catch (err) {
           const errors = err.response;
@@ -82,6 +91,7 @@ export const deletePrompt = (prompt_id, album_id) => async (dispatch) => {
                     type: DELETE_PROMPT_SUCCESS,
                     payload: res.data,
                });
+               dispatch(getAlbum(album_id));
                dispatch(getPrompts(album_id));
           } catch (err) {
                const errors = err.response;

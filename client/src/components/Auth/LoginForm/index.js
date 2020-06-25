@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Form, FormGroup } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { login } from '../../actions/authActions';
+import { login } from '../../../actions/authActions';
 import { Redirect } from 'react-router-dom';
 
 const LoginForm = (props) => {

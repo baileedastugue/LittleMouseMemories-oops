@@ -3,7 +3,7 @@ import { Button } from 'reactstrap';
 
 const SubmitButton = (props) => {
      return (
-          <Button color='dark' style={{ marginBottom: '2rem' }}>
+          <Button {...props} color='dark' style={{ marginBottom: '2rem' }}>
                Submit
           </Button>
      );

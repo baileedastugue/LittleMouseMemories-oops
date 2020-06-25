@@ -5,7 +5,7 @@ import Moment from 'react-moment';
 
 const MixedPostPrompt = (props) => {
      return (
-          <Card>
+          <Card onClick={props.onClick} index={props.index}>
                <CardBody>
                     <CardText>
                          {props.prompt}

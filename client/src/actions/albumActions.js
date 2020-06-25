@@ -57,22 +57,22 @@ export const addNewAlbum = ({ title }) => async (dispatch) => {
      }
 };
 
-export const getAlbum = (id) => async (dispatch) => {
+export const getAlbum = (album_id) => async (dispatch) => {
      try {
           // console.log('line 62 in aA');
-          const res = await axios.get(`/api/albums/${id}`);
-          // console.log(res.data);
+          const res = await axios.get(`/api/albums/${album_id}`);
+          let posts = [];
+          res.data[0].pictures.map((picture) => posts.push(picture));
+          res.data[0].prompts.map((prompt) => posts.push(prompt));
+          posts.sort((a, b) => (a.dateUploaded < b.dateUploaded ? 1 : -1));
+          console.log(posts);
           dispatch({
                type: GET_ALBUM_SUCCESS,
-               payload: res.data,
+               payload: { posts: posts, data: res.data },
           });
      } catch (err) {
           dispatch({
                type: GET_ALBUM_FAIL,
-               payload: {
-                    msg: err.response.status.text,
-                    status: err.response.status,
-               },
           });
      }
 };

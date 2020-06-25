@@ -1,80 +1,98 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Container, Row } from 'reactstrap';
+import {
+     Container,
+     CarouselControl,
+     CarouselItem,
+     Carousel,
+     Card,
+     CardBody,
+     Modal,
+     Row,
+} from 'reactstrap';
 import MaterialIcon from 'material-icons-react';
 import PropTypes from 'prop-types';
 
-// import PictureCard from '../components/Posts/PictureCard';
 import Wrapper from '../components/Layout/Wrapper';
-import AddPictureForm from '../components/Posts/AddPictureForm';
-import AddPictureModal from '../components/Posts/AddPictureModal';
-// import PromptCard from '../components/Posts/PromptCard';
-import AddPromptForm from '../components/Posts/AddPromptForm';
-import AddPromptModal from '../components/Posts/AddPromptModal';
+import AddPictureForm from '../components/Picture/AddPictureForm';
+import AddPictureModal from '../components/Picture/AddPictureModal';
+import AddPromptForm from '../components/Prompt/AddPromptForm';
+import AddPromptModal from '../components/Prompt/AddPromptModal';
 import ModalButton from '../components/Buttons/ModalButton';
 import { getAlbum } from '../actions/albumActions';
 import MixedPostPicture from '../components/Picture/MixedPostPicture';
 import MixedPostPrompt from '../components/Prompt/MixedPostPrompt';
-// import SimpleReactLightbox from 'simple-react-lightbox';
+import PostCarousel from '../components/Posts/PostCarousel';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.css';
 
 const Album = (props) => {
      let pathArray = window.location.pathname.split('/');
      let albumId = pathArray[pathArray.length - 1];
 
+     console.log(props);
      useEffect(() => {
           props.getAlbum(albumId);
-     }, []);
+     }, [albumId]);
 
-     const albumContents = props.album.album[0];
-     let posts = [];
-     let albumDoneLoading = !props.album.isLoading;
-     console.log(albumDoneLoading);
-
-     albumDoneLoading
-          ? albumContents.pictures.map((picture) => posts.push(picture)) &&
-            albumContents.prompts.map((prompt) => posts.push(prompt))
-          : console.log('waiting');
-
-     posts.sort((a, b) => (a.dateUploaded < b.dateUploaded ? 1 : -1));
-
-     const photoIcon = (
-          <MaterialIcon icon='add_a_photo' color='#ffffff' size='medium' />
-     );
-
-     const promptIcon = (
-          <MaterialIcon icon='create' color='#ffffff' size='medium' />
-     );
-
+     const [promptModal, setPromptModal] = useState(false);
      const [photoModal, setPhotoModal] = useState(false);
+     const [carouselModal, setCarouselModal] = useState(false);
 
      const photoToggle = () => {
           setPhotoModal(!photoModal);
      };
 
-     const [promptModal, setPromptModal] = useState(false);
-
      const promptToggle = () => {
           setPromptModal(!promptModal);
      };
 
+     const carouselToggle = () => {
+          setCarouselModal(!carouselModal);
+     };
+
+     console.log(props.albumLoading);
+
+     const [activeIndex, setActiveIndex] = useState(0);
+     const [animating, setAnimating] = useState(false);
+
+     const next = () => {
+          if (animating) return;
+          const nextIndex =
+               activeIndex === props.album.album.length - 1
+                    ? 0
+                    : activeIndex + 1;
+          setActiveIndex(nextIndex);
+     };
+
+     const previous = () => {
+          if (animating) return;
+          const nextIndex =
+               activeIndex === 0
+                    ? props.album.album.length - 1
+                    : activeIndex - 1;
+          setActiveIndex(nextIndex);
+     };
+
+     // console.log(props.album.album[0].id);
+
      // only view posts --> hide PictureCards
      // only view picture --> hide PostsCards
      // view all memories --> view both in chronological order
-     console.log(albumContents);
-     return (
+     return props.albumLoading ? (
+          <h1>Welcome</h1>
+     ) : (
           <Fragment>
-               {albumDoneLoading ? (
-                    <h1>
-                         {albumContents.title} by {albumContents.user.firstName}{' '}
-                         {albumContents.user.lastName}
-                    </h1>
-               ) : (
-                    <h1>Memory album</h1>
-               )}
                <Wrapper>
-                    {albumDoneLoading ? (
-                         posts.map((post) => (
+                    <Fragment>
+                         <h1>
+                              {props.album.albums[0].title} by{' '}
+                              {props.album.albums[0].user.firstName}{' '}
+                              {props.album.albums[0].user.lastName}
+                         </h1>
+                    </Fragment>
+                    <Row>
+                         {props.album.album.map((post, index) => (
                               <Fragment key={post._id}>
                                    {'image' in post ? (
                                         <MixedPostPicture
@@ -84,6 +102,8 @@ const Album = (props) => {
                                              dateRecorded={post.dateRecorded}
                                              dateUploaded={post.dateUploaded}
                                              uploadedBy={post.uploadedBy}
+                                             onClick={carouselToggle}
+                                             index={index}
                                         />
                                    ) : (
                                         <MixedPostPrompt
@@ -93,25 +113,84 @@ const Album = (props) => {
                                              dateRecorded={post.dateRecorded}
                                              dateUploaded={post.dateUploaded}
                                              uploadedBy={post.uploadedBy}
+                                             onClick={carouselToggle}
+                                             index={index}
                                         />
                                    )}
                               </Fragment>
-                         ))
-                    ) : (
-                         <h1>Loading</h1>
-                    )}
+                         ))}
+                    </Row>
+                    <Modal toggle={carouselToggle} isOpen={carouselModal}>
+                         <Carousel
+                              activeIndex={activeIndex}
+                              next={next}
+                              previous={previous}
+                         >
+                              {props.album.album.map(
+                                   (post) => (
+                                        // post._id === props.album.album[1]._id ? (
+                                        //      <CarouselItem>
+                                        //           {'image' in post ? (
+                                        //                <img
+                                        //                     className='d-block w-100'
+                                        //                     src={post.image}
+                                        //                     alt={post.caption}
+                                        //                />
+                                        //           ) : (
+                                        //                <Card>
+                                        //                     <CardBody>
+                                        //                          {post.prompt}
+                                        //                          <br />
+                                        //                          {post.response}
+                                        //                     </CardBody>
+                                        //                </Card>
+                                        //           )}
+                                        //      </CarouselItem>
+                                        // ) : (
+                                        <CarouselItem>
+                                             {'image' in post ? (
+                                                  <img
+                                                       className='d-block w-100'
+                                                       src={post.image}
+                                                       alt={post.caption}
+                                                  />
+                                             ) : (
+                                                  <Card>
+                                                       <CardBody>
+                                                            {post.prompt} <br />
+                                                            {post.response}
+                                                       </CardBody>
+                                                  </Card>
+                                             )}
+                                        </CarouselItem>
+                                   )
+                                   // )
+                              )}
+
+                              <CarouselControl
+                                   direction='prev'
+                                   directionText='Previous'
+                                   onClickHandler={previous}
+                              />
+                              <CarouselControl
+                                   direction='next'
+                                   directionText='Next'
+                                   onClickHandler={next}
+                              />
+                         </Carousel>
+                    </Modal>
                </Wrapper>
-
-               {/* <SimpleReactLightbox autoplaySpeed='0'> */}
-               {/* <PictureCard /> */}
-               {/* </SimpleReactLightbox> */}
-               {/* <PromptCard /> */}
-
                {/* Buttons */}
                <Container className='buttonContainer'>
                     <ModalButton
                          className='photoButton modalButton'
-                         action={photoIcon}
+                         action={
+                              <MaterialIcon
+                                   icon='add_a_photo'
+                                   color='#ffffff'
+                                   size='medium'
+                              />
+                         }
                          onClick={photoToggle}
                     />
                     <br />
@@ -122,7 +201,13 @@ const Album = (props) => {
 
                     <ModalButton
                          className='promptButton modalButton'
-                         action={promptIcon}
+                         action={
+                              <MaterialIcon
+                                   icon='create'
+                                   color='#ffffff'
+                                   size='medium'
+                              />
+                         }
                          onClick={promptToggle}
                     />
                </Container>
@@ -139,6 +224,7 @@ const Album = (props) => {
 
 Album.propTypes = {
      isAuth: PropTypes.bool,
+     albumLoading: PropTypes.bool.isRequired,
      auth: PropTypes.object.isRequired,
      album: PropTypes.object.isRequired,
      getAlbum: PropTypes.func.isRequired,
@@ -146,8 +232,11 @@ Album.propTypes = {
 
 const mapStateToProps = (state) => ({
      isAuth: state.auth.isAuthenticated,
+     albumLoading: state.album.isLoading,
      auth: state.auth,
      album: state.album,
 });
 
 export default connect(mapStateToProps, { getAlbum })(Album);
+{
+}

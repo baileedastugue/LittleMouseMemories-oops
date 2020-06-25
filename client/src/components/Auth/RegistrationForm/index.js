@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { setAlert } from '../../actions/alertActions';
-import { register } from '../../actions/authActions';
+import { setAlert } from '../../../actions/alertActions';
+import { register } from '../../../actions/authActions';
 import { Button, Form, FormGroup } from 'reactstrap';
 import PropTypes from 'prop-types';
 
