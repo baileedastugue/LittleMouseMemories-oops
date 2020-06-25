@@ -30,7 +30,7 @@ const Album = (props) => {
      let pathArray = window.location.pathname.split('/');
      let albumId = pathArray[pathArray.length - 1];
 
-     console.log(props);
+     // console.log(props);
      useEffect(() => {
           props.getAlbum(albumId);
      }, [albumId]);
@@ -51,7 +51,7 @@ const Album = (props) => {
           setCarouselModal(!carouselModal);
      };
 
-     console.log(props.albumLoading);
+     // console.log(props.albumLoading);
 
      const [activeIndex, setActiveIndex] = useState(0);
      const [animating, setAnimating] = useState(false);
@@ -72,6 +72,11 @@ const Album = (props) => {
                     ? props.album.album.length - 1
                     : activeIndex - 1;
           setActiveIndex(nextIndex);
+     };
+
+     const onClick = (event, data) => {
+          setActiveIndex(data);
+          carouselToggle();
      };
 
      // console.log(props.album.album[0].id);
@@ -102,7 +107,9 @@ const Album = (props) => {
                                              dateRecorded={post.dateRecorded}
                                              dateUploaded={post.dateUploaded}
                                              uploadedBy={post.uploadedBy}
-                                             onClick={carouselToggle}
+                                             onClick={(event) => {
+                                                  onClick(event, index);
+                                             }}
                                              index={index}
                                         />
                                    ) : (
@@ -113,7 +120,9 @@ const Album = (props) => {
                                              dateRecorded={post.dateRecorded}
                                              dateUploaded={post.dateUploaded}
                                              uploadedBy={post.uploadedBy}
-                                             onClick={carouselToggle}
+                                             onClick={(event) => {
+                                                  onClick(event, index);
+                                             }}
                                              index={index}
                                         />
                                    )}
@@ -126,46 +135,24 @@ const Album = (props) => {
                               next={next}
                               previous={previous}
                          >
-                              {props.album.album.map(
-                                   (post) => (
-                                        // post._id === props.album.album[1]._id ? (
-                                        //      <CarouselItem>
-                                        //           {'image' in post ? (
-                                        //                <img
-                                        //                     className='d-block w-100'
-                                        //                     src={post.image}
-                                        //                     alt={post.caption}
-                                        //                />
-                                        //           ) : (
-                                        //                <Card>
-                                        //                     <CardBody>
-                                        //                          {post.prompt}
-                                        //                          <br />
-                                        //                          {post.response}
-                                        //                     </CardBody>
-                                        //                </Card>
-                                        //           )}
-                                        //      </CarouselItem>
-                                        // ) : (
-                                        <CarouselItem>
-                                             {'image' in post ? (
-                                                  <img
-                                                       className='d-block w-100'
-                                                       src={post.image}
-                                                       alt={post.caption}
-                                                  />
-                                             ) : (
-                                                  <Card>
-                                                       <CardBody>
-                                                            {post.prompt} <br />
-                                                            {post.response}
-                                                       </CardBody>
-                                                  </Card>
-                                             )}
-                                        </CarouselItem>
-                                   )
-                                   // )
-                              )}
+                              {props.album.album.map((post) => (
+                                   <CarouselItem>
+                                        {'image' in post ? (
+                                             <img
+                                                  className='d-block w-100'
+                                                  src={post.image}
+                                                  alt={post.caption}
+                                             />
+                                        ) : (
+                                             <Card>
+                                                  <CardBody>
+                                                       {post.prompt} <br />
+                                                       {post.response}
+                                                  </CardBody>
+                                             </Card>
+                                        )}
+                                   </CarouselItem>
+                              ))}
 
                               <CarouselControl
                                    direction='prev'
