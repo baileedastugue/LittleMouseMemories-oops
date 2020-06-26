@@ -33,7 +33,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.use(express.static(__dirname + '/public'));
-app.set('views', __dirname + '/public/views');
 
 // DB configuration
 var MONGODB_URI =

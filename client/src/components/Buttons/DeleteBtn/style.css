@@ -1,12 +1,11 @@
 .deleteButton {
-  color: red;
   cursor: pointer;
   display: inline;
-  padding: 1vw;
-  font-size: 1.3rem;
+  padding-left: 1vw;
+  font-size: 1rem;
 }
 
 .deleteButton:hover {
-  color: black;
+  color: #4B4847;
 }
 /*# sourceMappingURL=style.css.map */

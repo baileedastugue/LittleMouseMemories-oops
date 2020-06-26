@@ -1,12 +1,19 @@
+$focus-color: #1864bd;
+$secondary-color: #f0977f;
+$muted-color: #e9aba1;
+$dark-color: #4B4847;
+
 .deleteButton {
-  color: red;
+  // color: $secondary-color;
   cursor: pointer;
   display: inline;
-  padding: 1vw;
-  font-size: 1.3rem;
+  padding-left: 1vw;
+  // padding-top: 20vw;
+  font-size: 1rem;
+  
 }
 
 .deleteButton:hover {
-  color: black;
+  color: $dark-color;
 }
 

@@ -63,7 +63,6 @@ const Album = (props) => {
           id: 0,
           type: '',
      });
-     const [currentType, setCurrentType] = useState('');
 
      const next = () => {
           if (animating) return;
@@ -89,7 +88,6 @@ const Album = (props) => {
                id: event.target.getAttribute('data-id'),
                type: event.target.getAttribute('type'),
           });
-          // setCurrentType(event.target.getAttribute('type'));
           console.log(currentPost);
           carouselToggle();
      };

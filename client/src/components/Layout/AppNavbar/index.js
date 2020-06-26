@@ -1,9 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../../actions/authActions';
 import { Redirect } from 'react-router-dom';
+import './style.css';
 
 const AppNavbar = (props) => {
      const logout = () => {
@@ -44,14 +45,22 @@ const AppNavbar = (props) => {
      // console.log('authenticated', isAuth);
      return (
           <div>
-               <Navbar color='dark' dark className='mb-5'>
+               <Navbar className='mb-5'>
                     {!isAuth ? (
                          <NavbarBrand href='/'>
-                              Little Mouse Memories
+                              <img
+                                   src='./img/logo_owb.png'
+                                   alt='two elephants hugging'
+                              />
+                              <span>Elephant Memory</span>
                          </NavbarBrand>
                     ) : (
                          <NavbarBrand href='/dashboard'>
-                              Little Mouse Memories
+                              <img
+                                   src='./img/logo_owb.png'
+                                   alt='two elephants hugging'
+                              />
+                              Elephant Memory
                          </NavbarBrand>
                     )}
 

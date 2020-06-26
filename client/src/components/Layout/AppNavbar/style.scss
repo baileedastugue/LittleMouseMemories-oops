@@ -1,0 +1,52 @@
+$focus-color: #1864bd;
+$secondary-color: #f0977f;
+$muted-color: #e9aba1;
+$dark-color: #4B4847;
+$abundant-color: white;
+
+$focus-text: 'Fjalla One', sans-serif;
+// $secondary-text: 'Montserrat', sans-serif;
+$secondary-text: 'Raleway', sans-serif;
+
+.navbar {
+  background-color:$dark-color;
+  padding: 1.2vw;
+
+  a.navbar-brand {
+    font-family: $focus-text;
+    margin: 0vw;
+    padding-left: 0vw;
+    font-size: 2.5em;
+    color: $focus-color;
+    // padding: 1vw;
+    line-height:2rem;
+    text-align: right;
+    img {
+      height: 8vw;
+      padding: 0px;
+      margin: 0px;
+      display: block;
+      left: 4vw;
+      top: 0vw;
+      position: absolute;
+      z-index: 10;
+    }
+    span {
+      margin: 12vw;
+    }
+  }
+  .navbar-brand:visited {
+    color: $focus-color;
+  }
+  a {
+    color: $abundant-color;
+    font-family: $secondary-texts;
+  }
+  a:visited {
+    color: $abundant-color;
+  }
+  a:hover{
+    color: $secondary-color;
+    cursor: pointer;
+  }
+}

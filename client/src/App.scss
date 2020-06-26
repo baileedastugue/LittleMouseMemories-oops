@@ -1,9 +1,12 @@
 $focus-color: #1864bd;
 $secondary-color: #f0977f;
 $muted-color: #e9aba1;
-$dark-color: #e9aba1;
+$dark-color: #4B4847;
+$abundant-color: white;
 
-
+#root {
+  background-color: $abundant-color;
+}
 
 .buttonContainer {
   position: sticky;
