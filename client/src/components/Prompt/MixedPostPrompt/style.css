@@ -1,9 +1,4 @@
-.card {
-  height: 400px;
-  width: 400px;
-}
-
-div.card {
+.div.mixedPostPrompt {
   display: inline-block;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -11,12 +6,18 @@ div.card {
           flex-direction: row;
   margin: 1vw;
   padding: 0px;
-  background-color: #E9ABA1;
-  color: white;
-  font-size: 2rem;
+  position: relative;
+  cursor: pointer;
 }
 
-.overlay {
+.div.mixedPostPrompt img.card-img {
+  height: 400px;
+  width: 400px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.div.mixedPostPrompt .overlay {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -30,11 +31,7 @@ div.card {
   background-color: #4B4847;
 }
 
-.card:hover .overlay {
-  opacity: .75;
-}
-
-.text {
+.div.mixedPostPrompt .text {
   color: white;
   font-size: 20px;
   position: absolute;
@@ -43,5 +40,13 @@ div.card {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
+}
+
+.mixedPostPrompt.card:hover .overlay {
+  opacity: 1;
+}
+
+.overlay {
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

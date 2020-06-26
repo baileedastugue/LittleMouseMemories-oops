@@ -9,8 +9,9 @@ $focus-text: 'Fjalla One', sans-serif;
 $secondary-text: 'Raleway', sans-serif;
 
 .navbar {
-  background-color:$dark-color;
+  // background-color:black;
   padding: 1.2vw;
+  border-bottom: 5px double black;
 
   a.navbar-brand {
     font-family: $focus-text;
@@ -39,11 +40,11 @@ $secondary-text: 'Raleway', sans-serif;
     color: $focus-color;
   }
   a {
-    color: $abundant-color;
-    font-family: $secondary-texts;
+    color: $muted-color;
+    font-family: $secondary-text;
   }
   a:visited {
-    color: $abundant-color;
+    color: $muted-color;
   }
   a:hover{
     color: $secondary-color;

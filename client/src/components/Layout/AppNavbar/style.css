@@ -1,6 +1,6 @@
 .navbar {
-  background-color: #4B4847;
   padding: 1.2vw;
+  border-bottom: 5px double black;
 }
 
 .navbar a.navbar-brand {
@@ -33,15 +33,16 @@
 }
 
 .navbar a {
-  color: white;
+  color: #e9aba1;
   font-family: "Raleway", sans-serif;
 }
 
 .navbar a:visited {
-  color: white;
+  color: #e9aba1;
 }
 
 .navbar a:hover {
   color: #f0977f;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */
