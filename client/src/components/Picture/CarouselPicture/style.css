@@ -1,0 +1,44 @@
+.card.carouselPicture {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 90%;
+  height: 45vw;
+  margin-left: 2.5vw;
+  font-size: inherit;
+  background-color: white;
+  color: black;
+  border: none;
+}
+
+.card.carouselPicture .card-title {
+  height: 3vw;
+}
+
+.card.carouselPicture .card-subtitle {
+  height: 2vw;
+}
+
+.card.carouselPicture .card-body {
+  height: 5vw;
+  overflow-y: auto;
+  white-space: normal;
+}
+
+.card.carouselPicture .card-img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 35vw;
+  width: 35vw;
+}
+
+.card.carouselPicture .vertical-center {
+  display: inline-block;
+  vertical-align: middle;
+  height: 35vw;
+  text-align: center;
+}
+/*# sourceMappingURL=style.css.map */

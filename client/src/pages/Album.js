@@ -22,9 +22,11 @@ import ModalButton from '../components/Buttons/ModalButton';
 import { getAlbum } from '../actions/albumActions';
 import MixedPostPicture from '../components/Picture/MixedPostPicture';
 import MixedPostPrompt from '../components/Prompt/MixedPostPrompt';
-import PostCarousel from '../components/Posts/PostCarousel';
+import PageTitle from '../components/Layout/PageTitle';
+import CarouselPicture from '../components/Picture/CarouselPicture';
+import CarouselPrompt from '../components/Prompt/CarouselPrompt';
+import DeleteBtn from '../components/Buttons/DeleteBtn';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../App.css';
 
 const Album = (props) => {
      let pathArray = window.location.pathname.split('/');
@@ -49,6 +51,12 @@ const Album = (props) => {
 
      const carouselToggle = () => {
           setCarouselModal(!carouselModal);
+     };
+
+     const deleteClick = async (event) => {
+          event.preventDefault();
+          const picture_id = event.target.getAttribute('data-id');
+          props.deletePicture(picture_id, albumId);
      };
 
      // console.log(props.albumLoading);
@@ -88,14 +96,15 @@ const Album = (props) => {
           <h1>Welcome</h1>
      ) : (
           <Fragment>
+               <Container>
+                    <PageTitle>
+                         {props.album.albums[0].title} by{' '}
+                         {props.album.albums[0].user.firstName}{' '}
+                         {props.album.albums[0].user.lastName}
+                    </PageTitle>
+               </Container>
+               {/* <hr /> */}
                <Wrapper>
-                    <Fragment>
-                         <h1>
-                              {props.album.albums[0].title} by{' '}
-                              {props.album.albums[0].user.firstName}{' '}
-                              {props.album.albums[0].user.lastName}
-                         </h1>
-                    </Fragment>
                     <Row>
                          {props.album.album.map((post, index) => (
                               <Fragment key={post._id}>
@@ -129,7 +138,12 @@ const Album = (props) => {
                               </Fragment>
                          ))}
                     </Row>
-                    <Modal toggle={carouselToggle} isOpen={carouselModal}>
+                    <Modal
+                         toggle={carouselToggle}
+                         isOpen={carouselModal}
+                         centered={true}
+                         size='lg'
+                    >
                          <Carousel
                               activeIndex={activeIndex}
                               next={next}
@@ -138,19 +152,34 @@ const Album = (props) => {
                               {props.album.album.map((post) => (
                                    <CarouselItem>
                                         {'image' in post ? (
-                                             <img
-                                                  className='d-block w-100'
-                                                  src={post.image}
-                                                  alt={post.caption}
+                                             <CarouselPicture
+                                                  image={post.image}
+                                                  caption={post.caption}
+                                                  dateRecorded={
+                                                       post.dateRecorded
+                                                  }
+                                                  dateUploaded={
+                                                       post.dateUploaded
+                                                  }
                                              />
                                         ) : (
-                                             <Card>
-                                                  <CardBody>
-                                                       {post.prompt} <br />
-                                                       {post.response}
-                                                  </CardBody>
-                                             </Card>
+                                             <CarouselPrompt
+                                                  response={post.response}
+                                                  prompt={post.prompt}
+                                                  dateRecorded={
+                                                       post.dateRecorded
+                                                  }
+                                                  dateUploaded={
+                                                       post.dateUploaded
+                                                  }
+                                             />
                                         )}
+                                        {props.auth.isAuthenticated ? (
+                                             <DeleteBtn
+                                                  id={post._id}
+                                                  deleteClick={deleteClick}
+                                             />
+                                        ) : null}
                                    </CarouselItem>
                               ))}
 

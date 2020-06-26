@@ -65,8 +65,8 @@ const AddPromptForm = (props) => {
                     </FormGroup>
                     <FormGroup>
                          <label htmlFor='response'>Response</label>
-                         <input
-                              type='text'
+                         <textarea
+                              // type='textarea'
                               name='response'
                               className='form-control'
                               onChange={(event) => onChange(event)}

@@ -1,12 +1,4 @@
-.card img.card-img {
-  height: 400px;
-  /* height of container */
-  width: 400px;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-div.card {
+.card.mixedPostPicture {
   display: inline-block;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -15,9 +7,18 @@ div.card {
   margin: 1vw;
   padding: 0px;
   position: relative;
+  cursor: pointer;
 }
 
-.overlay {
+.card.mixedPostPicture img.card-img {
+  height: 400px;
+  /* height of container */
+  width: 400px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.card.mixedPostPicture .overlay {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -31,11 +32,11 @@ div.card {
   background-color: #4B4847;
 }
 
-.card:hover .overlay {
+.card.mixedPostPicture .card:hover .overlay {
   opacity: .75;
 }
 
-.text {
+.card.mixedPostPicture .text {
   color: white;
   font-size: 20px;
   position: absolute;

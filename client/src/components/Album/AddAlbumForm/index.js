@@ -28,6 +28,7 @@ const AddAlbumForm = (props) => {
           } else {
                try {
                     props.addNewAlbum({ title });
+
                     setFormData({ ...formData, title: '' });
                } catch (err) {}
           }
@@ -51,7 +52,7 @@ const AddAlbumForm = (props) => {
                               value={title}
                          />
                     </FormGroup>
-                    <SubmitButton onClick={props.toggle} />
+                    <SubmitButton />
                </Form>
           </Fragment>
      );

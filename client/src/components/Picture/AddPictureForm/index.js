@@ -73,9 +73,11 @@ const AddPictureForm = (props) => {
                     onSubmit={onSubmit}
                >
                     <FormGroup>
+                         <input type='file' name='image' onChange={onDrop} />
+                    </FormGroup>
+                    <FormGroup>
                          <label htmlFor='caption'>Caption</label>
-                         <input
-                              type='text'
+                         <textarea
                               name='caption'
                               className='form-control'
                               onChange={onCaptionChange}
@@ -103,9 +105,6 @@ const AddPictureForm = (props) => {
                               onChange={onDateRecordedChange}
                               value={dateRecorded}
                          />
-                    </FormGroup>
-                    <FormGroup>
-                         <input type='file' name='image' onChange={onDrop} />
                     </FormGroup>
                     <SubmitButton />
                </Form>

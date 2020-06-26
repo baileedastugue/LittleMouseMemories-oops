@@ -39,6 +39,7 @@ export const addNewAlbum = ({ title }) => async (dispatch) => {
      const body = JSON.stringify({ title });
      try {
           const res = await axios.post('/api/albums/', body, config);
+          console.log(res);
           dispatch({
                type: ADD_ALBUM_SUCCESS,
                payload: res.data,

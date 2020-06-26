@@ -1,0 +1,45 @@
+.card.carouselPrompt {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 90%;
+  height: 45vw;
+  margin-left: 2.5vw;
+  font-size: inherit;
+  background-color: white;
+  color: black;
+  border: none;
+}
+
+.card.carouselPrompt .card-title {
+  height: 3vw;
+}
+
+.card.carouselPrompt .card-subtitle {
+  height: 2vw;
+}
+
+.card.carouselPrompt .card-body {
+  height: 5vw;
+  overflow-y: auto;
+  white-space: normal;
+}
+
+.card.carouselPrompt div.memoryArea {
+  height: 35vw;
+  width: 35vw;
+  background-color: #1864bd;
+  color: red;
+  font-size: 2rem;
+}
+
+.card.carouselPrompt .vertical-center {
+  display: inline-block;
+  vertical-align: middle;
+  height: 35vw;
+  text-align: center;
+}
+/*# sourceMappingURL=style.css.map */
