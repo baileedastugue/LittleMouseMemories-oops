@@ -47,6 +47,15 @@ const AddPictureForm = (props) => {
                     'Picture memories must include an image',
                     'danger'
                );
+          } else if (
+               caption === '' ||
+               uploadedBy === '' ||
+               dateRecorded === ''
+          ) {
+               props.setAlert(
+                    'Please fill out all fields to thoroughly document your memory!',
+                    'danger'
+               );
           } else {
                try {
                     await props.addNewPicture(albumId, formData);

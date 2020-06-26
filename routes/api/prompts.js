@@ -56,6 +56,15 @@ router.post(
      '/:album_id',
      [check('prompt', 'Please select a prompt').not().isEmpty()],
      [check('response', 'Please provide a response').not().isEmpty()],
+     [
+          check(
+               'dateRecorded',
+               'Please provide the date associated with this memory'
+          )
+               .not()
+               .isEmpty(),
+     ],
+     [check('uploadedBy', 'Please include your name').not().isEmpty()],
      async (req, res) => {
           const errors = validationResult(req);
           if (!errors.isEmpty()) {

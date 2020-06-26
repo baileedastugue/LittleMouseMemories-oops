@@ -25,9 +25,14 @@ const AddPromptForm = (props) => {
           event.preventDefault();
           let pathArray = window.location.pathname.split('/');
           let albumId = pathArray[pathArray.length - 1];
-          if (prompt === '' || response === '') {
+          if (
+               prompt === '' ||
+               response === '' ||
+               uploadedBy === '' ||
+               dateRecorded === ''
+          ) {
                props.setAlert(
-                    'Please include a prompt and a response in your memory submission',
+                    'Please fill out all fields to thoroughly document your memory!',
                     'danger'
                );
           } else {

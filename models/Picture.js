@@ -20,12 +20,15 @@ const PictureSchema = new Schema({
      },
      dateRecorded: {
           type: Date,
+          default: Date.now,
      },
      caption: {
           type: String,
+          required: true,
      },
      uploadedBy: {
           type: String,
+          required: true,
      },
 });
 

@@ -25,9 +25,12 @@ var PromptSchema = new Schema({
      },
      dateRecorded: {
           type: Date,
+          required: true,
+          default: Date.now,
      },
      uploadedBy: {
           type: String,
+          required: true,
      },
 });
 

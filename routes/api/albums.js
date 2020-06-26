@@ -64,7 +64,7 @@ router.get('/:album_id', async (req, res) => {
 
           if (!album) {
                res.status(400).json({
-                    msg: 'There are no albums for this user',
+                    msg: 'This album does not exist for this user',
                });
           }
           console.log(album);
@@ -74,7 +74,76 @@ router.get('/:album_id', async (req, res) => {
           if (err.kind === 'ObjectId') {
                return res
                     .status(404)
-                    .json({ msg: 'There are no albums for this user' });
+                    .json({ msg: 'This album does not exist for this user' });
+          }
+          res.status(500).send('Server error');
+     }
+});
+
+// @route   GET api/albums/:album_id/pictures
+// @desc    Get pictures from one album
+// @access  Public
+router.get('/:album_id/pictures', async (req, res) => {
+     try {
+          // const user_id = req.user.id;
+          const album_id = req.params.album_id;
+          const album = await Album.find({
+               _id: album_id,
+          })
+               .populate('user', ['firstName', 'lastName', '_id'])
+               .populate('pictures', [
+                    'image',
+                    'dateUploaded',
+                    'dateRecorded',
+                    'uploadedBy',
+                    'caption',
+               ]);
+          if (!album) {
+               res.status(400).json({
+                    msg: 'This album does not exist for this user',
+               });
+          }
+          res.json(album);
+     } catch (err) {
+          console.error(err.message);
+          if (err.kind === 'ObjectId') {
+               return res
+                    .status(404)
+                    .json({ msg: 'This album does not exist for this user' });
+          }
+          res.status(500).send('Server error');
+     }
+});
+
+// @route   GET api/albums/:album_id/prompts
+// @desc    Get prompts from one album
+// @access  Public
+router.get('/:album_id', async (req, res) => {
+     try {
+          const album = await Album.find({
+               _id: album_id,
+          })
+               .populate('user', ['firstName', 'lastName', '_id'])
+               .populate('prompts', [
+                    'prompt',
+                    'response',
+                    'dateUploaded',
+                    'dateRecorded',
+                    'uploadedBy',
+               ]);
+
+          if (!album) {
+               res.status(400).json({
+                    msg: 'This album does not exist for this user',
+               });
+          }
+          res.json(album);
+     } catch (err) {
+          console.error(err.message);
+          if (err.kind === 'ObjectId') {
+               return res
+                    .status(404)
+                    .json({ msg: 'This album does not exist for this user' });
           }
           res.status(500).send('Server error');
      }

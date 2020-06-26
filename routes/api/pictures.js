@@ -63,8 +63,13 @@ router.get('/:picture_id', async (req, res) => {
 // @access  Public
 router.post(
      '/:album_id',
-
-     // [check('image', 'Please include a picture').not().isEmpty()],
+     [check('caption', 'Please include a caption').not().isEmpty()],
+     [
+          check('dateRecorded', 'Please include the date this photo was taken')
+               .not()
+               .isEmpty(),
+     ],
+     [check('uploadedBy', 'Please include your name').not().isEmpty()],
      async (req, res, next) => {
           const errors = validationResult(req);
           if (!errors.isEmpty()) {
