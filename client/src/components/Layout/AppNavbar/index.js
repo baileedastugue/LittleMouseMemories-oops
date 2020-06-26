@@ -45,7 +45,16 @@ const AppNavbar = (props) => {
      return (
           <div>
                <Navbar color='dark' dark className='mb-5'>
-                    <NavbarBrand href='/'>Little Mouse Memories</NavbarBrand>
+                    {!isAuth ? (
+                         <NavbarBrand href='/'>
+                              Little Mouse Memories
+                         </NavbarBrand>
+                    ) : (
+                         <NavbarBrand href='/dashboard'>
+                              Little Mouse Memories
+                         </NavbarBrand>
+                    )}
+
                     {loading || !isAuth ? loggedOutLinks : loggedInLinks}
                </Navbar>
           </div>

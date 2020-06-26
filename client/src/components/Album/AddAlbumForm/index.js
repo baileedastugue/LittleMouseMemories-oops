@@ -28,8 +28,8 @@ const AddAlbumForm = (props) => {
           } else {
                try {
                     props.addNewAlbum({ title });
-
                     setFormData({ ...formData, title: '' });
+                    props.toggle();
                } catch (err) {}
           }
      };

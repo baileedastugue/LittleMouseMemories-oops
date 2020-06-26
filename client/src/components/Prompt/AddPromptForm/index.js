@@ -50,6 +50,7 @@ const AddPromptForm = (props) => {
                          uploadedBy: '',
                          dateRecorded: '',
                     });
+                    props.toggle();
                } catch (err) {}
           }
      };
