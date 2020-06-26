@@ -10,6 +10,8 @@ import AlbumList from '../components/Album/AlbumList';
 import AddAlbumForm from '../components/Album/AddAlbumForm';
 import AddAlbumModal from '../components/Album/AddAlbumModal';
 import ModalButton from '../components/Buttons/ModalButton';
+import Wrapper from '../components/Layout/Wrapper';
+import AlertDiv from '../components/Layout/AlertDiv';
 import '../App.css';
 
 const Dashboard = (props) => {
@@ -29,7 +31,7 @@ const Dashboard = (props) => {
 
      return (
           <Fragment>
-               <Container>
+               <Wrapper>
                     {!userLoading ? (
                          <PageTitle>
                               Welcome to your memories,{' '}
@@ -39,11 +41,16 @@ const Dashboard = (props) => {
                     ) : (
                          <h1>Loading User Data</h1>
                     )}
-               </Container>
-               <Container>
-                    <h5 className='lead'>Your Memory Albums</h5>
-                    <AlbumList />
-               </Container>
+               </Wrapper>
+               <Wrapper>
+                    <AlertDiv />
+               </Wrapper>
+               <Wrapper>
+                    <Fragment>
+                         {/* <h5 className='lead'>Your Memory Albums</h5> */}
+                         <AlbumList />
+                    </Fragment>
+               </Wrapper>
 
                <Container className='buttonContainer'>
                     <ModalButton

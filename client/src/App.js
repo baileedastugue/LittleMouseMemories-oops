@@ -36,8 +36,8 @@ const App = () => {
 
      return (
           <Provider store={store}>
+               <AppNavbar />
                <Router>
-                    <AppNavbar />
                     <Route exact path='/' component={Welcome} />
                     <section className='container-fluid'>
                          <Switch>

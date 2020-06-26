@@ -191,7 +191,7 @@ const Album = (props) => {
                               previous={previous}
                          >
                               {props.album.album.map((post) => (
-                                   <CarouselItem>
+                                   <CarouselItem key={post._id}>
                                         {'image' in post ? (
                                              <CarouselPicture
                                                   image={post.image}

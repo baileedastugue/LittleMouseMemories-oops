@@ -8,19 +8,16 @@ $focus-text: 'Fjalla One', sans-serif;
 // $secondary-text: 'Montserrat', sans-serif;
 $secondary-text: 'Raleway', sans-serif;
 
-.div.mixedPostPrompt {
+div.mixedPostPrompt.card {
   display: inline-block;
   flex-direction: row;
   margin: 1vw;
   padding: 0px;
   position: relative;
   cursor: pointer;
+  height: 400px;
+  width: 400px;
   
-  img.card-img {
-    height: 400px;
-    width: 400px;
-    object-fit: cover;
-  }
   .overlay {
     position: absolute;
     top: 0;

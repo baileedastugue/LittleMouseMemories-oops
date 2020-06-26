@@ -1,9 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import DeleteBtn from '../../Buttons/DeleteBtn';
+import {
+     Card,
+     Row,
+     CardFooter,
+     CardBody,
+     CardText,
+     CardTitle,
+} from 'reactstrap';
 import { getAllAlbums, deleteAlbum } from '../../../actions/albumActions';
 
 import './style.css';
@@ -25,13 +33,35 @@ const AlbumList = (props) => {
 
      return albumLength > 0 && !albumLoading ? (
           props.albums.albums.map((album) => (
-               <div key={album._id}>
-                    <Link to={`/album/${album._id}`}>{album.title}</Link>
-                    <DeleteBtn id={album._id} deleteClick={deleteClick} />
-                    <br />
-                    Posted on:{' '}
-                    <Moment format='MM/DD/YYYY' date={album.date}></Moment>
-               </div>
+               <Fragment>
+                    <div className='albumList'>
+                         <CardBody>
+                              <CardText>
+                                   <Link
+                                        to={`/album/${album._id}`}
+                                        key={album._id}
+                                   >
+                                        <h1>{album.title}</h1>
+                                   </Link>
+                              </CardText>
+                         </CardBody>
+                         <div className='overlay'>
+                              <CardTitle className='text'>
+                                   Created on:{' '}
+                                   <Moment
+                                        format='MM/DD/YYYY'
+                                        date={album.date}
+                                   ></Moment>
+                              </CardTitle>
+                         </div>
+                         <CardFooter className='albumListBelow'>
+                              <DeleteBtn
+                                   id={album._id}
+                                   deleteClick={deleteClick}
+                              />
+                         </CardFooter>
+                    </div>
+               </Fragment>
           ))
      ) : (
           <h1>Loading your albums</h1>

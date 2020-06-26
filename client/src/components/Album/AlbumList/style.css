@@ -1,14 +1,10 @@
-.remove-btn {
-    margin-right: 0.5rem;
-}
-
-.fade-enter {
+/* .fade-enter {
     opacity: 0.01;
 }
 
 .fade-enter-active {
     opacity: 1;
-    transition: opacity 1000ms ease-in;
+    transition: opacity 3000ms ease-in;
 }
 
 .fade-exit {
@@ -17,5 +13,64 @@
 
 .fade-exit-active {
     opacity: 0.01;
-    transition: opacity 1000ms ease-in;
+    transition: opacity 3000ms ease-in;
+} */
+div.albumList {
+  position: relative;
+  margin: 1vw;
+  display: inline-block;
+  color: white;
 }
+
+div.albumList .card-body {
+  width: 400px;
+  height: 350px;
+  background-color: lightgray;
+}
+
+div.albumList .overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 350px;
+  width: 400px;
+  opacity: 0;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+  background-color: #4B4847;
+  cursor: pointer;
+}
+
+div.albumList .text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+div.albumList .albumListBelow.card-footer {
+  width: 400px;
+  height: 50px;
+  background-color: lightgray;
+  border: none;
+}
+
+div.albumList .albumListBelow.card-footer:hover {
+  background-color: #4B4847;
+}
+
+.albumList:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.albumList:hover .overlay {
+  opacity: 1;
+}
+/*# sourceMappingURL=style.css.map */

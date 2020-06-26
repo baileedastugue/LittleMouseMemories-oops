@@ -1,4 +1,4 @@
-.div.mixedPostPrompt {
+div.mixedPostPrompt.card {
   display: inline-block;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -8,16 +8,11 @@
   padding: 0px;
   position: relative;
   cursor: pointer;
-}
-
-.div.mixedPostPrompt img.card-img {
   height: 400px;
   width: 400px;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 
-.div.mixedPostPrompt .overlay {
+div.mixedPostPrompt.card .overlay {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -31,7 +26,7 @@
   background-color: #4B4847;
 }
 
-.div.mixedPostPrompt .text {
+div.mixedPostPrompt.card .text {
   color: white;
   font-size: 20px;
   position: absolute;

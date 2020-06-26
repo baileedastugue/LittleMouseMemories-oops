@@ -60,7 +60,7 @@ const AppNavbar = (props) => {
                                    src='./img/logo_owb.png'
                                    alt='two elephants hugging'
                               />
-                              Elephant Memory
+                              <span>Elephant Memory</span>
                          </NavbarBrand>
                     )}
 
