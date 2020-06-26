@@ -39,7 +39,6 @@ export const addNewAlbum = ({ title }) => async (dispatch) => {
      const body = JSON.stringify({ title });
      try {
           const res = await axios.post('/api/albums/', body, config);
-          console.log(res);
           dispatch({
                type: ADD_ALBUM_SUCCESS,
                payload: res.data,
@@ -60,13 +59,11 @@ export const addNewAlbum = ({ title }) => async (dispatch) => {
 
 export const getAlbum = (album_id) => async (dispatch) => {
      try {
-          // console.log('line 62 in aA');
           const res = await axios.get(`/api/albums/${album_id}`);
           let posts = [];
           res.data[0].pictures.map((picture) => posts.push(picture));
           res.data[0].prompts.map((prompt) => posts.push(prompt));
           posts.sort((a, b) => (a.dateUploaded < b.dateUploaded ? 1 : -1));
-          console.log(posts);
           dispatch({
                type: GET_ALBUM_SUCCESS,
                payload: { posts: posts, data: res.data },

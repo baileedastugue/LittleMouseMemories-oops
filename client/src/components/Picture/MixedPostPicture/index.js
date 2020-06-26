@@ -7,17 +7,20 @@ const MixedPostPicture = (props) => {
      return (
           <Card
                onClick={props.onClick}
-               dataId={props.index}
+               data-id={props.id}
+               type='picture'
                className='mixedPostPicture'
           >
                <CardImg
+                    type='picture'
                     src={props.image}
+                    data-id={props.id}
                     alt={props.caption}
                     className='image'
                />
-               <CardBody className='overlay'>
+               <CardBody className='overlay' data-id={props.id} type='picture'>
                     {/* <CardTitle> */}
-                    <div className='text'>
+                    <div className='text' type='picture' data-id={props.id}>
                          Uploaded{' '}
                          {props.uploadedBy ? (
                               <Fragment>by {props.uploadedBy} </Fragment>

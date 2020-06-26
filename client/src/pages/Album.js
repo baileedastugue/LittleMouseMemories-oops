@@ -8,7 +8,9 @@ import {
      Card,
      CardBody,
      Modal,
+     ModalHeader,
      Row,
+     ModalFooter,
 } from 'reactstrap';
 import MaterialIcon from 'material-icons-react';
 import PropTypes from 'prop-types';
@@ -26,6 +28,8 @@ import PageTitle from '../components/Layout/PageTitle';
 import CarouselPicture from '../components/Picture/CarouselPicture';
 import CarouselPrompt from '../components/Prompt/CarouselPrompt';
 import DeleteBtn from '../components/Buttons/DeleteBtn';
+import { deletePicture } from '../actions/pictureActions';
+import { deletePrompt } from '../actions/promptActions';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Album = (props) => {
@@ -53,16 +57,13 @@ const Album = (props) => {
           setCarouselModal(!carouselModal);
      };
 
-     const deleteClick = async (event) => {
-          event.preventDefault();
-          const picture_id = event.target.getAttribute('data-id');
-          props.deletePicture(picture_id, albumId);
-     };
-
-     // console.log(props.albumLoading);
-
      const [activeIndex, setActiveIndex] = useState(0);
      const [animating, setAnimating] = useState(false);
+     const [currentPost, setCurrentPost] = useState({
+          id: 0,
+          type: '',
+     });
+     const [currentType, setCurrentType] = useState('');
 
      const next = () => {
           if (animating) return;
@@ -84,6 +85,29 @@ const Album = (props) => {
 
      const onClick = (event, data) => {
           setActiveIndex(data);
+          setCurrentPost({
+               id: event.target.getAttribute('data-id'),
+               type: event.target.getAttribute('type'),
+          });
+          // setCurrentType(event.target.getAttribute('type'));
+          console.log(currentPost);
+          carouselToggle();
+     };
+     const externalCloseBtn = (
+          <button
+               className='close'
+               style={{ position: 'absolute', top: '3.5vw', right: '28vw' }}
+               onClick={carouselToggle}
+          >
+               &times;
+          </button>
+     );
+     const deleteClick = async (event) => {
+          event.preventDefault();
+          console.log(currentPost.type);
+          currentPost.type === 'picture'
+               ? props.deletePicture(currentPost.id, albumId)
+               : props.deletePrompt(currentPost.id, albumId);
           carouselToggle();
      };
 
@@ -110,7 +134,9 @@ const Album = (props) => {
                               <Fragment key={post._id}>
                                    {'image' in post ? (
                                         <MixedPostPicture
+                                             type='picture'
                                              key={post._id}
+                                             id={post._id}
                                              image={post.image}
                                              caption={post.caption}
                                              dateRecorded={post.dateRecorded}
@@ -123,7 +149,10 @@ const Album = (props) => {
                                         />
                                    ) : (
                                         <MixedPostPrompt
+                                             type='prompt'
                                              key={post._id}
+                                             id={post._id}
+                                             isAuth={props.isAuth}
                                              prompt={post.prompt}
                                              response={post.response}
                                              dateRecorded={post.dateRecorded}
@@ -133,7 +162,7 @@ const Album = (props) => {
                                                   onClick(event, index);
                                              }}
                                              index={index}
-                                        />
+                                        ></MixedPostPrompt>
                                    )}
                               </Fragment>
                          ))}
@@ -143,7 +172,21 @@ const Album = (props) => {
                          isOpen={carouselModal}
                          centered={true}
                          size='lg'
+                         external={externalCloseBtn}
                     >
+                         {/* <ModalHeader
+                              close='close'
+                              onClick={carouselToggle}
+                         ></ModalHeader> */}
+                         {props.isAuth ? (
+                              <ModalHeader>
+                                   {' '}
+                                   <DeleteBtn
+                                        // data-id={}
+                                        deleteClick={deleteClick}
+                                   />
+                              </ModalHeader>
+                         ) : null}
                          <Carousel
                               activeIndex={activeIndex}
                               next={next}
@@ -174,12 +217,6 @@ const Album = (props) => {
                                                   }
                                              />
                                         )}
-                                        {props.auth.isAuthenticated ? (
-                                             <DeleteBtn
-                                                  id={post._id}
-                                                  deleteClick={deleteClick}
-                                             />
-                                        ) : null}
                                    </CarouselItem>
                               ))}
 
@@ -244,6 +281,8 @@ Album.propTypes = {
      auth: PropTypes.object.isRequired,
      album: PropTypes.object.isRequired,
      getAlbum: PropTypes.func.isRequired,
+     deletePicture: PropTypes.func.isRequired,
+     deletePrompt: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -253,6 +292,8 @@ const mapStateToProps = (state) => ({
      album: state.album,
 });
 
-export default connect(mapStateToProps, { getAlbum })(Album);
-{
-}
+export default connect(mapStateToProps, {
+     getAlbum,
+     deletePicture,
+     deletePrompt,
+})(Album);

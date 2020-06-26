@@ -7,23 +7,31 @@ const MixedPostPrompt = (props) => {
      return (
           <Card
                onClick={props.onClick}
-               index={props.index}
+               data-id={props.id}
+               type='prompt'
                className='mixedPostPrompt'
           >
-               <CardBody>
-                    <CardText>
+               <CardBody data-id={props.id} type='prompt'>
+                    <CardText data-id={props.id} type='prompt'>
                          {props.prompt}
                          <br />
                          {props.response}
                     </CardText>
-                    <div className='overlay'>
-                         <CardTitle className='text'>
+                    <div className='overlay' data-id={props.id} type='prompt'>
+                         <CardTitle
+                              className='text'
+                              data-id={props.id}
+                              type='prompt'
+                         >
                               Uploaded{' '}
                               {props.uploadedBy ? (
-                                   <Fragment>by {props.uploadedBy} </Fragment>
+                                   <Fragment data-id={props.id}>
+                                        by {props.uploadedBy}{' '}
+                                   </Fragment>
                               ) : null}
                               on{' '}
                               <Moment
+                                   data-id={props.id}
                                    format='MM/DD/YYYY'
                                    date={props.dateUploaded}
                               />
