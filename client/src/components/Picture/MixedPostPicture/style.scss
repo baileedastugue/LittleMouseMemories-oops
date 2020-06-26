@@ -13,12 +13,12 @@ $dark-color: #4B4847;
   position: relative;
   cursor: pointer;
 
-  img.card-img {
+  .card-img {
     height: 400px; /* height of container */
     width: 400px;
     object-fit: cover;
   }
-  .overlay {
+  .overlay.card-body {
     position: absolute;
     top: 0;
     bottom: 0;

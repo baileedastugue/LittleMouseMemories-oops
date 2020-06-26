@@ -15,6 +15,7 @@ import AlertDiv from '../components/Layout/AlertDiv';
 import '../App.css';
 
 const Dashboard = (props) => {
+     // const materialIconRef = useRef();
      const addIcon = <MaterialIcon icon='add' color='#ffffff' size='large' />;
 
      const [modal, setModal] = useState(false);

@@ -10,6 +10,9 @@ div.mixedPostPrompt.card {
   cursor: pointer;
   height: 400px;
   width: 400px;
+  background-color: #f0977f;
+  color: white;
+  font-size: 2rem;
 }
 
 div.mixedPostPrompt.card .overlay {

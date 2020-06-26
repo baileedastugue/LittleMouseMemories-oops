@@ -5,12 +5,12 @@ import {
      CarouselControl,
      CarouselItem,
      Carousel,
-     Card,
-     CardBody,
+     // Card,
+     // CardBody,
      Modal,
      ModalHeader,
      Row,
-     ModalFooter,
+     // ModalFooter,
 } from 'reactstrap';
 import MaterialIcon from 'material-icons-react';
 import PropTypes from 'prop-types';
@@ -32,14 +32,13 @@ import { deletePicture } from '../actions/pictureActions';
 import { deletePrompt } from '../actions/promptActions';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Album = (props) => {
+const Album = ({ getAlbum, album, deletePicture, albumLoading, isAuth }) => {
      let pathArray = window.location.pathname.split('/');
      let albumId = pathArray[pathArray.length - 1];
 
-     // console.log(props);
      useEffect(() => {
-          props.getAlbum(albumId);
-     }, [albumId]);
+          getAlbum(albumId);
+     }, [albumId, getAlbum]);
 
      const [promptModal, setPromptModal] = useState(false);
      const [photoModal, setPhotoModal] = useState(false);
@@ -58,27 +57,20 @@ const Album = (props) => {
      };
 
      const [activeIndex, setActiveIndex] = useState(0);
-     const [animating, setAnimating] = useState(false);
      const [currentPost, setCurrentPost] = useState({
           id: 0,
           type: '',
      });
 
      const next = () => {
-          if (animating) return;
           const nextIndex =
-               activeIndex === props.album.album.length - 1
-                    ? 0
-                    : activeIndex + 1;
+               activeIndex === album.album.length - 1 ? 0 : activeIndex + 1;
           setActiveIndex(nextIndex);
      };
 
      const previous = () => {
-          if (animating) return;
           const nextIndex =
-               activeIndex === 0
-                    ? props.album.album.length - 1
-                    : activeIndex - 1;
+               activeIndex === 0 ? album.album.length - 1 : activeIndex - 1;
           setActiveIndex(nextIndex);
      };
 
@@ -104,31 +96,29 @@ const Album = (props) => {
           event.preventDefault();
           console.log(currentPost.type);
           currentPost.type === 'picture'
-               ? props.deletePicture(currentPost.id, albumId)
-               : props.deletePrompt(currentPost.id, albumId);
+               ? deletePicture(currentPost.id, albumId)
+               : deletePrompt(currentPost.id, albumId);
           carouselToggle();
      };
-
-     // console.log(props.album.album[0].id);
 
      // only view posts --> hide PictureCards
      // only view picture --> hide PostsCards
      // view all memories --> view both in chronological order
-     return props.albumLoading ? (
+     return albumLoading ? (
           <h1>Welcome</h1>
      ) : (
           <Fragment>
                <Container>
                     <PageTitle>
-                         {props.album.albums[0].title} by{' '}
-                         {props.album.albums[0].user.firstName}{' '}
-                         {props.album.albums[0].user.lastName}
+                         {album.albums[0].title} by{' '}
+                         {album.albums[0].user.firstName}{' '}
+                         {album.albums[0].user.lastName}
                     </PageTitle>
                </Container>
                {/* <hr /> */}
                <Wrapper>
                     <Row>
-                         {props.album.album.map((post, index) => (
+                         {album.album.map((post, index) => (
                               <Fragment key={post._id}>
                                    {'image' in post ? (
                                         <MixedPostPicture
@@ -150,7 +140,7 @@ const Album = (props) => {
                                              type='prompt'
                                              key={post._id}
                                              id={post._id}
-                                             isAuth={props.isAuth}
+                                             isAuth={isAuth}
                                              prompt={post.prompt}
                                              response={post.response}
                                              dateRecorded={post.dateRecorded}
@@ -176,7 +166,7 @@ const Album = (props) => {
                               close='close'
                               onClick={carouselToggle}
                          ></ModalHeader> */}
-                         {props.isAuth ? (
+                         {isAuth ? (
                               <ModalHeader>
                                    {' '}
                                    <DeleteBtn
@@ -190,7 +180,7 @@ const Album = (props) => {
                               next={next}
                               previous={previous}
                          >
-                              {props.album.album.map((post) => (
+                              {album.album.map((post) => (
                                    <CarouselItem key={post._id}>
                                         {'image' in post ? (
                                              <CarouselPicture

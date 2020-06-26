@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import DeleteBtn from '../../Buttons/DeleteBtn';
 import {
-     Card,
-     Row,
+     // Card,
+     // Row,
      CardFooter,
      CardBody,
      CardText,
@@ -16,36 +16,37 @@ import { getAllAlbums, deleteAlbum } from '../../../actions/albumActions';
 
 import './style.css';
 
-const AlbumList = (props) => {
+const AlbumList = ({ albums, deleteAlbum, getAllAlbums }) => {
      // this
      useEffect(() => {
-          props.getAllAlbums();
-     }, []);
+          getAllAlbums();
+     }, [getAllAlbums]);
 
-     let albumLength = props.albums.albums.length;
-     let albumLoading = props.albums.isLoading;
+     let albumLength = albums.albums.length;
+     let albumLoading = albums.isLoading;
 
      const deleteClick = async (event) => {
           event.preventDefault();
           const album_id = event.target.getAttribute('data-id');
-          props.deleteAlbum(album_id);
+          deleteAlbum(album_id);
      };
 
      return albumLength > 0 && !albumLoading ? (
-          props.albums.albums.map((album) => (
-               <Fragment>
+          albums.albums.map((album) => (
+               <Fragment key={album._id}>
                     <div className='albumList'>
                          <CardBody>
                               <CardText>
-                                   <Link
-                                        to={`/album/${album._id}`}
-                                        key={album._id}
-                                   >
-                                        <h1>{album.title}</h1>
+                                   <Link to={`/album/${album._id}`}>
+                                        {album.title}
                                    </Link>
                               </CardText>
                          </CardBody>
-                         <div className='overlay'>
+                         <Link
+                              to={`/album/${album._id}`}
+                              key={album._id}
+                              className='overlay'
+                         >
                               <CardTitle className='text'>
                                    Created on:{' '}
                                    <Moment
@@ -53,7 +54,7 @@ const AlbumList = (props) => {
                                         date={album.date}
                                    ></Moment>
                               </CardTitle>
-                         </div>
+                         </Link>
                          <CardFooter className='albumListBelow'>
                               <DeleteBtn
                                    id={album._id}

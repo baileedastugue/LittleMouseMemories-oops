@@ -17,6 +17,9 @@ div.mixedPostPrompt.card {
   cursor: pointer;
   height: 400px;
   width: 400px;
+  background-color: $secondary-color;
+  color: white;
+  font-size: 2rem;
   
   .overlay {
     position: absolute;

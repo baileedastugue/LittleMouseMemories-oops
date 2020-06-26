@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../../actions/authActions';
 import { Redirect } from 'react-router-dom';
+import logo from '../../../img/logo_owb.png';
 import './style.css';
 
-const AppNavbar = (props) => {
-     const logout = () => {
-          props.logout();
+const AppNavbar = ({ logout, auth, isAuth }) => {
+     const logoutUser = () => {
+          logout();
           return <Redirect to='/login' />;
      };
 
@@ -18,7 +19,7 @@ const AppNavbar = (props) => {
                     <NavLink href='/dashboard'>Dashboard</NavLink>
                </NavItem>
                <NavItem>
-                    <NavLink href='#' onClick={logout}>
+                    <NavLink href='#' onClick={logoutUser}>
                          Logout
                          {/* <span className="hide-sm"></span> */}
                     </NavLink>
@@ -39,27 +40,19 @@ const AppNavbar = (props) => {
                </NavItem>
           </Nav>
      );
-     const loading = props.auth.isLoading;
-     // console.log('loading', loading);
-     const isAuth = props.auth.isAuthenticated;
-     // console.log('authenticated', isAuth);
+     const loading = auth.isLoading;
+
      return (
           <div>
                <Navbar className='mb-5'>
                     {!isAuth ? (
                          <NavbarBrand href='/'>
-                              <img
-                                   src='./img/logo_owb.png'
-                                   alt='two elephants hugging'
-                              />
+                              <img src={logo} alt='two elephants hugging' />
                               <span>Elephant Memory</span>
                          </NavbarBrand>
                     ) : (
                          <NavbarBrand href='/dashboard'>
-                              <img
-                                   src='./img/logo_owb.png'
-                                   alt='two elephants hugging'
-                              />
+                              <img src={logo} alt='two elephants hugging' />
                               <span>Elephant Memory</span>
                          </NavbarBrand>
                     )}

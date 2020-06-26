@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import { Button } from 'reactstrap';
+// import { Button } from 'reactstrap';
 import MaterialIcon from 'material-icons-react';
 
 const DeleteBtn = (props) => {
@@ -8,10 +8,8 @@ const DeleteBtn = (props) => {
           <div
                className='deleteButton'
                data-id={props.id}
-               // id={props.id}
                onClick={props.deleteClick}
           >
-               {/* Delete forever?{' '} */}
                <MaterialIcon
                     icon='delete_forever'
                     color='#f0977f'

@@ -19,20 +19,24 @@ const MixedPostPicture = (props) => {
                     className='image'
                />
                <CardBody className='overlay' data-id={props.id} type='picture'>
-                    {/* <CardTitle> */}
-                    <div className='text' type='picture' data-id={props.id}>
-                         Uploaded{' '}
-                         {props.uploadedBy ? (
-                              <Fragment>by {props.uploadedBy} </Fragment>
-                         ) : null}
-                         on{' '}
-                         <Moment
-                              format='MM/DD/YYYY'
-                              date={props.dateUploaded}
-                         />
-                    </div>
-                    {/* </CardTitle> */}
-                    {/* <CardText>{props.caption}</CardText> */}
+                    <CardTitle>
+                         <div
+                              className='text'
+                              type='picture'
+                              data-id={props.id}
+                         >
+                              Uploaded{' '}
+                              {props.uploadedBy ? (
+                                   <Fragment>by {props.uploadedBy} </Fragment>
+                              ) : null}
+                              on{' '}
+                              <Moment
+                                   format='MM/DD/YYYY'
+                                   date={props.dateUploaded}
+                              />
+                         </div>
+                    </CardTitle>
+                    <CardText>{props.caption}</CardText>
                </CardBody>
           </Card>
      );
