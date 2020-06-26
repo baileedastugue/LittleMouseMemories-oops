@@ -7,8 +7,6 @@ import {
      CardSubtitle,
      CardBody,
 } from 'reactstrap';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import './style.css';
 
 const CarouselPicture = (props) => {
@@ -29,12 +27,4 @@ const CarouselPicture = (props) => {
      );
 };
 
-CarouselPicture.propTypes = {
-     isAuth: PropTypes.bool,
-};
-
-const mapStateToProps = (state) => ({
-     isAuth: state.auth.isAuthenticated,
-});
-
-export default connect(mapStateToProps)(CarouselPicture);
+export default CarouselPicture;

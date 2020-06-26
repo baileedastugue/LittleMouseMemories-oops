@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import AlertDiv from '../../Layout/AlertDiv';
 import SubmitButton from '../../Buttons/SubmitBtn';
 
-const AddPictureForm = (props) => {
+const AddPictureForm = ({ setAlert, addNewPicture, toggle }) => {
      // using the UseState hook from react
      const [caption, setCaption] = useState('');
      const [uploadedBy, setUploadedBy] = useState('');
@@ -43,27 +43,24 @@ const AddPictureForm = (props) => {
           formData.append('image', image);
 
           if (formData.get('image') === '[object Object]') {
-               props.setAlert(
-                    'Picture memories must include an image',
-                    'danger'
-               );
+               setAlert('Picture memories must include an image', 'danger');
           } else if (
                caption === '' ||
                uploadedBy === '' ||
                dateRecorded === ''
           ) {
-               props.setAlert(
+               setAlert(
                     'Please fill out all fields to thoroughly document your memory!',
                     'danger'
                );
           } else {
                try {
-                    await props.addNewPicture(albumId, formData);
+                    await addNewPicture(albumId, formData);
                     setCaption('');
                     setUploadedBy('');
                     setDateRecorded('');
                     setImage({});
-                    props.toggle();
+                    toggle();
                } catch (err) {
                     if (err.response.status === 500) {
                          console.log('Server problem');

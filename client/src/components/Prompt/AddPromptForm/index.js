@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import SubmitButton from '../../Buttons/SubmitBtn';
 import AlertDiv from '../../Layout/AlertDiv';
 
-const AddPromptForm = (props) => {
+const AddPromptForm = ({ setAlert, addNewPrompt, toggle }) => {
      const [formData, setFormData] = useState({
           prompt: '',
           response: '',
@@ -31,13 +31,13 @@ const AddPromptForm = (props) => {
                uploadedBy === '' ||
                dateRecorded === ''
           ) {
-               props.setAlert(
+               setAlert(
                     'Please fill out all fields to thoroughly document your memory!',
                     'danger'
                );
           } else {
                try {
-                    props.addNewPrompt(albumId, {
+                    addNewPrompt(albumId, {
                          prompt,
                          response,
                          uploadedBy,
@@ -50,7 +50,7 @@ const AddPromptForm = (props) => {
                          uploadedBy: '',
                          dateRecorded: '',
                     });
-                    props.toggle();
+                    toggle();
                } catch (err) {}
           }
      };

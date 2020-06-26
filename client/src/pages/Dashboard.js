@@ -14,13 +14,13 @@ import Wrapper from '../components/Layout/Wrapper';
 import AlertDiv from '../components/Layout/AlertDiv';
 import '../App.css';
 
-const Dashboard = (props) => {
+const Dashboard = ({ isAuth, auth }) => {
      // const materialIconRef = useRef();
      const addIcon = <MaterialIcon icon='add' color='#ffffff' size='large' />;
 
      const [modal, setModal] = useState(false);
 
-     if (!props.isAuth) {
+     if (!isAuth) {
           return <Redirect to='/login' />;
      }
 
@@ -28,16 +28,15 @@ const Dashboard = (props) => {
           setModal(!modal);
      };
 
-     let userLoading = props.auth.isLoading;
+     let userLoading = auth.isLoading;
 
      return (
           <Fragment>
                <Wrapper>
                     {!userLoading ? (
                          <PageTitle>
-                              Welcome to your memories,{' '}
-                              {props.auth.user.firstName}{' '}
-                              {props.auth.user.lastName}
+                              Welcome to your memories, {auth.user.firstName}{' '}
+                              {auth.user.lastName}
                          </PageTitle>
                     ) : (
                          <h1>Loading User Data</h1>

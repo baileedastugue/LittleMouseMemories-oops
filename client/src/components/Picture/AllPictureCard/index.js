@@ -10,28 +10,27 @@ import PictureModal from '../PictureModal';
 // import { SRLWrapper } from 'simple-react-lightbox';
 // import SimpleModalSlideshow from 'react-simple-modal-slideshow';
 
-const PictureCard = (props) => {
+const PictureCard = ({ picture, getPictures, deletePicture, auth }) => {
      let pathArray = window.location.pathname.split('/');
      let albumId = pathArray[pathArray.length - 1];
-     let picturesLength = props.picture.pictures.length;
-     let picturesLoading = props.picture.isLoading;
+     let picturesLength = picture.pictures.length;
+     let picturesLoading = picture.isLoading;
 
      useEffect(() => {
-          props.getPictures(albumId);
+          getPictures(albumId);
      }, []);
 
      const deleteClick = async (event) => {
           event.preventDefault();
           const picture_id = event.target.getAttribute('data-id');
-          props.deletePicture(picture_id, albumId);
+          deletePicture(picture_id, albumId);
      };
-     // console.log(props);
 
      return (
           // <SRLWrapper>
           <div>
                {picturesLength > 0 && !picturesLoading ? (
-                    props.picture.pictures.map((picture) => (
+                    picture.pictures.map((picture) => (
                          <div key={picture._id}>
                               <img
                                    src={picture.image}
@@ -46,7 +45,7 @@ const PictureCard = (props) => {
                                    format='MM/DD/YYYY'
                                    date={picture.dateUploaded}
                               ></Moment>
-                              {props.auth.isAuthenticated ? (
+                              {auth.isAuthenticated ? (
                                    <DeleteBtn
                                         id={picture._id}
                                         deleteClick={deleteClick}

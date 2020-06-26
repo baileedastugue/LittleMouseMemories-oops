@@ -6,25 +6,25 @@ import Moment from 'react-moment';
 import { getPrompts, deletePrompt } from '../../../actions/promptActions';
 import DeleteBtn from '../../Buttons/DeleteBtn';
 
-const PromptCard = (props) => {
+const PromptCard = ({ getPrompts, deletePrompt, auth, prompt }) => {
      let pathArray = window.location.pathname.split('/');
      let albumId = pathArray[pathArray.length - 1];
 
      useEffect(() => {
-          props.getPrompts(albumId);
+          getPrompts(albumId);
      }, []);
 
      const deleteClick = async (event) => {
           event.preventDefault();
           const prompt_id = event.target.getAttribute('data-id');
-          props.deletePrompt(prompt_id, albumId);
+          deletePrompt(prompt_id, albumId);
      };
 
-     let promptsLength = props.prompt.prompts.length;
-     let promptsLoading = props.prompt.isLoading;
+     let promptsLength = prompt.prompts.length;
+     let promptsLoading = prompt.isLoading;
 
      return promptsLength > 0 && !promptsLoading ? (
-          props.prompt.prompts.map((prompt) => (
+          prompt.prompts.map((prompt) => (
                <div key={prompt._id}>
                     <p>{prompt.prompt}</p>
                     <p>{prompt.response}</p>
@@ -33,7 +33,7 @@ const PromptCard = (props) => {
                          format='MM/DD/YYYY'
                          date={prompt.dateUploaded}
                     ></Moment>
-                    {props.auth.isAuthenticated ? (
+                    {auth.isAuthenticated ? (
                          <DeleteBtn id={prompt._id} deleteClick={deleteClick} />
                     ) : null}
                     <hr />

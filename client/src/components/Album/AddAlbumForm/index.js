@@ -8,7 +8,7 @@ import { Redirect } from 'react-router-dom';
 import SubmitButton from '../../Buttons/SubmitBtn';
 import AlertDiv from '../../Layout/AlertDiv';
 
-const AddAlbumForm = (props) => {
+const AddAlbumForm = ({ setAlert, addNewAlbum, toggle, isAuth }) => {
      // using the UseState hook from react
      const [formData, setFormData] = useState({
           title: '',
@@ -24,17 +24,17 @@ const AddAlbumForm = (props) => {
      const onSubmit = async (event) => {
           event.preventDefault();
           if (title === '') {
-               props.setAlert('All albums need a title', 'danger');
+               setAlert('All albums need a title', 'danger');
           } else {
                try {
-                    props.addNewAlbum({ title });
+                    addNewAlbum({ title });
                     setFormData({ ...formData, title: '' });
-                    props.toggle();
+                    toggle();
                } catch (err) {}
           }
      };
 
-     if (!props.isAuth) {
+     if (!isAuth) {
           return <Redirect to='/login' />;
      }
 

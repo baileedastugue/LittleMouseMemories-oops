@@ -6,7 +6,7 @@ import { register } from '../../../actions/authActions';
 import { Button, Form, FormGroup } from 'reactstrap';
 import PropTypes from 'prop-types';
 
-const RegistrationForm = (props) => {
+const RegistrationForm = ({ setAlert, register, isAuth }) => {
      const [formData, setFormData] = useState({
           // these are the default values
           firstName: '',
@@ -27,17 +27,17 @@ const RegistrationForm = (props) => {
           if (password !== password2) {
                // alert type is daaaanger
                // have to export { setAlert } down below in order to use it here (available within props)
-               props.setAlert('Passwords do not match', 'danger');
+               setAlert('Passwords do not match', 'danger');
           } else {
                try {
-                    props.register({ firstName, lastName, email, password });
+                    register({ firstName, lastName, email, password });
                } catch (err) {
                     console.error(err.response.data);
                }
           }
      };
 
-     if (props.isAuth) {
+     if (isAuth) {
           return <Redirect to='/dashboard' />;
      }
 
