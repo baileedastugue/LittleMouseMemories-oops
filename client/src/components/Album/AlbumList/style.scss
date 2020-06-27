@@ -5,8 +5,7 @@ $dark-color: #4B4847;
 $abundant-color: white;
 
 $focus-text: 'Fjalla One', sans-serif;
-// $secondary-text: 'Montserrat', sans-serif;
-$secondary-text: 'Raleway', sans-serif;
+$secondary-text: 'Roboto', sans-serif;
 
 
 /* .fade-enter {
@@ -29,11 +28,17 @@ $secondary-text: 'Raleway', sans-serif;
 
 div.albumList {
     .card-body{
-
         width: 400px;
         height: 350px;
-        background-color: lightgray;
+        background-color: $abundant-color;
+        p.card-text {
+            a {
+                color: $focus-color;
+                font-size: 3rem;
+            }
+        }
     }
+    border: 5px solid black;
     position: relative;
     margin: 1vw;
     display: inline-block;
@@ -56,6 +61,8 @@ div.albumList {
       .text {
         color: white;
         font-size: 20px;
+        font-family: $secondary-text;
+        font-weight: 300;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -67,7 +74,7 @@ div.albumList {
       .albumListBelow.card-footer {
           width: 400px;
           height: 50px;
-          background-color: lightgray;
+          background-color: $abundant-color;
           border: none;
         //   margin: 0vw 1vw;
         //   top: 410px;
@@ -77,13 +84,14 @@ div.albumList {
       }
       .albumListBelow.card-footer:hover {
           background-color: $dark-color;
+          cursor: pointer;
       }
-}
-.albumList:hover {
-    text-decoration: none;
-    color: black;
-    .overlay {
-        opacity: 1;
+      .card-body:hover {
+          text-decoration: none;
+          color: black;
+          .overlay {
+              opacity: 1;
+            }
       }
 }
 

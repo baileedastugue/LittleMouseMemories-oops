@@ -32,7 +32,14 @@ import { deletePicture } from '../actions/pictureActions';
 import { deletePrompt } from '../actions/promptActions';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Album = ({ getAlbum, album, deletePicture, albumLoading, isAuth }) => {
+const Album = ({
+     getAlbum,
+     album,
+     deletePicture,
+     deletePrompt,
+     albumLoading,
+     isAuth,
+}) => {
      let pathArray = window.location.pathname.split('/');
      let albumId = pathArray[pathArray.length - 1];
 
@@ -80,7 +87,6 @@ const Album = ({ getAlbum, album, deletePicture, albumLoading, isAuth }) => {
                id: event.target.getAttribute('data-id'),
                type: event.target.getAttribute('type'),
           });
-          console.log(currentPost);
           carouselToggle();
      };
      const externalCloseBtn = (
@@ -94,7 +100,6 @@ const Album = ({ getAlbum, album, deletePicture, albumLoading, isAuth }) => {
      );
      const deleteClick = async (event) => {
           event.preventDefault();
-          console.log(currentPost.type);
           currentPost.type === 'picture'
                ? deletePicture(currentPost.id, albumId)
                : deletePrompt(currentPost.id, albumId);

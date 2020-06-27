@@ -20,7 +20,7 @@
 }
 
 .card.carouselPicture .card-subtitle {
-  font-family: "Raleway", sans-serif;
+  font-family: "Roboto", sans-serif;
   padding-left: 10%;
   height: 1vw;
   margin-bottom: .3vw;
@@ -31,11 +31,12 @@
   margin-bottom: 1vw;
   overflow-y: auto;
   white-space: normal;
+  padding: 0px 10%;
 }
 
 .card.carouselPicture .card-body p.card-text {
   font-size: 1.2rem;
-  font-style: "Raleway", sans-serif;
+  font-style: "Roboto", sans-serif;
 }
 
 .card.carouselPicture div.memoryArea .card-img {
@@ -60,7 +61,7 @@
 .card.carouselPicture span#caption {
   color: #f0977f;
   font-size: 1.2rem;
-  font-family: "Raleway", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 ::-webkit-scrollbar-track {

@@ -1,7 +1,11 @@
-$color-focus: #1864BD;
-$color-muted: #F0977F;
-$other-pink: #E9ABA1;
+$focus-color: #1864bd;
+$secondary-color: #f0977f;
+$muted-color: #e9aba1;
 $dark-color: #4B4847;
+$abundant-color: white;
+
+$focus-text: 'Fjalla One', sans-serif;
+$secondary-text: 'Roboto', sans-serif;
 
 
 .card.mixedPostPicture {
@@ -38,6 +42,8 @@ $dark-color: #4B4847;
     color: white;
     font-size: 20px;
     position: absolute;
+    font-family: $secondary-text;
+    font-weight: 300;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
@@ -48,6 +54,6 @@ $dark-color: #4B4847;
 }
 
 .mixedPostPicture.card:hover .overlay {
-  opacity: .75;
+  opacity: 1;
 }
 

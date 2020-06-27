@@ -13,6 +13,8 @@ div.mixedPostPrompt.card {
   background-color: #f0977f;
   color: white;
   font-size: 2rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
 }
 
 div.mixedPostPrompt.card .overlay {

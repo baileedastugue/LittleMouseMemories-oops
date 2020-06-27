@@ -3,6 +3,7 @@
     flex-flow: row wrap;
     /* align-content: flex-start; */
     justify-content: flex-start;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     margin: 0vw 4vw;
 }

@@ -5,8 +5,8 @@ $dark-color: #4B4847;
 $abundant-color: white;
 
 $focus-text: 'Fjalla One', sans-serif;
-// $secondary-text: 'Montserrat', sans-serif;
-$secondary-text: 'Raleway', sans-serif;
+// $secondary-t: 'Montserrat', sans-serif;
+$secondary-text: 'Roboto', sans-serif;
 
 div.mixedPostPrompt.card {
   display: inline-block;
@@ -20,6 +20,8 @@ div.mixedPostPrompt.card {
   background-color: $secondary-color;
   color: white;
   font-size: 2rem;
+  font-family: $secondary-text;
+  font-weight: 300;
   
   .overlay {
     position: absolute;

@@ -43,21 +43,24 @@ const AlbumList = ({ albums, deleteAlbum, getAllAlbums }) => {
                                         {album.title}
                                    </Link>
                               </CardText>
+                              <Link
+                                   to={`/album/${album._id}`}
+                                   key={album._id}
+                                   className='overlay'
+                              >
+                                   <CardTitle className='text'>
+                                        Created on:{' '}
+                                        <Moment
+                                             format='MM/DD/YYYY'
+                                             date={album.date}
+                                        ></Moment>
+                                   </CardTitle>
+                              </Link>
                          </CardBody>
-                         <Link
-                              to={`/album/${album._id}`}
-                              key={album._id}
-                              className='overlay'
+                         <CardFooter
+                              className='albumListBelow'
+                              onClick={deleteClick}
                          >
-                              <CardTitle className='text'>
-                                   Created on:{' '}
-                                   <Moment
-                                        format='MM/DD/YYYY'
-                                        date={album.date}
-                                   ></Moment>
-                              </CardTitle>
-                         </Link>
-                         <CardFooter className='albumListBelow'>
                               <DeleteBtn
                                    id={album._id}
                                    deleteClick={deleteClick}

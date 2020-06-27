@@ -37,6 +37,8 @@
   color: white;
   font-size: 20px;
   position: absolute;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -45,6 +47,6 @@
 }
 
 .mixedPostPicture.card:hover .overlay {
-  opacity: .75;
+  opacity: 1;
 }
 /*# sourceMappingURL=style.css.map */

@@ -5,7 +5,7 @@ $dark-color: #4B4847;
 $abundant-color: white;
 
 $focus-text: 'Fjalla One', sans-serif;
-$secondary-text: 'Raleway', sans-serif;
+$secondary-text: 'Roboto', sans-serif;
 
 .card.carouselPicture {
   width: 90%;
@@ -35,7 +35,8 @@ $secondary-text: 'Raleway', sans-serif;
     margin-bottom: 1vw;
     overflow-y: auto;
     white-space: normal;
-    p.card-text{
+    padding: 0px 10%;
+    p.card-text {
       font-size: 1.2rem;
       font-style: $secondary-text;
     }
