@@ -1,13 +1,7 @@
 .card.carouselPicture {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   width: 90%;
   height: 45vw;
-  margin-left: 2.5vw;
+  margin-left: 5%;
   font-size: inherit;
   background-color: white;
   color: black;
@@ -15,24 +9,45 @@
 }
 
 .card.carouselPicture .card-title {
-  height: 3vw;
+  height: 1.5vw;
+}
+
+.card.carouselPicture .card-title time {
+  font-family: "Fjalla One", sans-serif;
+  font-size: 1.7rem;
+  color: #1864bd;
+  letter-spacing: 1.2rem;
 }
 
 .card.carouselPicture .card-subtitle {
-  height: 2vw;
+  font-family: "Raleway", sans-serif;
+  padding-left: 10%;
+  height: 1vw;
+  margin-bottom: .3vw;
 }
 
 .card.carouselPicture .card-body {
-  height: 5vw;
+  height: 7vw;
+  margin-bottom: 1vw;
   overflow-y: auto;
   white-space: normal;
 }
 
-.card.carouselPicture .card-img {
-  -o-object-fit: cover;
-     object-fit: cover;
+.card.carouselPicture .card-body p.card-text {
+  font-size: 1.2rem;
+  font-style: "Raleway", sans-serif;
+}
+
+.card.carouselPicture div.memoryArea .card-img {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -o-object-fit: contain;
+     object-fit: contain;
   height: 35vw;
-  width: 35vw;
 }
 
 .card.carouselPicture .vertical-center {
@@ -40,5 +55,28 @@
   vertical-align: middle;
   height: 35vw;
   text-align: center;
+}
+
+.card.carouselPicture span#caption {
+  color: #f0977f;
+  font-size: 1.2rem;
+  font-family: "Raleway", sans-serif;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #1864bd;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: white;
 }
 /*# sourceMappingURL=style.css.map */

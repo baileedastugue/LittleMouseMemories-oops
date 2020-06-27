@@ -31,7 +31,9 @@ const AlbumList = ({ albums, deleteAlbum, getAllAlbums }) => {
           deleteAlbum(album_id);
      };
 
-     return albumLength > 0 && !albumLoading ? (
+     return albumLength === 0 ? (
+          <Fragment>No albums added</Fragment>
+     ) : !albumLoading ? (
           albums.albums.map((album) => (
                <Fragment key={album._id}>
                     <div className='albumList'>

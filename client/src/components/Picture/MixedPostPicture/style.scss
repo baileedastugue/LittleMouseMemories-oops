@@ -12,11 +12,12 @@ $dark-color: #4B4847;
   padding: 0px;
   position: relative;
   cursor: pointer;
+  border: none;
 
-  .card-img {
+  .image {
     height: 400px; /* height of container */
     width: 400px;
-    object-fit: cover;
+    object-fit: contain;
   }
   .overlay.card-body {
     position: absolute;
@@ -31,9 +32,7 @@ $dark-color: #4B4847;
     background-color: $dark-color;
   }
 
-  .card:hover .overlay {
-    opacity: .75;
-  }
+ 
       
   .text {
     color: white;
@@ -48,5 +47,7 @@ $dark-color: #4B4847;
   }
 }
 
-
+.mixedPostPicture.card:hover .overlay {
+  opacity: .75;
+}
 

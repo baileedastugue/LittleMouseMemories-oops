@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
+import React from 'react';
+import { Card, CardImg, CardBody, CardTitle } from 'reactstrap';
 import './style.css';
 import Moment from 'react-moment';
 
@@ -25,18 +25,13 @@ const MixedPostPicture = (props) => {
                               type='picture'
                               data-id={props.id}
                          >
-                              Uploaded{' '}
-                              {props.uploadedBy ? (
-                                   <Fragment>by {props.uploadedBy} </Fragment>
-                              ) : null}
-                              on{' '}
+                              Uploaded by {props.uploadedBy} on{' '}
                               <Moment
                                    format='MM/DD/YYYY'
                                    date={props.dateUploaded}
                               />
                          </div>
                     </CardTitle>
-                    <CardText>{props.caption}</CardText>
                </CardBody>
           </Card>
      );

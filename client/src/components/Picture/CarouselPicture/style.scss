@@ -1,28 +1,54 @@
+$focus-color: #1864bd;
+$secondary-color: #f0977f;
+$muted-color: #e9aba1;
+$dark-color: #4B4847;
+$abundant-color: white;
+
+$focus-text: 'Fjalla One', sans-serif;
+$secondary-text: 'Raleway', sans-serif;
+
 .card.carouselPicture {
-  justify-content: center;
-  align-items: center;
   width: 90%;
   height: 45vw;
-  margin-left: 2.5vw;
+  margin-left: 5%;
   font-size: inherit;
   background-color: white;
   color: black;
   border: none;
   .card-title {
-    height: 3vw;
+    height: 1.5vw;
+    time {
+      font-family: $focus-text;
+      font-size: 1.7rem;
+      color: $focus-color;
+      letter-spacing: 1.2rem;
+    }
   }
   .card-subtitle {
-    height: 2vw;
+    font-family: $secondary-text;
+    padding-left: 10%;
+    height: 1vw;
+    margin-bottom: .3vw;
   }
   .card-body {
-    height: 5vw;
+    height: 7vw;
+    margin-bottom: 1vw;
     overflow-y: auto;
     white-space: normal;
+    p.card-text{
+      font-size: 1.2rem;
+      font-style: $secondary-text;
+    }
   }
-  .card-img {
-    object-fit: cover;
-    height: 35vw;
-    width: 35vw;
+  div.memoryArea {
+    // background-color: $dark-color;
+    .card-img {
+      justify-content: center;
+      align-items: center;
+      object-fit: contain;
+      height: 35vw;
+      // max-width: 35vw;
+    }
   }
   .vertical-center {
     display: inline-block;
@@ -30,5 +56,26 @@
     height: 35vw;
     text-align: center; 
   }
-
+  span#caption {
+    color: $secondary-color;
+    font-size: 1.2rem;
+    font-family: $secondary-text;
+  }
 }
+
+
+
+::-webkit-scrollbar-track {
+  background: $abundant-color; 
+}
+::-webkit-scrollbar {
+  width: 20px;
+}
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $focus-color;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: white;
+  }

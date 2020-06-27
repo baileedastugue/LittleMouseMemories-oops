@@ -8,14 +8,15 @@
   padding: 0px;
   position: relative;
   cursor: pointer;
+  border: none;
 }
 
-.card.mixedPostPicture .card-img {
+.card.mixedPostPicture .image {
   height: 400px;
   /* height of container */
   width: 400px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .card.mixedPostPicture .overlay.card-body {
@@ -32,10 +33,6 @@
   background-color: #4B4847;
 }
 
-.card.mixedPostPicture .card:hover .overlay {
-  opacity: .75;
-}
-
 .card.mixedPostPicture .text {
   color: white;
   font-size: 20px;
@@ -45,5 +42,9 @@
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
+}
+
+.mixedPostPicture.card:hover .overlay {
+  opacity: .75;
 }
 /*# sourceMappingURL=style.css.map */

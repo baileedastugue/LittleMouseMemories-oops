@@ -121,20 +121,26 @@ const Album = ({ getAlbum, album, deletePicture, albumLoading, isAuth }) => {
                          {album.album.map((post, index) => (
                               <Fragment key={post._id}>
                                    {'image' in post ? (
-                                        <MixedPostPicture
-                                             type='picture'
-                                             key={post._id}
-                                             id={post._id}
-                                             image={post.image}
-                                             caption={post.caption}
-                                             dateRecorded={post.dateRecorded}
-                                             dateUploaded={post.dateUploaded}
-                                             uploadedBy={post.uploadedBy}
-                                             onClick={(event) => {
-                                                  onClick(event, index);
-                                             }}
-                                             index={index}
-                                        />
+                                        <Fragment>
+                                             <MixedPostPicture
+                                                  type='picture'
+                                                  key={post._id}
+                                                  id={post._id}
+                                                  uploadedBy={post.uploadedBy}
+                                                  image={post.image}
+                                                  caption={post.caption}
+                                                  dateRecorded={
+                                                       post.dateRecorded
+                                                  }
+                                                  dateUploaded={
+                                                       post.dateUploaded
+                                                  }
+                                                  onClick={(event) => {
+                                                       onClick(event, index);
+                                                  }}
+                                                  index={index}
+                                             />
+                                        </Fragment>
                                    ) : (
                                         <MixedPostPrompt
                                              type='prompt'
@@ -162,10 +168,6 @@ const Album = ({ getAlbum, album, deletePicture, albumLoading, isAuth }) => {
                          size='lg'
                          external={externalCloseBtn}
                     >
-                         {/* <ModalHeader
-                              close='close'
-                              onClick={carouselToggle}
-                         ></ModalHeader> */}
                          {isAuth ? (
                               <ModalHeader>
                                    {' '}
@@ -189,6 +191,7 @@ const Album = ({ getAlbum, album, deletePicture, albumLoading, isAuth }) => {
                                                   dateRecorded={
                                                        post.dateRecorded
                                                   }
+                                                  uploadedBy={post.uploadedBy}
                                                   dateUploaded={
                                                        post.dateUploaded
                                                   }

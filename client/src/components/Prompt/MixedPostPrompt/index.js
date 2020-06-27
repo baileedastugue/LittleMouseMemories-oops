@@ -6,7 +6,6 @@ import Moment from 'react-moment';
 const MixedPostPrompt = (props) => {
      return (
           <Card
-               // style={{ width: '400px', height: '400px', padding: '0px' }}
                onClick={props.onClick}
                data-id={props.id}
                type='prompt'

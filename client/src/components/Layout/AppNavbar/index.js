@@ -7,7 +7,7 @@ import { Redirect } from 'react-router-dom';
 import logo from '../../../img/logo_owb.png';
 import './style.css';
 
-const AppNavbar = ({ logout, auth, isAuth }) => {
+const AppNavbar = ({ logout, auth }) => {
      const logoutUser = () => {
           logout();
           return <Redirect to='/login' />;
@@ -41,11 +41,11 @@ const AppNavbar = ({ logout, auth, isAuth }) => {
           </Nav>
      );
      const loading = auth.isLoading;
-
+     console.log(auth.isAuthenticated);
      return (
           <div>
                <Navbar className='mb-5'>
-                    {!isAuth ? (
+                    {!auth.isAuthenticated ? (
                          <NavbarBrand href='/'>
                               <img src={logo} alt='two elephants hugging' />
                               <span>Elephant Memory</span>
@@ -57,7 +57,9 @@ const AppNavbar = ({ logout, auth, isAuth }) => {
                          </NavbarBrand>
                     )}
 
-                    {loading || !isAuth ? loggedOutLinks : loggedInLinks}
+                    {loading || !auth.isAuthenticated
+                         ? loggedOutLinks
+                         : loggedInLinks}
                </Navbar>
           </div>
      );
