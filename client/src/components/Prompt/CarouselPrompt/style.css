@@ -1,13 +1,6 @@
 .card.carouselPrompt {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 90%;
+  padding: 0px;
   height: 45vw;
-  margin-left: 2.5vw;
   font-size: inherit;
   background-color: white;
   color: black;
@@ -15,31 +8,75 @@
 }
 
 .card.carouselPrompt .card-title {
-  height: 3vw;
+  margin-left: 1vw;
+  height: 1.5vw;
+}
+
+.card.carouselPrompt .card-title time {
+  font-family: "Fjalla One", sans-serif;
+  font-size: 1.7rem;
+  color: #1864bd;
+  letter-spacing: 1.2rem;
 }
 
 .card.carouselPrompt .card-subtitle {
-  height: 2vw;
+  font-family: "Roboto", sans-serif;
+  padding-left: 10%;
+  height: 1vw;
+  margin-bottom: .3vw;
 }
 
-.card.carouselPrompt .card-body {
-  height: 5vw;
+.card.carouselPrompt div.card-body {
+  height: 4vw;
   overflow-y: auto;
   white-space: normal;
+  padding: 1vw 0%;
+}
+
+.card.carouselPrompt div.card-body time {
+  padding: 0px;
+}
+
+.card.carouselPrompt div.card-body p.card-text {
+  font-size: 1.2rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  float: right;
 }
 
 .card.carouselPrompt div.memoryArea {
-  height: 35vw;
+  height: 38vw;
   width: 35vw;
   background-color: #1864bd;
   color: red;
   font-size: 2rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  white-space: normal;
+  position: relative;
 }
 
-.card.carouselPrompt .vertical-center {
+.card.carouselPrompt div.memoryArea span.memoryText {
+  position: absolute;
+  float: left;
+  padding: 1vw;
+}
+
+.card.carouselPrompt div.memoryArea span.prompt {
+  color: #f0977f;
+  font-family: "Fjalla One", sans-serif;
+  font-weight: 300;
+}
+
+.card.carouselPrompt div.memoryArea span.response {
+  color: white;
+  font-weight: 300;
+}
+
+.card.carouselPrompt .center {
   display: inline-block;
   vertical-align: middle;
+  margin: 0 auto;
   height: 35vw;
-  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */

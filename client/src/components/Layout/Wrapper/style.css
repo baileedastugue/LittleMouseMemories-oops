@@ -1,9 +1,5 @@
 .wrapper {
-    display: flex;
-    flex-flow: row wrap;
-    /* align-content: flex-start; */
-    justify-content: flex-start;
-    overflow-y: auto;
-    overflow-x: hidden;
-    margin: 0vw 4vw;
+    margin: 0vw 5%;
+    height: auto;
+    min-height: 100%;
 }

@@ -1,7 +1,6 @@
 .card.carouselPicture {
-  width: 90%;
+  width: 100%;
   height: 45vw;
-  margin-left: 5%;
   font-size: inherit;
   background-color: white;
   color: black;
@@ -9,6 +8,7 @@
 }
 
 .card.carouselPicture .card-title {
+  margin-left: 1vw;
   height: 1.5vw;
 }
 
@@ -36,7 +36,8 @@
 
 .card.carouselPicture .card-body p.card-text {
   font-size: 1.2rem;
-  font-style: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
 }
 
 .card.carouselPicture div.memoryArea .card-img {
@@ -59,13 +60,14 @@
 }
 
 .card.carouselPicture span#caption {
+  margin-left: 1vw;
   color: #f0977f;
   font-size: 1.2rem;
   font-family: "Roboto", sans-serif;
 }
 
 ::-webkit-scrollbar-track {
-  background: white;
+  background: #1864bd;
 }
 
 ::-webkit-scrollbar {
@@ -74,7 +76,7 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #1864bd;
+  background: #e9aba1;
 }
 
 ::-webkit-scrollbar-thumb:hover {

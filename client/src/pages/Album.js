@@ -113,124 +113,117 @@ const Album = ({
           <h1>Welcome</h1>
      ) : (
           <Fragment>
-               <Container>
+               <Container fluid={true}>
                     <PageTitle>
                          {album.albums[0].title} by{' '}
                          {album.albums[0].user.firstName}{' '}
                          {album.albums[0].user.lastName}
                     </PageTitle>
                </Container>
-               {/* <hr /> */}
-               <Wrapper>
-                    <Row>
-                         {album.album.map((post, index) => (
-                              <Fragment key={post._id}>
-                                   {'image' in post ? (
-                                        <Fragment>
-                                             <MixedPostPicture
-                                                  type='picture'
-                                                  key={post._id}
-                                                  id={post._id}
-                                                  uploadedBy={post.uploadedBy}
-                                                  image={post.image}
-                                                  caption={post.caption}
-                                                  dateRecorded={
-                                                       post.dateRecorded
-                                                  }
-                                                  dateUploaded={
-                                                       post.dateUploaded
-                                                  }
-                                                  onClick={(event) => {
-                                                       onClick(event, index);
-                                                  }}
-                                                  index={index}
-                                             />
-                                        </Fragment>
-                                   ) : (
-                                        <MixedPostPrompt
-                                             type='prompt'
+
+               <Row>
+                    {album.album.map((post, index) => (
+                         <Fragment key={post._id}>
+                              {'image' in post ? (
+                                   <Fragment>
+                                        <MixedPostPicture
+                                             type='picture'
                                              key={post._id}
                                              id={post._id}
-                                             isAuth={isAuth}
-                                             prompt={post.prompt}
-                                             response={post.response}
+                                             uploadedBy={post.uploadedBy}
+                                             image={post.image}
+                                             caption={post.caption}
                                              dateRecorded={post.dateRecorded}
                                              dateUploaded={post.dateUploaded}
-                                             uploadedBy={post.uploadedBy}
                                              onClick={(event) => {
                                                   onClick(event, index);
                                              }}
                                              index={index}
-                                        ></MixedPostPrompt>
-                                   )}
-                              </Fragment>
-                         ))}
-                    </Row>
-                    <Modal
-                         toggle={carouselToggle}
-                         isOpen={carouselModal}
-                         centered={true}
-                         size='lg'
-                         external={externalCloseBtn}
+                                        />
+                                   </Fragment>
+                              ) : (
+                                   <MixedPostPrompt
+                                        type='prompt'
+                                        key={post._id}
+                                        id={post._id}
+                                        isAuth={isAuth}
+                                        prompt={post.prompt}
+                                        response={post.response}
+                                        dateRecorded={post.dateRecorded}
+                                        dateUploaded={post.dateUploaded}
+                                        uploadedBy={post.uploadedBy}
+                                        onClick={(event) => {
+                                             onClick(event, index);
+                                        }}
+                                        index={index}
+                                   ></MixedPostPrompt>
+                              )}
+                         </Fragment>
+                    ))}
+               </Row>
+               <Modal
+                    toggle={carouselToggle}
+                    isOpen={carouselModal}
+                    centered={true}
+                    size='lg'
+                    external={externalCloseBtn}
+               >
+                    {isAuth ? (
+                         <ModalHeader>
+                              {' '}
+                              <DeleteBtn
+                                   // data-id={}
+                                   deleteClick={deleteClick}
+                              />
+                         </ModalHeader>
+                    ) : null}
+                    <Carousel
+                         activeIndex={activeIndex}
+                         next={next}
+                         previous={previous}
                     >
-                         {isAuth ? (
-                              <ModalHeader>
-                                   {' '}
-                                   <DeleteBtn
-                                        // data-id={}
-                                        deleteClick={deleteClick}
-                                   />
-                              </ModalHeader>
-                         ) : null}
-                         <Carousel
-                              activeIndex={activeIndex}
-                              next={next}
-                              previous={previous}
-                         >
-                              {album.album.map((post) => (
-                                   <CarouselItem key={post._id}>
-                                        {'image' in post ? (
-                                             <CarouselPicture
-                                                  image={post.image}
-                                                  caption={post.caption}
-                                                  dateRecorded={
-                                                       post.dateRecorded
-                                                  }
-                                                  uploadedBy={post.uploadedBy}
-                                                  dateUploaded={
-                                                       post.dateUploaded
-                                                  }
-                                             />
-                                        ) : (
-                                             <CarouselPrompt
-                                                  response={post.response}
-                                                  prompt={post.prompt}
-                                                  dateRecorded={
-                                                       post.dateRecorded
-                                                  }
-                                                  dateUploaded={
-                                                       post.dateUploaded
-                                                  }
-                                             />
-                                        )}
-                                   </CarouselItem>
-                              ))}
+                         {album.album.map((post) => (
+                              <CarouselItem key={post._id}>
+                                   {'image' in post ? (
+                                        <CarouselPicture
+                                             image={post.image}
+                                             caption={post.caption}
+                                             dateRecorded={post.dateRecorded}
+                                             uploadedBy={post.uploadedBy}
+                                             dateUploaded={post.dateUploaded}
+                                        />
+                                   ) : (
+                                        <CarouselPrompt
+                                             response={post.response}
+                                             prompt={post.prompt}
+                                             dateRecorded={post.dateRecorded}
+                                             uploadedBy={post.uploadedBy}
+                                             dateUploaded={post.dateUploaded}
+                                        />
+                                   )}
+                              </CarouselItem>
+                         ))}
 
-                              <CarouselControl
-                                   direction='prev'
-                                   directionText='Previous'
-                                   onClickHandler={previous}
-                              />
-                              <CarouselControl
-                                   direction='next'
-                                   directionText='Next'
-                                   onClickHandler={next}
-                              />
-                         </Carousel>
-                    </Modal>
-               </Wrapper>
-               {/* Buttons */}
-               <Container className='buttonContainer'>
+                         <CarouselControl
+                              direction='prev'
+                              directionText='Previous'
+                              onClickHandler={previous}
+                         />
+                         <CarouselControl
+                              direction='next'
+                              directionText='Next'
+                              onClickHandler={next}
+                         />
+                    </Carousel>
+               </Modal>
+
+               <AddPictureModal toggle={photoToggle} isOpen={photoModal}>
+                    <AddPictureForm toggle={photoToggle} />
+               </AddPictureModal>
+               <AddPromptModal toggle={promptToggle} isOpen={promptModal}>
+                    <AddPromptForm toggle={promptToggle} />
+               </AddPromptModal>
+               <div className='buttonContainer'>
                     <ModalButton
                          className='photoButton modalButton'
                          action={
@@ -247,7 +240,6 @@ const Album = ({
                     <br />
                     <br />
                     <br />
-
                     <ModalButton
                          className='promptButton modalButton'
                          action={
@@ -259,14 +251,7 @@ const Album = ({
                          }
                          onClick={promptToggle}
                     />
-               </Container>
-               {/* Modals */}
-               <AddPictureModal toggle={photoToggle} isOpen={photoModal}>
-                    <AddPictureForm toggle={photoToggle} />
-               </AddPictureModal>
-               <AddPromptModal toggle={promptToggle} isOpen={promptModal}>
-                    <AddPromptForm toggle={promptToggle} />
-               </AddPromptModal>
+               </div>
           </Fragment>
      );
 };
@@ -279,6 +264,10 @@ Album.propTypes = {
      getAlbum: PropTypes.func.isRequired,
      deletePicture: PropTypes.func.isRequired,
      deletePrompt: PropTypes.func.isRequired,
+};
+
+Container.propTypes = {
+     fluid: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 };
 
 const mapStateToProps = (state) => ({

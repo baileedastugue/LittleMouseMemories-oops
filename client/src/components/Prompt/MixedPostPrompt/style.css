@@ -17,6 +17,11 @@ div.mixedPostPrompt.card {
   font-weight: 300;
 }
 
+div.mixedPostPrompt.card p.card-text {
+  overflow: hidden;
+  display: block;
+}
+
 div.mixedPostPrompt.card .overlay {
   position: absolute;
   top: 0;

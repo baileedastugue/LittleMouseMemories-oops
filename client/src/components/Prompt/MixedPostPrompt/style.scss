@@ -22,7 +22,10 @@ div.mixedPostPrompt.card {
   font-size: 2rem;
   font-family: $secondary-text;
   font-weight: 300;
-  
+  p.card-text {
+    overflow: hidden;
+    display: block;
+  }
   .overlay {
     position: absolute;
     top: 0;
