@@ -2,18 +2,16 @@
   background-color: white;
 }
 
+body, html {
+  height: 100%;
+  margin: 0px auto;
+  padding: 0px auto;
+}
+
 .buttonContainer {
-  position: -webkit-sticky;
-  position: sticky;
-  bottom: 10vw;
-}
-
-.buttonContainer Button.albumButton, .buttonContainer Button.photoButton {
-  bottom: 1vw;
-}
-
-.buttonContainer Button.promptButton {
-  bottom: 10vw;
+  position: absolute;
+  bottom: 2vw;
+  right: 2vw;
 }
 
 .buttonContainer Button.albumButton {

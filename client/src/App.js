@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-// import { Container } from 'reactstrap';
 import Welcome from './pages/Welcome';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -8,17 +7,15 @@ import Dashboard from './pages/Dashboard';
 import Album from './pages/Album';
 import AppNavbar from './components/Layout/AppNavbar/index';
 import PrivateRoute from './components/Auth/PrivateRoute';
-// import { loadUser } from './actions/authActions';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Wrapper from './components/Layout/Wrapper';
 import './App.css';
 
 // import global header
 import setAuthToken from './utils/setAuthToken';
 
-// Redux things
 // Connects React to Redux
 import { Provider } from 'react-redux';
-// Bring in store
 import store from './store';
 import { loadUser } from './actions/authActions';
 
@@ -37,9 +34,9 @@ const App = () => {
      return (
           <Provider store={store}>
                <AppNavbar />
-               <Router>
-                    <Route exact path='/' component={Welcome} />
-                    <section className='container-fluid'>
+               <Wrapper>
+                    <Router>
+                         <Route exact path='/' component={Welcome} />
                          <Switch>
                               <Route
                                    exact
@@ -58,8 +55,8 @@ const App = () => {
                                    component={Album}
                               />
                          </Switch>
-                    </section>
-               </Router>
+                    </Router>
+               </Wrapper>
           </Provider>
      );
 };

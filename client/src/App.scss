@@ -8,15 +8,22 @@ $abundant-color: white;
   background-color: $abundant-color;
 }
 
+body, html {
+  height:  100%;
+  margin:  0px auto;
+  padding: 0px auto;
+}
+
 .buttonContainer {
-  position: sticky;
-  bottom: 10vw;
-  Button.albumButton, Button.photoButton {
-    bottom: 1vw;
-  }
-  Button.promptButton {
-    bottom: 10vw;
-  }
+  position: absolute;
+  bottom: 2vw;
+  right: 2vw;
+  // Button.albumButton, Button.photoButton {
+  //   bottom: 10vw;
+  // }
+  // Button.promptButton {
+  //   bottom: 0vw;
+  // }
   Button.albumButton {
     padding-top: 15px;
     padding-left: 0px;

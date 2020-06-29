@@ -13,6 +13,7 @@ import ModalButton from '../components/Buttons/ModalButton';
 import Wrapper from '../components/Layout/Wrapper';
 import AlertDiv from '../components/Layout/AlertDiv';
 import '../App.css';
+import { framework } from 'passport';
 
 const Dashboard = ({ isAuth, auth }) => {
      console.log(isAuth);
@@ -30,40 +31,31 @@ const Dashboard = ({ isAuth, auth }) => {
           setModal(!modal);
      };
 
-     let userLoaded = !auth.isLoading;
-     console.log(userLoaded);
-
-     return (
+     return auth.isLoading ? (
+          <h1>Loading your memories</h1>
+     ) : (
           <Fragment>
-               <Wrapper>
-                    {userLoaded ? (
-                         <PageTitle>
-                              Welcome to your memories, {auth.user.firstName}{' '}
-                              {auth.user.lastName}
-                         </PageTitle>
-                    ) : (
-                         <h1>Loading User Data</h1>
-                    )}
-               </Wrapper>
-               <Wrapper>
-                    <AlertDiv />
-               </Wrapper>
-               <Wrapper>
-                    <Fragment>
-                         <AlbumList />
-                    </Fragment>
-               </Wrapper>
+               <Container fluid={true}>
+                    <PageTitle>
+                         Welcome to your memories, {auth.user.firstName}{' '}
+                         {auth.user.lastName}
+                    </PageTitle>
 
-               <Container className='buttonContainer'>
+                    <AlertDiv />
+               </Container>
+               <AlbumList />
+
+               <AddAlbumModal toggle={toggle} isOpen={modal}>
+                    <AddAlbumForm toggle={toggle} />
+               </AddAlbumModal>
+               <div className='buttonContainer'>
                     <ModalButton
                          className='albumButton modalButton'
                          action={addIcon}
                          onClick={toggle}
+                         style={{ padding: '15px' }}
                     />
-               </Container>
-               <AddAlbumModal toggle={toggle} isOpen={modal}>
-                    <AddAlbumForm toggle={toggle} />
-               </AddAlbumModal>
+               </div>
           </Fragment>
      );
 };
@@ -71,6 +63,10 @@ const Dashboard = ({ isAuth, auth }) => {
 AddAlbumForm.propTypes = {
      isAuth: PropTypes.bool,
      auth: PropTypes.object,
+};
+
+Container.propTypes = {
+     fluid: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 };
 
 const mapStateToProps = (state) => ({

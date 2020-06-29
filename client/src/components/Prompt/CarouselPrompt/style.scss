@@ -3,40 +3,81 @@ $secondary-color: #f0977f;
 $muted-color: #e9aba1;
 $dark-color: #e9aba1;
 
+$focus-text: 'Fjalla One', sans-serif;
+$secondary-text: 'Roboto', sans-serif;
+
 
 .card.carouselPrompt {
-  justify-content: center;
-  align-items: center;
-  width: 90%;
+  padding: 0px;
   height: 45vw;
-  margin-left: 2.5vw;
   font-size: inherit;
   background-color: white;
   color: black;
   border: none;
   .card-title {
-    height: 3vw;
+    margin-left: 1vw;
+    height: 1.5vw;
+    time {
+      font-family: $focus-text;
+      font-size: 1.7rem;
+      color: $focus-color;
+      letter-spacing: 1.2rem;
+    }
   }
   .card-subtitle {
-    height: 2vw;
+    font-family: $secondary-text;
+    padding-left: 10%;
+    height: 1vw;
+    margin-bottom: .3vw;
   }
-  .card-body {
-    height: 5vw;
+  div.card-body {
+    height: 4vw;
     overflow-y: auto;
     white-space: normal;
+    padding: 1vw 0%;
+    // text-align: left;
+    // justify-content: flex-end;
+    time {
+      padding: 0px;
+    }
+    p.card-text{
+      font-size: 1.2rem;
+      font-family: $secondary-text;
+      font-weight: 300;
+      float: right;
+    }
   }
   div.memoryArea {
-    height: 35vw;
+    height: 38vw;
     width: 35vw;
     background-color: $focus-color;
     color: red;
     font-size: 2rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    white-space: normal;
+    position: relative;
+    span.memoryText {
+      position: absolute;
+      float: left;
+      padding: 1vw;
+    }
+    span.prompt {
+      color: $secondary-color;
+      font-family: $focus-text;
+      font-weight: 300;
+    }
+    span.response {
+      color: white;
+      font-weight: 300;
+    }
   }
-  .vertical-center {
+  .center {
     display: inline-block;
     vertical-align: middle;
+    margin: 0 auto;
     height: 35vw;
-    text-align: center; 
+    // text-align: center; 
   }
 
 }
