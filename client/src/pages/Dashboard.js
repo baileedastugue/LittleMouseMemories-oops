@@ -15,7 +15,9 @@ import AlertDiv from '../components/Layout/AlertDiv';
 import '../App.css';
 
 const Dashboard = ({ isAuth, auth }) => {
-     // const materialIconRef = useRef();
+     console.log(isAuth);
+     console.log(auth);
+     // const materialIconRef = useRef(null);
      const addIcon = <MaterialIcon icon='add' color='#ffffff' size='large' />;
 
      const [modal, setModal] = useState(false);
@@ -28,12 +30,13 @@ const Dashboard = ({ isAuth, auth }) => {
           setModal(!modal);
      };
 
-     let userLoading = auth.isLoading;
+     let userLoaded = !auth.isLoading;
+     console.log(userLoaded);
 
      return (
           <Fragment>
                <Wrapper>
-                    {!userLoading ? (
+                    {userLoaded ? (
                          <PageTitle>
                               Welcome to your memories, {auth.user.firstName}{' '}
                               {auth.user.lastName}
@@ -47,7 +50,6 @@ const Dashboard = ({ isAuth, auth }) => {
                </Wrapper>
                <Wrapper>
                     <Fragment>
-                         {/* <h5 className='lead'>Your Memory Albums</h5> */}
                          <AlbumList />
                     </Fragment>
                </Wrapper>

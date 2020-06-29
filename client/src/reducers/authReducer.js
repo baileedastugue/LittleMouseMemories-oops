@@ -32,7 +32,7 @@ export default function (state = initialState, action) {
                     ...state,
                     ...action.payload,
                     isAuthenticated: true,
-                    isloading: false,
+                    isLoading: true,
                };
           case LOGIN_FAIL:
           case LOGOUT_SUCCESS:

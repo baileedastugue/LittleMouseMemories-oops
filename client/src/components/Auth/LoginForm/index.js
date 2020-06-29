@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { login } from '../../../actions/authActions';
 import { Redirect } from 'react-router-dom';
 
-const LoginForm = ({ login, isAuth }) => {
+const LoginForm = (props) => {
      const [formData, setFormData] = useState({
           // these are the default values
           email: '',
@@ -21,17 +21,16 @@ const LoginForm = ({ login, isAuth }) => {
      const onSubmit = async (event) => {
           event.preventDefault();
           try {
-               login({ email, password });
+               props.login({ email, password });
           } catch (err) {
-               console.error(err.response.data);
+               console.error(err);
           }
      };
 
      // Redirect if logged in
-     if (isAuth) {
+     if (props.isAuth) {
           return <Redirect to='/dashboard' />;
      }
-
      return (
           <Form className='form' onSubmit={(event) => onSubmit(event)}>
                <FormGroup>
