@@ -10,15 +10,10 @@ import AlbumList from '../components/Album/AlbumList';
 import AddAlbumForm from '../components/Album/AddAlbumForm';
 import AddAlbumModal from '../components/Album/AddAlbumModal';
 import ModalButton from '../components/Buttons/ModalButton';
-import Wrapper from '../components/Layout/Wrapper';
 import AlertDiv from '../components/Layout/AlertDiv';
 import '../App.css';
-import { framework } from 'passport';
 
 const Dashboard = ({ isAuth, auth }) => {
-     console.log(isAuth);
-     console.log(auth);
-     // const materialIconRef = useRef(null);
      const addIcon = <MaterialIcon icon='add' color='#ffffff' size='large' />;
 
      const [modal, setModal] = useState(false);
@@ -61,8 +56,8 @@ const Dashboard = ({ isAuth, auth }) => {
 };
 
 AddAlbumForm.propTypes = {
-     isAuth: PropTypes.bool,
-     auth: PropTypes.object,
+     isAuth: PropTypes.bool.isRequired,
+     auth: PropTypes.object.isRequired,
 };
 
 Container.propTypes = {

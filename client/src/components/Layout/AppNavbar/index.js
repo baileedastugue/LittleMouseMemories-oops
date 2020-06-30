@@ -19,9 +19,11 @@ const AppNavbar = ({ logout, auth }) => {
                     <NavLink href='/dashboard'>Dashboard</NavLink>
                </NavItem>
                <NavItem>
+                    <NavLink href='/accountSettings'>Settings</NavLink>
+               </NavItem>
+               <NavItem>
                     <NavLink href='#' onClick={logoutUser}>
                          Logout
-                         {/* <span className="hide-sm"></span> */}
                     </NavLink>
                </NavItem>
           </Nav>
@@ -41,7 +43,6 @@ const AppNavbar = ({ logout, auth }) => {
           </Nav>
      );
      const loading = auth.isLoading;
-     console.log(auth.isAuthenticated);
      return (
           <div>
                <Navbar className='mb-5'>

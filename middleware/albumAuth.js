@@ -19,7 +19,7 @@ module.exports = function (req, res, next) {
           console.log('line 18');
           const decoded = jwt.verify(token, process.env.JWT_SECRET);
           // Add user from payload
-          req.user = decoded.user;
+          req.album = decoded.album;
 
           next();
      } catch (err) {

@@ -4,6 +4,7 @@ import Welcome from './pages/Welcome';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
+import AccountSettings from './pages/AccountSettings';
 import Album from './pages/Album';
 import AppNavbar from './components/Layout/AppNavbar/index';
 import PrivateRoute from './components/Auth/PrivateRoute';
@@ -48,6 +49,11 @@ const App = () => {
                                    exact
                                    path='/dashboard'
                                    component={Dashboard}
+                              />
+                              <PrivateRoute
+                                   exact
+                                   path='/accountSettings'
+                                   component={AccountSettings}
                               />
                               <Route
                                    exact

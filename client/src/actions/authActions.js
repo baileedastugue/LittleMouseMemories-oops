@@ -48,13 +48,13 @@ export const register = ({ firstName, lastName, email, password }) => async (
           });
           dispatch(loadUser());
      } catch (err) {
-          const errors = err;
-
-          if (errors) {
-               errors.forEach((error) =>
-                    dispatch(setAlert(error.msg, 'danger'))
-               );
-          }
+          // const errors = err;
+          console.log(err);
+          // if (errors) {
+          //      errors.forEach((error) =>
+          //           dispatch(setAlert(error.msg, 'danger'))
+          //      );
+          // }
           dispatch({
                type: REGISTER_FAIL,
           });
@@ -81,7 +81,8 @@ export const login = ({ email, password }) => async (dispatch) => {
           dispatch(loadUser());
      } catch (err) {
           const errors = err.response.data.errors;
-
+          console.log(err);
+          // dispatch(setAlert(err, 'danger'));
           if (errors) {
                errors.forEach((error) =>
                     dispatch(setAlert(error.msg, 'danger'))

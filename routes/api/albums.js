@@ -1,10 +1,17 @@
+require('dotenv').config();
 const db = require('../../models');
 const Album = db.Album;
 const User = db.User;
 const express = require('express');
 const router = express.Router();
 const auth = require('../../middleware/auth');
+const bcrypt = require('bcryptjs');
+// const albumAuth = require('../../middleware/albumAuth');
 const { check, validationResult } = require('express-validator');
+const jwt = require('jsonwebtoken');
+// const {
+//      default: AddAlbumForm,
+// } = require('../../client/src/components/Album/AddAlbum/AddAlbumForm');
 
 // Dashboard
 
@@ -31,6 +38,28 @@ router.get('/', auth, async (req, res) => {
                     msg: 'Albums not found',
                });
           }
+          res.status(500).send('Server error');
+     }
+});
+
+// @route   GET api/albums/private
+// @desc    Get user data
+// @access  Private
+router.post('/private/:album_id', async (req, res) => {
+     const { albumId, password } = req.body;
+     console.log('line 50');
+     try {
+          console.log(albumId);
+          let album = await Album.findById(albumId);
+          const isMatch = await bcrypt.compare(password, album.password);
+          if (!isMatch) {
+               return res
+                    .status(400)
+                    .json({ errors: [{ msg: 'Invalid credentials' }] });
+          }
+          res.json(album);
+     } catch (err) {
+          console.error(err.message);
           res.status(500).send('Server error');
      }
 });
@@ -154,23 +183,36 @@ router.get('/:album_id', async (req, res) => {
 // @access  Private
 router.post(
      '/',
-     [auth, [check('title', 'A title is required').not().isEmpty()]],
+     [
+          auth,
+          [check('title', 'A title is required').not().isEmpty()],
+          [
+               check(
+                    'passwordRequired',
+                    'Please indicate if this album should be password protected'
+               )
+                    .not()
+                    .isEmpty(),
+          ],
+     ],
      async (req, res) => {
           const errors = validationResult(req);
           if (!errors.isEmpty()) {
                return res.status(400).json({ errors: errors.array() });
           }
           const albumFields = {};
-          const { title } = req.body;
+          const { title, password, passwordRequired } = req.body;
           albumFields.title = title;
+          albumFields.passwordRequired = passwordRequired;
+          // albumFields.password = password;
           albumFields.user = req.user.id;
 
           try {
                let objAlbum = Album.find({ user: req.user.id });
+               const salt = await bcrypt.genSalt(10);
+               albumFields.password = await bcrypt.hash(password, salt);
                objAlbum = new Album(albumFields);
                await objAlbum.save();
-               //    console.log(req.user.id);
-               console.log(req.user.id);
                User.findOneAndUpdate(
                     { _id: req.user.id },
                     { $push: { album: objAlbum } },
@@ -179,10 +221,27 @@ router.post(
                               console.log(error);
                          } else {
                               console.log(success);
-                              console.log(96);
                          }
                     }
                );
+               // console.log('line 191');
+               // console.log(objAlbum);
+               // const payload = {
+               //      album: {
+               //           id: objAlbum._id,
+               //      },
+               // };
+               // console.log('line 198');
+               // // console.log(payload);
+               // await jwt.sign(
+               //      payload,
+               //      process.env.JWT_SECRET,
+               //      { expiresIn: 3600 },
+               //      (err, token) => {
+               //           if (err) throw err;
+               //           res.json({ token });
+               //      }
+               // );
                res.json(objAlbum);
           } catch (err) {
                console.error(err.message);

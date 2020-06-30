@@ -9,6 +9,8 @@ import {
      GET_ALBUM_FAIL,
      DELETE_ALBUM_SUCCESS,
      DELETE_ALBUM_FAIL,
+     ALBUM_AUTH_SUCCESS,
+     ALBUM_AUTH_FAIL,
 } from './types';
 
 export const getAllAlbums = () => async (dispatch) => {
@@ -72,6 +74,39 @@ export const getAlbum = (album_id) => async (dispatch) => {
           dispatch({
                type: GET_ALBUM_FAIL,
           });
+     }
+};
+
+export const albumAuth = ({ albumId, password }) => async (dispatch) => {
+     const config = {
+          headers: {
+               'Content-Type': 'application/json',
+          },
+     };
+     const body = JSON.stringify({ albumId, password });
+
+     try {
+          const res = await axios.post(
+               `/api/albums/private/${albumId}`,
+               body,
+               config
+          );
+          dispatch({
+               type: ALBUM_AUTH_SUCCESS,
+               payload: res.data,
+          });
+          dispatch(getAlbum(albumId));
+          console.log(res.data);
+     } catch (err) {
+          dispatch({
+               type: ALBUM_AUTH_FAIL,
+          });
+          const errors = err.response.data.errors;
+          if (errors) {
+               errors.forEach((error) =>
+                    dispatch(setAlert(error.msg, 'danger'))
+               );
+          }
      }
 };
 

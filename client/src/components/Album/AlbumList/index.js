@@ -28,6 +28,7 @@ const AlbumList = ({ albums, deleteAlbum, getAllAlbums }) => {
      const deleteClick = async (event) => {
           event.preventDefault();
           const album_id = event.target.getAttribute('data-id');
+          console.log(album_id);
           deleteAlbum(album_id);
      };
 
@@ -59,7 +60,8 @@ const AlbumList = ({ albums, deleteAlbum, getAllAlbums }) => {
                          </CardBody>
                          <CardFooter
                               className='albumListBelow'
-                              onClick={deleteClick}
+                              // onClick={deleteClick}
+                              id={album._id}
                          >
                               <DeleteBtn
                                    id={album._id}

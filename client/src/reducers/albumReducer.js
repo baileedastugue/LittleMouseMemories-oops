@@ -9,12 +9,16 @@ import {
      DELETE_ALBUM_FAIL,
      DELETE_PICTURE_SUCCESS,
      DELETE_PICTURE_FAIL,
+     ALBUM_AUTH_SUCCESS,
+     ALBUM_AUTH_FAIL,
 } from '../actions/types';
 
 const initialState = {
      albums: [],
      album: [],
      isLoading: true,
+     // passwordRequired: null,
+     authorized: null,
      error: {},
 };
 
@@ -39,12 +43,19 @@ export default function (state = initialState, action) {
                     albums: action.payload.data,
                     isLoading: false,
                };
+          case ALBUM_AUTH_SUCCESS:
+               return {
+                    ...state,
+                    isLoading: true,
+                    authorized: true,
+               };
           case DELETE_PICTURE_SUCCESS:
           case DELETE_ALBUM_SUCCESS:
                return {
                     ...state,
                     isLoading: false,
                };
+          case ALBUM_AUTH_FAIL:
           case DELETE_PICTURE_FAIL:
           case DELETE_ALBUM_FAIL:
           case ADD_ALBUM_FAIL:

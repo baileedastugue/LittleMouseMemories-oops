@@ -16,7 +16,8 @@
     transition: opacity 3000ms ease-in;
 } */
 div.albumList {
-  border: 5px solid black;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   position: relative;
   margin: 1vw;
   display: inline-block;
@@ -24,8 +25,9 @@ div.albumList {
 }
 
 div.albumList .card-body {
+  border: 5px solid black;
   width: 400px;
-  height: 350px;
+  height: 400px;
   background-color: white;
 }
 
@@ -40,7 +42,7 @@ div.albumList .overlay {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 350px;
+  height: 400px;
   width: 400px;
   opacity: 0;
   -webkit-transition: .5s ease;
@@ -67,11 +69,6 @@ div.albumList .albumListBelow.card-footer {
   height: 50px;
   background-color: white;
   border: none;
-}
-
-div.albumList .albumListBelow.card-footer:hover {
-  background-color: #4B4847;
-  cursor: pointer;
 }
 
 div.albumList .card-body:hover {

@@ -27,9 +27,11 @@ $secondary-text: 'Roboto', sans-serif;
 } */
 
 div.albumList {
+    box-sizing: border-box;
     .card-body{
+        border: 5px solid black;
         width: 400px;
-        height: 350px;
+        height: 400px;
         background-color: $abundant-color;
         p.card-text {
             a {
@@ -38,7 +40,6 @@ div.albumList {
             }
         }
     }
-    border: 5px solid black;
     position: relative;
     margin: 1vw;
     display: inline-block;
@@ -51,7 +52,7 @@ div.albumList {
         bottom: 0;
         left: 0;
         right: 0;
-        height: 350px;
+        height: 400px;
         width: 400px;
         opacity: 0;
         transition: .5s ease;
@@ -82,10 +83,10 @@ div.albumList {
         //   left: -100px;
         //   display: inline-block;
       }
-      .albumListBelow.card-footer:hover {
-          background-color: $dark-color;
-          cursor: pointer;
-      }
+    //   .albumListBelow.card-footer:hover {
+    //       background-color: $dark-color;
+    //       cursor: pointer;
+    //   }
       .card-body:hover {
           text-decoration: none;
           color: black;

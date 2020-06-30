@@ -10,9 +10,13 @@ var AlbumsSchema = new Schema({
           type: String,
           required: true,
      },
-     // password: {
-     //     type: String
-     // },
+     passwordRequired: {
+          type: Boolean,
+          required: true,
+     },
+     password: {
+          type: String,
+     },
      date: {
           type: Date,
           default: Date.now,
