@@ -6,6 +6,10 @@ import {
      LOGIN_SUCCESS,
      LOGIN_FAIL,
      LOGOUT_SUCCESS,
+     CHANGE_PW_SUCCESS,
+     CHANGE_PW_FAIL,
+     DELETE_USER_SUCCESS,
+     DELETE_USER_FAIL,
 } from '../actions/types';
 
 const initialState = {
@@ -18,6 +22,7 @@ const initialState = {
 
 export default function (state = initialState, action) {
      switch (action.type) {
+          case CHANGE_PW_SUCCESS:
           case USER_LOADED:
                return {
                     ...state,
@@ -34,6 +39,14 @@ export default function (state = initialState, action) {
                     isAuthenticated: true,
                     isLoading: true,
                };
+          case DELETE_USER_FAIL:
+          case CHANGE_PW_FAIL:
+               return {
+                    ...state,
+                    isAuthenticated: true,
+                    isLoading: false,
+               };
+          case DELETE_USER_SUCCESS:
           case LOGIN_FAIL:
           case LOGOUT_SUCCESS:
           case REGISTER_FAIL:

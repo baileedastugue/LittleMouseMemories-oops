@@ -231,6 +231,8 @@ router.delete('/:album_id', auth, async (req, res) => {
      try {
           // Removes album
           console.log(req.user.id);
+          await Picture.remove({ album: req.params.album_id });
+          await Prompt.remove({ album: req.params.album_id });
           await Album.findOneAndDelete({ _id: req.params.album_id });
           await User.update(
                { _id: req.user.id },
@@ -238,30 +240,6 @@ router.delete('/:album_id', auth, async (req, res) => {
                { multi: true }
           );
           res.json({ msg: 'Album deleted' });
-     } catch (err) {
-          console.error(err.message);
-          res.status(500).send('Server error');
-     }
-});
-
-// @route   DELETE api/albums/
-// @desc    Delete profile, albums, and pictures
-// @access  Private
-router.delete('/', auth, async (req, res) => {
-     try {
-          console.log(req.user.id);
-          // Removes albums
-          let thisUser = await User.findOne({ _id: req.user.id });
-          console.log(thisUser.album.length);
-          for (let i = 0; i < thisUser.album.length; i++) {
-               await Album.findByIdAndDelete({ _id: thisUser.album[i] });
-          }
-          // Removes user
-          await User.findOneAndDelete({ _id: req.user.id });
-
-          // todo - remove pictures
-
-          res.json({ msg: 'User deleted' });
      } catch (err) {
           console.error(err.message);
           res.status(500).send('Server error');

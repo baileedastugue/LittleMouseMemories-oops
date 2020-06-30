@@ -137,7 +137,7 @@ export const deleteAlbum = (id) => async (dispatch) => {
                dispatch(getAllAlbums());
                dispatch(setAlert('This album has been permanentely deleted'));
           } catch (err) {
-               const errors = err.response;
+               const errors = err.response.data;
                if (errors) {
                     for (let i = 0; i < errors.length; i++) {
                          dispatch(setAlert(errors[i].msg, 'danger'));
