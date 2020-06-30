@@ -32,13 +32,19 @@ export const getAllAlbums = () => async (dispatch) => {
      }
 };
 
-export const addNewAlbum = ({ title }) => async (dispatch) => {
+export const addNewAlbum = ({ title, passwordRequired, password }) => async (
+     dispatch
+) => {
      const config = {
           headers: {
                'Content-Type': 'application/json',
           },
      };
-     const body = JSON.stringify({ title });
+     if (!passwordRequired) {
+          password = '';
+     }
+     const body = JSON.stringify({ title, passwordRequired, password });
+     console.log(body);
      try {
           const res = await axios.post('/api/albums/', body, config);
           dispatch({
