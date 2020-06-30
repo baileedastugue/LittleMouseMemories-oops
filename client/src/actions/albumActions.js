@@ -11,6 +11,8 @@ import {
      DELETE_ALBUM_FAIL,
      ALBUM_AUTH_SUCCESS,
      ALBUM_AUTH_FAIL,
+     CHANGE_ALBUM_NAME_SUCCESS,
+     CHANGE_ALBUM_NAME_FAIL,
 } from './types';
 
 export const getAllAlbums = () => async (dispatch) => {
@@ -147,5 +149,33 @@ export const deleteAlbum = (id) => async (dispatch) => {
                     type: DELETE_ALBUM_FAIL,
                });
           }
+     }
+};
+
+export const albumNameChange = (album_id, { newTitle }) => async (dispatch) => {
+     const config = {
+          headers: {
+               'Content-Type': 'application/json',
+          },
+     };
+
+     const body = JSON.stringify({ newTitle });
+     try {
+          const res = await axios.put(`/api/albums/${album_id}`, body, config);
+          dispatch({
+               type: CHANGE_ALBUM_NAME_SUCCESS,
+          });
+          dispatch(getAllAlbums());
+          dispatch(setAlert('Album name has been successfully updated'));
+     } catch (err) {
+          const errors = err.response.data;
+          if (errors) {
+               for (let i = 0; i < errors.length; i++) {
+                    dispatch(setAlert(errors[i].msg, 'danger'));
+               }
+          }
+          dispatch({
+               type: CHANGE_ALBUM_NAME_FAIL,
+          });
      }
 };

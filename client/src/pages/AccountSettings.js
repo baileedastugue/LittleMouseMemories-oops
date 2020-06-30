@@ -14,7 +14,7 @@ import { connect } from 'react-redux';
 import PageTitle from '../components/Layout/PageTitle';
 import ChangePasswordForm from '../components/Settings/ChangePasswordForm';
 import DeleteUser from '../components/Settings/DeleteUser';
-// import AlbumList from '../components/Album/AlbumList';
+import AlbumSettings from '../components/Settings/AlbumSettings';
 import AlertDiv from '../components/Layout/AlertDiv';
 import '../App.css';
 import classnames from 'classnames';
@@ -31,8 +31,8 @@ const AccountSettings = ({ isAuth, auth }) => {
                <Container fluid={true}>
                     <PageTitle>Your Settings</PageTitle>
                </Container>
-               <AlertDiv />
-               <Container>
+
+               <Fragment>
                     <Nav tabs>
                          <NavItem>
                               <NavLink
@@ -62,14 +62,24 @@ const AccountSettings = ({ isAuth, auth }) => {
                     <TabContent activeTab={activeTab}>
                          <TabPane tabId='1'>
                               <h4 className='mt-3 mb-3'>Account Settings</h4>
+                              <AlertDiv />
+                              <hr />
+                              <h5 className='mt-3 mb-3'>
+                                   Update Account Password
+                              </h5>
+
                               <ChangePasswordForm />
+                              <hr />
+                              <h5 className='mt-3 mb-3'>Delete User Account</h5>
                               <DeleteUser />
                          </TabPane>
                          <TabPane tabId='2'>
                               <h4 className='mt-3 mb-3'>Album Settings</h4>
+                              <AlertDiv />
+                              <AlbumSettings />
                          </TabPane>
                     </TabContent>
-               </Container>
+               </Fragment>
           </Fragment>
      );
 };
