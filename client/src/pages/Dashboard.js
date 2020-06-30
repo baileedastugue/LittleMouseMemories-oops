@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from 'react';
 import MaterialIcon from 'material-icons-react';
 import PropTypes from 'prop-types';
-import { Container } from 'reactstrap';
+import { Container, Row } from 'reactstrap';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
@@ -38,7 +38,9 @@ const Dashboard = ({ isAuth, auth }) => {
 
                     <AlertDiv />
                </Container>
-               <AlbumList />
+               <Row>
+                    <AlbumList />
+               </Row>
 
                <AddAlbumModal toggle={toggle} isOpen={modal}>
                     <AddAlbumForm toggle={toggle} />

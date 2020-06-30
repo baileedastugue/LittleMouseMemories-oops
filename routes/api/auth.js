@@ -109,14 +109,12 @@ router.put(
                          errors: [{ msg: 'Incorrect current password' }],
                     });
                }
-               console.log(newPassword, newPassword2);
                const pwMatch = newPassword === newPassword2;
                if (!pwMatch) {
                     return res.status(400).json({
                          errors: [{ msg: 'New passwords do not match' }],
                     });
                }
-               console.log(pwMatch);
                const salt = await bcrypt.genSalt(10);
                const encryptedPassword = await bcrypt.hash(newPassword, salt);
                await User.update(

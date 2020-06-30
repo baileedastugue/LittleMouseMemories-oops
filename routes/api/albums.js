@@ -147,7 +147,7 @@ router.get('/:album_id/pictures', async (req, res) => {
      }
 });
 
-// @route   GET api/albums/:album_id/prompts
+// @route   GET api/albums/:album_id/
 // @desc    Get prompts from one album
 // @access  Public
 router.get('/:album_id', async (req, res) => {
@@ -220,6 +220,36 @@ router.post(
           } catch (err) {
                console.error(err.message);
                res.status(500).send('Server Error');
+          }
+     }
+);
+
+// @route   PUT api/albums/:album_id
+// @desc    Update an album name
+// @access  Private
+router.put(
+     '/:album_id',
+     [auth, [check('newTitle', 'A new title is required').not().isEmpty()]],
+     async (req, res) => {
+          const errors = validationResult(req);
+          if (!errors.isEmpty()) {
+               return res.status(400).json({ errors: errors.array() });
+          }
+          const { newTitle } = req.body;
+          console.log(newTitle);
+          try {
+               const album_id = req.params.album_id;
+               console.log(album_id);
+               await Album.update(
+                    {
+                         _id: album_id,
+                    },
+                    { $set: { title: newTitle } }
+               );
+               res.json({ msg: 'Album title successfully updated' });
+          } catch (err) {
+               console.error(err.message);
+               res.status(500).send('Server error');
           }
      }
 );

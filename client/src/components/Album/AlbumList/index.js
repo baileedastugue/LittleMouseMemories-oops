@@ -7,16 +7,16 @@ import DeleteBtn from '../../Buttons/DeleteBtn';
 import {
      // Card,
      // Row,
-     CardFooter,
+     // CardFooter,
      CardBody,
      CardText,
      CardTitle,
 } from 'reactstrap';
-import { getAllAlbums, deleteAlbum } from '../../../actions/albumActions';
+import { getAllAlbums } from '../../../actions/albumActions';
 
 import './style.css';
 
-const AlbumList = ({ albums, deleteAlbum, getAllAlbums }) => {
+const AlbumList = ({ albums, getAllAlbums }) => {
      // this
      useEffect(() => {
           getAllAlbums();
@@ -25,12 +25,12 @@ const AlbumList = ({ albums, deleteAlbum, getAllAlbums }) => {
      let albumLength = albums.albums.length;
      let albumLoading = albums.isLoading;
 
-     const deleteClick = async (event) => {
-          event.preventDefault();
-          const album_id = event.target.getAttribute('data-id');
-          console.log(album_id);
-          deleteAlbum(album_id);
-     };
+     // const deleteClick = async (event) => {
+     //      event.preventDefault();
+     //      const album_id = event.target.getAttribute('data-id');
+     //      console.log(album_id);
+     //      deleteAlbum(album_id);
+     // };
 
      return albumLength === 0 ? (
           <Fragment>No albums added</Fragment>
@@ -58,7 +58,7 @@ const AlbumList = ({ albums, deleteAlbum, getAllAlbums }) => {
                                    </CardTitle>
                               </Link>
                          </CardBody>
-                         <CardFooter
+                         {/* <CardFooter
                               className='albumListBelow'
                               // onClick={deleteClick}
                               id={album._id}
@@ -67,7 +67,7 @@ const AlbumList = ({ albums, deleteAlbum, getAllAlbums }) => {
                                    id={album._id}
                                    deleteClick={deleteClick}
                               />
-                         </CardFooter>
+                         </CardFooter> */}
                     </div>
                </Fragment>
           ))
@@ -78,7 +78,6 @@ const AlbumList = ({ albums, deleteAlbum, getAllAlbums }) => {
 
 AlbumList.propTypes = {
      getAllAlbums: PropTypes.func.isRequired,
-     deleteAlbum: PropTypes.func.isRequired,
      auth: PropTypes.object.isRequired,
      albums: PropTypes.object.isRequired,
 };
@@ -88,6 +87,4 @@ const mapStateToProps = (state) => ({
      albums: state.album,
 });
 
-export default connect(mapStateToProps, { getAllAlbums, deleteAlbum })(
-     AlbumList
-);
+export default connect(mapStateToProps, { getAllAlbums })(AlbumList);
