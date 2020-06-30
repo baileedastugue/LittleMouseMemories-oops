@@ -23,14 +23,6 @@ router.post(
                'Please enter a password with 6 or more characters'
           ).isLength({ min: 6 }),
      ],
-     // body('password2').custom((value, { req }) => {
-     //      if (value !== req.body.password) {
-     //           console.log(value);
-     //           console.log(req.body.password === req.body.password2);
-     //           throw new Error('Passwords do not match');
-     //      }
-     //      return true;
-     // }),
      async (req, res) => {
           const errors = validationResult(req);
           if (!errors.isEmpty()) {

@@ -67,7 +67,7 @@ const LoginForm = (props) => {
 // login is a prop
 LoginForm.propTypes = {
      login: PropTypes.func.isRequired,
-     isAuth: PropTypes.bool,
+     isAuth: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({
