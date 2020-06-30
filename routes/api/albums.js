@@ -6,9 +6,7 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../../middleware/auth');
 const bcrypt = require('bcryptjs');
-// const albumAuth = require('../../middleware/albumAuth');
 const { check, validationResult } = require('express-validator');
-const jwt = require('jsonwebtoken');
 // const {
 //      default: AddAlbumForm,
 // } = require('../../client/src/components/Album/AddAlbum/AddAlbumForm');
@@ -47,11 +45,16 @@ router.get('/', auth, async (req, res) => {
 // @access  Private
 router.post('/private/:album_id', async (req, res) => {
      const { albumId, password } = req.body;
+     console.log(albumId);
+     console.log(req.body);
      console.log('line 50');
      try {
           console.log(albumId);
           let album = await Album.findById(albumId);
+          console.log(album);
           const isMatch = await bcrypt.compare(password, album.password);
+          console.log(isMatch);
+          console.log(await bcrypt.compare(password, album.password));
           if (!isMatch) {
                return res
                     .status(400)
@@ -183,18 +186,7 @@ router.get('/:album_id', async (req, res) => {
 // @access  Private
 router.post(
      '/',
-     [
-          auth,
-          [check('title', 'A title is required').not().isEmpty()],
-          [
-               check(
-                    'passwordRequired',
-                    'Please indicate if this album should be password protected'
-               )
-                    .not()
-                    .isEmpty(),
-          ],
-     ],
+     [auth, [check('title', 'A title is required').not().isEmpty()]],
      async (req, res) => {
           const errors = validationResult(req);
           if (!errors.isEmpty()) {
@@ -204,13 +196,13 @@ router.post(
           const { title, password, passwordRequired } = req.body;
           albumFields.title = title;
           albumFields.passwordRequired = passwordRequired;
-          // albumFields.password = password;
           albumFields.user = req.user.id;
 
           try {
                let objAlbum = Album.find({ user: req.user.id });
                const salt = await bcrypt.genSalt(10);
                albumFields.password = await bcrypt.hash(password, salt);
+
                objAlbum = new Album(albumFields);
                await objAlbum.save();
                User.findOneAndUpdate(
@@ -224,24 +216,6 @@ router.post(
                          }
                     }
                );
-               // console.log('line 191');
-               // console.log(objAlbum);
-               // const payload = {
-               //      album: {
-               //           id: objAlbum._id,
-               //      },
-               // };
-               // console.log('line 198');
-               // // console.log(payload);
-               // await jwt.sign(
-               //      payload,
-               //      process.env.JWT_SECRET,
-               //      { expiresIn: 3600 },
-               //      (err, token) => {
-               //           if (err) throw err;
-               //           res.json({ token });
-               //      }
-               // );
                res.json(objAlbum);
           } catch (err) {
                console.error(err.message);
