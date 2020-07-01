@@ -7,11 +7,6 @@ const router = express.Router();
 const auth = require('../../middleware/auth');
 const bcrypt = require('bcryptjs');
 const { check, validationResult } = require('express-validator');
-// const {
-//      default: AddAlbumForm,
-// } = require('../../client/src/components/Album/AddAlbum/AddAlbumForm');
-
-// Dashboard
 
 // @route   GET api/albums/
 // @desc    Get current user's albums
@@ -253,6 +248,32 @@ router.put(
           }
      }
 );
+
+// @route   PUT api/albums/password/:album_id
+// @desc    Update an album password
+// @access  Private
+router.put('/password/:album_id', auth, async (req, res) => {
+     let { newPassword, passwordRequired } = req.body;
+     console.log(newPassword, passwordRequired);
+     try {
+          const salt = await bcrypt.genSalt(10);
+          newPassword = await bcrypt.hash(newPassword, salt);
+          console.log(newPassword);
+          await Album.update(
+               { _id: req.params.album_id },
+               {
+                    $set: {
+                         password: newPassword,
+                         passwordRequired: passwordRequired,
+                    },
+               }
+          );
+          res.json({ msg: 'Album password successfully updated' });
+     } catch (err) {
+          console.error(err.message);
+          res.status(500).send('Server error');
+     }
+});
 
 // @route   DELETE api/albums/:album_id
 // @desc    Delete an album

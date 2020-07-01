@@ -129,18 +129,13 @@ export const changePw = ({ oldPassword, newPassword, newPassword2 }) => async (
 };
 
 export const deleteAccount = () => async (dispatch) => {
-     const config = {
-          headers: {
-               'Content-Type': 'application/json',
-          },
-     };
      if (
           window.confirm(
                'Are you sure you want to delete your account? This action cannot be undone and all albums and their contents will be permanently deleted'
           )
      ) {
           try {
-               const res = await axios.delete('/api/auth');
+               await axios.delete('/api/auth');
                dispatch({
                     type: DELETE_USER_SUCCESS,
                });

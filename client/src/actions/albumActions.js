@@ -13,6 +13,8 @@ import {
      ALBUM_AUTH_FAIL,
      CHANGE_ALBUM_NAME_SUCCESS,
      CHANGE_ALBUM_NAME_FAIL,
+     CHANGE_ALBUM_PW_SUCCESS,
+     CHANGE_ALBUM_PW_FAIL,
 } from './types';
 
 export const getAllAlbums = () => async (dispatch) => {
@@ -161,7 +163,7 @@ export const albumNameChange = (album_id, { newTitle }) => async (dispatch) => {
 
      const body = JSON.stringify({ newTitle });
      try {
-          const res = await axios.put(`/api/albums/${album_id}`, body, config);
+          await axios.put(`/api/albums/${album_id}`, body, config);
           dispatch({
                type: CHANGE_ALBUM_NAME_SUCCESS,
           });
@@ -176,6 +178,40 @@ export const albumNameChange = (album_id, { newTitle }) => async (dispatch) => {
           }
           dispatch({
                type: CHANGE_ALBUM_NAME_FAIL,
+          });
+     }
+};
+
+export const albumPasswordChange = (
+     album_id,
+     { newPassword, passwordRequired }
+) => async (dispatch) => {
+     const config = {
+          headers: {
+               'Content-Type': 'application/json',
+          },
+     };
+     const body = JSON.stringify({ newPassword, passwordRequired });
+     try {
+          await axios.put(`/api/albums/password/${album_id}`, body, config);
+          dispatch({
+               type: CHANGE_ALBUM_PW_SUCCESS,
+          });
+          dispatch(getAllAlbums());
+          dispatch(
+               setAlert(
+                    'Album password settings have been successfully updated'
+               )
+          );
+     } catch (err) {
+          const errors = err.response.data;
+          if (errors) {
+               for (let i = 0; i < errors.length; i++) {
+                    dispatch(setAlert(errors[i].msg, 'danger'));
+               }
+          }
+          dispatch({
+               type: CHANGE_ALBUM_PW_FAIL,
           });
      }
 };

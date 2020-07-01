@@ -13,6 +13,9 @@ import {
      ALBUM_AUTH_FAIL,
      CHANGE_ALBUM_NAME_SUCCESS,
      CHANGE_ALBUM_NAME_FAIL,
+     CHANGE_ALBUM_PW_SUCCESS,
+     CHANGE_ALBUM_PW_FAIL,
+     CHANGE_PW_FAIL,
 } from '../actions/types';
 
 const initialState = {
@@ -50,6 +53,7 @@ export default function (state = initialState, action) {
                     isLoading: true,
                     authorized: true,
                };
+          case CHANGE_ALBUM_PW_SUCCESS:
           case CHANGE_ALBUM_NAME_SUCCESS:
           case DELETE_PICTURE_SUCCESS:
           case DELETE_ALBUM_SUCCESS:
@@ -57,6 +61,8 @@ export default function (state = initialState, action) {
                     ...state,
                     isLoading: false,
                };
+          case CHANGE_ALBUM_PW_FAIL:
+          case CHANGE_PW_FAIL:
           case CHANGE_ALBUM_NAME_FAIL:
           case ALBUM_AUTH_FAIL:
           case DELETE_PICTURE_FAIL:

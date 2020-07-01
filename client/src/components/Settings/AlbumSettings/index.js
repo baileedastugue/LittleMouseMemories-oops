@@ -30,6 +30,8 @@ import {
 } from '../../../actions/albumActions';
 
 import './style.css';
+import { setAlert } from '../../../actions/alertActions';
+import AlbumPassword from '../AlbumPassword';
 
 const AlbumSettings = ({
      albums,
@@ -48,12 +50,14 @@ const AlbumSettings = ({
           event.preventDefault();
           const album_id = event.target.getAttribute('id');
           console.log(album_id);
-          deleteAlbum(album_id);
+          await deleteAlbum(album_id);
      };
      const [activeTab, setActiveTab] = useState('delete');
+
      const toggle = (tab) => {
           if (activeTab !== tab) setActiveTab(tab);
      };
+
      const deleteId = (album_id) => {
           return `delete${album_id}`;
      };
@@ -74,7 +78,12 @@ const AlbumSettings = ({
 
      const submitAlbumTitle = async (event, album_id) => {
           event.preventDefault();
-          await albumNameChange(album_id, { newTitle });
+          try {
+               await albumNameChange(album_id, { newTitle });
+               setNewTitle('');
+          } catch (err) {
+               console.error(err);
+          }
      };
 
      return albumLength === 0 ? (
@@ -181,8 +190,12 @@ const AlbumSettings = ({
                                              <TabPane
                                                   tabId={passwordId(album._id)}
                                              >
-                                                  This is where we change the
-                                                  album passwords
+                                                  <AlbumPassword
+                                                       id={album._id}
+                                                       passwordRequired={
+                                                            album.passwordRequired
+                                                       }
+                                                  />
                                              </TabPane>
                                         </TabContent>
                                    </Col>
