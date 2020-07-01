@@ -1,35 +1,88 @@
-$focus-color: #1864bd;
-$secondary-color: #f0977f;
-$muted-color: #e9aba1;
-$dark-color: #4B4847;
+// $focus-color: #4E6D99;
+// $secondary-color:#86b3d1;
+// $muted-color: #e9aba1;
+// $dark-color: #4B4847;
+// $abundant-color: white;
+
+$focus-color: #3282b8;
+$secondary-color: #0f4c75;
+$highlight-color: #bbe1fa;
+$muted-color: #dfdfdf;
+$dark-color: #252525;
 $abundant-color: white;
+$danger: #c40018;
 
+$focus-text: 'Vidaloka', serif;
+$secondary-text: 'Roboto', sans-serif;
 
-
-#root {
+.mixedPost-footer.modal-footer {
+  border-radius: 0;
+  height: 2.9vw;
   background-color: $abundant-color;
-  box-sizing: border-box;
+  border: none;
+  align-content: center;
+  margin: 0 auto;
+  display: block;
+  margin: 0 auto;
+  text-align: center; 
+  color: $danger;
+  font-family: $secondary-text;
+
+}
+.mixedPost-footer.modal-footer:hover {
+  border-radius: 0;
+  // background-color: $secondary-color;
+  border: 2.5px solid $danger;
+  cursor: pointer;
+  text-align: center;
 }
 
-body, html {
-  height:  100%;
-  margin:  0px auto;
-  padding: 0px auto;
+div#root {
+  background-color: $dark-color;
+  box-sizing: border-box;
+  height: auto;
+  color: $abundant-color
 }
 
 .buttonContainer {
   position: absolute;
   bottom: 5vw;
   right: 5vw;
-  // Button.albumButton, Button.photoButton {
-  //   bottom: 10vw;
-  // }
-  // Button.promptButton {
-  //   bottom: 0vw;
-  // }
-  Button.albumButton {
+  button.albumButton {
     padding-top: 15px;
     padding-left: 0px;
   }
+  button.photoButton.modalButton {
+    margin-bottom: 2vw;
+  }
 }
 
+
+
+button.btn-danger {
+  background-color: $danger;
+  border-color: $danger;
+}
+
+button.btn-danger:hover {
+  background-color: $dark-color;
+  border-color: $danger;
+  color: $danger;
+}
+button.close {
+  color: $abundant-color;
+  position: absolute;
+  top: 3vw;
+  right: 28vw;
+  font-size: 2.5rem;
+  opacity: 1;
+}
+
+button.close:hover {
+  color: $focus-color;
+}
+
+button.close:active, button.close:focus {
+  border: none;
+  outline: none;
+}

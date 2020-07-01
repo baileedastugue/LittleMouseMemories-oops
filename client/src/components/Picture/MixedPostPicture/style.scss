@@ -1,17 +1,17 @@
-$focus-color: #1864bd;
-$secondary-color: #f0977f;
-$muted-color: #e9aba1;
-$dark-color: #4B4847;
+$focus-color: #3282b8;
+$secondary-color: #0f4c75;
+$highlight-color: #bbe1fa;
+$muted-color: #dfdfdf;
+$dark-color: #252525;
 $abundant-color: white;
 
-$focus-text: 'Fjalla One', sans-serif;
+$focus-text: 'Vidaloka', serif;
 $secondary-text: 'Roboto', sans-serif;
 
-
 .card.mixedPostPicture {
+  border-radius: 0;
   display: inline-block;
   flex-direction: row;
-  // justify-content: space-between;
   margin: 1vw;
   padding: 0px;
   position: relative;
@@ -19,9 +19,11 @@ $secondary-text: 'Roboto', sans-serif;
   border: none;
 
   .image {
-    height: 400px; /* height of container */
+    border-radius: 0;
+    height: 400px;
     width: 400px;
     object-fit: contain;
+    background-color: $dark-color;
   }
   .overlay.card-body {
     position: absolute;
@@ -32,14 +34,14 @@ $secondary-text: 'Roboto', sans-serif;
     height: 400px;
     width: 400px;
     opacity: 0;
-    transition: .5s ease;
-    background-color: $dark-color;
+    transition: .6s ease;
+    background-color: $highlight-color;
   }
 
  
       
   .text {
-    color: white;
+    color: $dark-color;
     font-size: 20px;
     position: absolute;
     font-family: $secondary-text;

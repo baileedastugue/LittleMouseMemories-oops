@@ -1,4 +1,5 @@
 div.mixedPostPrompt.card {
+  border-radius: 0;
   display: inline-block;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -10,7 +11,7 @@ div.mixedPostPrompt.card {
   cursor: pointer;
   height: 400px;
   width: 400px;
-  background-color: #f0977f;
+  background-color: #3282b8;
   color: white;
   font-size: 2rem;
   font-family: "Roboto", sans-serif;
@@ -24,20 +25,20 @@ div.mixedPostPrompt.card p.card-text {
 
 div.mixedPostPrompt.card .overlay {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 400px;
-  width: 400px;
+  top: -1px;
+  bottom: -1px;
+  left: -1px;
+  right: -1px;
+  height: 402px;
+  width: 402px;
   opacity: 0;
   -webkit-transition: .5s ease;
   transition: .5s ease;
-  background-color: #4B4847;
+  background-color: #dfdfdf;
 }
 
 div.mixedPostPrompt.card .text {
-  color: white;
+  color: #252525;
   font-size: 20px;
   position: absolute;
   top: 50%;

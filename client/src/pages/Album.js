@@ -9,7 +9,7 @@ import {
      Button,
      FormGroup,
      Modal,
-     ModalHeader,
+     ModalFooter,
      Row,
 } from 'reactstrap';
 import MaterialIcon from 'material-icons-react';
@@ -26,10 +26,10 @@ import MixedPostPrompt from '../components/Prompt/MixedPostPrompt';
 import PageTitle from '../components/Layout/PageTitle';
 import CarouselPicture from '../components/Picture/CarouselPicture';
 import CarouselPrompt from '../components/Prompt/CarouselPrompt';
-import DeleteBtn from '../components/Buttons/DeleteBtn';
 import { deletePicture } from '../actions/pictureActions';
 import { deletePrompt } from '../actions/promptActions';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import AlertDiv from '../components/Layout/AlertDiv';
 
 const Album = ({
@@ -91,11 +91,7 @@ const Album = ({
           carouselToggle();
      };
      const externalCloseBtn = (
-          <button
-               className='close'
-               style={{ position: 'absolute', top: '3.5vw', right: '28vw' }}
-               onClick={carouselToggle}
-          >
+          <button className='close' onClick={carouselToggle}>
                &times;
           </button>
      );
@@ -124,9 +120,6 @@ const Album = ({
           }
      };
 
-     // only view posts --> hide PictureCards
-     // only view picture --> hide PostsCards
-     // view all memories --> view both in chronological order
      return albumLoading ? (
           <h1>Welcome</h1>
      ) : (
@@ -203,15 +196,6 @@ const Album = ({
                               size='lg'
                               external={externalCloseBtn}
                          >
-                              {isAuth ? (
-                                   <ModalHeader>
-                                        {' '}
-                                        <DeleteBtn
-                                             // data-id={}
-                                             deleteClick={deleteClick}
-                                        />
-                                   </ModalHeader>
-                              ) : null}
                               <Carousel
                                    activeIndex={activeIndex}
                                    next={next}
@@ -248,6 +232,19 @@ const Album = ({
                                                        }
                                                   />
                                              )}
+
+                                             {isAuth ? (
+                                                  <ModalFooter
+                                                       className='mixedPost-footer center'
+                                                       onClick={deleteClick}
+                                                       data-id={post._id}
+                                                  >
+                                                       <div>
+                                                            {' '}
+                                                            Delete this post
+                                                       </div>
+                                                  </ModalFooter>
+                                             ) : null}
                                         </CarouselItem>
                                    ))}
 
@@ -282,7 +279,7 @@ const Album = ({
                                    action={
                                         <MaterialIcon
                                              icon='add_a_photo'
-                                             color='#ffffff'
+                                             color='#252525'
                                              size='medium'
                                         />
                                    }
@@ -290,15 +287,12 @@ const Album = ({
                               />
                               <br />
                               <br />
-                              <br />
-                              <br />
-                              <br />
                               <ModalButton
                                    className='promptButton modalButton'
                                    action={
                                         <MaterialIcon
                                              icon='create'
-                                             color='#ffffff'
+                                             color='#252525'
                                              size='medium'
                                         />
                                    }

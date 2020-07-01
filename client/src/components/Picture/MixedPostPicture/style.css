@@ -1,4 +1,5 @@
 .card.mixedPostPicture {
+  border-radius: 0;
   display: inline-block;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -12,11 +13,12 @@
 }
 
 .card.mixedPostPicture .image {
+  border-radius: 0;
   height: 400px;
-  /* height of container */
   width: 400px;
   -o-object-fit: contain;
      object-fit: contain;
+  background-color: #252525;
 }
 
 .card.mixedPostPicture .overlay.card-body {
@@ -28,13 +30,13 @@
   height: 400px;
   width: 400px;
   opacity: 0;
-  -webkit-transition: .5s ease;
-  transition: .5s ease;
-  background-color: #4B4847;
+  -webkit-transition: .6s ease;
+  transition: .6s ease;
+  background-color: #bbe1fa;
 }
 
 .card.mixedPostPicture .text {
-  color: white;
+  color: #252525;
   font-size: 20px;
   position: absolute;
   font-family: "Roboto", sans-serif;

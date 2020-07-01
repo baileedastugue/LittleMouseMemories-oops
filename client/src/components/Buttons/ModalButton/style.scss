@@ -1,3 +1,13 @@
+$focus-color: #3282b8;
+$secondary-color: #0f4c75;
+$highlight-color: #bbe1fa;
+$muted-color: #dfdfdf;
+$dark-color: #252525;
+$abundant-color: white;
+$danger: #c40018;
+
+$focus-text: 'Vidaloka', serif;
+$secondary-text: 'Roboto', sans-serif;
 Button.modalButton {
   width: 90px; 
   height: 90px; 
@@ -5,8 +15,21 @@ Button.modalButton {
   border-radius:50px; 
   text-align: center; 
   font-size: 3rem;
-  background-color: black;
+  background-color: $muted-color;
   float: right;
+  border: none;
+  outline: none;
   
-  
+}
+
+Button.modalButton:hover {
+  background-color: $secondary-color;
+  border: none;
+  outline: none;
+}
+
+Button.modalButton:focus, Button.modalButton:active {
+  background-color: $muted-color;
+  border: none;
+  outline: none;
 }

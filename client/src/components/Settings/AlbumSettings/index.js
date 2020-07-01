@@ -11,8 +11,6 @@ import {
      FormGroup,
      Label,
      Input,
-     //  CardBody,
-     //  CardText,
      TabContent,
      TabPane,
      CardTitle,
@@ -20,7 +18,6 @@ import {
      Nav,
      NavItem,
      NavLink,
-     //  Col,
 } from 'reactstrap';
 import classnames from 'classnames';
 import {
@@ -30,7 +27,6 @@ import {
 } from '../../../actions/albumActions';
 
 import './style.css';
-import { setAlert } from '../../../actions/alertActions';
 import AlbumPassword from '../AlbumPassword';
 
 const AlbumSettings = ({

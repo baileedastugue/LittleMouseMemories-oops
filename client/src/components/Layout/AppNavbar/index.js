@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../../actions/authActions';
 import { Redirect } from 'react-router-dom';
-import logo from '../../../img/logo_owb.png';
+import logo from '../../../img/logo.png';
 import './style.css';
 
 const AppNavbar = ({ logout, auth }) => {
@@ -46,21 +46,20 @@ const AppNavbar = ({ logout, auth }) => {
      return (
           <div>
                <Navbar className='mb-5'>
+                    {loading || !auth.isAuthenticated
+                         ? loggedOutLinks
+                         : loggedInLinks}
                     {!auth.isAuthenticated ? (
                          <NavbarBrand href='/'>
                               <img src={logo} alt='two elephants hugging' />
-                              <span>Elephant Memory</span>
+                              <span>Elephant's Memory</span>
                          </NavbarBrand>
                     ) : (
                          <NavbarBrand href='/dashboard'>
                               <img src={logo} alt='two elephants hugging' />
-                              <span>Elephant Memory</span>
+                              <span>Elephant's Memory</span>
                          </NavbarBrand>
                     )}
-
-                    {loading || !auth.isAuthenticated
-                         ? loggedOutLinks
-                         : loggedInLinks}
                </Navbar>
           </div>
      );

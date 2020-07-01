@@ -5,7 +5,21 @@ Button.modalButton {
   border-radius: 50px;
   text-align: center;
   font-size: 3rem;
-  background-color: black;
+  background-color: #dfdfdf;
   float: right;
+  border: none;
+  outline: none;
+}
+
+Button.modalButton:hover {
+  background-color: #0f4c75;
+  border: none;
+  outline: none;
+}
+
+Button.modalButton:focus, Button.modalButton:active {
+  background-color: #dfdfdf;
+  border: none;
+  outline: none;
 }
 /*# sourceMappingURL=style.css.map */

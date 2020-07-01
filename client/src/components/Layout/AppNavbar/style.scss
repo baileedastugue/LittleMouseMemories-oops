@@ -1,24 +1,30 @@
-$focus-color: #1864bd;
-$secondary-color: #f0977f;
-$muted-color: #e9aba1;
-$dark-color: #4B4847;
+// $focus-color: #4E6D99;
+// $secondary-color:#86b3d1;
+// $muted-color: #e9aba1;
+// $dark-color: #4B4847;
+// $abundant-color: white;
+
+$focus-color: #3282b8;
+$secondary-color: #0f4c75;
+$highlight-color: #bbe1fa;
+$muted-color: #dfdfdf;
+$dark-color: #252525;
 $abundant-color: white;
 
-$focus-text: 'Fjalla One', sans-serif;
+$focus-text: 'Vidaloka', serif;
 $secondary-text: 'Roboto', sans-serif;
 // $secondary-text: 'Montserrat', sans-serif;
 
 .navbar {
-  // background-color:black;
-  padding: 1.2vw;
-  border-bottom: 5px double black;
+  background-color:$dark-color;
+  padding: 1.8vw;
+  // border-bottom: 5px solid $highlight-color;
   a.navbar-brand {
     font-family: $focus-text;
     margin: 0vw;
     padding-left: 0vw;
-    font-size: 2.5em;
+    font-size: 2.7em;
     color: $focus-color;
-    // padding: 1vw;
     line-height:2rem;
     text-align: right;
     img {
@@ -26,13 +32,15 @@ $secondary-text: 'Roboto', sans-serif;
       padding: 0px;
       margin: 0px;
       display: block;
-      left: 4vw;
-      top: 0vw;
+      right: 2vw;
+      top: .7vw;
       position: absolute;
       z-index: 10;
+      -ms-transform: rotate(10deg); /* IE 9 */
+      transform: rotate(10deg);
     }
     span {
-      margin: 12vw;
+      margin: 9vw;
     }
   }
   .navbar-brand:visited {
@@ -41,12 +49,14 @@ $secondary-text: 'Roboto', sans-serif;
   a {
     color: $muted-color;
     font-family: $secondary-text;
+    font-weight: 300;
   }
   a:visited {
     color: $muted-color;
   }
   a:hover{
-    color: $secondary-color;
+    font-style: italic;
+    // font-weight: 400;
     cursor: pointer;
   }
 }

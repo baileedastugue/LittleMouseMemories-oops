@@ -1,10 +1,18 @@
-$focus-color: #1864bd;
-$secondary-color: #f0977f;
-$muted-color: #e9aba1;
-$dark-color: #4B4847;
+// $focus-color: #709fb0;
+// $secondary-color: #438a5e;
+// $highlight-color: #ff847c;
+// $muted-color: #dfdfdf;
+// $dark-color: #252525;
+// $abundant-color: white;
+
+$focus-color: #3282b8;
+$secondary-color: #0f4c75;
+$highlight-color: #bbe1fa;
+$muted-color: #dfdfdf;
+$dark-color: #252525;
 $abundant-color: white;
 
-$focus-text: 'Fjalla One', sans-serif;
+$focus-text: 'Vidaloka', serif;
 $secondary-text: 'Roboto', sans-serif;
 
 
@@ -29,14 +37,16 @@ $secondary-text: 'Roboto', sans-serif;
 div.albumList {
     box-sizing: border-box;
     .card-body{
-        border: 5px solid black;
+        // border: 2px solid $muted-color;
         width: 400px;
         height: 400px;
-        background-color: $abundant-color;
+        background-color: $focus-color;
         p.card-text {
             a {
-                color: $focus-color;
-                font-size: 3rem;
+                color: $abundant-color;
+                font-size: 2.5rem;
+                font-family: $secondary-text;
+                font-weight: 300;
             }
         }
     }
@@ -72,21 +82,21 @@ div.albumList {
         transform: translate(-50%, -50%);
         text-align: center;
       }
-      .albumListBelow.card-footer {
-          width: 400px;
-          height: 50px;
-          background-color: $abundant-color;
-          border: none;
-        //   margin: 0vw 1vw;
-        //   top: 410px;
-        //   position: absolute;
-        //   left: -100px;
-        //   display: inline-block;
-      }
-    //   .albumListBelow.card-footer:hover {
-    //       background-color: $dark-color;
-    //       cursor: pointer;
+    //   .albumListBelow.card-footer {
+    //       width: 400px;
+    //       height: 50px;
+    //       background-color: $abundant-color;
+    //       border: none;
+    //     //   margin: 0vw 1vw;
+    //     //   top: 410px;
+    //     //   position: absolute;
+    //     //   left: -100px;
+    //     //   display: inline-block;
     //   }
+    // //   .albumListBelow.card-footer:hover {
+    // //       background-color: $dark-color;
+    // //       cursor: pointer;
+    // //   }
       .card-body:hover {
           text-decoration: none;
           color: black;

@@ -3,5 +3,13 @@ div.card.albumSettings {
   height: 400px;
   display: inline-block;
   margin: 1vw;
+  color: #0f4c75;
+  padding: 1vw;
+}
+
+div.card.albumSettings div.card-title {
+  font-family: "Vidaloka", serif;
+  font-size: 1.2rem;
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */

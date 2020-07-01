@@ -1,14 +1,14 @@
 .navbar {
-  padding: 1.2vw;
-  border-bottom: 5px double black;
+  background-color: #252525;
+  padding: 1.8vw;
 }
 
 .navbar a.navbar-brand {
-  font-family: "Fjalla One", sans-serif;
+  font-family: "Vidaloka", serif;
   margin: 0vw;
   padding-left: 0vw;
-  font-size: 2.5em;
-  color: #1864bd;
+  font-size: 2.7em;
+  color: #3282b8;
   line-height: 2rem;
   text-align: right;
 }
@@ -18,31 +18,35 @@
   padding: 0px;
   margin: 0px;
   display: block;
-  left: 4vw;
-  top: 0vw;
+  right: 2vw;
+  top: .7vw;
   position: absolute;
   z-index: 10;
+  /* IE 9 */
+  -webkit-transform: rotate(10deg);
+          transform: rotate(10deg);
 }
 
 .navbar a.navbar-brand span {
-  margin: 12vw;
+  margin: 9vw;
 }
 
 .navbar .navbar-brand:visited {
-  color: #1864bd;
+  color: #3282b8;
 }
 
 .navbar a {
-  color: #e9aba1;
+  color: #dfdfdf;
   font-family: "Roboto", sans-serif;
+  font-weight: 300;
 }
 
 .navbar a:visited {
-  color: #e9aba1;
+  color: #dfdfdf;
 }
 
 .navbar a:hover {
-  color: #f0977f;
+  font-style: italic;
   cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

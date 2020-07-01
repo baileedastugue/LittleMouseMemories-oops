@@ -9,7 +9,6 @@ import {
      NavLink,
 } from 'reactstrap';
 import { connect } from 'react-redux';
-// import { Redirect } from 'react-router-dom';
 
 import PageTitle from '../components/Layout/PageTitle';
 import ChangePasswordForm from '../components/Settings/ChangePasswordForm';

@@ -1,13 +1,31 @@
-#root {
+.mixedPost-footer.modal-footer {
+  border-radius: 0;
+  height: 2.9vw;
   background-color: white;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  border: none;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  margin: 0 auto;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  color: #c40018;
+  font-family: "Roboto", sans-serif;
 }
 
-body, html {
-  height: 100%;
-  margin: 0px auto;
-  padding: 0px auto;
+.mixedPost-footer.modal-footer:hover {
+  border-radius: 0;
+  border: 2.5px solid #c40018;
+  cursor: pointer;
+  text-align: center;
+}
+
+div#root {
+  background-color: #252525;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: auto;
+  color: white;
 }
 
 .buttonContainer {
@@ -16,8 +34,41 @@ body, html {
   right: 5vw;
 }
 
-.buttonContainer Button.albumButton {
+.buttonContainer button.albumButton {
   padding-top: 15px;
   padding-left: 0px;
+}
+
+.buttonContainer button.photoButton.modalButton {
+  margin-bottom: 2vw;
+}
+
+button.btn-danger {
+  background-color: #c40018;
+  border-color: #c40018;
+}
+
+button.btn-danger:hover {
+  background-color: #252525;
+  border-color: #c40018;
+  color: #c40018;
+}
+
+button.close {
+  color: white;
+  position: absolute;
+  top: 3vw;
+  right: 28vw;
+  font-size: 2.5rem;
+  opacity: 1;
+}
+
+button.close:hover {
+  color: #3282b8;
+}
+
+button.close:active, button.close:focus {
+  border: none;
+  outline: none;
 }
 /*# sourceMappingURL=App.css.map */

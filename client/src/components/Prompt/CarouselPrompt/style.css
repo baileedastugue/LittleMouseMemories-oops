@@ -1,4 +1,5 @@
 .card.carouselPrompt {
+  border-radius: 0;
   padding: 0px;
   height: 45vw;
   font-size: inherit;
@@ -9,18 +10,20 @@
 
 .card.carouselPrompt .card-title {
   margin-left: 1vw;
-  height: 1.5vw;
+  padding: 1vw;
+  height: 3vw;
 }
 
 .card.carouselPrompt .card-title time {
-  font-family: "Fjalla One", sans-serif;
+  font-family: "Vidaloka", serif;
   font-size: 1.7rem;
-  color: #1864bd;
+  color: #3282b8;
   letter-spacing: 1.2rem;
 }
 
 .card.carouselPrompt .card-subtitle {
   font-family: "Roboto", sans-serif;
+  font-weight: 300;
   padding-left: 10%;
   height: 1vw;
   margin-bottom: .3vw;
@@ -41,13 +44,12 @@
   font-size: 1.2rem;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
-  float: right;
 }
 
 .card.carouselPrompt div.memoryArea {
   height: 38vw;
   width: 35vw;
-  background-color: #1864bd;
+  background-color: #3282b8;
   color: red;
   font-size: 2rem;
   overflow-y: auto;
@@ -63,8 +65,8 @@
 }
 
 .card.carouselPrompt div.memoryArea span.prompt {
-  color: #f0977f;
-  font-family: "Fjalla One", sans-serif;
+  color: #0f4c75;
+  font-family: "Vidaloka", serif;
   font-weight: 300;
 }
 

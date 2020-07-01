@@ -11,6 +11,7 @@ import PrivateRoute from './components/Auth/PrivateRoute';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Wrapper from './components/Layout/Wrapper';
 import './App.css';
+import { Helmet } from 'react-helmet';
 
 // import global header
 import setAuthToken from './utils/setAuthToken';
@@ -36,6 +37,10 @@ const App = () => {
           <Provider store={store}>
                <AppNavbar />
                <Wrapper>
+                    <Helmet>
+                         <style>{'body {background-color: #252525;}'}</style>
+                    </Helmet>
+
                     <Router>
                          <Route exact path='/' component={Welcome} />
                          <Switch>
