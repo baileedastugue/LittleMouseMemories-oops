@@ -45,7 +45,7 @@ const AppNavbar = ({ logout, auth }) => {
      const loading = auth.isLoading;
      return (
           <div>
-               <Navbar className='mb-5'>
+               <Navbar className='mb-1'>
                     {loading || !auth.isAuthenticated
                          ? loggedOutLinks
                          : loggedInLinks}

@@ -1,11 +1,12 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Vidaloka", serif;
+}
+
 .mixedPost-footer.modal-footer {
   border-radius: 0;
   height: 2.9vw;
   background-color: white;
   border: none;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  margin: 0 auto;
   display: block;
   margin: 0 auto;
   text-align: center;
@@ -29,18 +30,15 @@ div#root {
 }
 
 .buttonContainer {
-  position: absolute;
-  bottom: 5vw;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 10vw;
   right: 5vw;
 }
 
 .buttonContainer button.albumButton {
   padding-top: 15px;
   padding-left: 0px;
-}
-
-.buttonContainer button.photoButton.modalButton {
-  margin-bottom: 2vw;
 }
 
 button.btn-danger {
@@ -70,5 +68,103 @@ button.close:hover {
 button.close:active, button.close:focus {
   border: none;
   outline: none;
+}
+
+ul.nav.nav-tabs {
+  border-bottom: 2px solid #3282b8;
+  z-index: 10;
+}
+
+ul.nav.nav-tabs a.nav-link {
+  color: #dfdfdf;
+}
+
+ul.nav.nav-tabs a.active.nav-link {
+  background-color: transparent;
+  border-radius: 0;
+  border: 2px solid #3282b8;
+  color: white;
+}
+
+label {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+div#accountSettings {
+  width: 70%;
+  margin: 0 auto;
+}
+
+div#welcomePage.container {
+  overflow: hidden;
+}
+
+div#welcomePage.container p {
+  font-family: "Roboto", sans-serif;
+}
+
+div#welcomePage.container .left {
+  height: 50vw;
+  width: 10vw;
+  left: -10vw;
+  position: absolute;
+  padding: 10vw;
+  background-color: #0f4c75;
+  z-index: 0;
+}
+
+div#welcomePage.container .leftTriangle {
+  width: 40vw;
+  height: 50vw;
+  position: absolute;
+  left: 10vw;
+  border-top: 50vw solid #0f4c75;
+  border-right: 50vw solid transparent;
+  z-index: 0;
+}
+
+div#welcomePage.container div#showcase {
+  border: 5px solid #dfdfdf;
+  height: 40vw;
+  width: 80vw;
+  position: absolute;
+  right: 0;
+  top: 15vw;
+  z-index: 100;
+  overflow: hidden;
+}
+
+div#welcomePage.container div#showcase .movingArea {
+  -webkit-animation: mymove 30s infinite;
+          animation: mymove 30s infinite;
+  position: relative;
+  left: -350px;
+}
+
+@-webkit-keyframes mymove {
+  from {
+    top: -1000px;
+  }
+  to {
+    top: 1000px;
+  }
+}
+
+@keyframes mymove {
+  from {
+    top: -1000px;
+  }
+  to {
+    top: 1000px;
+  }
+}
+
+div#welcomePage.container div#showcase .movingArea .prompt {
+  display: inline-block;
+  height: 400px;
+  width: 400px;
+  background-color: #3282b8;
+  margin: 1vw;
 }
 /*# sourceMappingURL=App.css.map */

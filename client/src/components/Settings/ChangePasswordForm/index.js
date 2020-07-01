@@ -4,6 +4,7 @@ import { changePw } from '../../../actions/authActions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
+import './style.css';
 
 const ChangePasswordForm = (props) => {
      const [formData, setFormData] = useState({
@@ -37,7 +38,11 @@ const ChangePasswordForm = (props) => {
      }
 
      return (
-          <Form className='form' onSubmit={onSubmit}>
+          <Form
+               className='form clearfix'
+               id='changePasswordForm'
+               onSubmit={onSubmit}
+          >
                <FormGroup>
                     <Label htmlFor='oldPassword'>Current password</Label>
                     <Input
@@ -72,7 +77,12 @@ const ChangePasswordForm = (props) => {
                          onChange={onChange}
                     />
                </FormGroup>
-               <Button type='submit' value='changePw' className='btn'>
+               <Button
+                    type='submit'
+                    value='changePw'
+                    className='btn'
+                    id='pw-submit-btn'
+               >
                     Change Password
                </Button>
           </Form>

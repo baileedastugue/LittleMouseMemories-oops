@@ -88,10 +88,10 @@ const AlbumSettings = ({
           albums.albums.map((album) => (
                <Fragment>
                     <Fragment key={album._id}>
-                         <Card className='albumSettings'>
+                         <Card className='albumSettingsCard'>
                               <CardTitle>{album.title}</CardTitle>
                               <Row>
-                                   <Col xs='3'>
+                                   <Col xs='4'>
                                         <Nav vertical>
                                              <NavItem>
                                                   <NavLink
@@ -143,14 +143,23 @@ const AlbumSettings = ({
                                              </NavItem>
                                         </Nav>
                                    </Col>
-                                   <Col xs='9'>
+                                   <Col xs='8'>
                                         <TabContent activeTab={activeTab}>
                                              <TabPane
                                                   tabId={deleteId(album._id)}
                                              >
+                                                  <p>
+                                                       Deleting this album will
+                                                       permanently delete the
+                                                       album and all posts
+                                                       within this album. This
+                                                       action cannot be undone -
+                                                       click carefully!
+                                                  </p>
                                                   <Button
                                                        id={album._id}
                                                        onClick={deleteClick}
+                                                       className='mx-auto'
                                                   >
                                                        Delete
                                                   </Button>

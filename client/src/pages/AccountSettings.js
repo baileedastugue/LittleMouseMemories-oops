@@ -18,7 +18,7 @@ import AlertDiv from '../components/Layout/AlertDiv';
 import '../App.css';
 import classnames from 'classnames';
 
-const AccountSettings = ({ isAuth, auth }) => {
+const AccountSettings = ({ auth }) => {
      const [activeTab, setActiveTab] = useState('1');
      const toggle = (tab) => {
           if (activeTab !== tab) setActiveTab(tab);
@@ -59,20 +59,26 @@ const AccountSettings = ({ isAuth, auth }) => {
                          </NavItem>
                     </Nav>
                     <TabContent activeTab={activeTab}>
-                         <TabPane tabId='1'>
-                              <h4 className='mt-3 mb-3'>Account Settings</h4>
-                              <AlertDiv />
-                              <hr />
-                              <h5 className='mt-3 mb-3'>
-                                   Update Account Password
-                              </h5>
+                         <TabPane tabId='1' id='accountSettings'>
+                              <div className='center'>
+                                   <h4 className='mt-3 mb-3'>
+                                        Account Settings
+                                   </h4>
+                                   <AlertDiv />
+                                   <hr />
+                                   <h5 className='mt-3 mb-3'>
+                                        Update Account Password
+                                   </h5>
 
-                              <ChangePasswordForm />
-                              <hr />
-                              <h5 className='mt-3 mb-3'>Delete User Account</h5>
-                              <DeleteUser />
+                                   <ChangePasswordForm />
+                                   <hr />
+                                   <h5 className='mt-3 mb-3'>
+                                        Delete User Account
+                                   </h5>
+                                   <DeleteUser />
+                              </div>
                          </TabPane>
-                         <TabPane tabId='2'>
+                         <TabPane tabId='2' id='albumSettings'>
                               <h4 className='mt-3 mb-3'>Album Settings</h4>
                               <AlertDiv />
                               <AlbumSettings />

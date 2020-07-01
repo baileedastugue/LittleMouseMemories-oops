@@ -8,17 +8,91 @@ $abundant-color: white;
 $focus-text: 'Vidaloka', serif;
 $secondary-text: 'Roboto', sans-serif;
 
-div.card.albumSettings {
-  // color: red;
-  width: 400px;
-  height: 400px;
-  display: inline-block;
-  margin: 1vw;
-  color: $secondary-color;
-  padding: 1vw;
-  div.card-title {
-    font-family: $focus-text;
-    font-size: 1.2rem;
-    text-align: center;
+
+div#albumSettings.tab-pane.active {
+  h4 {
+    font-family: $secondary-text;
+    font-weight: 300;
+  }
+  margin: 0 auto;
+  padding: 0;
+  div.card.albumSettingsCard {
+    overflow: hidden;
+    width: 400px;
+    height: 400px;
+    display: inline-block;
+    margin: 1vw;
+    // color: $secondary-color;
+    background-color: $abundant-color;
+    padding: 1vw;
+    border-radius: 0;
+    div.card-title {
+      border-radius: 0;
+      font-family: $secondary-text;
+      font-size: 1.5rem;
+      text-align: center;
+      font-weight: 300;
+      color: $focus-color
+    }
+    a.nav-link:hover {
+      border-radius: 0;
+      cursor: pointer;
+    }
+    div.row {
+      height: 100%;
+      color: $dark-color;
+      font-size: 1.1rem;
+      // margin: 0;
+      // padding: 0;
+      div.col-4 {
+        padding: 0px;
+        ul.nav.flex-column {
+          display: table;
+          height: 100%;
+          width: 100%;
+          list-style: none;
+          li {
+          height: 33%;
+          text-align: center;
+          }
+          li:hover {
+            color: $secondary-color;
+            font-style: italic;
+          }
+          a {
+          display: block;
+          }
+        }
+      }
+      div.col-8 {
+        display: block;
+        div.tab-pane.active {
+          padding: 0;
+        }
+
+      }
+    }
   }
 }
+
+hr {
+  background-color: $muted-color;
+}
+
+.center {
+  display: block;
+  margin: 0 auto;
+  // text-align: center; 
+}
+
+
+div.tab-pane.active {
+  padding: 1vw;
+}
+
+
+
+
+
+
+

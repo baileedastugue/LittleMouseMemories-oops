@@ -14,7 +14,7 @@ import AlertDiv from '../components/Layout/AlertDiv';
 import '../App.css';
 
 const Dashboard = ({ isAuth, auth }) => {
-     const addIcon = <MaterialIcon icon='add' color='#ffffff' size='large' />;
+     const addIcon = <MaterialIcon icon='add' color='#252525' size='large' />;
 
      const [modal, setModal] = useState(false);
 

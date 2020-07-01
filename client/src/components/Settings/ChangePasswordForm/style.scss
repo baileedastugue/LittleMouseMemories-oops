@@ -1,0 +1,29 @@
+$focus-color: #3282b8;
+$secondary-color: #0f4c75;
+$highlight-color: #bbe1fa;
+$muted-color: #dfdfdf;
+$dark-color: #252525;
+$abundant-color: white;
+
+$focus-text: 'Vidaloka', serif;
+$secondary-text: 'Roboto', sans-serif;
+
+form#changePasswordForm.form {
+  input.form-control {
+    display: block;
+    width: 100%;
+  }
+}
+
+button#pw-submit-btn.btn.btn-secondary {
+  background-color: $focus-color;
+  border-color: $focus-color;
+  float: right;
+}
+
+button#pw-submit-btn.btn.btn-secondary:hover  {
+  background-color: $dark-color;
+  color: $focus-color;
+  border-color: $focus-color;
+}
+

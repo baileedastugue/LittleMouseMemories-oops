@@ -287,6 +287,9 @@ const Album = ({
                               />
                               <br />
                               <br />
+                              <br />
+                              <br />
+                              <br />
                               <ModalButton
                                    className='promptButton modalButton'
                                    action={
