@@ -282,3 +282,29 @@ div#registrationPage {
     }
   }
 }
+
+div#pageNotFound {
+  margin-top: 5vw;
+  height: 20vw;
+  width: 50vw;
+  background-color: $focus-color;
+  padding: 2vw;
+  h1 {
+    font-size: 6rem;
+  }
+  p {
+    font-family: $secondary-text;
+    font-weight: 300;
+    font-size: 2.5rem;
+    a {
+      color: $dark-color;
+      span {
+        padding-bottom: 1vw;
+      }
+    }
+    a:hover {
+      text-decoration: none;
+      font-style: italic;
+    }
+  }
+}

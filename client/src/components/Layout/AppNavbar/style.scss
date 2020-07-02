@@ -43,6 +43,10 @@ $secondary-text: 'Roboto', sans-serif;
       margin-right: 9vw;
     }
   }
+  .navbar-brand:hover {
+    text-decoration: none;
+    font-style: normal;
+  }
   .navbar-brand:visited {
     color: $focus-color;
   }

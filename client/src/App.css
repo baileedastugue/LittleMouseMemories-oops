@@ -308,4 +308,35 @@ div#registrationPage p a:hover {
   text-decoration: none;
   font-weight: 400;
 }
+
+div#pageNotFound {
+  margin-top: 5vw;
+  height: 20vw;
+  width: 50vw;
+  background-color: #3282b8;
+  padding: 2vw;
+}
+
+div#pageNotFound h1 {
+  font-size: 6rem;
+}
+
+div#pageNotFound p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 2.5rem;
+}
+
+div#pageNotFound p a {
+  color: #252525;
+}
+
+div#pageNotFound p a span {
+  padding-bottom: 1vw;
+}
+
+div#pageNotFound p a:hover {
+  text-decoration: none;
+  font-style: italic;
+}
 /*# sourceMappingURL=App.css.map */

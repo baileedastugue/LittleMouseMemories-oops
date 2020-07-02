@@ -31,6 +31,11 @@
   margin-right: 9vw;
 }
 
+.navbar .navbar-brand:hover {
+  text-decoration: none;
+  font-style: normal;
+}
+
 .navbar .navbar-brand:visited {
   color: #3282b8;
 }

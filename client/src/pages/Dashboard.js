@@ -3,7 +3,7 @@ import MaterialIcon from 'material-icons-react';
 import PropTypes from 'prop-types';
 import { Container, Row } from 'reactstrap';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 
 import PageTitle from '../components/Layout/PageTitle';
 import AlbumList from '../components/Album/AlbumList';

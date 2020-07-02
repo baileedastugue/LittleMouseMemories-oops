@@ -1,17 +1,18 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Welcome from './pages/Welcome';
-import Login from './pages/Login';
-import Register from './pages/Register';
+// import Login from './pages/Login';
+// import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import AccountSettings from './pages/AccountSettings';
 import Album from './pages/Album';
 import AppNavbar from './components/Layout/AppNavbar/index';
 import PrivateRoute from './components/Auth/PrivateRoute';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import PageNotFound from './pages/PageNotFound';
 import Wrapper from './components/Layout/Wrapper';
-import './App.css';
 import { Helmet } from 'react-helmet';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 // import global header
 import setAuthToken from './utils/setAuthToken';
@@ -59,6 +60,7 @@ const App = () => {
                                    path='/album/:id'
                                    component={Album}
                               />
+                              <Route component={PageNotFound} />
                          </Switch>
                     </Router>
                </Wrapper>
