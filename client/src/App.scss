@@ -105,8 +105,34 @@ div#accountSettings {
 
 div#welcomePage.container {
   overflow: hidden;
-  p {
-    font-family: $secondary-text;
+  // position: relative;
+  div#mainText {
+    position: absolute;
+    top: 10vw;
+    left: 7vw;
+    h1 {
+      font-size: 3.5em;
+      letter-spacing: 0.4rem;
+      margin-bottom: 1rem;
+    }
+  }
+  div#signInText {
+    position: absolute;
+    top: 40vw;
+    left: 7vw;
+    p {
+      font-family: $secondary-text;
+      font-size: 2rem;
+      font-weight: 300;
+      a {
+        color: $dark-color;
+      }
+      a:hover {
+        font-style: italic;
+        text-decoration: none;
+        font-weight: 400;
+      }
+    }
   }
   .left {
     height: 50vw;

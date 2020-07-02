@@ -100,8 +100,38 @@ div#welcomePage.container {
   overflow: hidden;
 }
 
-div#welcomePage.container p {
+div#welcomePage.container div#mainText {
+  position: absolute;
+  top: 10vw;
+  left: 7vw;
+}
+
+div#welcomePage.container div#mainText h1 {
+  font-size: 3.5em;
+  letter-spacing: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+div#welcomePage.container div#signInText {
+  position: absolute;
+  top: 40vw;
+  left: 7vw;
+}
+
+div#welcomePage.container div#signInText p {
   font-family: "Roboto", sans-serif;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+div#welcomePage.container div#signInText p a {
+  color: #252525;
+}
+
+div#welcomePage.container div#signInText p a:hover {
+  font-style: italic;
+  text-decoration: none;
+  font-weight: 400;
 }
 
 div#welcomePage.container .left {
