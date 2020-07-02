@@ -110,7 +110,7 @@ div#welcomePage.container {
   }
   .left {
     height: 50vw;
-    width: 10vw;
+    width: 26vw;
     left: -10vw;
     position: absolute;
     padding: 10vw;
@@ -118,41 +118,70 @@ div#welcomePage.container {
     z-index: 0;
   }
   .leftTriangle {
-    width: 40vw;
+    width: 30vw;
     height: 50vw;
     position: absolute;
-    left: 10vw;
+    left: 16vw;
     border-top: 50vw solid $secondary-color;
     border-right: 50vw solid transparent;
     z-index: 0;
   }
   div#showcase {
-    border: 5px solid $muted-color;
+    // border: 5px solid $muted-color;
     height: 40vw;
     width: 80vw;
     position: absolute;
-    right: 0;
-    top: 15vw;
-    z-index: 100;
+    right: 0rem;
+    top: 12vw;
+    z-index: -100;
     overflow: hidden;
     .movingArea {
-      animation: mymove 30s infinite;
-      position: relative;
-      @keyframes mymove {
-        from {top: -1000px;}
-        to {top: 1000px;}
-      }
-      left: -350px;
-      .prompt{
-        // position: absolute;
-        display: inline-block;
-        
-        height: 400px;
-        width: 400px;
-        background-color: $focus-color;
-        margin: 1vw;
-      }
+      animation: verticalScroll 60s linear infinite;
+      // 60 is best
+      @keyframes verticalScroll {
+        0% {
+          transform: translate3d(0, -270rem, 0);
+        }
       
+        100% {
+          transform: translate3d(0, 0rem, 0);
+        }
+      }
+      .row {
+        left: -50px;
+        margin: 0px;
+        width: 160vw;
+        border-radius: 0;
+        flex-direction: row;
+        position: relative;
+        .box {
+          display: inline-block;
+          height: 25rem;
+          width: 25rem;
+          margin: 1rem;
+          
+        }
+        .prompt {
+          margin: 1rem;
+          background-color: $focus-color;
+          padding: 1vw;
+          height: 25rem;
+          width: 25rem;
+          color: white;
+          font-size: 2rem;
+          font-family: $secondary-text;
+          font-weight: 300;
+        }
+        img {
+          border-radius: 0;
+          height: 25rem;
+          width: 25rem;
+          object-fit: contain;
+          background-color: $dark-color;
+        }
+  
+       
+      }
     }
   }
 }
