@@ -1,8 +1,19 @@
-import React, { Component } from 'react';
+import React, { useState, Fragment } from 'react';
 import { Container, Row } from 'reactstrap';
+import LoginForm from '../components/Auth/LoginForm';
+import RegistrationForm from '../components/Auth/RegistrationForm';
+import { Animated } from 'react-animated-css';
 
-class Welcome extends Component {
-     render() {
+const Welcome = (props) => {
+     const [showFormDiv, setShowFormDiv] = useState(false);
+     const [formType, setFormType] = useState('');
+
+     const formDivToggle = (event) => {
+          setShowFormDiv(true);
+          setFormType(event.target.getAttribute('type'));
+     };
+
+     {
           return (
                <Container id='welcomePage'>
                     <div className='left'></div>
@@ -11,12 +22,65 @@ class Welcome extends Component {
                          <h1>Memories worth sharing</h1>
                          <h1>Privacy worth keeping</h1>
                     </div>
+                    <div id='aboutText'>
+                         Post photos and write your own memories,
+                         <br />
+                         easily collaborate with friends and family,
+                         <br />
+                         and protect your albums with a password
+                         <br />
+                    </div>
                     <div id='signInText'>
-                         <p className='mt-4'>
-                              New user? <a href='/register'>Register</a> <br />
-                              Returning user? <a href='/login'>Login</a>
+                         <p>
+                              New user?{' '}
+                              <span
+                                   onClick={formDivToggle}
+                                   type='register'
+                                   className='authLink'
+                              >
+                                   Register
+                              </span>{' '}
+                              <br />
+                              Returning user?{' '}
+                              <span
+                                   onClick={formDivToggle}
+                                   type='login'
+                                   className='authLink'
+                              >
+                                   Login
+                              </span>
                          </p>
                     </div>
+                    {showFormDiv ? (
+                         <Animated
+                              animationIn='slideInRight'
+                              animationOut='slideOutRight'
+                              animationInDuration={800}
+                              animationOutDuration={800}
+                              isVisible={showFormDiv}
+                         >
+                              <Fragment>
+                                   {formType === 'login' ? (
+                                        <Fragment>
+                                             <div id='logInForm'>
+                                                  <h1>Welcome back</h1>
+                                                  <LoginForm />
+                                             </div>
+                                             <div id='logInTriangle'></div>
+                                        </Fragment>
+                                   ) : (
+                                        <Fragment>
+                                             <div id='registerForm'>
+                                                  <h1>Welcome!</h1>
+                                                  <RegistrationForm />
+                                             </div>
+                                             <div id='registerTriangle'></div>
+                                        </Fragment>
+                                   )}
+                              </Fragment>
+                         </Animated>
+                    ) : null}
+
                     <div id='showcase'>
                          <div className='movingArea'>
                               {/* First set */}
@@ -39,7 +103,13 @@ class Welcome extends Component {
                                    <div className='box image'>
                                         <img src='https://images.unsplash.com/photo-1592106680408-e7e63efbc7ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
                                    </div>
-                                   <div className='box prompt'>Disney 2016</div>
+                                   <div className='box prompt'>
+                                        Disney 2016
+                                        {/* <div className='aboutText'>
+                                             Post photos and write your own
+                                             memories
+                                        </div> */}
+                                   </div>
                                    <div className='box image'>
                                         <img src='https://images.unsplash.com/flagged/photo-1576066196482-347ca427d0f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
                                    </div>
@@ -126,7 +196,7 @@ class Welcome extends Component {
                                         <img src='https://images.unsplash.com/photo-1587327650077-76b67918ddeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
                                    </div>
                                    <div className='box prompt'>
-                                        The first song I sang you to sleep to
+                                        Your birth - grandma's perspective
                                    </div>
                               </Row>
                               <Row>
@@ -266,7 +336,7 @@ class Welcome extends Component {
                                         <img src='https://images.unsplash.com/photo-1587327650077-76b67918ddeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
                                    </div>
                                    <div className='box prompt'>
-                                        The first song I sang you to sleep to
+                                        Your birth - grandma's perspective
                                    </div>
                               </Row>
                               <Row>
@@ -302,6 +372,6 @@ class Welcome extends Component {
                </Container>
           );
      }
-}
+};
 
 export default Welcome;

@@ -48,7 +48,7 @@ const AddAlbumForm = ({ setAlert, addNewAlbum, toggle, isAuth }) => {
      };
 
      if (!isAuth) {
-          return <Redirect to='/login' />;
+          return <Redirect to='/' />;
      }
 
      return (

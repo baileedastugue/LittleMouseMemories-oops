@@ -44,12 +44,6 @@ const App = () => {
                     <Router>
                          <Route exact path='/' component={Welcome} />
                          <Switch>
-                              <Route
-                                   exact
-                                   path='/register'
-                                   component={Register}
-                              />
-                              <Route exact path='/login' component={Login} />
                               <PrivateRoute
                                    exact
                                    path='/dashboard'

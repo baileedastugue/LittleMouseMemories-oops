@@ -18,9 +18,9 @@ const Dashboard = ({ isAuth, auth }) => {
 
      const [modal, setModal] = useState(false);
 
-     if (!isAuth) {
-          return <Redirect to='/login' />;
-     }
+     // if (!isAuth) {
+     //      return <Redirect to='/' />;
+     // }
 
      const toggle = () => {
           setModal(!modal);

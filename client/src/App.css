@@ -100,10 +100,48 @@ div#welcomePage.container {
   overflow: hidden;
 }
 
+div#welcomePage.container div#logInForm {
+  background-color: #0f4c75;
+  position: absolute;
+  width: 30vw;
+  height: 15.5vw;
+  right: 0;
+  top: 30vw;
+  padding: 1vw 5vw 1vw 2vw;
+}
+
+div#welcomePage.container div#logInTriangle {
+  position: absolute;
+  height: 15.5vw;
+  right: 30vw;
+  top: 30vw;
+  border-bottom: 15.5vw solid #0f4c75;
+  border-left: 15.5vw solid transparent;
+}
+
+div#welcomePage.container div#registerForm {
+  background-color: #0f4c75;
+  position: absolute;
+  width: 30vw;
+  height: 20vw;
+  right: 0;
+  top: 30vw;
+  padding: 1vw 5vw 1vw 2vw;
+}
+
+div#welcomePage.container div#registerTriangle {
+  position: absolute;
+  height: 20vw;
+  right: 30vw;
+  top: 30vw;
+  border-bottom: 20vw solid #0f4c75;
+  border-left: 20vw solid transparent;
+}
+
 div#welcomePage.container div#mainText {
   position: absolute;
   top: 10vw;
-  left: 7vw;
+  left: 5vw;
 }
 
 div#welcomePage.container div#mainText h1 {
@@ -112,10 +150,19 @@ div#welcomePage.container div#mainText h1 {
   margin-bottom: 1rem;
 }
 
+div#welcomePage.container div#aboutText {
+  position: absolute;
+  top: 18vw;
+  left: 5vw;
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-size: 1.5rem;
+}
+
 div#welcomePage.container div#signInText {
   position: absolute;
-  top: 40vw;
-  left: 7vw;
+  top: 35vw;
+  left: 5vw;
 }
 
 div#welcomePage.container div#signInText p {
@@ -124,14 +171,15 @@ div#welcomePage.container div#signInText p {
   font-weight: 300;
 }
 
-div#welcomePage.container div#signInText p a {
+div#welcomePage.container div#signInText p .authLink {
   color: #252525;
 }
 
-div#welcomePage.container div#signInText p a:hover {
+div#welcomePage.container div#signInText p .authLink:hover {
   font-style: italic;
   text-decoration: none;
   font-weight: 400;
+  cursor: pointer;
 }
 
 div#welcomePage.container .left {
@@ -210,6 +258,14 @@ div#welcomePage.container div#showcase .movingArea .row .box {
   margin: 1rem;
 }
 
+div#welcomePage.container div#showcase .movingArea .row .box .aboutText {
+  position: fixed;
+  font-family: "Vidaloka", serif;
+  font-size: 3rem;
+  left: 40rem;
+  overflow: show;
+}
+
 div#welcomePage.container div#showcase .movingArea .row .prompt {
   margin: 1rem;
   background-color: #3282b8;
@@ -229,5 +285,27 @@ div#welcomePage.container div#showcase .movingArea .row img {
   -o-object-fit: contain;
      object-fit: contain;
   background-color: #252525;
+}
+
+div#registrationPage h1 {
+  font-size: 2.5em;
+  letter-spacing: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+div#registrationPage p {
+  font-family: "Roboto", sans-serif;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+div#registrationPage p a {
+  color: #252525;
+}
+
+div#registrationPage p a:hover {
+  font-style: italic;
+  text-decoration: none;
+  font-weight: 400;
 }
 /*# sourceMappingURL=App.css.map */

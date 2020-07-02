@@ -10,7 +10,7 @@ import './style.css';
 const AppNavbar = ({ logout, auth }) => {
      const logoutUser = () => {
           logout();
-          return <Redirect to='/login' />;
+          return <Redirect to='/' />;
      };
 
      const loggedInLinks = (
@@ -22,30 +22,25 @@ const AppNavbar = ({ logout, auth }) => {
                     <NavLink href='/accountSettings'>Settings</NavLink>
                </NavItem>
                <NavItem>
-                    <NavLink href='#' onClick={logoutUser}>
+                    <NavLink href='/' onClick={logoutUser}>
                          Logout
                     </NavLink>
                </NavItem>
           </Nav>
      );
 
-     const loggedOutLinks = (
-          <Nav>
-               <NavItem>
-                    <NavLink href='/'>Homepage</NavLink>
-               </NavItem>
-               <NavItem>
-                    <NavLink href='/register'>Register</NavLink>
-               </NavItem>
-               <NavItem>
-                    <NavLink href='/login'>Login</NavLink>
-               </NavItem>
-          </Nav>
-     );
+     const loggedOutLinks =
+          // <Nav>
+          //      <NavItem>
+          //           <NavLink href='/'>Homepage</NavLink>
+          //      </NavItem>
+
+          // </Nav>
+          null;
      const loading = auth.isLoading;
      return (
           <div>
-               <Navbar className='mb-1'>
+               <Navbar className='mb-1 justify-content-md-end'>
                     {loading || !auth.isAuthenticated
                          ? loggedOutLinks
                          : loggedInLinks}

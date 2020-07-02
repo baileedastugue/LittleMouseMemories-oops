@@ -106,31 +106,74 @@ div#accountSettings {
 div#welcomePage.container {
   overflow: hidden;
   // position: relative;
+  div#logInForm {
+    background-color: $secondary-color;
+    position: absolute;
+    width: 30vw;
+    height: 15.5vw;
+    right: 0;
+    top: 30vw;
+    padding: 1vw 5vw 1vw 2vw;
+  }
+  div#logInTriangle{
+    position: absolute;
+    height: 15.5vw;
+    right: 30vw;
+    top: 30vw;
+    border-bottom: 15.5vw solid $secondary-color;
+    border-left: 15.5vw solid transparent;
+  }
+  div#registerForm {
+    background-color: $secondary-color;
+    position: absolute;
+    width: 30vw;
+    height: 20vw;
+    right: 0;
+    top: 30vw;
+    padding: 1vw 5vw 1vw 2vw;
+  }
+  div#registerTriangle{
+    position: absolute;
+    height: 20vw;
+    right: 30vw;
+    top: 30vw;
+    border-bottom: 20vw solid $secondary-color;
+    border-left: 20vw solid transparent;
+  }
   div#mainText {
     position: absolute;
     top: 10vw;
-    left: 7vw;
+    left: 5vw;
     h1 {
       font-size: 3.5em;
       letter-spacing: 0.4rem;
       margin-bottom: 1rem;
     }
   }
+  div#aboutText {
+    position: absolute;
+    top: 18vw;
+    left: 5vw;
+    font-family: $secondary-text;
+    font-weight: 100;
+    font-size: 1.5rem;
+  }
   div#signInText {
     position: absolute;
-    top: 40vw;
-    left: 7vw;
+    top: 35vw;
+    left: 5vw;
     p {
       font-family: $secondary-text;
       font-size: 2rem;
       font-weight: 300;
-      a {
+      .authLink {
         color: $dark-color;
       }
-      a:hover {
+      .authLink:hover {
         font-style: italic;
         text-decoration: none;
         font-weight: 400;
+        cursor: pointer;
       }
     }
   }
@@ -185,6 +228,13 @@ div#welcomePage.container {
           height: 25rem;
           width: 25rem;
           margin: 1rem;
+          .aboutText {
+            position: fixed;
+            font-family: $focus-text;
+            font-size: 3rem;
+            left: 40rem;
+            overflow: show;
+          }
           
         }
         .prompt {
@@ -208,6 +258,27 @@ div#welcomePage.container {
   
        
       }
+    }
+  }
+}
+
+div#registrationPage {
+  h1 {
+    font-size: 2.5em;
+    letter-spacing: 0.4rem;
+    margin-bottom: 1rem;
+  }
+  p {
+    font-family: $secondary-text;
+    font-size: 2rem;
+    font-weight: 300;
+    a {
+      color: $dark-color;
+    }
+    a:hover {
+      font-style: italic;
+      text-decoration: none;
+      font-weight: 400;
     }
   }
 }

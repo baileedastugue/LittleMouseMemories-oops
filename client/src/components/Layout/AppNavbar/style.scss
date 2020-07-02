@@ -19,7 +19,7 @@ $secondary-text: 'Roboto', sans-serif;
   background-color:$dark-color;
   padding: 1.8vw;
   // border-bottom: 5px solid $highlight-color;
-  a.navbar-brand {
+  .navbar-brand {
     font-family: $focus-text;
     margin: 0vw;
     padding-left: 0vw;
@@ -40,7 +40,7 @@ $secondary-text: 'Roboto', sans-serif;
       transform: rotate(10deg);
     }
     span {
-      margin: 9vw;
+      margin-right: 9vw;
     }
   }
   .navbar-brand:visited {

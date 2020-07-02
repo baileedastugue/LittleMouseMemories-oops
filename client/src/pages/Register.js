@@ -6,11 +6,11 @@ import AlertDiv from '../components/Layout/AlertDiv';
 class Register extends Component {
      render() {
           return (
-               <Container>
+               <Container id='registrationPage'>
                     <AlertDiv />
-                    <h5>New User</h5>
+                    <h1>New User Registration</h1>
                     <RegistrationForm />
-                    <p className='lead mt-4'>
+                    <p className='mt-4'>
                          Have An Account? <a href='/login'>Login</a>
                     </p>
                </Container>
