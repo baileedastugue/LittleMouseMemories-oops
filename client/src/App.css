@@ -13,9 +13,14 @@ button.close, button.close:active, button.close:focus, button.close::after {
   outline: none;
 }
 
-.caroModal.modal-header {
+div.modal-content {
+  border-radius: 0;
+}
+
+div.caroModal.modal-header.justify-content-md-end {
   border-bottom: none;
   padding: 1vw 1vw 0vw 0vw;
+  border-radius: 0;
 }
 
 .mixedPost-footer.modal-footer {
@@ -117,46 +122,39 @@ div#accountSettings {
   margin: 0 auto;
 }
 
-div#welcomePage.container {
+div#formContainer {
+  will-change: transform, opacity;
   overflow: hidden;
+  position: absolute;
+  right: 0vw;
+  top: 30vw;
+  min-width: 40vw;
 }
 
-div#welcomePage.container div#logInForm {
-  background-color: #0f4c75;
-  position: absolute;
-  width: 30vw;
-  height: 15.5vw;
-  right: 0;
-  top: 30vw;
-  padding: 1vw 5vw 1vw 2vw;
+div#formContainer button {
+  margin: 0;
 }
 
-div#welcomePage.container div#logInTriangle {
-  position: absolute;
+div#formContainer i#authArrowCloseBtn:hover {
+  cursor: pointer;
+}
+
+div#formContainer div#logInTriangle {
+  padding: 1vw 3vw 0vw 2vw;
   height: 15.5vw;
-  right: 30vw;
-  top: 30vw;
   border-bottom: 15.5vw solid #0f4c75;
   border-left: 15.5vw solid transparent;
 }
 
-div#welcomePage.container div#registerForm {
-  background-color: #0f4c75;
-  position: absolute;
-  width: 30vw;
+div#formContainer div#registerTriangle {
+  padding: 1vw 3vw 0vw 2vw;
   height: 20vw;
-  right: 0;
-  top: 30vw;
-  padding: 1vw 5vw 1vw 2vw;
-}
-
-div#welcomePage.container div#registerTriangle {
-  position: absolute;
-  height: 20vw;
-  right: 30vw;
-  top: 30vw;
   border-bottom: 20vw solid #0f4c75;
   border-left: 20vw solid transparent;
+}
+
+div#welcomePage.container {
+  overflow-x: hidden;
 }
 
 div#welcomePage.container div#mainText {
@@ -194,15 +192,17 @@ div#welcomePage.container div#signInSquare p#signInText {
   padding: 5vw;
   font-family: "Roboto", sans-serif;
   font-size: 2rem;
+  z-index: 1000;
 }
 
 div#welcomePage.container div#signInSquare p#signInText .authLink {
+  z-index: 1000;
   color: #252525;
 }
 
 div#welcomePage.container div#signInSquare p#signInText .authLink:hover {
-  font-style: italic;
   text-decoration: none;
+  font-weight: 300;
   cursor: pointer;
 }
 
@@ -211,6 +211,7 @@ div#welcomePage.container div#signInTriangle {
   left: 22.6vw;
   top: 35vw;
   width: 15vw;
+  z-index: 0;
   height: 15vw;
   border-top: 15vw solid #3282b8;
   border-right: 15vw solid transparent;

@@ -93,11 +93,6 @@ const Album = ({
           });
           carouselToggle();
      };
-     // const externalCloseBtn = (
-     //      <button className='close' onClick={carouselToggle}>
-     //           &times;
-     //      </button>
-     // );
 
      const closeBtn = (
           <button className='close' onClick={carouselToggle}>
@@ -132,8 +127,6 @@ const Album = ({
           setAlert('That album cannot be found', 'danger');
           return <Redirect to='/pagenotfound' />;
      };
-
-     console.log(album.validAlbum);
 
      // has the album loaded yet
      return albumLoading ? (

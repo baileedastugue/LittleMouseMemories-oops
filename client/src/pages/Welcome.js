@@ -1,20 +1,74 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, useCallback } from 'react';
+import { render } from 'react-dom';
 import { Container, Row } from 'reactstrap';
-import LoginForm from '../components/Auth/LoginForm';
-import RegistrationForm from '../components/Auth/RegistrationForm';
-import { Animated } from 'react-animated-css';
+import FormContainer from '../components/Layout/FormContainer';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
+import MaterialIcon from 'material-icons-react';
+import { useTransition, animated } from 'react-spring';
+import WelcomeShowcase from '../components/Layout/WelcomeShowcase';
 
 const Welcome = ({ isAuth, isLoading }) => {
-     const [showFormDiv, setShowFormDiv] = useState(false);
+     const [formDivIndex, setFormDivIndex] = useState(0);
      const [formType, setFormType] = useState('');
 
-     const formDivToggle = (event) => {
-          setShowFormDiv(true);
+     const formDivClose = (event) => {
+          setFormDivIndex(0);
+          console.log('close');
+     };
+
+     const formDivOpen = (event) => {
+          setFormDivIndex(1);
+          console.log('open');
           setFormType(event.target.getAttribute('type'));
      };
+
+     const formDivs = [
+          ({ style }) => (
+               <animated.div
+                    style={{ ...style, display: 'none' }}
+                    id='formContainer'
+               >
+                    <div>You should never see this</div>
+               </animated.div>
+          ),
+          ({ style }) => (
+               <animated.div
+                    style={{ ...style, display: 'inline-block' }}
+                    id='formContainer'
+               >
+                    <FormContainer formType={formType} closeBtn={closeBtn} />
+               </animated.div>
+          ),
+     ];
+
+     const transitions = useTransition(formDivIndex, (p) => p, {
+          from: {
+               opacity: 0,
+               transform: 'translate3d(10vw,0vw,0)',
+               overflowx: 'hidden',
+          },
+          enter: {
+               opacity: 1,
+               transform: 'translate3d(0%,0vw,0)',
+          },
+          leave: {
+               opacity: 0,
+               transform: 'translate3d(10vw,0vw,0)',
+               overflowx: 'hidden',
+          },
+     });
+
+     const closeBtn = (
+          <MaterialIcon
+               icon='arrow_forward'
+               color='white'
+               size='large'
+               id='authArrowCloseBtn'
+               onClick={formDivClose}
+          />
+     );
 
      {
           return isLoading || !isAuth ? (
@@ -37,7 +91,7 @@ const Welcome = ({ isAuth, isLoading }) => {
                          <p id='signInText'>
                               New user?{' '}
                               <span
-                                   onClick={formDivToggle}
+                                   onClick={formDivOpen}
                                    type='register'
                                    className='authLink'
                               >
@@ -46,7 +100,7 @@ const Welcome = ({ isAuth, isLoading }) => {
                               <br />
                               Returning user?{' '}
                               <span
-                                   onClick={formDivToggle}
+                                   onClick={formDivOpen}
                                    type='login'
                                    className='authLink'
                               >
@@ -55,316 +109,11 @@ const Welcome = ({ isAuth, isLoading }) => {
                          </p>
                     </div>
                     <div id='signInTriangle'></div>
-                    {showFormDiv ? (
-                         <Fragment>
-                              {formType === 'login' ? (
-                                   <Fragment>
-                                        <div id='logInForm'>
-                                             <h1>Welcome back</h1>
-                                             <LoginForm />
-                                        </div>
-                                        <div id='logInTriangle'></div>
-                                   </Fragment>
-                              ) : (
-                                   <Fragment>
-                                        <div id='registerForm'>
-                                             <h1>Welcome!</h1>
-                                             <RegistrationForm />
-                                        </div>
-                                        <div id='registerTriangle'></div>
-                                   </Fragment>
-                              )}
-                         </Fragment>
-                    ) : null}
-
-                    <div id='showcase'>
-                         <div className='movingArea'>
-                              {/* First set */}
-                              <Row>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1593046584198-ed785e8bf3a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box prompt'>
-                                        Saying goodbye to Emilio
-                                   </div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1513492702219-923ec8c62a2f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box prompt'>
-                                        Your first steps
-                                   </div>
-                              </Row>
-                              <Row>
-                                   <div className='box prompt'>My day</div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1592106680408-e7e63efbc7ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box prompt'>
-                                        Disney 2016
-                                        {/* <div className='aboutText'>
-                                             Post photos and write your own
-                                             memories
-                                        </div> */}
-                                   </div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/flagged/photo-1576066196482-347ca427d0f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                              </Row>
-                              <Row>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1593630459615-6ab2aa81a6ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box prompt'>
-                                        Road trip songs
-                                   </div>
-                                   <div className='box prompt'>
-                                        Your first solid food
-                                   </div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1507946116609-bfed19728fdf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                              </Row>
-                              <Row>
-                                   <div className='box prompt'>
-                                        What we almost named you
-                                   </div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1536825919521-ab78da56193b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box prompt'>
-                                        What we can't stop listening to
-                                   </div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1551197600-d3782114566e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                              </Row>
-                              <Row>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1513862448120-a41616062133?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box prompt'>
-                                        Postpartum moments that made me cry
-                                   </div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1588410670460-cdab54625253?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box prompt'>
-                                        Indy's first walk
-                                   </div>
-                              </Row>
-                              <Row>
-                                   <div className='box prompt'>
-                                        Your favorite food
-                                   </div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1547226846-000337daf073?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box prompt'>
-                                        What I'm learning
-                                   </div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1575404078738-d2f15b89d320?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                              </Row>
-                              <Row>
-                                   <div className='box prompt'>
-                                        Bringing Heddy home
-                                   </div>
-                                   <div className='box prompt'>
-                                        Your first words
-                                   </div>
-
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1458546450666-ebb1e605853f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box prompt'>
-                                        The proposal
-                                   </div>
-                              </Row>
-                              <Row>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1529424601215-d2a3daf193ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box prompt'>
-                                        Our first dance
-                                   </div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1587327650077-76b67918ddeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box prompt'>
-                                        Your birth - grandma's perspective
-                                   </div>
-                              </Row>
-                              <Row>
-                                   <div className='box prompt'>
-                                        Foods of today
-                                   </div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1453745541039-d804ab0ff1ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box prompt'>
-                                        Your favorite toy
-                                   </div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1512746804203-e53e69406f93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                              </Row>
-                              <Row>
-                                   <div className='box prompt'>
-                                        Our first date
-                                   </div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1562832823-f277927d6f2c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1557469778-0b3269a1cc7a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box prompt'>
-                                        Your first day of school
-                                   </div>
-                              </Row>
-
-                              {/* STOOOOOP */}
-
-                              <Row>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1593046584198-ed785e8bf3a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box prompt'>
-                                        Saying goodbye to Emilio
-                                   </div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1513492702219-923ec8c62a2f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box prompt'>
-                                        Your first steps
-                                   </div>
-                              </Row>
-                              <Row>
-                                   <div className='box prompt'>My day</div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1592106680408-e7e63efbc7ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box prompt'>Disney 2016</div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/flagged/photo-1576066196482-347ca427d0f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                              </Row>
-                              <Row>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1593630459615-6ab2aa81a6ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box prompt'>
-                                        Road trip songs
-                                   </div>
-                                   <div className='box prompt'>
-                                        Your first solid food
-                                   </div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1507946116609-bfed19728fdf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                              </Row>
-                              <Row>
-                                   <div className='box prompt'>
-                                        What we almost named you
-                                   </div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1536825919521-ab78da56193b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box prompt'>
-                                        What we can't stop listening to
-                                   </div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1551197600-d3782114566e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                              </Row>
-                              <Row>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1513862448120-a41616062133?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box prompt'>
-                                        Postpartum moments that made me cry
-                                   </div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1588410670460-cdab54625253?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box prompt'>
-                                        Indy's first walk
-                                   </div>
-                              </Row>
-                              <Row>
-                                   <div className='box prompt'>
-                                        Your favorite food
-                                   </div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1547226846-000337daf073?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box prompt'>
-                                        What I'm learning
-                                   </div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1575404078738-d2f15b89d320?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                              </Row>
-                              <Row>
-                                   <div className='box prompt'>
-                                        Bringing Heddy home
-                                   </div>
-                                   <div className='box prompt'>
-                                        Your first words
-                                   </div>
-
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1458546450666-ebb1e605853f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box prompt'>
-                                        The proposal
-                                   </div>
-                              </Row>
-                              <Row>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1529424601215-d2a3daf193ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box prompt'>
-                                        Our first dance
-                                   </div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1587327650077-76b67918ddeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box prompt'>
-                                        Your birth - grandma's perspective
-                                   </div>
-                              </Row>
-                              <Row>
-                                   <div className='box prompt'>
-                                        Foods of today
-                                   </div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1453745541039-d804ab0ff1ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box prompt'>
-                                        Your favorite toy
-                                   </div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1512746804203-e53e69406f93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                              </Row>
-                              <Row>
-                                   <div className='box prompt'>
-                                        Our first date
-                                   </div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1562832823-f277927d6f2c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box image'>
-                                        <img src='https://images.unsplash.com/photo-1557469778-0b3269a1cc7a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' />
-                                   </div>
-                                   <div className='box prompt'>
-                                        Your first day of school
-                                   </div>
-                              </Row>
-                         </div>
-                    </div>
+                    {transitions.map(({ item, props, key }) => {
+                         const FormDiv = formDivs[item];
+                         return <FormDiv key={key} style={props} />;
+                    })}
+                    <WelcomeShowcase />
                </Container>
           ) : (
                <Redirect to='/dashboard' />

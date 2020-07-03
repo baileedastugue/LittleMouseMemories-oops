@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Welcome from './pages/Welcome';
-// import Login from './pages/Login';
-// import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import AccountSettings from './pages/AccountSettings';
 import Album from './pages/Album';

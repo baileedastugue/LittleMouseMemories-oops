@@ -72,18 +72,19 @@ $secondary-text: 'Roboto', sans-serif;
 }
 
 
+// ::-webkit-scrollbar-track {
+//   background: $focus-color; 
+// }
+// ::-webkit-scrollbar {
+//   width: 20px;
+// }
+//   /* Handle */
+//   ::-webkit-scrollbar-thumb {
+//     background: $muted-color;
+//   }
 
-::-webkit-scrollbar-track {
-  background: $focus-color; 
-}
-::-webkit-scrollbar {
-  width: 20px;
-}
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: $muted-color;
-  }
+//   ::-webkit-scrollbar-thumb:hover {
+//     background: $abundant-color;
+//   }
 
-  ::-webkit-scrollbar-thumb:hover {
-    background: $abundant-color;
-  }
+
