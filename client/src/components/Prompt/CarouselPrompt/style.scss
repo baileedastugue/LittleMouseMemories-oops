@@ -35,11 +35,11 @@ $secondary-text: 'Roboto', sans-serif;
     margin-bottom: .3vw;
   }
   div.card-body {
-    height: 4vw;
+    height: 5vw;
     overflow-y: auto;
     white-space: normal;
     padding: 1vw 0%;
-    // text-align: left;
+    text-align: right;
     // justify-content: flex-end;
     time {
       padding: 0px;
@@ -51,7 +51,7 @@ $secondary-text: 'Roboto', sans-serif;
     }
   }
   div.memoryArea {
-    height: 38vw;
+    height: 37vw;
     width: 35vw;
     background-color: $focus-color;
     color: red;

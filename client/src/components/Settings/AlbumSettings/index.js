@@ -98,22 +98,6 @@ const AlbumSettings = ({
                                                        className={classnames({
                                                             active:
                                                                  activeTab ===
-                                                                 `delete${album._id}`,
-                                                       })}
-                                                       onClick={() => {
-                                                            toggle(
-                                                                 `delete${album._id}`
-                                                            );
-                                                       }}
-                                                  >
-                                                       Delete Album
-                                                  </NavLink>
-                                             </NavItem>
-                                             <NavItem>
-                                                  <NavLink
-                                                       className={classnames({
-                                                            active:
-                                                                 activeTab ===
                                                                  `name${album._id}`,
                                                        })}
                                                        onClick={() => {
@@ -141,29 +125,26 @@ const AlbumSettings = ({
                                                        Album Password
                                                   </NavLink>
                                              </NavItem>
+                                             <NavItem>
+                                                  <NavLink
+                                                       className={classnames({
+                                                            active:
+                                                                 activeTab ===
+                                                                 `delete${album._id}`,
+                                                       })}
+                                                       onClick={() => {
+                                                            toggle(
+                                                                 `delete${album._id}`
+                                                            );
+                                                       }}
+                                                  >
+                                                       Delete Album?
+                                                  </NavLink>
+                                             </NavItem>
                                         </Nav>
                                    </Col>
                                    <Col xs='8'>
                                         <TabContent activeTab={activeTab}>
-                                             <TabPane
-                                                  tabId={deleteId(album._id)}
-                                             >
-                                                  <p>
-                                                       Deleting this album will
-                                                       permanently delete the
-                                                       album and all posts
-                                                       within this album. This
-                                                       action cannot be undone -
-                                                       click carefully!
-                                                  </p>
-                                                  <Button
-                                                       id={album._id}
-                                                       onClick={deleteClick}
-                                                       className='mx-auto'
-                                                  >
-                                                       Delete
-                                                  </Button>
-                                             </TabPane>
                                              <TabPane tabId={nameId(album._id)}>
                                                   <Form
                                                        className='form'
@@ -201,6 +182,25 @@ const AlbumSettings = ({
                                                             album.passwordRequired
                                                        }
                                                   />
+                                             </TabPane>
+                                             <TabPane
+                                                  tabId={deleteId(album._id)}
+                                             >
+                                                  <p>
+                                                       Deleting this album will
+                                                       permanently delete the
+                                                       album and all posts
+                                                       within this album. This
+                                                       action cannot be undone -
+                                                       click carefully!
+                                                  </p>
+                                                  <Button
+                                                       id={album._id}
+                                                       onClick={deleteClick}
+                                                       className='mx-auto'
+                                                  >
+                                                       Delete
+                                                  </Button>
                                              </TabPane>
                                         </TabContent>
                                    </Col>

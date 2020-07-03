@@ -11,6 +11,7 @@ import {
      Modal,
      ModalFooter,
      Row,
+     ModalHeader,
 } from 'reactstrap';
 import MaterialIcon from 'material-icons-react';
 import PropTypes from 'prop-types';
@@ -92,11 +93,18 @@ const Album = ({
           });
           carouselToggle();
      };
-     const externalCloseBtn = (
+     // const externalCloseBtn = (
+     //      <button className='close' onClick={carouselToggle}>
+     //           &times;
+     //      </button>
+     // );
+
+     const closeBtn = (
           <button className='close' onClick={carouselToggle}>
                &times;
           </button>
      );
+
      const deleteClick = async (event) => {
           event.preventDefault();
           currentPost.type === 'picture'
@@ -114,8 +122,6 @@ const Album = ({
      const onSubmit = async (event) => {
           event.preventDefault();
           try {
-               console.log(albumId);
-               console.log(password);
                albumAuth({ albumId, password });
           } catch (err) {
                console.log(err);
@@ -127,12 +133,15 @@ const Album = ({
           return <Redirect to='/pagenotfound' />;
      };
 
-     console.log(album.albums.length);
+     console.log(album.validAlbum);
 
+     // has the album loaded yet
      return albumLoading ? (
           <h1>Welcome</h1>
-     ) : album.albums.length > 0 ? (
+     ) : // if the album has loaded, is it found in the DB
+     album.validAlbum ? (
           <Fragment>
+               {/* if the album is found, load the title */}
                <Container fluid={true}>
                     <PageTitle>
                          {album.albums[0].title} by{' '}
@@ -140,179 +149,220 @@ const Album = ({
                          {album.albums[0].user.lastName}
                     </PageTitle>
                </Container>
-
+               {/* if the album is found, are you the album owner or have you entered the password IF required*/}
                {isAuth ||
                !album.albums[0].passwordRequired ||
                album.authorized ? (
-                    <Fragment>
-                         <Row>
-                              {album.album.map((post, index) => (
-                                   <Fragment key={post._id}>
-                                        {'image' in post ? (
-                                             <Fragment>
-                                                  <MixedPostPicture
-                                                       type='picture'
-                                                       key={post._id}
-                                                       id={post._id}
-                                                       uploadedBy={
-                                                            post.uploadedBy
-                                                       }
-                                                       image={post.image}
-                                                       caption={post.caption}
-                                                       dateRecorded={
-                                                            post.dateRecorded
-                                                       }
-                                                       dateUploaded={
-                                                            post.dateUploaded
-                                                       }
-                                                       onClick={(event) => {
-                                                            onClick(
-                                                                 event,
-                                                                 index
-                                                            );
-                                                       }}
-                                                       index={index}
-                                                  />
-                                             </Fragment>
-                                        ) : (
-                                             <MixedPostPrompt
-                                                  type='prompt'
-                                                  key={post._id}
-                                                  id={post._id}
-                                                  isAuth={isAuth}
-                                                  prompt={post.prompt}
-                                                  response={post.response}
-                                                  dateRecorded={
-                                                       post.dateRecorded
-                                                  }
-                                                  dateUploaded={
-                                                       post.dateUploaded
-                                                  }
-                                                  uploadedBy={post.uploadedBy}
-                                                  onClick={(event) => {
-                                                       onClick(event, index);
-                                                  }}
-                                                  index={index}
-                                             ></MixedPostPrompt>
-                                        )}
-                                   </Fragment>
-                              ))}
-                         </Row>
-                         <Modal
-                              toggle={carouselToggle}
-                              isOpen={carouselModal}
-                              centered={true}
-                              size='lg'
-                              external={externalCloseBtn}
-                         >
-                              <Carousel
-                                   activeIndex={activeIndex}
-                                   next={next}
-                                   previous={previous}
+                    // load the buttons to add to album if authorized
+                    <>
+                         <Fragment>
+                              <AddPictureModal
+                                   toggle={photoToggle}
+                                   isOpen={photoModal}
                               >
-                                   {album.album.map((post) => (
-                                        <CarouselItem key={post._id}>
-                                             {'image' in post ? (
-                                                  <CarouselPicture
-                                                       image={post.image}
-                                                       caption={post.caption}
-                                                       dateRecorded={
-                                                            post.dateRecorded
-                                                       }
-                                                       uploadedBy={
-                                                            post.uploadedBy
-                                                       }
-                                                       dateUploaded={
-                                                            post.dateUploaded
-                                                       }
-                                                  />
-                                             ) : (
-                                                  <CarouselPrompt
-                                                       response={post.response}
-                                                       prompt={post.prompt}
-                                                       dateRecorded={
-                                                            post.dateRecorded
-                                                       }
-                                                       uploadedBy={
-                                                            post.uploadedBy
-                                                       }
-                                                       dateUploaded={
-                                                            post.dateUploaded
-                                                       }
-                                                  />
-                                             )}
-
-                                             {isAuth ? (
-                                                  <ModalFooter
-                                                       className='mixedPost-footer center'
-                                                       onClick={deleteClick}
-                                                       data-id={post._id}
-                                                  >
-                                                       <div>
-                                                            {' '}
-                                                            Delete this post
-                                                       </div>
-                                                  </ModalFooter>
-                                             ) : null}
-                                        </CarouselItem>
-                                   ))}
-
-                                   <CarouselControl
-                                        direction='prev'
-                                        directionText='Previous'
-                                        onClickHandler={previous}
+                                   <AddPictureForm toggle={photoToggle} />
+                              </AddPictureModal>
+                              <AddPromptModal
+                                   toggle={promptToggle}
+                                   isOpen={promptModal}
+                              >
+                                   <AddPromptForm toggle={promptToggle} />
+                              </AddPromptModal>
+                              <div className='buttonContainer'>
+                                   <ModalButton
+                                        className='photoButton modalButton'
+                                        action={
+                                             <MaterialIcon
+                                                  icon='add_a_photo'
+                                                  color='#252525'
+                                                  size='medium'
+                                             />
+                                        }
+                                        onClick={photoToggle}
                                    />
-                                   <CarouselControl
-                                        direction='next'
-                                        directionText='Next'
-                                        onClickHandler={next}
+                                   <br />
+                                   <br />
+                                   <br />
+                                   <ModalButton
+                                        className='promptButton modalButton'
+                                        action={
+                                             <MaterialIcon
+                                                  icon='create'
+                                                  color='#252525'
+                                                  size='medium'
+                                             />
+                                        }
+                                        onClick={promptToggle}
                                    />
-                              </Carousel>
-                         </Modal>
+                              </div>
+                         </Fragment>
+                         {album.album.length > 0 ? (
+                              <>
+                                   <Row>
+                                        {album.album.map((post, index) => (
+                                             <Fragment key={post._id}>
+                                                  {'image' in post ? (
+                                                       <Fragment>
+                                                            <MixedPostPicture
+                                                                 type='picture'
+                                                                 key={post._id}
+                                                                 id={post._id}
+                                                                 uploadedBy={
+                                                                      post.uploadedBy
+                                                                 }
+                                                                 image={
+                                                                      post.image
+                                                                 }
+                                                                 caption={
+                                                                      post.caption
+                                                                 }
+                                                                 dateRecorded={
+                                                                      post.dateRecorded
+                                                                 }
+                                                                 dateUploaded={
+                                                                      post.dateUploaded
+                                                                 }
+                                                                 onClick={(
+                                                                      event
+                                                                 ) => {
+                                                                      onClick(
+                                                                           event,
+                                                                           index
+                                                                      );
+                                                                 }}
+                                                                 index={index}
+                                                            />
+                                                       </Fragment>
+                                                  ) : (
+                                                       <MixedPostPrompt
+                                                            type='prompt'
+                                                            key={post._id}
+                                                            id={post._id}
+                                                            isAuth={isAuth}
+                                                            prompt={post.prompt}
+                                                            response={
+                                                                 post.response
+                                                            }
+                                                            dateRecorded={
+                                                                 post.dateRecorded
+                                                            }
+                                                            dateUploaded={
+                                                                 post.dateUploaded
+                                                            }
+                                                            uploadedBy={
+                                                                 post.uploadedBy
+                                                            }
+                                                            onClick={(
+                                                                 event
+                                                            ) => {
+                                                                 onClick(
+                                                                      event,
+                                                                      index
+                                                                 );
+                                                            }}
+                                                            index={index}
+                                                       ></MixedPostPrompt>
+                                                  )}
+                                             </Fragment>
+                                        ))}
+                                   </Row>
+                                   <Modal
+                                        toggle={carouselToggle}
+                                        isOpen={carouselModal}
+                                        centered={true}
+                                        size='lg'
+                                        close={closeBtn}
+                                   >
+                                        <ModalHeader className='caroModal justify-content-md-end'>
+                                             {closeBtn}
+                                        </ModalHeader>
+                                        <Carousel
+                                             activeIndex={activeIndex}
+                                             next={next}
+                                             previous={previous}
+                                        >
+                                             {album.album.map((post) => (
+                                                  <CarouselItem key={post._id}>
+                                                       {'image' in post ? (
+                                                            <CarouselPicture
+                                                                 image={
+                                                                      post.image
+                                                                 }
+                                                                 caption={
+                                                                      post.caption
+                                                                 }
+                                                                 dateRecorded={
+                                                                      post.dateRecorded
+                                                                 }
+                                                                 uploadedBy={
+                                                                      post.uploadedBy
+                                                                 }
+                                                                 dateUploaded={
+                                                                      post.dateUploaded
+                                                                 }
+                                                            />
+                                                       ) : (
+                                                            <CarouselPrompt
+                                                                 response={
+                                                                      post.response
+                                                                 }
+                                                                 prompt={
+                                                                      post.prompt
+                                                                 }
+                                                                 dateRecorded={
+                                                                      post.dateRecorded
+                                                                 }
+                                                                 uploadedBy={
+                                                                      post.uploadedBy
+                                                                 }
+                                                                 dateUploaded={
+                                                                      post.dateUploaded
+                                                                 }
+                                                            />
+                                                       )}
 
-                         <AddPictureModal
-                              toggle={photoToggle}
-                              isOpen={photoModal}
-                         >
-                              <AddPictureForm toggle={photoToggle} />
-                         </AddPictureModal>
-                         <AddPromptModal
-                              toggle={promptToggle}
-                              isOpen={promptModal}
-                         >
-                              <AddPromptForm toggle={promptToggle} />
-                         </AddPromptModal>
-                         <div className='buttonContainer'>
-                              <ModalButton
-                                   className='photoButton modalButton'
-                                   action={
-                                        <MaterialIcon
-                                             icon='add_a_photo'
-                                             color='#252525'
-                                             size='medium'
-                                        />
-                                   }
-                                   onClick={photoToggle}
-                              />
-                              <br />
-                              <br />
-                              <br />
-                              <br />
-                              <br />
-                              <ModalButton
-                                   className='promptButton modalButton'
-                                   action={
-                                        <MaterialIcon
-                                             icon='create'
-                                             color='#252525'
-                                             size='medium'
-                                        />
-                                   }
-                                   onClick={promptToggle}
-                              />
-                         </div>
-                    </Fragment>
+                                                       {isAuth ? (
+                                                            <ModalFooter
+                                                                 className='mixedPost-footer center'
+                                                                 onClick={
+                                                                      deleteClick
+                                                                 }
+                                                                 data-id={
+                                                                      post._id
+                                                                 }
+                                                            >
+                                                                 <div>
+                                                                      {' '}
+                                                                      Delete
+                                                                      this post
+                                                                 </div>
+                                                            </ModalFooter>
+                                                       ) : null}
+                                                  </CarouselItem>
+                                             ))}
+
+                                             <CarouselControl
+                                                  direction='prev'
+                                                  directionText='Previous'
+                                                  onClickHandler={previous}
+                                             />
+                                             <CarouselControl
+                                                  direction='next'
+                                                  directionText='Next'
+                                                  onClickHandler={next}
+                                             />
+                                        </Carousel>
+                                   </Modal>
+                              </>
+                         ) : (
+                              <p>
+                                   No posts in this album yet! Use the buttons
+                                   below to begin storing your memories
+                              </p>
+                         )}
+                    </>
                ) : (
+                    // if you are not authorized, give option to submit a password
                     <Form className='form' onSubmit={onSubmit}>
                          <AlertDiv />
                          <FormGroup>
@@ -334,7 +384,7 @@ const Album = ({
                )}
           </Fragment>
      ) : (
-          pageNotFound()
+          pageNotFound
      );
 };
 

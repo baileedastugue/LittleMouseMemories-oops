@@ -23,8 +23,7 @@ $secondary-text: 'Roboto', sans-serif;
     font-family: $focus-text;
     margin: 0vw;
     padding-left: 0vw;
-    font-size: 2.7em;
-    color: $focus-color;
+
     line-height:2rem;
     text-align: right;
     img {
@@ -41,11 +40,15 @@ $secondary-text: 'Roboto', sans-serif;
     }
     span {
       margin-right: 9vw;
+      font-size: 3.1em;
+      color: $focus-color;
+      // -webkit-text-stroke: 0.5px $dark-color;
     }
   }
   .navbar-brand:hover {
     text-decoration: none;
     font-style: normal;
+    text-shadow: -2px 0px 0px $abundant-color;
   }
   .navbar-brand:visited {
     color: $focus-color;

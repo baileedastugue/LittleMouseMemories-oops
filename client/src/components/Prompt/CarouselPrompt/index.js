@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-     Card,
-     CardText,
-     CardTitle,
-     CardSubtitle,
-     CardBody,
-     ModalHeader,
-} from 'reactstrap';
+import { Card, CardText, CardTitle, CardSubtitle, CardBody } from 'reactstrap';
 import Moment from 'react-moment';
 
 import './style.css';

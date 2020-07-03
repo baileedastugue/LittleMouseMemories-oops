@@ -10,7 +10,7 @@ const AddPictureModal = (props) => {
 
      return (
           <div>
-               <Modal isOpen={props.isOpen}>
+               <Modal isOpen={props.isOpen} className='addModal'>
                     <ModalHeader close={closeBtn}>
                          Add a New Photo Memory
                     </ModalHeader>

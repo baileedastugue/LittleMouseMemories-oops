@@ -9,5 +9,8 @@ $abundant-color: white;
   background-color: $dark-color;
   margin: 0vw 5%;
     // height: auto;
-    height: 100%;
+    // position: relative;
+  height: 89%;
+  // overflow: hidden;
+  flex: 1 0 auto;
 }

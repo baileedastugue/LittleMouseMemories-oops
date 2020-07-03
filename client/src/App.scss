@@ -13,6 +13,27 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $focus-text;
 }
 
+// body, html {
+//   height: 100%
+// }
+
+button.close {
+  background-color: black;
+  // position: absolute;
+  margin: 0;
+  padding: 1vw;
+}
+
+button.close, button.close:active, button.close:focus, button.close::after {
+  border: none;
+  outline: none;
+}
+
+.caroModal.modal-header {
+  border-bottom: none;
+  padding: 1vw 1vw 0vw 0vw;
+}
+
 .mixedPost-footer.modal-footer {
   border-radius: 0;
   height: 2.9vw;
@@ -36,19 +57,44 @@ h1, h2, h3, h4, h5, h6 {
 div#root {
   background-color: $dark-color;
   box-sizing: border-box;
-  height: auto;
-  color: $abundant-color
+  height: 100%;
+  color: $abundant-color;
+  position: relative;
 }
 
-.buttonContainer {
-  position: sticky;
-  bottom: 10vw;
-  right: 5vw;
-  button.albumButton {
-    padding-top: 15px;
-    padding-left: 0px;
+
+  .buttonContainer {
+    z-index: 1000;
+  //   background-color: $focus-color;
+  //   // height: 90%;
+  //   // width: 100%;
+  position: fixed;
+  top: 75%;
+  -webkit-transform: translateX(85vw);
+  -ms-transform: translateX(85vw);
+  transform: translateX(85vw);
+    .modalButton.albumButton {
+      position: sticky;
+      right: 4vw;
+      bottom: 0vw;
+    }
+    .modalButton.promptButton {
+      position: sticky;
+      right: 4vw;
+      // bottom: 6vw;
+      margin-top: 2vw;
+    }
+    .modalButton.photoButton {
+      position: sticky;
+      bottom: 2vw;
+      display: block;
+      // margin-bottom: 10vw;
+    }
+    button.albumButton {
+      padding-top: 15px;
+      padding-left: 0px;
+    }
   }
-}
 
 button.btn-danger {
   background-color: $danger;
@@ -59,23 +105,6 @@ button.btn-danger:hover {
   background-color: $dark-color;
   border-color: $danger;
   color: $danger;
-}
-button.close {
-  color: $abundant-color;
-  position: absolute;
-  top: 3vw;
-  right: 28vw;
-  font-size: 2.5rem;
-  opacity: 1;
-}
-
-button.close:hover {
-  color: $focus-color;
-}
-
-button.close:active, button.close:focus {
-  border: none;
-  outline: none;
 }
 
 ul.nav.nav-tabs {
@@ -158,24 +187,39 @@ div#welcomePage.container {
     font-weight: 100;
     font-size: 1.5rem;
   }
-  div#signInText {
+  div#signInSquare {
     position: absolute;
     top: 35vw;
-    left: 5vw;
-    p {
+    left: 0vw;
+    height: 15vw;
+    width: 22.6vw;
+    background-color: $focus-color;
+    p#signInText {
+      width: 30vw;
+      padding: 5vw;
       font-family: $secondary-text;
       font-size: 2rem;
-      font-weight: 300;
+      // font-weight: 300;
       .authLink {
         color: $dark-color;
       }
       .authLink:hover {
         font-style: italic;
         text-decoration: none;
-        font-weight: 400;
+        // font-weight: 400;
         cursor: pointer;
       }
     }
+  }
+  div#signInTriangle {
+    position: absolute;
+    left: 22.6vw;
+    top: 35vw;
+    width: 15vw;
+    height: 15vw;
+    border-top: 15vw solid $focus-color;
+    border-right: 15vw solid transparent;
+  
   }
   .left {
     height: 50vw;
@@ -239,14 +283,14 @@ div#welcomePage.container {
         }
         .prompt {
           margin: 1rem;
-          background-color: $focus-color;
+          background-color: $abundant-color;
           padding: 1vw;
           height: 25rem;
           width: 25rem;
-          color: white;
+          color: $focus-color;
           font-size: 2rem;
           font-family: $secondary-text;
-          font-weight: 300;
+          // font-weight: 400;
         }
         img {
           border-radius: 0;

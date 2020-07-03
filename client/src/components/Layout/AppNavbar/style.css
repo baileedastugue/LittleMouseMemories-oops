@@ -7,8 +7,6 @@
   font-family: "Vidaloka", serif;
   margin: 0vw;
   padding-left: 0vw;
-  font-size: 2.7em;
-  color: #3282b8;
   line-height: 2rem;
   text-align: right;
 }
@@ -29,11 +27,14 @@
 
 .navbar .navbar-brand span {
   margin-right: 9vw;
+  font-size: 3.1em;
+  color: #3282b8;
 }
 
 .navbar .navbar-brand:hover {
   text-decoration: none;
   font-style: normal;
+  text-shadow: -2px 0px 0px white;
 }
 
 .navbar .navbar-brand:visited {

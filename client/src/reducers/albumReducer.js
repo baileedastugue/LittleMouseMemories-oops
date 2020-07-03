@@ -21,6 +21,7 @@ import {
 const initialState = {
      albums: [],
      album: [],
+     validAlbum: true,
      isLoading: true,
      authorized: null,
      error: {},
@@ -30,6 +31,7 @@ export default function (state = initialState, action) {
      switch (action.type) {
           case ADD_ALBUM_SUCCESS:
                return {
+                    validAlbum: true,
                     ...state,
                     ...action.payload,
                     isLoading: false,
@@ -46,6 +48,7 @@ export default function (state = initialState, action) {
                     album: action.payload.posts,
                     albums: action.payload.data,
                     isLoading: false,
+                    validAlbum: true,
                };
           case ALBUM_AUTH_SUCCESS:
                return {
@@ -74,6 +77,7 @@ export default function (state = initialState, action) {
                     ...state,
                     error: action.payload,
                     isLoading: false,
+                    validAlbum: false,
                };
 
           default:

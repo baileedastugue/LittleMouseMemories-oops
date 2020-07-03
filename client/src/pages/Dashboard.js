@@ -1,9 +1,9 @@
 import React, { useState, Fragment } from 'react';
 import MaterialIcon from 'material-icons-react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Container, Row } from 'reactstrap';
-import { connect } from 'react-redux';
-// import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 import PageTitle from '../components/Layout/PageTitle';
 import AlbumList from '../components/Album/AlbumList';
@@ -18,21 +18,19 @@ const Dashboard = ({ isAuth, auth }) => {
 
      const [modal, setModal] = useState(false);
 
-     // if (!isAuth) {
-     //      return <Redirect to='/' />;
-     // }
-
      const toggle = () => {
           setModal(!modal);
      };
 
      return auth.isLoading ? (
           <h1>Loading your memories</h1>
+     ) : !isAuth ? (
+          <Redirect to='/' />
      ) : (
-          <Fragment>
+          <>
                <Container fluid={true}>
                     <PageTitle>
-                         Welcome to your memories, {auth.user.firstName}{' '}
+                         Welcome to your memory albums, {auth.user.firstName}{' '}
                          {auth.user.lastName}
                     </PageTitle>
 
@@ -53,7 +51,7 @@ const Dashboard = ({ isAuth, auth }) => {
                          style={{ padding: '15px' }}
                     />
                </div>
-          </Fragment>
+          </>
      );
 };
 

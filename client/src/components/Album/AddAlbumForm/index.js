@@ -71,7 +71,7 @@ const AddAlbumForm = ({ setAlert, addNewAlbum, toggle, isAuth }) => {
                     </Row>
                     <Row form>
                          <Col md={6}>
-                              <FormGroup check>
+                              <FormGroup check className='mb-5 mt-3'>
                                    <Label check>
                                         <Input
                                              type='checkbox'

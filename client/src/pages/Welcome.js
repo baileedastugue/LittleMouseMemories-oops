@@ -3,8 +3,11 @@ import { Container, Row } from 'reactstrap';
 import LoginForm from '../components/Auth/LoginForm';
 import RegistrationForm from '../components/Auth/RegistrationForm';
 import { Animated } from 'react-animated-css';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 
-const Welcome = (props) => {
+const Welcome = ({ isAuth, isLoading }) => {
      const [showFormDiv, setShowFormDiv] = useState(false);
      const [formType, setFormType] = useState('');
 
@@ -14,7 +17,7 @@ const Welcome = (props) => {
      };
 
      {
-          return (
+          return isLoading || !isAuth ? (
                <Container id='welcomePage'>
                     <div className='left'></div>
                     <div className='leftTriangle'></div>
@@ -30,8 +33,8 @@ const Welcome = (props) => {
                          and protect your albums with a password
                          <br />
                     </div>
-                    <div id='signInText'>
-                         <p>
+                    <div id='signInSquare'>
+                         <p id='signInText'>
                               New user?{' '}
                               <span
                                    onClick={formDivToggle}
@@ -51,34 +54,27 @@ const Welcome = (props) => {
                               </span>
                          </p>
                     </div>
+                    <div id='signInTriangle'></div>
                     {showFormDiv ? (
-                         <Animated
-                              animationIn='slideInRight'
-                              animationOut='slideOutRight'
-                              animationInDuration={800}
-                              animationOutDuration={800}
-                              isVisible={showFormDiv}
-                         >
-                              <Fragment>
-                                   {formType === 'login' ? (
-                                        <Fragment>
-                                             <div id='logInForm'>
-                                                  <h1>Welcome back</h1>
-                                                  <LoginForm />
-                                             </div>
-                                             <div id='logInTriangle'></div>
-                                        </Fragment>
-                                   ) : (
-                                        <Fragment>
-                                             <div id='registerForm'>
-                                                  <h1>Welcome!</h1>
-                                                  <RegistrationForm />
-                                             </div>
-                                             <div id='registerTriangle'></div>
-                                        </Fragment>
-                                   )}
-                              </Fragment>
-                         </Animated>
+                         <Fragment>
+                              {formType === 'login' ? (
+                                   <Fragment>
+                                        <div id='logInForm'>
+                                             <h1>Welcome back</h1>
+                                             <LoginForm />
+                                        </div>
+                                        <div id='logInTriangle'></div>
+                                   </Fragment>
+                              ) : (
+                                   <Fragment>
+                                        <div id='registerForm'>
+                                             <h1>Welcome!</h1>
+                                             <RegistrationForm />
+                                        </div>
+                                        <div id='registerTriangle'></div>
+                                   </Fragment>
+                              )}
+                         </Fragment>
                     ) : null}
 
                     <div id='showcase'>
@@ -370,8 +366,20 @@ const Welcome = (props) => {
                          </div>
                     </div>
                </Container>
+          ) : (
+               <Redirect to='/dashboard' />
           );
      }
 };
 
-export default Welcome;
+Welcome.propTypes = {
+     isAuth: PropTypes.bool.isRequired,
+     isLoading: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+     isAuth: state.auth.isAuthenticated,
+     isLoading: state.auth.isLoading,
+});
+
+export default connect(mapStateToProps)(Welcome);

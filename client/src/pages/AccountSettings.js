@@ -42,7 +42,7 @@ const AccountSettings = ({ auth }) => {
                                         toggle('1');
                                    }}
                               >
-                                   Account Settings
+                                   Album Settings
                               </NavLink>
                          </NavItem>
                          <NavItem>
@@ -54,12 +54,17 @@ const AccountSettings = ({ auth }) => {
                                         toggle('2');
                                    }}
                               >
-                                   Album Settings
+                                   Account Settings
                               </NavLink>
                          </NavItem>
                     </Nav>
                     <TabContent activeTab={activeTab}>
-                         <TabPane tabId='1' id='accountSettings'>
+                         <TabPane tabId='1' id='albumSettings'>
+                              <h4 className='mt-3 mb-3'>Album Settings</h4>
+                              <AlertDiv />
+                              <AlbumSettings />
+                         </TabPane>
+                         <TabPane tabId='2' id='accountSettings'>
                               <div className='center'>
                                    <h4 className='mt-3 mb-3'>
                                         Account Settings
@@ -77,11 +82,6 @@ const AccountSettings = ({ auth }) => {
                                    </h5>
                                    <DeleteUser />
                               </div>
-                         </TabPane>
-                         <TabPane tabId='2' id='albumSettings'>
-                              <h4 className='mt-3 mb-3'>Album Settings</h4>
-                              <AlertDiv />
-                              <AlbumSettings />
                          </TabPane>
                     </TabContent>
                </Fragment>

@@ -16,8 +16,6 @@ import {
      CHANGE_ALBUM_PW_SUCCESS,
      CHANGE_ALBUM_PW_FAIL,
 } from './types';
-import { Redirect } from 'react-router-dom';
-import React from 'react';
 
 export const getAllAlbums = () => async (dispatch) => {
      try {
@@ -123,6 +121,7 @@ export const albumAuth = ({ albumId, password }) => async (dispatch) => {
           dispatch({
                type: ALBUM_AUTH_FAIL,
           });
+          dispatch(getAlbum(albumId));
           const errors = err.response.data.errors;
           if (errors) {
                errors.forEach((error) =>

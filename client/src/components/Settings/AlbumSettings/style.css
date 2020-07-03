@@ -22,9 +22,8 @@ div#albumSettings.tab-pane.active div.card.albumSettingsCard {
 div#albumSettings.tab-pane.active div.card.albumSettingsCard div.card-title {
   border-radius: 0;
   font-family: "Roboto", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   text-align: center;
-  font-weight: 300;
   color: #3282b8;
 }
 

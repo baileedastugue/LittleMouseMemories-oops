@@ -5,20 +5,19 @@ Button.modalButton {
   border-radius: 50px;
   text-align: center;
   font-size: 3rem;
-  background-color: #dfdfdf;
+  background-color: #bbe1fa;
   float: right;
   border: none;
   outline: none;
 }
 
 Button.modalButton:hover {
-  background-color: #0f4c75;
-  border: none;
+  background-color: white;
   outline: none;
 }
 
-Button.modalButton:focus, Button.modalButton:active {
-  background-color: #dfdfdf;
+Button.modalButton:focus, Button.modalButton:active, Button.modalButton::after {
+  background-color: #bbe1fa;
   border: none;
   outline: none;
 }

@@ -2,6 +2,22 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Vidaloka", serif;
 }
 
+button.close {
+  background-color: black;
+  margin: 0;
+  padding: 1vw;
+}
+
+button.close, button.close:active, button.close:focus, button.close::after {
+  border: none;
+  outline: none;
+}
+
+.caroModal.modal-header {
+  border-bottom: none;
+  padding: 1vw 1vw 0vw 0vw;
+}
+
 .mixedPost-footer.modal-footer {
   border-radius: 0;
   height: 2.9vw;
@@ -25,15 +41,38 @@ div#root {
   background-color: #252525;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  height: auto;
+  height: 100%;
   color: white;
+  position: relative;
 }
 
 .buttonContainer {
+  z-index: 1000;
+  position: fixed;
+  top: 75%;
+  -webkit-transform: translateX(85vw);
+  transform: translateX(85vw);
+}
+
+.buttonContainer .modalButton.albumButton {
   position: -webkit-sticky;
   position: sticky;
-  bottom: 10vw;
-  right: 5vw;
+  right: 4vw;
+  bottom: 0vw;
+}
+
+.buttonContainer .modalButton.promptButton {
+  position: -webkit-sticky;
+  position: sticky;
+  right: 4vw;
+  margin-top: 2vw;
+}
+
+.buttonContainer .modalButton.photoButton {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 2vw;
+  display: block;
 }
 
 .buttonContainer button.albumButton {
@@ -50,24 +89,6 @@ button.btn-danger:hover {
   background-color: #252525;
   border-color: #c40018;
   color: #c40018;
-}
-
-button.close {
-  color: white;
-  position: absolute;
-  top: 3vw;
-  right: 28vw;
-  font-size: 2.5rem;
-  opacity: 1;
-}
-
-button.close:hover {
-  color: #3282b8;
-}
-
-button.close:active, button.close:focus {
-  border: none;
-  outline: none;
 }
 
 ul.nav.nav-tabs {
@@ -159,27 +180,40 @@ div#welcomePage.container div#aboutText {
   font-size: 1.5rem;
 }
 
-div#welcomePage.container div#signInText {
+div#welcomePage.container div#signInSquare {
   position: absolute;
   top: 35vw;
-  left: 5vw;
+  left: 0vw;
+  height: 15vw;
+  width: 22.6vw;
+  background-color: #3282b8;
 }
 
-div#welcomePage.container div#signInText p {
+div#welcomePage.container div#signInSquare p#signInText {
+  width: 30vw;
+  padding: 5vw;
   font-family: "Roboto", sans-serif;
   font-size: 2rem;
-  font-weight: 300;
 }
 
-div#welcomePage.container div#signInText p .authLink {
+div#welcomePage.container div#signInSquare p#signInText .authLink {
   color: #252525;
 }
 
-div#welcomePage.container div#signInText p .authLink:hover {
+div#welcomePage.container div#signInSquare p#signInText .authLink:hover {
   font-style: italic;
   text-decoration: none;
-  font-weight: 400;
   cursor: pointer;
+}
+
+div#welcomePage.container div#signInTriangle {
+  position: absolute;
+  left: 22.6vw;
+  top: 35vw;
+  width: 15vw;
+  height: 15vw;
+  border-top: 15vw solid #3282b8;
+  border-right: 15vw solid transparent;
 }
 
 div#welcomePage.container .left {
@@ -268,14 +302,13 @@ div#welcomePage.container div#showcase .movingArea .row .box .aboutText {
 
 div#welcomePage.container div#showcase .movingArea .row .prompt {
   margin: 1rem;
-  background-color: #3282b8;
+  background-color: white;
   padding: 1vw;
   height: 25rem;
   width: 25rem;
-  color: white;
+  color: #3282b8;
   font-size: 2rem;
   font-family: "Roboto", sans-serif;
-  font-weight: 300;
 }
 
 div#welcomePage.container div#showcase .movingArea .row img {

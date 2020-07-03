@@ -18,11 +18,11 @@ div.mixedPostPrompt.card {
   cursor: pointer;
   height: 400px;
   width: 400px;
-  background-color: $focus-color;
-  color: white;
+  background-color: $abundant-color;
+  color: $focus-color;
   font-size: 2rem;
   font-family: $secondary-text;
-  font-weight: 300;
+  // font-weight: 300;
   p.card-text {
     overflow: hidden;
     display: block;

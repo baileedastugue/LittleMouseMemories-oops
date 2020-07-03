@@ -34,7 +34,6 @@ const AppNavbar = ({ logout, auth }) => {
           //      <NavItem>
           //           <NavLink href='/'>Homepage</NavLink>
           //      </NavItem>
-
           // </Nav>
           null;
      const loading = auth.isLoading;

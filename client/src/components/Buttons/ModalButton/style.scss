@@ -15,7 +15,7 @@ Button.modalButton {
   border-radius:50px; 
   text-align: center; 
   font-size: 3rem;
-  background-color: $muted-color;
+  background-color: $highlight-color;
   float: right;
   border: none;
   outline: none;
@@ -23,13 +23,12 @@ Button.modalButton {
 }
 
 Button.modalButton:hover {
-  background-color: $secondary-color;
-  border: none;
+  background-color: $abundant-color;
   outline: none;
 }
 
-Button.modalButton:focus, Button.modalButton:active {
-  background-color: $muted-color;
+Button.modalButton:focus, Button.modalButton:active, Button.modalButton::after {
+  background-color: $highlight-color;
   border: none;
   outline: none;
 }
