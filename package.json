@@ -1,5 +1,5 @@
 {
-  "name": "littlemousememories",
+  "name": "elephants-memory",
   "version": "1.0.0",
   "description": "Muad'Dib, of sorts",
   "main": "server.js",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/baileedastugue/LittleMouseMemories.git"
+    "url": "git+https://github.com/baileedastugue/elephants-memory.git"
   },
   "keywords": [
     "node.js",
@@ -26,9 +26,9 @@
   "author": "Bailee Dastugue",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/baileedastugue/LittleMouseMemories/issues"
+    "url": "https://github.com/baileedastugue/elephants-memory/issues"
   },
-  "homepage": "https://github.com/baileedastugue/LittleMouseMemories#readme",
+  "homepage": "https://github.com/baileedastugue/elephants-memory#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.5.0",
