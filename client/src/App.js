@@ -43,8 +43,8 @@ const App = () => {
                     </Helmet>
 
                     <Router>
-                         <Route exact path='/' component={Welcome} />
                          <Switch>
+                              <Route exact path='/' component={Welcome} />
                               <PrivateRoute
                                    exact
                                    path='/dashboard'

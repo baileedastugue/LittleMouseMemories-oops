@@ -14,6 +14,7 @@ import {
 } from 'reactstrap';
 import MaterialIcon from 'material-icons-react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 
 import AddPictureForm from '../components/Picture/AddPictureForm';
 import AddPictureModal from '../components/Picture/AddPictureModal';
@@ -31,6 +32,7 @@ import { deletePrompt } from '../actions/promptActions';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import AlertDiv from '../components/Layout/AlertDiv';
+import { setAlert } from '../actions/alertActions';
 
 const Album = ({
      getAlbum,
@@ -120,9 +122,16 @@ const Album = ({
           }
      };
 
+     const pageNotFound = () => {
+          setAlert('That album cannot be found', 'danger');
+          return <Redirect to='/pagenotfound' />;
+     };
+
+     console.log(album.albums.length);
+
      return albumLoading ? (
           <h1>Welcome</h1>
-     ) : (
+     ) : album.albums.length > 0 ? (
           <Fragment>
                <Container fluid={true}>
                     <PageTitle>
@@ -324,6 +333,8 @@ const Album = ({
                     </Form>
                )}
           </Fragment>
+     ) : (
+          pageNotFound()
      );
 };
 

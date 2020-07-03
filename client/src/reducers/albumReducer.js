@@ -68,13 +68,14 @@ export default function (state = initialState, action) {
           case DELETE_PICTURE_FAIL:
           case DELETE_ALBUM_FAIL:
           case ADD_ALBUM_FAIL:
-          case GET_ALBUM_FAIL:
           case GET_ALBUMS_FAIL:
+          case GET_ALBUM_FAIL:
                return {
                     ...state,
                     error: action.payload,
                     isLoading: false,
                };
+
           default:
                return state;
      }

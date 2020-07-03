@@ -16,6 +16,8 @@ import {
      CHANGE_ALBUM_PW_SUCCESS,
      CHANGE_ALBUM_PW_FAIL,
 } from './types';
+import { Redirect } from 'react-router-dom';
+import React from 'react';
 
 export const getAllAlbums = () => async (dispatch) => {
      try {
@@ -81,6 +83,16 @@ export const getAlbum = (album_id) => async (dispatch) => {
                payload: { posts: posts, data: res.data },
           });
      } catch (err) {
+          const errors = err.response.data;
+          console.log(errors);
+          if (errors.length > 0) {
+               for (let i = 0; i < errors.length; i++) {
+                    dispatch(setAlert(errors[i].msg, 'danger'));
+                    console.log(errors[i].msg);
+                    console.log('hello');
+               }
+               // return <Redirect to='/pagenotfound' />;
+          }
           dispatch({
                type: GET_ALBUM_FAIL,
           });

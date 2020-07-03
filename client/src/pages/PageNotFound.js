@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Container } from 'reactstrap';
 import MaterialIcon from 'material-icons-react';
+import AlertDiv from '../components/Layout/AlertDiv';
 
 const PageNotFound = ({ isAuth, isLoading }) => {
      return (
           <Container id='pageNotFound'>
+               <AlertDiv />
                <h1>Whoops!</h1>
                {/* <div className='center'> */}
                <p>We can't seem to find the page you're looking for</p>
