@@ -36,7 +36,8 @@ if (process.env.NODE_ENV === 'production') {
 
 // DB configuration
 var MONGODB_URI =
-     process.env.MONGODB_URI || 'mongodb://localhost/littlemousememories';
+     process.env.MONGODB_URI ||
+     `mongodb://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@ds117899.mlab.com:17899/heroku_28bkr9pp`;
 mongoose
      .connect(MONGODB_URI, {
           useNewUrlParser: true,
