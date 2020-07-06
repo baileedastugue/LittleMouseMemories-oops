@@ -3,21 +3,11 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
-import DeleteBtn from '../../Buttons/DeleteBtn';
-import {
-     // Card,
-     // Row,
-     // CardFooter,
-     CardBody,
-     CardText,
-     CardTitle,
-} from 'reactstrap';
 import { getAllAlbums } from '../../../actions/albumActions';
 
 import './style.css';
 
 const AlbumList = ({ albums, getAllAlbums }) => {
-     // this
      useEffect(() => {
           getAllAlbums();
      }, [getAllAlbums]);
@@ -25,51 +15,24 @@ const AlbumList = ({ albums, getAllAlbums }) => {
      let albumLength = albums.albums.length;
      let albumLoading = albums.isLoading;
 
-     // const deleteClick = async (event) => {
-     //      event.preventDefault();
-     //      const album_id = event.target.getAttribute('data-id');
-     //      console.log(album_id);
-     //      deleteAlbum(album_id);
-     // };
-
      return albumLength === 0 ? (
           <Fragment>No albums added</Fragment>
      ) : !albumLoading ? (
           albums.albums.map((album) => (
-               <Fragment key={album._id}>
-                    <div className='albumList'>
-                         <CardBody>
-                              <CardText>
-                                   <Link to={`/album/${album._id}`}>
-                                        {album.title}
-                                   </Link>
-                              </CardText>
-                              <Link
-                                   to={`/album/${album._id}`}
-                                   key={album._id}
-                                   className='overlay'
-                              >
-                                   <CardTitle className='text'>
-                                        Created on:{' '}
-                                        <Moment
-                                             format='MM/DD/YYYY'
-                                             date={album.date}
-                                        ></Moment>
-                                   </CardTitle>
-                              </Link>
-                         </CardBody>
-                         {/* <CardFooter
-                              className='albumListBelow'
-                              // onClick={deleteClick}
-                              id={album._id}
-                         >
-                              <DeleteBtn
-                                   id={album._id}
-                                   deleteClick={deleteClick}
-                              />
-                         </CardFooter> */}
+               <div class='flip-card' key={album._id}>
+                    <div class='flip-card-inner'>
+                         <Link to={`/album/${album._id}`}>
+                              <div class='flip-card-front'>{album.title}</div>
+                              <div class='flip-card-back'>
+                                   Created on:{' '}
+                                   <Moment
+                                        format='MM/DD/YYYY'
+                                        date={album.date}
+                                   ></Moment>
+                              </div>
+                         </Link>
                     </div>
-               </Fragment>
+               </div>
           ))
      ) : (
           <h1>Loading your albums</h1>

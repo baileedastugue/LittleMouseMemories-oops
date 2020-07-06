@@ -139,39 +139,14 @@ div#accountSettings {
 
 
   // position: relative;
-  div#formContainer {
-    // background-color: red;
-    will-change: transform, opacity;
-    overflow: hidden;
-    position: absolute;
-    right: 0vw;
-    top: 30vw;
-    min-width: 40vw;
-    button {
-      // padding: ;
-      margin: 0;
-    }
-    i#authArrowCloseBtn:hover {
-      cursor: pointer;
-    }
-    div#logInTriangle{
-      padding: 1vw 3vw 0vw 2vw;
-      height: 15.5vw;
-      border-bottom: 15.5vw solid $secondary-color;
-      border-left: 15.5vw solid transparent;
-    }
-    div#registerTriangle{
-      padding: 1vw 3vw 0vw 2vw;
-      height: 20vw;
-      border-bottom: 20vw solid $secondary-color;
-      border-left: 20vw solid transparent;
-    }
-  }
+ 
 
 
 
   div#welcomePage.container {
+    // position: relative;
     overflow-x: hidden;
+    z-index: 200;
   div#mainText {
     position: absolute;
     top: 10vw;
@@ -312,26 +287,26 @@ div#accountSettings {
   }
 }
 
-div#registrationPage {
-  h1 {
-    font-size: 2.5em;
-    letter-spacing: 0.4rem;
-    margin-bottom: 1rem;
-  }
-  p {
-    font-family: $secondary-text;
-    font-size: 2rem;
-    font-weight: 300;
-    a {
-      color: $dark-color;
-    }
-    a:hover {
-      font-style: italic;
-      text-decoration: none;
-      font-weight: 400;
-    }
-  }
-}
+// div#registrationPage {
+//   h1 {
+//     font-size: 2.5em;
+//     letter-spacing: 0.4rem;
+//     margin-bottom: 1rem;
+//   }
+//   p {
+//     font-family: $secondary-text;
+//     font-size: 2rem;
+//     font-weight: 300;
+//     a {
+//       color: $dark-color;
+//     }
+//     a:hover {
+//       font-style: italic;
+//       text-decoration: none;
+//       font-weight: 400;
+//     }
+//   }
+// }
 
 div#pageNotFound {
   margin-top: 5vw;

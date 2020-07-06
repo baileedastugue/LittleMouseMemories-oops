@@ -35,9 +35,7 @@ if (process.env.NODE_ENV === 'production') {
 // app.use(express.static(__dirname, '/public'));
 
 // DB configuration
-var MONGODB_URI =
-     process.env.MONGODB_URI ||
-     `mongodb://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@ds117899.mlab.com:17899/heroku_28bkr9pp`;
+var MONGODB_URI = `mongodb://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@ds117899.mlab.com:17899/heroku_28bkr9pp`;
 mongoose
      .connect(MONGODB_URI, {
           useNewUrlParser: true,

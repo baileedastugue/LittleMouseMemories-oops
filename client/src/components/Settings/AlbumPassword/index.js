@@ -1,28 +1,9 @@
-import React, { useEffect, Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setAlert } from '../../../actions/alertActions';
 import { albumPasswordChange } from '../../../actions/albumActions';
-import {
-     // Card,
-     // Col,
-     Row,
-     Form,
-     FormGroup,
-     Label,
-     Input,
-     FormText,
-     //  CardBody,
-     //  CardText,
-     // TabContent,
-     // TabPane,
-     // CardTitle,
-     Button,
-     // Nav,
-     // NavItem,
-     // NavLink,
-     //  Col,
-} from 'reactstrap';
+import { Form, FormGroup, Label, Input, FormText, Button } from 'reactstrap';
 
 const AlbumPassword = (props) => {
      //  console.log('line 28');

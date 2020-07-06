@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { Button, Form, FormGroup } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../../actions/authActions';
 import { Redirect } from 'react-router-dom';
+import AlertDiv from '../../Layout/AlertDiv';
 
 const LoginForm = (props) => {
      const [formData, setFormData] = useState({
@@ -32,35 +33,48 @@ const LoginForm = (props) => {
           return <Redirect to='/dashboard' />;
      }
      return (
-          <Form className='form' onSubmit={(event) => onSubmit(event)}>
-               <FormGroup>
-                    <label htmlFor='emailInput'>Email</label>
-                    <input
-                         type='text'
-                         name='email'
-                         className='form-control'
-                         id='emailInput'
-                         onChange={(event) => onChange(event)}
-                         value={email}
-                         required
-                    />
-               </FormGroup>
-               <FormGroup>
-                    <label htmlFor='passwordInput'>Password</label>
-                    <input
-                         type='password'
-                         name='password'
-                         className='form-control'
-                         id='passwordInput'
-                         onChange={(event) => onChange(event)}
-                         value={password}
-                         required
-                    />
-               </FormGroup>
-               <Button type='submit' value='login' className='btn login-btn'>
-                    Login
-               </Button>
-          </Form>
+          <Fragment>
+               <Form
+                    id='loginForm'
+                    className='form'
+                    onSubmit={(event) => onSubmit(event)}
+               >
+                    <h1>Welcome back</h1>
+                    {props.closeBtn}
+                    <FormGroup>
+                         <label htmlFor='emailInput'>Email</label>
+                         <input
+                              type='text'
+                              name='email'
+                              className='form-control'
+                              id='emailInput'
+                              onChange={(event) => onChange(event)}
+                              value={email}
+                              // required
+                         />
+                    </FormGroup>
+                    <FormGroup>
+                         <label htmlFor='passwordInput'>Password</label>
+                         <input
+                              type='password'
+                              name='password'
+                              className='form-control'
+                              id='passwordInput'
+                              onChange={(event) => onChange(event)}
+                              value={password}
+                              // required
+                         />
+                    </FormGroup>
+                    <Button
+                         type='submit'
+                         value='login'
+                         className='btn login-btn'
+                    >
+                         Login
+                    </Button>
+               </Form>
+               <AlertDiv />
+          </Fragment>
      );
 };
 

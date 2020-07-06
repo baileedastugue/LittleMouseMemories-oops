@@ -122,39 +122,9 @@ div#accountSettings {
   margin: 0 auto;
 }
 
-div#formContainer {
-  will-change: transform, opacity;
-  overflow: hidden;
-  position: absolute;
-  right: 0vw;
-  top: 30vw;
-  min-width: 40vw;
-}
-
-div#formContainer button {
-  margin: 0;
-}
-
-div#formContainer i#authArrowCloseBtn:hover {
-  cursor: pointer;
-}
-
-div#formContainer div#logInTriangle {
-  padding: 1vw 3vw 0vw 2vw;
-  height: 15.5vw;
-  border-bottom: 15.5vw solid #0f4c75;
-  border-left: 15.5vw solid transparent;
-}
-
-div#formContainer div#registerTriangle {
-  padding: 1vw 3vw 0vw 2vw;
-  height: 20vw;
-  border-bottom: 20vw solid #0f4c75;
-  border-left: 20vw solid transparent;
-}
-
 div#welcomePage.container {
   overflow-x: hidden;
+  z-index: 200;
 }
 
 div#welcomePage.container div#mainText {
@@ -319,28 +289,6 @@ div#welcomePage.container div#showcase .movingArea .row img {
   -o-object-fit: contain;
      object-fit: contain;
   background-color: #252525;
-}
-
-div#registrationPage h1 {
-  font-size: 2.5em;
-  letter-spacing: 0.4rem;
-  margin-bottom: 1rem;
-}
-
-div#registrationPage p {
-  font-family: "Roboto", sans-serif;
-  font-size: 2rem;
-  font-weight: 300;
-}
-
-div#registrationPage p a {
-  color: #252525;
-}
-
-div#registrationPage p a:hover {
-  font-style: italic;
-  text-decoration: none;
-  font-weight: 400;
 }
 
 div#pageNotFound {
