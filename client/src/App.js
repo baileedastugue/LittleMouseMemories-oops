@@ -1,8 +1,10 @@
-import './CSS/reset.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+
+import './CSS/reset.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Welcome from './pages/Welcome';
 import Dashboard from './pages/Dashboard';
 import AccountSettings from './pages/AccountSettings';
@@ -11,6 +13,7 @@ import AppNavbar from './components/Layout/AppNavbar/index';
 import PrivateRoute from './components/Auth/PrivateRoute';
 import PageNotFound from './pages/PageNotFound';
 import Wrapper from './components/Layout/Wrapper';
+
 import './App.css';
 
 // import global header
