@@ -30,12 +30,20 @@ div#formContainer div#logInTriangle {
   border-left: 19vw solid transparent;
 }
 
-div#formContainer div#logInTriangle #loginForm {
-  padding: 1.5vw 0vw 1vw 0vw;
+div#formContainer div#logInTriangle #loginForm h1 {
+  padding-top: 1vw;
 }
 
-div#formContainer div#logInTriangle #loginForm .alert {
-  padding-left: 1vw;
+div#formContainer div#logInTriangle #loginForm .formArea {
+  padding-bottom: 1vw;
+}
+
+div#formContainer div#logInTriangle .alert {
+  margin-top: 1vw;
+  width: 100%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
 div#formContainer div#registerTriangle {

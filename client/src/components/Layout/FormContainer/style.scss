@@ -35,10 +35,18 @@ div#formContainer {
     border-bottom: 19vw solid $secondary-color;
     border-left: 19vw solid transparent;
     #loginForm {
-      padding: 1.5vw 0vw 1vw 0vw;
-      .alert {
-        padding-left: 1vw;
+      h1 {
+        padding-top: 1vw;
       }
+      // padding: 3vw 0vw 1vw 0vw;
+      .formArea {
+        padding-bottom: 1vw;
+      }
+    }
+    .alert {
+      margin-top: 1vw;
+      width: 100%;
+      display: inline-flex;
     }
     
   }

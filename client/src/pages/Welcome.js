@@ -118,8 +118,8 @@ const Welcome = ({ isAuth, isLoading }) => {
 };
 
 Welcome.propTypes = {
-     isAuth: PropTypes.bool.isRequired,
-     isLoading: PropTypes.object.isRequired,
+     isAuth: PropTypes.bool,
+     isLoading: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({

@@ -33,7 +33,7 @@ const LoginForm = (props) => {
           return <Redirect to='/dashboard' />;
      }
      return (
-          <Fragment>
+          <div>
                <Form
                     id='loginForm'
                     className='form'
@@ -41,6 +41,7 @@ const LoginForm = (props) => {
                >
                     <h1>Welcome back</h1>
                     {props.closeBtn}
+
                     <FormGroup>
                          <label htmlFor='emailInput'>Email</label>
                          <input
@@ -74,7 +75,7 @@ const LoginForm = (props) => {
                     </Button>
                </Form>
                <AlertDiv />
-          </Fragment>
+          </div>
      );
 };
 
