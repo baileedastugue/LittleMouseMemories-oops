@@ -13,21 +13,19 @@ $abundant-color: white;
 
 $focus-text: 'Vidaloka', serif;
 $secondary-text: 'Roboto', sans-serif;
-// $secondary-text: 'Montserrat', sans-serif;
 
 .navbar {
   background-color:$dark-color;
   padding: 1.8vw;
-  // border-bottom: 5px solid $highlight-color;
   .navbar-brand {
     font-family: $focus-text;
     margin: 0vw;
     padding-left: 0vw;
-
-    line-height:2rem;
+    line-height:2vw;
     text-align: right;
     img {
       height: 8vw;
+      min-height: 6vw;
       padding: 0px;
       margin: 0px;
       display: block;
@@ -40,9 +38,8 @@ $secondary-text: 'Roboto', sans-serif;
     }
     span {
       margin-right: 9vw;
-      font-size: 3.1em;
+      font-size: 3.1vw;
       color: $focus-color;
-      // -webkit-text-stroke: 0.5px $dark-color;
     }
   }
   .navbar-brand:hover {
@@ -63,7 +60,6 @@ $secondary-text: 'Roboto', sans-serif;
   }
   a:hover{
     font-style: italic;
-    // font-weight: 400;
     cursor: pointer;
   }
 }

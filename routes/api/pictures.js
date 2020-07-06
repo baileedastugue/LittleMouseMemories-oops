@@ -43,7 +43,6 @@ router.get('/album/:album_id', async (req, res) => {
 // @access  Private
 router.get('/:picture_id', async (req, res) => {
      try {
-          console.log(req.params.picture_id);
           const picture = await Picture.findById(req.params.picture_id);
           if (!picture) {
                return res.status(404).json({ msg: 'Image not found' });
@@ -99,8 +98,7 @@ router.post(
                                    if (error) {
                                         console.log(error);
                                    } else {
-                                        // console.log(success);
-                                        // console.log(61);
+                                        console.log(success);
                                    }
                               }
                          );
@@ -123,7 +121,6 @@ router.delete('/:picture_id', auth, async (req, res) => {
           const album = picture.album;
           const objAlbum = await Album.findById(album);
           const user = objAlbum.user;
-          console.log(user, req.user.id);
           if (user.toString() !== req.user.id) {
                return res
                     .status(401)
@@ -161,9 +158,7 @@ module.exports = router;
 // @access  Public
 // router.get('/', auth, async (req, res) => {
 //      try {
-//           console.log(req.user.id);
 //           const user = await User.findById(req.user.id);
-//           console.log(user);
 
 //           // if (!picture) {
 //           //      res.status(400).json({

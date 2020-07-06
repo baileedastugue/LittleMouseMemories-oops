@@ -22,7 +22,7 @@ div#albumSettings.tab-pane.active div.card.albumSettingsCard {
 div#albumSettings.tab-pane.active div.card.albumSettingsCard div.card-title {
   border-radius: 0;
   font-family: "Roboto", sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.2vw;
   text-align: center;
   color: #3282b8;
 }
@@ -35,7 +35,7 @@ div#albumSettings.tab-pane.active div.card.albumSettingsCard a.nav-link:hover {
 div#albumSettings.tab-pane.active div.card.albumSettingsCard div.row {
   height: 100%;
   color: #252525;
-  font-size: 1.1rem;
+  font-size: 0.9vw;
 }
 
 div#albumSettings.tab-pane.active div.card.albumSettingsCard div.row div.col-4 {

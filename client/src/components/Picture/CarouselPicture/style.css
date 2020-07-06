@@ -16,9 +16,9 @@
 
 .card.carouselPicture .card-title time {
   font-family: "Vidaloka", serif;
-  font-size: 1.7rem;
+  font-size: 1.4vw;
   color: #3282b8;
-  letter-spacing: 1.2rem;
+  letter-spacing: 0.9vw;
 }
 
 .card.carouselPicture .card-subtitle {
@@ -38,7 +38,7 @@
 }
 
 .card.carouselPicture .card-body p.card-text {
-  font-size: 1.2rem;
+  font-size: 0.9vw;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
 }
@@ -65,7 +65,7 @@
 .card.carouselPicture span#caption {
   margin-left: 1vw;
   color: #0f4c75;
-  font-size: 1.2rem;
+  font-size: 0.95vw;
   font-family: "Roboto", sans-serif;
 }
 /*# sourceMappingURL=style.css.map */

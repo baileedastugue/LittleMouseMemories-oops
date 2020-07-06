@@ -1,14 +1,14 @@
 import React, { useState, Fragment } from 'react';
-import { Button, Form, FormGroup } from 'reactstrap';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { login } from '../../../actions/authActions';
+import { connect } from 'react-redux';
+import { Button, Form, FormGroup } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
+
+import { login } from '../../../actions/authActions';
 import AlertDiv from '../../Layout/AlertDiv';
 
 const LoginForm = (props) => {
      const [formData, setFormData] = useState({
-          // these are the default values
           email: '',
           password: '',
      });

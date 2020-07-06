@@ -16,7 +16,6 @@ module.exports = function (req, res, next) {
      }
      try {
           // Verify token
-          console.log('line 18');
           const decoded = jwt.verify(token, process.env.JWT_SECRET);
           // Add user from payload
           req.user = decoded.user;

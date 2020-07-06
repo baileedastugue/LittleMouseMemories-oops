@@ -22,9 +22,9 @@ $secondary-text: 'Roboto', sans-serif;
     height: 3vw;
     time {
       font-family: $focus-text;
-      font-size: 1.7rem;
+      font-size: 1.4vw;
       color: $focus-color;
-      letter-spacing: 1.2rem;
+      letter-spacing: 0.9vw;
     }
   }
   .card-subtitle {
@@ -41,19 +41,17 @@ $secondary-text: 'Roboto', sans-serif;
     white-space: normal;
     padding: 0px 10%;
     p.card-text {
-      font-size: 1.2rem;
+      font-size: 0.9vw;
       font-family: $secondary-text;
       font-weight: 300;
     }
   }
   div.memoryArea {
-    // background-color: $dark-color;
     .card-img {
       justify-content: center;
       align-items: center;
       object-fit: contain;
       height: 35vw;
-      // max-width: 35vw;
     }
   }
   .vertical-center {
@@ -65,26 +63,9 @@ $secondary-text: 'Roboto', sans-serif;
   span#caption {
     margin-left: 1vw;
     color: $secondary-color;
-    font-size: 1.2rem;
+    font-size: 0.95vw;
     font-family: $secondary-text;
   }
-      
 }
-
-
-// ::-webkit-scrollbar-track {
-//   background: $focus-color; 
-// }
-// ::-webkit-scrollbar {
-//   width: 20px;
-// }
-//   /* Handle */
-//   ::-webkit-scrollbar-thumb {
-//     background: $muted-color;
-//   }
-
-//   ::-webkit-scrollbar-thumb:hover {
-//     background: $abundant-color;
-//   }
 
 

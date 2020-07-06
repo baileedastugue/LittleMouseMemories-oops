@@ -16,9 +16,9 @@
 
 .card.carouselPrompt .card-title time {
   font-family: "Vidaloka", serif;
-  font-size: 1.7rem;
+  font-size: 1.4vw;
   color: #3282b8;
-  letter-spacing: 1.2rem;
+  letter-spacing: 0.9vw;
 }
 
 .card.carouselPrompt .card-subtitle {
@@ -42,7 +42,7 @@
 }
 
 .card.carouselPrompt div.card-body p.card-text {
-  font-size: 1.2rem;
+  font-size: 0.9vw;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
 }
@@ -52,7 +52,7 @@
   width: 35vw;
   background-color: #3282b8;
   color: red;
-  font-size: 2rem;
+  font-size: 1.7vw;
   overflow-y: auto;
   overflow-x: hidden;
   white-space: normal;

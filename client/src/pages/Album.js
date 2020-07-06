@@ -111,7 +111,6 @@ const Album = ({
      const [password, setPassword] = useState('');
      const onChange = (event) => {
           setPassword(event.target.value);
-          console.log(password);
      };
 
      const onSubmit = async (event) => {

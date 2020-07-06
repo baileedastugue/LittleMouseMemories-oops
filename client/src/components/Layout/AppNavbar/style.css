@@ -7,12 +7,13 @@
   font-family: "Vidaloka", serif;
   margin: 0vw;
   padding-left: 0vw;
-  line-height: 2rem;
+  line-height: 2vw;
   text-align: right;
 }
 
 .navbar .navbar-brand img {
   height: 8vw;
+  min-height: 6vw;
   padding: 0px;
   margin: 0px;
   display: block;
@@ -27,7 +28,7 @@
 
 .navbar .navbar-brand span {
   margin-right: 9vw;
-  font-size: 3.1em;
+  font-size: 3.1vw;
   color: #3282b8;
 }
 

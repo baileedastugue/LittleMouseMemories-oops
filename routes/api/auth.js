@@ -13,7 +13,6 @@ const User = require('../../models/User');
 // @desc    Get user data
 // @access  Private
 router.get('/', auth, async (req, res) => {
-     console.log(req.user.id);
      try {
           const user = await User.findById(req.user.id).select('-password');
           res.json(user);
@@ -98,8 +97,6 @@ router.put(
                return res.status(400).json({ errors: errors.array() });
           }
           let user = await User.findById(req.user.id);
-          console.log('line 101 in auth.js');
-          console.log(user);
           const { oldPassword, newPassword, newPassword2 } = req.body;
           try {
                const isMatch = await bcrypt.compare(oldPassword, user.password);
@@ -135,7 +132,6 @@ router.put(
 // @access  Private
 router.delete('/', auth, async (req, res) => {
      try {
-          console.log(req.user.id);
           // Removes user's associated albums, pictures, prompts
           let thisUser = await User.findOne({ _id: req.user.id });
           for (let i = 0; i < thisUser.album.length; i++) {

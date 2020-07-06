@@ -48,7 +48,6 @@ export const addNewAlbum = ({ title, passwordRequired, password }) => async (
           password = '';
      }
      const body = JSON.stringify({ title, passwordRequired, password });
-     console.log(body);
      try {
           const res = await axios.post('/api/albums/', body, config);
           dispatch({
@@ -82,14 +81,11 @@ export const getAlbum = (album_id) => async (dispatch) => {
           });
      } catch (err) {
           const errors = err.response.data;
-          console.log(errors);
           if (errors.length > 0) {
                for (let i = 0; i < errors.length; i++) {
                     dispatch(setAlert(errors[i].msg, 'danger'));
                     console.log(errors[i].msg);
-                    console.log('hello');
                }
-               // return <Redirect to='/pagenotfound' />;
           }
           dispatch({
                type: GET_ALBUM_FAIL,
@@ -116,7 +112,6 @@ export const albumAuth = ({ albumId, password }) => async (dispatch) => {
                payload: res.data,
           });
           dispatch(getAlbum(albumId));
-          console.log(res.data);
      } catch (err) {
           dispatch({
                type: ALBUM_AUTH_FAIL,

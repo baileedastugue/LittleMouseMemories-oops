@@ -89,7 +89,6 @@ router.post(
                               console.log(error);
                          } else {
                               console.log(success);
-                              console.log(61);
                          }
                     }
                );
@@ -110,7 +109,6 @@ router.delete('/:prompt_id', auth, async (req, res) => {
           const album = prompt.album;
           const objAlbum = await Album.findById(album);
           const user = objAlbum.user;
-          console.log(user, req.user.id);
           if (user.toString() !== req.user.id) {
                return res
                     .status(401)

@@ -11,7 +11,6 @@ import './style.css';
 import Moment from 'react-moment';
 
 const CarouselPicture = (props) => {
-     // console.log(props);
      return (
           <Card className='carouselPicture' style={Card.CarouselPicture}>
                <CardTitle>

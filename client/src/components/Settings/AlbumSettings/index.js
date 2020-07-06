@@ -45,7 +45,6 @@ const AlbumSettings = ({
      const deleteClick = async (event) => {
           event.preventDefault();
           const album_id = event.target.getAttribute('id');
-          console.log(album_id);
           await deleteAlbum(album_id);
      };
      const [activeTab, setActiveTab] = useState('delete');

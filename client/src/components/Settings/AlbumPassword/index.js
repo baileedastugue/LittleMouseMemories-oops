@@ -6,8 +6,6 @@ import { albumPasswordChange } from '../../../actions/albumActions';
 import { Form, FormGroup, Label, Input, FormText, Button } from 'reactstrap';
 
 const AlbumPassword = (props) => {
-     //  console.log('line 28');
-     //  console.log(props);
      const [newPassword, setNewPassword] = useState('');
 
      const onPasswordChange = (event) => {

@@ -13,13 +13,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $focus-text;
 }
 
-// body, html {
-//   height: 100%
-// }
-
 button.close {
-  background-color: black;
-  // position: absolute;
   margin: 0;
   padding: 1vw;
 }
@@ -68,38 +62,33 @@ div#root {
 }
 
 
-  .buttonContainer {
-    z-index: 1000;
-  //   background-color: $focus-color;
-  //   // height: 90%;
-  //   // width: 100%;
+.buttonContainer {
+  z-index: 1000;
   position: fixed;
   top: 75%;
   -webkit-transform: translateX(85vw);
   -ms-transform: translateX(85vw);
   transform: translateX(85vw);
-    .modalButton.albumButton {
-      position: sticky;
-      right: 4vw;
-      bottom: 0vw;
-    }
-    .modalButton.promptButton {
-      position: sticky;
-      right: 4vw;
-      // bottom: 6vw;
-      margin-top: 2vw;
-    }
-    .modalButton.photoButton {
-      position: sticky;
-      bottom: 2vw;
-      display: block;
-      // margin-bottom: 10vw;
-    }
-    button.albumButton {
-      padding-top: 15px;
-      padding-left: 0px;
-    }
+  .modalButton.albumButton {
+    position: sticky;
+    right: 4vw;
+    bottom: 0vw;
   }
+  .modalButton.promptButton {
+    position: sticky;
+    right: 4vw;
+    margin-top: 2vw;
+  }
+  .modalButton.photoButton {
+    position: sticky;
+    bottom: 2vw;
+    display: block;
+  }
+  button.albumButton {
+    padding-top: 15px;
+    padding-left: 0px;
+  }
+}
 
 button.btn-danger {
   background-color: $danger;
@@ -121,7 +110,6 @@ ul.nav.nav-tabs {
   a.active.nav-link {
     background-color: transparent;
     border-radius: 0;
-    // border: none;
     border: 2px solid $focus-color;
     color: $abundant-color;
   }
@@ -137,24 +125,17 @@ div#accountSettings {
   margin: 0 auto;
 }
 
-
-  // position: relative;
- 
-
-
-
-  div#welcomePage.container {
-    // position: relative;
-    overflow-x: hidden;
-    z-index: 200;
+div#welcomePage.container {
+  overflow-x: hidden;
+  z-index: 200;
   div#mainText {
     position: absolute;
     top: 10vw;
     left: 5vw;
     h1 {
-      font-size: 3.5em;
-      letter-spacing: 0.4rem;
-      margin-bottom: 1rem;
+      font-size: 3vw;
+      letter-spacing: 0.3vw;
+      margin-bottom: 0.4vw;
     }
   }
   div#aboutText {
@@ -163,28 +144,28 @@ div#accountSettings {
     left: 5vw;
     font-family: $secondary-text;
     font-weight: 100;
-    font-size: 1.5rem;
+    font-size: 1.5vw;
   }
   div#signInSquare {
     position: absolute;
     top: 35vw;
     left: 0vw;
     height: 15vw;
-    width: 22.6vw;
+    width: 20vw;
     background-color: $focus-color;
+    z-index: 1000;
     p#signInText {
       width: 30vw;
-      padding: 5vw;
+      padding: 5vw 0vw 0vw 5vw;
       font-family: $secondary-text;
-      font-size: 2rem;
-      // font-weight: 300;
+      font-size: 1.5vw;
       z-index: 1000;
       .authLink {
         z-index: 1000;
         color: $dark-color;
       }
       .authLink:hover {
-        // font-style: italic;
+        z-index: 1000;
         text-decoration: none;
         font-weight: 300;
         cursor: pointer;
@@ -193,14 +174,13 @@ div#accountSettings {
   }
   div#signInTriangle {
     position: absolute;
-    left: 22.6vw;
+    left: 20vw;
     top: 35vw;
     width: 15vw;
-    z-index: 0;
+    z-index: -0;
     height: 15vw;
     border-top: 15vw solid $focus-color;
     border-right: 15vw solid transparent;
-  
   }
   .left {
     height: 50vw;
@@ -225,20 +205,19 @@ div#accountSettings {
     height: 40vw;
     width: 80vw;
     position: absolute;
-    right: 0rem;
+    right: 0vw;
     top: 12vw;
     z-index: -100;
     overflow: hidden;
     .movingArea {
       animation: verticalScroll 60s linear infinite;
-      // 60 is best
       @keyframes verticalScroll {
         0% {
-          transform: translate3d(0, -270rem, 0);
+          transform: translate3d(0, -220vw, 0);
         }
       
         100% {
-          transform: translate3d(0, 0rem, 0);
+          transform: translate3d(0, 0vw, 0);
         }
       }
       .row {
@@ -250,33 +229,30 @@ div#accountSettings {
         position: relative;
         .box {
           display: inline-block;
-          height: 25rem;
-          width: 25rem;
-          margin: 1rem;
+          height: 20vw;
+          width: 20vw;
+          margin: 1vw;
           .aboutText {
             position: fixed;
             font-family: $focus-text;
-            font-size: 3rem;
-            left: 40rem;
-            overflow: show;
+            left: 5vw;
           }
           
         }
         .prompt {
-          margin: 1rem;
+          margin: 1vw;
           background-color: $abundant-color;
           padding: 1vw;
-          height: 25rem;
-          width: 25rem;
+          height: 20vw;
+          width: 20vw;
           color: $focus-color;
-          font-size: 2rem;
+          font-size: 1.5vw;
           font-family: $secondary-text;
-          // font-weight: 400;
         }
         img {
           border-radius: 0;
-          height: 25rem;
-          width: 25rem;
+          height: 20vw;
+          width: 20vw;
           object-fit: contain;
           background-color: $dark-color;
         }
@@ -287,27 +263,6 @@ div#accountSettings {
   }
 }
 
-// div#registrationPage {
-//   h1 {
-//     font-size: 2.5em;
-//     letter-spacing: 0.4rem;
-//     margin-bottom: 1rem;
-//   }
-//   p {
-//     font-family: $secondary-text;
-//     font-size: 2rem;
-//     font-weight: 300;
-//     a {
-//       color: $dark-color;
-//     }
-//     a:hover {
-//       font-style: italic;
-//       text-decoration: none;
-//       font-weight: 400;
-//     }
-//   }
-// }
-
 div#pageNotFound {
   margin-top: 5vw;
   height: 20vw;
@@ -315,12 +270,12 @@ div#pageNotFound {
   background-color: $focus-color;
   padding: 2vw;
   h1 {
-    font-size: 6rem;
+    font-size: 6vw;
   }
   p {
     font-family: $secondary-text;
     font-weight: 300;
-    font-size: 2.5rem;
+    font-size: 2vw;
     a {
       color: $dark-color;
       span {

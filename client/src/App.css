@@ -3,7 +3,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 button.close {
-  background-color: black;
   margin: 0;
   padding: 1vw;
 }
@@ -134,9 +133,9 @@ div#welcomePage.container div#mainText {
 }
 
 div#welcomePage.container div#mainText h1 {
-  font-size: 3.5em;
-  letter-spacing: 0.4rem;
-  margin-bottom: 1rem;
+  font-size: 3vw;
+  letter-spacing: 0.3vw;
+  margin-bottom: 0.4vw;
 }
 
 div#welcomePage.container div#aboutText {
@@ -145,7 +144,7 @@ div#welcomePage.container div#aboutText {
   left: 5vw;
   font-family: "Roboto", sans-serif;
   font-weight: 100;
-  font-size: 1.5rem;
+  font-size: 1.5vw;
 }
 
 div#welcomePage.container div#signInSquare {
@@ -153,15 +152,16 @@ div#welcomePage.container div#signInSquare {
   top: 35vw;
   left: 0vw;
   height: 15vw;
-  width: 22.6vw;
+  width: 20vw;
   background-color: #3282b8;
+  z-index: 1000;
 }
 
 div#welcomePage.container div#signInSquare p#signInText {
   width: 30vw;
-  padding: 5vw;
+  padding: 5vw 0vw 0vw 5vw;
   font-family: "Roboto", sans-serif;
-  font-size: 2rem;
+  font-size: 1.5vw;
   z-index: 1000;
 }
 
@@ -171,6 +171,7 @@ div#welcomePage.container div#signInSquare p#signInText .authLink {
 }
 
 div#welcomePage.container div#signInSquare p#signInText .authLink:hover {
+  z-index: 1000;
   text-decoration: none;
   font-weight: 300;
   cursor: pointer;
@@ -178,10 +179,10 @@ div#welcomePage.container div#signInSquare p#signInText .authLink:hover {
 
 div#welcomePage.container div#signInTriangle {
   position: absolute;
-  left: 22.6vw;
+  left: 20vw;
   top: 35vw;
   width: 15vw;
-  z-index: 0;
+  z-index: -0;
   height: 15vw;
   border-top: 15vw solid #3282b8;
   border-right: 15vw solid transparent;
@@ -211,7 +212,7 @@ div#welcomePage.container div#showcase {
   height: 40vw;
   width: 80vw;
   position: absolute;
-  right: 0rem;
+  right: 0vw;
   top: 12vw;
   z-index: -100;
   overflow: hidden;
@@ -224,23 +225,23 @@ div#welcomePage.container div#showcase .movingArea {
 
 @-webkit-keyframes verticalScroll {
   0% {
-    -webkit-transform: translate3d(0, -270rem, 0);
-            transform: translate3d(0, -270rem, 0);
+    -webkit-transform: translate3d(0, -220vw, 0);
+            transform: translate3d(0, -220vw, 0);
   }
   100% {
-    -webkit-transform: translate3d(0, 0rem, 0);
-            transform: translate3d(0, 0rem, 0);
+    -webkit-transform: translate3d(0, 0vw, 0);
+            transform: translate3d(0, 0vw, 0);
   }
 }
 
 @keyframes verticalScroll {
   0% {
-    -webkit-transform: translate3d(0, -270rem, 0);
-            transform: translate3d(0, -270rem, 0);
+    -webkit-transform: translate3d(0, -220vw, 0);
+            transform: translate3d(0, -220vw, 0);
   }
   100% {
-    -webkit-transform: translate3d(0, 0rem, 0);
-            transform: translate3d(0, 0rem, 0);
+    -webkit-transform: translate3d(0, 0vw, 0);
+            transform: translate3d(0, 0vw, 0);
   }
 }
 
@@ -258,34 +259,32 @@ div#welcomePage.container div#showcase .movingArea .row {
 
 div#welcomePage.container div#showcase .movingArea .row .box {
   display: inline-block;
-  height: 25rem;
-  width: 25rem;
-  margin: 1rem;
+  height: 20vw;
+  width: 20vw;
+  margin: 1vw;
 }
 
 div#welcomePage.container div#showcase .movingArea .row .box .aboutText {
   position: fixed;
   font-family: "Vidaloka", serif;
-  font-size: 3rem;
-  left: 40rem;
-  overflow: show;
+  left: 5vw;
 }
 
 div#welcomePage.container div#showcase .movingArea .row .prompt {
-  margin: 1rem;
+  margin: 1vw;
   background-color: white;
   padding: 1vw;
-  height: 25rem;
-  width: 25rem;
+  height: 20vw;
+  width: 20vw;
   color: #3282b8;
-  font-size: 2rem;
+  font-size: 1.5vw;
   font-family: "Roboto", sans-serif;
 }
 
 div#welcomePage.container div#showcase .movingArea .row img {
   border-radius: 0;
-  height: 25rem;
-  width: 25rem;
+  height: 20vw;
+  width: 20vw;
   -o-object-fit: contain;
      object-fit: contain;
   background-color: #252525;
@@ -300,13 +299,13 @@ div#pageNotFound {
 }
 
 div#pageNotFound h1 {
-  font-size: 6rem;
+  font-size: 6vw;
 }
 
 div#pageNotFound p {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
-  font-size: 2.5rem;
+  font-size: 2vw;
 }
 
 div#pageNotFound p a {

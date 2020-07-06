@@ -84,7 +84,7 @@ function WelcomeShowcase() {
                               />
                          </div>
                          <div className='box prompt'>
-                              Postpartum moments that made me cry
+                              Moments that made me cry
                          </div>
                          <div className='box image'>
                               <img

@@ -40,16 +40,9 @@ router.get('/', auth, async (req, res) => {
 // @access  Private
 router.post('/private/:album_id', async (req, res) => {
      const { albumId, password } = req.body;
-     console.log(albumId);
-     console.log(req.body);
-     console.log('line 50');
      try {
-          console.log(albumId);
           let album = await Album.findById(albumId);
-          console.log(album);
           const isMatch = await bcrypt.compare(password, album.password);
-          console.log(isMatch);
-          console.log(await bcrypt.compare(password, album.password));
           if (!isMatch) {
                return res
                     .status(400)
@@ -69,7 +62,6 @@ router.get('/:album_id', async (req, res) => {
      try {
           // const user_id = req.user.id;
           const album_id = req.params.album_id;
-          console.log(album_id);
           const album = await Album.find({
                _id: album_id,
           })
@@ -94,7 +86,6 @@ router.get('/:album_id', async (req, res) => {
                     msg: 'This album does not exist for this user',
                });
           }
-          console.log(album);
           res.json(album);
      } catch (err) {
           console.error(err.message);
@@ -231,10 +222,8 @@ router.put(
                return res.status(400).json({ errors: errors.array() });
           }
           const { newTitle } = req.body;
-          console.log(newTitle);
           try {
                const album_id = req.params.album_id;
-               console.log(album_id);
                await Album.update(
                     {
                          _id: album_id,
@@ -254,11 +243,9 @@ router.put(
 // @access  Private
 router.put('/password/:album_id', auth, async (req, res) => {
      let { newPassword, passwordRequired } = req.body;
-     console.log(newPassword, passwordRequired);
      try {
           const salt = await bcrypt.genSalt(10);
           newPassword = await bcrypt.hash(newPassword, salt);
-          console.log(newPassword);
           await Album.update(
                { _id: req.params.album_id },
                {
@@ -280,8 +267,6 @@ router.put('/password/:album_id', auth, async (req, res) => {
 // @access  Private
 router.delete('/:album_id', auth, async (req, res) => {
      try {
-          // Removes album
-          console.log(req.user.id);
           await Picture.remove({ album: req.params.album_id });
           await Prompt.remove({ album: req.params.album_id });
           await Album.findOneAndDelete({ _id: req.params.album_id });

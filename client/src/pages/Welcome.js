@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Container } from 'reactstrap';
-import FormContainer from '../components/Layout/FormContainer';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import MaterialIcon from 'material-icons-react';
+import { Container } from 'reactstrap';
 import { useTransition, animated } from 'react-spring';
+import MaterialIcon from 'material-icons-react';
+
+import FormContainer from '../components/Layout/FormContainer';
 import WelcomeShowcase from '../components/Layout/WelcomeShowcase';
 
 const Welcome = ({ isAuth, isLoading }) => {
