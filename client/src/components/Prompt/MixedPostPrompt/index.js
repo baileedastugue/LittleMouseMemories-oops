@@ -15,7 +15,6 @@ const MixedPostPrompt = (props) => {
                     <CardText data-id={props.id} type='prompt'>
                          {props.prompt}. . .
                          <br />
-                         {/* {props.response} */}
                     </CardText>
                     <div className='overlay' data-id={props.id} type='prompt'>
                          <CardTitle

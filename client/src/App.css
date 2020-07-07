@@ -90,7 +90,7 @@ button.btn-danger {
 }
 
 button.btn-danger:hover {
-  background-color: #252525;
+  background-color: transparent;
   border-color: #c40018;
   color: #c40018;
 }

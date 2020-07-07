@@ -1,7 +1,7 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Button, Form, FormGroup } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
 
 import { login } from '../../../actions/authActions';
@@ -43,8 +43,8 @@ const LoginForm = (props) => {
                     {props.closeBtn}
 
                     <FormGroup>
-                         <label htmlFor='emailInput'>Email</label>
-                         <input
+                         <Label htmlFor='emailInput'>Email</Label>
+                         <Input
                               type='text'
                               name='email'
                               className='form-control'
@@ -55,8 +55,8 @@ const LoginForm = (props) => {
                          />
                     </FormGroup>
                     <FormGroup>
-                         <label htmlFor='passwordInput'>Password</label>
-                         <input
+                         <Label htmlFor='passwordInput'>Password</Label>
+                         <Input
                               type='password'
                               name='password'
                               className='form-control'

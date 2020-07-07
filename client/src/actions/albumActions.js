@@ -15,6 +15,8 @@ import {
      CHANGE_ALBUM_NAME_FAIL,
      CHANGE_ALBUM_PW_SUCCESS,
      CHANGE_ALBUM_PW_FAIL,
+     GET_ALBUM_SETTINGS_SUCCESS,
+     GET_ALBUM_SETTINGS_FAIL,
 } from './types';
 
 export const getAllAlbums = () => async (dispatch) => {
@@ -64,6 +66,28 @@ export const addNewAlbum = ({ title, passwordRequired, password }) => async (
           }
           dispatch({
                type: ADD_ALBUM_FAIL,
+          });
+     }
+};
+
+export const getAlbumSettings = (album_id) => async (dispatch) => {
+     try {
+          const res = await axios.get(`/api/albums/${album_id}`);
+
+          dispatch({
+               type: GET_ALBUM_SETTINGS_SUCCESS,
+               payload: res.data,
+          });
+     } catch (err) {
+          const errors = err.response.data;
+          if (errors.length > 0) {
+               for (let i = 0; i < errors.length; i++) {
+                    dispatch(setAlert(errors[i].msg, 'danger'));
+                    console.log(errors[i].msg);
+               }
+          }
+          dispatch({
+               type: GET_ALBUM_SETTINGS_FAIL,
           });
      }
 };
@@ -174,6 +198,7 @@ export const albumNameChange = (album_id, { newTitle }) => async (dispatch) => {
                type: CHANGE_ALBUM_NAME_SUCCESS,
           });
           dispatch(getAllAlbums());
+          dispatch(getAlbumSettings(album_id));
           dispatch(setAlert('Album name has been successfully updated'));
      } catch (err) {
           const errors = err.response.data;

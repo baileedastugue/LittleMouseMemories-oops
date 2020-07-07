@@ -33,8 +33,8 @@ const Dashboard = ({ isAuth, auth }) => {
                          Welcome to your memory albums, {auth.user.firstName}{' '}
                          {auth.user.lastName}
                     </PageTitle>
-
                     <AlertDiv />
+                    {/* {isOpen ? null : } */}
                </Container>
                <Row>
                     <AlbumList />

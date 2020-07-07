@@ -45,13 +45,12 @@ const AlbumPassword = (props) => {
 
      return (
           <Form className='form' onSubmit={onPasswordSubmit} id={props.id}>
-               {/* <Row form> */}
                {!props.passwordRequired ? (
                     <p>No password currently required to view this album</p>
                ) : (
                     <p>Password is required to view this album</p>
                )}
-               <FormGroup>
+               <FormGroup className='ml-4'>
                     <Label>
                          <Input
                               type='checkbox'
@@ -84,11 +83,8 @@ const AlbumPassword = (props) => {
                     </FormGroup>
                ) : null}
 
-               {/* </Row> */}
                <Button>Save Changes</Button>
-               <FormText color='muted'>
-                    Submit form to save all changes
-               </FormText>
+               <FormText color='muted'>Submit to save all changes</FormText>
           </Form>
      );
 };

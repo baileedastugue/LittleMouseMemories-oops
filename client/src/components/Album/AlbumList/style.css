@@ -1,24 +1,31 @@
-.flip-card {
-  background-color: transparent;
+div.card {
+  margin: 1vw;
+  border-radius: 0;
+  border: none;
+  outline: none;
+}
+
+div.card div.card-body.flip-card {
   width: 400px;
   height: 400px;
+  background-color: transparent;
   -webkit-perspective: 1000px;
           perspective: 1000px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   position: relative;
-  margin: 1vw;
   display: inline-block;
   font-family: "Roboto", sans-serif;
+  font-weight: 300;
   color: white;
   font-size: 1.5vw;
 }
 
-.flip-card-inner {
+div.card .flip-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  text-align: center;
+  text-align: left;
   -webkit-transition: -webkit-transform 0.6s;
   transition: -webkit-transform 0.6s;
   transition: transform 0.6s;
@@ -27,12 +34,12 @@
           transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner {
+div.card .flip-card:hover .flip-card-inner {
   -webkit-transform: rotateX(180deg);
           transform: rotateX(180deg);
 }
 
-.flip-card-front, .flip-card-back {
+div.card .flip-card-front, div.card .flip-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -40,13 +47,14 @@
   backface-visibility: hidden;
 }
 
-.flip-card-front {
+div.card .flip-card-front {
   background-color: #3282b8;
-  color: black;
+  color: white;
+  padding: 0.5vw;
 }
 
-.flip-card-back {
-  background-color: #252525;
+div.card .flip-card-back {
+  background-color: #3282b8;
   color: white;
   -webkit-transform: rotateX(180deg);
           transform: rotateX(180deg);
@@ -55,5 +63,32 @@
   font-size: 20px;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
+  vertical-align: center;
+}
+
+div.card .center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.card .albumListBelow.card-footer {
+  height: 50px;
+  background-color: #252525;
+  border: none;
+  border-radius: 0;
+  text-align: right;
+}
+
+div.card .albumListBelow.card-footer:hover {
+  background-color: #252525;
+  cursor: pointer;
+  color: #bbe1fa;
 }
 /*# sourceMappingURL=style.css.map */

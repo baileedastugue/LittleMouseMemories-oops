@@ -16,6 +16,8 @@ import {
      CHANGE_ALBUM_PW_SUCCESS,
      CHANGE_ALBUM_PW_FAIL,
      CHANGE_PW_FAIL,
+     GET_ALBUM_SETTINGS_SUCCESS,
+     GET_ALBUM_SETTINGS_FAIL,
 } from '../actions/types';
 
 const initialState = {
@@ -40,6 +42,12 @@ export default function (state = initialState, action) {
                return {
                     ...state,
                     albums: action.payload,
+                    isLoading: false,
+               };
+          case GET_ALBUM_SETTINGS_SUCCESS:
+               return {
+                    ...state,
+                    album: action.payload,
                     isLoading: false,
                };
           case GET_ALBUM_SUCCESS:
@@ -72,6 +80,7 @@ export default function (state = initialState, action) {
           case DELETE_ALBUM_FAIL:
           case ADD_ALBUM_FAIL:
           case GET_ALBUMS_FAIL:
+          case GET_ALBUM_SETTINGS_FAIL:
           case GET_ALBUM_FAIL:
                return {
                     ...state,

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { setAlert } from '../../../actions/alertActions';
 import { register } from '../../../actions/authActions';
-import { Button, Form, FormGroup, Row, Col } from 'reactstrap';
+import { Button, Form, FormGroup, Row, Col, Label, Input } from 'reactstrap';
 import PropTypes from 'prop-types';
 import './style.css';
 import AlertDiv from '../../Layout/AlertDiv';
@@ -60,10 +60,10 @@ const RegistrationForm = (props) => {
                     <Row>
                          <Col md={6}>
                               <FormGroup>
-                                   <label htmlFor='fNameInput'>
+                                   <Label htmlFor='fNameInput'>
                                         First Name
-                                   </label>
-                                   <input
+                                   </Label>
+                                   <Input
                                         type='text'
                                         name='firstName'
                                         className='form-control'
@@ -76,8 +76,8 @@ const RegistrationForm = (props) => {
                          </Col>
                          <Col md={6}>
                               <FormGroup>
-                                   <label htmlFor='lNameInput'>Last Name</label>
-                                   <input
+                                   <Label htmlFor='lNameInput'>Last Name</Label>
+                                   <Input
                                         type='text'
                                         name='lastName'
                                         className='form-control'
@@ -92,8 +92,8 @@ const RegistrationForm = (props) => {
                     <Row>
                          <Col md={12}>
                               <FormGroup>
-                                   <label htmlFor='emailInput'>Email</label>
-                                   <input
+                                   <Label htmlFor='emailInput'>Email</Label>
+                                   <Input
                                         type='text'
                                         name='email'
                                         className='form-control'
@@ -108,10 +108,10 @@ const RegistrationForm = (props) => {
                     <Row>
                          <Col md={6}>
                               <FormGroup>
-                                   <label htmlFor='newPasswordInput'>
+                                   <Label htmlFor='newPasswordInput'>
                                         Password
-                                   </label>
-                                   <input
+                                   </Label>
+                                   <Input
                                         type='password'
                                         name='password'
                                         className='form-control'
@@ -125,10 +125,10 @@ const RegistrationForm = (props) => {
                          </Col>
                          <Col md={6}>
                               <FormGroup>
-                                   <label htmlFor='newPasswordInput'>
+                                   <Label htmlFor='newPasswordInput'>
                                         Confirm Password
-                                   </label>
-                                   <input
+                                   </Label>
+                                   <Input
                                         type='password'
                                         name='password2'
                                         className='form-control'
@@ -165,8 +165,6 @@ const mapStateToProps = (state) => ({
      isAuth: state.auth.isAuthenticated,
 });
 
-// have to export connect and pass in any actions
-// this allows us to access props.setAlert
 export default connect(mapStateToProps, { setAlert, register })(
      RegistrationForm
 );
