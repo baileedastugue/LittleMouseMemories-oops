@@ -1,29 +1,18 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import {
-     Container,
-     TabContent,
-     TabPane,
-     Nav,
-     NavItem,
-     NavLink,
-} from 'reactstrap';
+import { Container } from 'reactstrap';
 import { connect } from 'react-redux';
 
 import PageTitle from '../components/Layout/PageTitle';
 import ChangePasswordForm from '../components/Settings/ChangePasswordForm';
 import DeleteUser from '../components/Settings/DeleteUser';
 import AlertDiv from '../components/Layout/AlertDiv';
+import Loading from '../components/Layout/Loading';
 import '../App.css';
-import classnames from 'classnames';
 
 const AccountSettings = ({ auth }) => {
-     const [activeTab, setActiveTab] = useState('1');
-     const toggle = (tab) => {
-          if (activeTab !== tab) setActiveTab(tab);
-     };
      return auth.isLoading ? (
-          <h1>Loading</h1>
+          <Loading />
      ) : (
           <Fragment>
                <Container fluid={true}>

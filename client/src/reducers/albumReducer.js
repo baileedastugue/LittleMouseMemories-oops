@@ -18,6 +18,7 @@ import {
      CHANGE_PW_FAIL,
      GET_ALBUM_SETTINGS_SUCCESS,
      GET_ALBUM_SETTINGS_FAIL,
+     LOADING_POST,
 } from '../actions/types';
 
 const initialState = {
@@ -31,6 +32,11 @@ const initialState = {
 
 export default function (state = initialState, action) {
      switch (action.type) {
+          case LOADING_POST:
+               return {
+                    ...state,
+                    isLoading: true,
+               };
           case ADD_ALBUM_SUCCESS:
                return {
                     validAlbum: true,

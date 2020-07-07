@@ -8,7 +8,7 @@ import {
      DELETE_PICTURE_SUCCESS,
      DELETE_PICTURE_FAIL,
 } from './types';
-import { getAlbum } from './albumActions';
+import { getAlbum, loadingPost } from './albumActions';
 
 export const getPictures = (id) => async (dispatch) => {
      try {
@@ -31,26 +31,24 @@ export const getPictures = (id) => async (dispatch) => {
 export const addNewPicture = (album_id, formData) => async (dispatch) => {
      const config = {
           headers: {
-               // 'Content-Type': 'application/json',
                'Content-Type': 'multipart/form-data',
-               // encType: 'multipart/form-data',
                mode: 'no-cors',
           },
      };
 
      try {
+          dispatch(loadingPost());
           const res = await axios.post(
                `/api/pictures/${album_id}`,
                formData,
                config
           );
-
           dispatch({
                type: ADD_PICTURE_SUCCESS,
                payload: res.data,
           });
-          dispatch(getAlbum(album_id));
           dispatch(getPictures(album_id));
+          dispatch(getAlbum(album_id));
      } catch (err) {
           const errors = err.response;
           if (errors) {

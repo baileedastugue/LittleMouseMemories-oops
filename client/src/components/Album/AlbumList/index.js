@@ -26,7 +26,7 @@ import {
 } from 'reactstrap';
 import AlbumPassword from '../../Settings/AlbumPassword';
 import SubmitButton from '../../Buttons/SubmitBtn';
-
+import Loading from '../../Layout/Loading';
 import './style.css';
 
 const AlbumList = ({
@@ -90,9 +90,9 @@ const AlbumList = ({
           <Fragment>
                {albums.albums.map((album) => (
                     <Card>
-                         <CardBody className='flip-card' key={album._id}>
-                              <CardText className='flip-card-inner'>
-                                   <Link to={`/album/${album._id}`}>
+                         <Link to={`/album/${album._id}`}>
+                              <CardBody className='flip-card' key={album._id}>
+                                   <CardText className='flip-card-inner'>
                                         <div className='flip-card-front'>
                                              {album.title}
                                         </div>
@@ -105,9 +105,9 @@ const AlbumList = ({
                                                   ></Moment>
                                              </div>
                                         </div>
-                                   </Link>
-                              </CardText>
-                         </CardBody>
+                                   </CardText>
+                              </CardBody>
+                         </Link>
                          <CardFooter
                               className='albumListBelow'
                               id={album._id}
@@ -174,7 +174,7 @@ const AlbumList = ({
                ) : null}
           </Fragment>
      ) : (
-          <h1>Loading your albums</h1>
+          <Loading />
      );
 };
 

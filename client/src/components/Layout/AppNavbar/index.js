@@ -19,7 +19,7 @@ const AppNavbar = ({ logout, auth }) => {
                     <NavLink href='/dashboard'>Dashboard</NavLink>
                </NavItem>
                <NavItem>
-                    <NavLink href='/accountSettings'>Settings</NavLink>
+                    <NavLink href='/accountSettings'>Account Settings</NavLink>
                </NavItem>
                <NavItem>
                     <NavLink href='/' onClick={logoutUser}>

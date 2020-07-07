@@ -17,10 +17,12 @@ import {
      CHANGE_ALBUM_PW_FAIL,
      GET_ALBUM_SETTINGS_SUCCESS,
      GET_ALBUM_SETTINGS_FAIL,
+     LOADING_POST,
 } from './types';
 
 export const getAllAlbums = () => async (dispatch) => {
      try {
+          dispatch({ type: LOADING_POST });
           // knows which album to load from the token sent that contains the user id
           const res = await axios.get('api/albums/');
           dispatch({
@@ -36,6 +38,10 @@ export const getAllAlbums = () => async (dispatch) => {
                },
           });
      }
+};
+
+export const loadingPost = () => (dispatch) => {
+     dispatch({ type: LOADING_POST });
 };
 
 export const addNewAlbum = ({ title, passwordRequired, password }) => async (
@@ -93,6 +99,7 @@ export const getAlbumSettings = (album_id) => async (dispatch) => {
 };
 
 export const getAlbum = (album_id) => async (dispatch) => {
+     // dispatch({ type: LOADING_POST });
      try {
           const res = await axios.get(`/api/albums/${album_id}`);
           let posts = [];

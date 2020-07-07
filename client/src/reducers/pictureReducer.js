@@ -8,23 +8,30 @@ import {
 } from '../actions/types';
 
 const initialState = {
-     pictures: [],
      picture: {},
+     pictureAdded: null,
      album: null,
-     isLoading: true,
+     pictureLoading: false,
      error: {},
 };
 
 export default function (state = initialState, action) {
      switch (action.type) {
-          case DELETE_PICTURE_SUCCESS:
           case ADD_PICTURE_SUCCESS:
+               return {
+                    ...state,
+                    picture: action.payload,
+                    pictureAdded: true,
+                    album: action.payload.album,
+                    pictureLoading: true,
+               };
+          case DELETE_PICTURE_SUCCESS:
           case GET_PICTURES_SUCCESS:
                return {
                     ...state,
                     pictures: action.payload,
                     album: action.payload.album,
-                    isLoading: false,
+                    pictureLoading: false,
                };
           case DELETE_PICTURE_FAIL:
           case ADD_PICTURE_FAIL:
@@ -32,7 +39,7 @@ export default function (state = initialState, action) {
                return {
                     ...state,
                     error: action.payload,
-                    isLoading: false,
+                    pictureLoading: false,
                };
           default:
                return state;

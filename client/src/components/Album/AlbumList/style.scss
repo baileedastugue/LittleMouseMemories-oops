@@ -37,6 +37,7 @@ div.card {
   }
   .flip-card:hover .flip-card-inner {
     transform: rotateX(180deg);
+    cursor: pointer;
   }
   
   .flip-card-front, .flip-card-back {
@@ -53,7 +54,7 @@ div.card {
     padding: 0.5vw;
   }
   .flip-card-back {
-    background-color: $focus-color;
+    background-color: $secondary-color;
     color: white;
     transform: rotateX(180deg);
     text-align: center;
@@ -74,11 +75,6 @@ div.card {
           border: none;
           border-radius: 0;
           text-align: right;
-        //   margin: 0vw 1vw;
-        //   top: 410px;
-        //   position: absolute;
-        //   left: -100px;
-        //   display: inline-block;
       }
       .albumListBelow.card-footer:hover {
           background-color: $dark-color;

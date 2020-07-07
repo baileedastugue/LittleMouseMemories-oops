@@ -30,6 +30,7 @@ import CarouselPicture from '../components/Picture/CarouselPicture';
 import CarouselPrompt from '../components/Prompt/CarouselPrompt';
 import { deletePicture } from '../actions/pictureActions';
 import { deletePrompt } from '../actions/promptActions';
+import Loading from '../components/Layout/Loading';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import AlertDiv from '../components/Layout/AlertDiv';
@@ -43,6 +44,7 @@ const Album = ({
      albumLoading,
      isAuth,
      albumAuth,
+     picture,
 }) => {
      let pathArray = window.location.pathname.split('/');
      let albumId = pathArray[pathArray.length - 1];
@@ -129,11 +131,16 @@ const Album = ({
 
      // has the album loaded yet
      return albumLoading ? (
-          <h1>Welcome</h1>
+          <>
+               <h1>Welcome</h1>
+               <br />
+               <Loading />
+          </>
      ) : // if the album has loaded, is it found in the DB
      album.validAlbum ? (
           <Fragment>
                {/* if the album is found, load the title */}
+               {/* <Loading/> */}
                <Container fluid={true}>
                     <PageTitle>
                          {album.albums[0].title} by{' '}
@@ -195,6 +202,9 @@ const Album = ({
                                              <Fragment key={post._id}>
                                                   {'image' in post ? (
                                                        <Fragment>
+                                                            {picture.pictureLoading ? (
+                                                                 <Loading />
+                                                            ) : null}
                                                             <MixedPostPicture
                                                                  type='picture'
                                                                  key={post._id}
@@ -389,6 +399,7 @@ Album.propTypes = {
      deletePicture: PropTypes.func.isRequired,
      deletePrompt: PropTypes.func.isRequired,
      albumAuth: PropTypes.func.isRequired,
+     picture: PropTypes.func.isRequired,
 };
 
 Container.propTypes = {
@@ -400,6 +411,7 @@ const mapStateToProps = (state) => ({
      albumLoading: state.album.isLoading,
      auth: state.auth,
      album: state.album,
+     picture: state.picture,
 });
 
 export default connect(mapStateToProps, {

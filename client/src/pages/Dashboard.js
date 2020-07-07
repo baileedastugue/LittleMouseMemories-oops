@@ -11,6 +11,7 @@ import AddAlbumForm from '../components/Album/AddAlbumForm';
 import AddAlbumModal from '../components/Album/AddAlbumModal';
 import ModalButton from '../components/Buttons/ModalButton';
 import AlertDiv from '../components/Layout/AlertDiv';
+import Loading from '../components/Layout/Loading';
 import '../App.css';
 
 const Dashboard = ({ isAuth, auth }) => {
@@ -23,7 +24,7 @@ const Dashboard = ({ isAuth, auth }) => {
      };
 
      return auth.isLoading ? (
-          <h1>Loading your memories</h1>
+          <Loading />
      ) : !isAuth ? (
           <Redirect to='/' />
      ) : (
@@ -34,7 +35,6 @@ const Dashboard = ({ isAuth, auth }) => {
                          {auth.user.lastName}
                     </PageTitle>
                     <AlertDiv />
-                    {/* {isOpen ? null : } */}
                </Container>
                <Row>
                     <AlbumList />

@@ -29,9 +29,6 @@ if (localStorage.token) {
 }
 
 const App = () => {
-     // this will be a constant loop without []
-     // basically like a componentDidMount with the []
-     // tells react that your effect doesn't depend on any values from props/state therefore it never needs to re-run
      useEffect(() => {
           store.dispatch(loadUser());
      }, []);
