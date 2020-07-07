@@ -7,6 +7,31 @@ button.close {
   padding: 1vw;
 }
 
+button.submit-btn.btn.btn-secondary {
+  background-color: #3282b8;
+  border-color: #3282b8;
+  float: right;
+}
+
+button.submit-btn.btn.btn-secondary:hover {
+  background-color: transparent;
+  color: #3282b8;
+  border-color: #3282b8;
+}
+
+button.auth-btn.btn.btn-secondary {
+  background-color: white;
+  border-color: white;
+  color: #252525;
+  float: right;
+}
+
+button.auth-btn.btn.btn-secondary:hover {
+  background-color: transparent;
+  color: white;
+  border-color: white;
+}
+
 button.close, button.close:active, button.close:focus, button.close::after {
   border: none;
   outline: none;

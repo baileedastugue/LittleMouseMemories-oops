@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Form, FormGroup, Label, Input } from 'reactstrap';
 import { changePw } from '../../../actions/authActions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
+import SubmitButton from '../../Buttons/SubmitBtn';
 import './style.css';
 
 const ChangePasswordForm = (props) => {
@@ -77,14 +78,7 @@ const ChangePasswordForm = (props) => {
                          onChange={onChange}
                     />
                </FormGroup>
-               <Button
-                    type='submit'
-                    value='changePw'
-                    className='btn'
-                    id='pw-submit-btn'
-               >
-                    Change Password
-               </Button>
+               <SubmitButton>Change Password</SubmitButton>
           </Form>
      );
 };

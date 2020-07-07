@@ -2,16 +2,4 @@ form#changePasswordForm.form input.form-control {
   display: block;
   width: 100%;
 }
-
-button#pw-submit-btn.btn.btn-secondary {
-  background-color: #3282b8;
-  border-color: #3282b8;
-  float: right;
-}
-
-button#pw-submit-btn.btn.btn-secondary:hover {
-  background-color: #252525;
-  color: #3282b8;
-  border-color: #3282b8;
-}
 /*# sourceMappingURL=style.css.map */

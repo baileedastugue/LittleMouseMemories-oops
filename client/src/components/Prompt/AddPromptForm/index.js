@@ -100,7 +100,7 @@ const AddPromptForm = ({ setAlert, addNewPrompt, toggle }) => {
                          />
                     </FormGroup>
 
-                    <SubmitButton />
+                    <SubmitButton>Add Post</SubmitButton>
                </Form>
           </Fragment>
      );

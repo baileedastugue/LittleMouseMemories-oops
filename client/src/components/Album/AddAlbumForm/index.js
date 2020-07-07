@@ -54,7 +54,7 @@ const AddAlbumForm = ({ setAlert, addNewAlbum, toggle, isAuth }) => {
      return (
           <Fragment>
                <AlertDiv />
-               <Form className='form' onSubmit={onSubmit}>
+               <Form className='form clearfix' onSubmit={onSubmit}>
                     <Row form>
                          <Col md={12}>
                               <FormGroup>
@@ -101,7 +101,7 @@ const AddAlbumForm = ({ setAlert, addNewAlbum, toggle, isAuth }) => {
                               </Col>
                          ) : null}
                     </Row>
-                    <SubmitButton />
+                    <SubmitButton>Add Album</SubmitButton>
                </Form>
           </Fragment>
      );

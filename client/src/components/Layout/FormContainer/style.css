@@ -19,6 +19,7 @@ div#formContainer i#authArrowCloseBtn {
 
 div#formContainer i#authArrowCloseBtn:hover {
   cursor: pointer;
+  opacity: .8;
 }
 
 div#formContainer div#logInTriangle {

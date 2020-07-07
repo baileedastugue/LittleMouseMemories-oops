@@ -113,7 +113,7 @@ const AddPictureForm = ({ setAlert, addNewPicture, toggle }) => {
                               value={dateRecorded}
                          />
                     </FormGroup>
-                    <SubmitButton type='button' />
+                    <SubmitButton>Add Post</SubmitButton>
                </Form>
           </Fragment>
      );

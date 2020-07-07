@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
-
+import AuthButton from '../../Buttons/AuthBtn';
 import { login } from '../../../actions/authActions';
 import AlertDiv from '../../Layout/AlertDiv';
 
@@ -66,13 +66,9 @@ const LoginForm = (props) => {
                               // required
                          />
                     </FormGroup>
-                    <Button
-                         type='submit'
-                         value='login'
-                         className='btn login-btn'
-                    >
+                    <AuthButton type='submit' value='login' className='btn'>
                          Login
-                    </Button>
+                    </AuthButton>
                </Form>
                <AlertDiv />
           </div>

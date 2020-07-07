@@ -27,6 +27,7 @@ import {
 import AlbumPassword from '../../Settings/AlbumPassword';
 import SubmitButton from '../../Buttons/SubmitBtn';
 import Loading from '../../Layout/Loading';
+import NoContent from '../../Layout/NoContent';
 import './style.css';
 
 const AlbumList = ({
@@ -63,6 +64,7 @@ const AlbumList = ({
           try {
                await albumNameChange(album_id, { newTitle });
                setNewTitle('');
+               closeSettings();
           } catch (err) {
                console.error(err);
           }
@@ -85,14 +87,14 @@ const AlbumList = ({
      const currentAlbum = album[0];
 
      return albumLength === 0 ? (
-          <Fragment>No albums added</Fragment>
+          <NoContent>No albums added yet</NoContent>
      ) : !albumLoading ? (
           <Fragment>
                {albums.albums.map((album) => (
-                    <Card>
+                    <Card key={album._id}>
                          <Link to={`/album/${album._id}`}>
                               <CardBody className='flip-card' key={album._id}>
-                                   <CardText className='flip-card-inner'>
+                                   <div className='flip-card-inner'>
                                         <div className='flip-card-front'>
                                              {album.title}
                                         </div>
@@ -105,7 +107,7 @@ const AlbumList = ({
                                                   ></Moment>
                                              </div>
                                         </div>
-                                   </CardText>
+                                   </div>
                               </CardBody>
                          </Link>
                          <CardFooter
@@ -126,7 +128,7 @@ const AlbumList = ({
                               </ModalHeader>
                               <ModalBody>
                                    <Form
-                                        className='form'
+                                        className='form clearfix'
                                         onSubmit={(event) =>
                                              submitAlbumTitle(event)
                                         }
@@ -143,7 +145,9 @@ const AlbumList = ({
                                                   onChange={onAlbumTitleChange}
                                              />
                                         </FormGroup>
-                                        <SubmitButton />
+                                        <SubmitButton>
+                                             Change title
+                                        </SubmitButton>
                                    </Form>
                                    <hr />
                                    <h5>Change password settings</h5>
@@ -152,6 +156,7 @@ const AlbumList = ({
                                         passwordRequired={
                                              currentAlbum.passwordRequired
                                         }
+                                        closeSettings={closeSettings}
                                    />
                                    <hr />
                                    <h5>Delete album</h5>

@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { setAlert } from '../../../actions/alertActions';
 import { register } from '../../../actions/authActions';
-import { Button, Form, FormGroup, Row, Col, Label, Input } from 'reactstrap';
+import { Form, FormGroup, Row, Col, Label, Input } from 'reactstrap';
+import AuthButton from '../../Buttons/AuthBtn';
 import PropTypes from 'prop-types';
 import './style.css';
 import AlertDiv from '../../Layout/AlertDiv';
@@ -141,14 +142,9 @@ const RegistrationForm = (props) => {
                               </FormGroup>
                          </Col>
                     </Row>
-                    <Button
-                         type='submit'
-                         value='register'
-                         className='btn'
-                         id='register-btn'
-                    >
+                    <AuthButton type='submit' value='register' className='btn'>
                          Register
-                    </Button>
+                    </AuthButton>
                </Form>
                <AlertDiv />
           </Fragment>

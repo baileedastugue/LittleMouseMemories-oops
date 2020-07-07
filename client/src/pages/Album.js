@@ -31,6 +31,7 @@ import CarouselPrompt from '../components/Prompt/CarouselPrompt';
 import { deletePicture } from '../actions/pictureActions';
 import { deletePrompt } from '../actions/promptActions';
 import Loading from '../components/Layout/Loading';
+import NoContent from '../components/Layout/NoContent';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import AlertDiv from '../components/Layout/AlertDiv';
@@ -132,8 +133,7 @@ const Album = ({
      // has the album loaded yet
      return albumLoading ? (
           <>
-               <h1>Welcome</h1>
-               <br />
+               <PageTitle>Loading your memories</PageTitle>
                <Loading />
           </>
      ) : // if the album has loaded, is it found in the DB
@@ -357,10 +357,10 @@ const Album = ({
                                    </Modal>
                               </>
                          ) : (
-                              <p>
+                              <NoContent>
                                    No posts in this album yet! Use the buttons
                                    below to begin storing your memories
-                              </p>
+                              </NoContent>
                          )}
                     </>
                ) : (

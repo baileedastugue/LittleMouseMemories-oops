@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setAlert } from '../../../actions/alertActions';
 import { albumPasswordChange } from '../../../actions/albumActions';
+import SubmitButton from '../../Buttons/SubmitBtn';
 import { Form, FormGroup, Label, Input, FormText, Button } from 'reactstrap';
 
 const AlbumPassword = (props) => {
@@ -30,21 +31,27 @@ const AlbumPassword = (props) => {
                     'Please include a password or uncheck the box',
                     'danger'
                );
-          }
-          try {
-               const album_id = event.target.getAttribute('id');
-               await props.albumPasswordChange(album_id, {
-                    newPassword,
-                    passwordRequired,
-               });
-               setNewPassword('');
-          } catch (err) {
-               console.error(err);
+          } else {
+               try {
+                    const album_id = event.target.getAttribute('id');
+                    await props.albumPasswordChange(album_id, {
+                         newPassword,
+                         passwordRequired,
+                    });
+                    setNewPassword('');
+                    props.closeSettings();
+               } catch (err) {
+                    console.error(err);
+               }
           }
      };
 
      return (
-          <Form className='form' onSubmit={onPasswordSubmit} id={props.id}>
+          <Form
+               className='form clearfix'
+               onSubmit={onPasswordSubmit}
+               id={props.id}
+          >
                {!props.passwordRequired ? (
                     <p>No password currently required to view this album</p>
                ) : (
@@ -83,7 +90,7 @@ const AlbumPassword = (props) => {
                     </FormGroup>
                ) : null}
 
-               <Button>Save Changes</Button>
+               <SubmitButton>Save Changes</SubmitButton>
                <FormText color='muted'>Submit to save all changes</FormText>
           </Form>
      );

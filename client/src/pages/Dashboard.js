@@ -12,6 +12,7 @@ import AddAlbumModal from '../components/Album/AddAlbumModal';
 import ModalButton from '../components/Buttons/ModalButton';
 import AlertDiv from '../components/Layout/AlertDiv';
 import Loading from '../components/Layout/Loading';
+
 import '../App.css';
 
 const Dashboard = ({ isAuth, auth }) => {
