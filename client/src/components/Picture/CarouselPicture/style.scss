@@ -16,6 +16,8 @@ $secondary-text: 'Roboto', sans-serif;
   background-color: white;
   color: black;
   border: none;
+  // margin-right: 3vw;
+  margin-left: 0vw;
   .card-title {
     margin-left: 1vw;
     padding: 1vw;
@@ -35,7 +37,7 @@ $secondary-text: 'Roboto', sans-serif;
     margin-bottom: .3vw;
   }
   .card-body {
-    height: 6vw;
+    height: 8vw;
     margin-bottom: 1vw;
     overflow-y: auto;
     white-space: normal;
@@ -47,17 +49,21 @@ $secondary-text: 'Roboto', sans-serif;
     }
   }
   div.memoryArea {
+    background-color: #252525;
+    
     .card-img {
       justify-content: center;
       align-items: center;
       object-fit: contain;
-      height: 35vw;
+      height: 33vw;
+      background-color: transparent;
+
     }
   }
   .vertical-center {
     display: inline-block;
     vertical-align: middle;
-    height: 35vw;
+    height: 33vw;
     text-align: center; 
   }
   span#caption {
@@ -65,6 +71,14 @@ $secondary-text: 'Roboto', sans-serif;
     color: $secondary-color;
     font-size: 0.95vw;
     font-family: $secondary-text;
+  }
+  p.recordedDate{
+    font-size: 0.9vw;
+    font-family: $secondary-text;
+    font-weight: 300;
+    margin-right: 3.5vw;
+    margin-bottom: 0vw;
+    text-align: right;
   }
 }
 

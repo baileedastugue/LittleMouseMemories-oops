@@ -282,6 +282,7 @@ const Album = ({
                                              activeIndex={activeIndex}
                                              next={next}
                                              previous={previous}
+                                             interval={false}
                                         >
                                              {album.album.map((post) => (
                                                   <CarouselItem key={post._id}>

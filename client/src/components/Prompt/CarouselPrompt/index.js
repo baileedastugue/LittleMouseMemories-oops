@@ -8,7 +8,7 @@ const CarouselPrompt = (props) => {
      return (
           <Card className='carouselPrompt' style={Card.CarouselPicture}>
                <CardTitle>
-                    <Moment format='MM/DD/YYYY' date={props.dateUploaded} />
+                    <Moment format='MM/DD/YYYY' date={props.dateRecorded} />
                </CardTitle>
                <CardSubtitle>Uploaded by {props.uploadedBy}</CardSubtitle>
                <div className='center'>
@@ -21,10 +21,10 @@ const CarouselPrompt = (props) => {
                     </div>
                     <CardBody>
                          <CardText>
-                              Memory recorded on{' '}
+                              Memory uploaded on{' '}
                               <Moment
                                    format='MM/DD/YYYY'
-                                   date={props.dateRecorded}
+                                   date={props.dateUploaded}
                               />
                          </CardText>
                     </CardBody>

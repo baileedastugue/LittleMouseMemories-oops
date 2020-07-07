@@ -14,7 +14,7 @@ const CarouselPicture = (props) => {
      return (
           <Card className='carouselPicture' style={Card.CarouselPicture}>
                <CardTitle>
-                    <Moment format='MM/DD/YYYY' date={props.dateUploaded} />
+                    <Moment format='MM/DD/YYYY' date={props.dateRecorded} />
                </CardTitle>
                <CardSubtitle>Uploaded by {props.uploadedBy}</CardSubtitle>
                <div className='memoryArea vertical-center'>
@@ -24,6 +24,10 @@ const CarouselPicture = (props) => {
                <CardBody>
                     <CardText>{props.caption}</CardText>
                </CardBody>
+               <p className='recordedDate'>
+                    Memory uploaded on{' '}
+                    <Moment format='MM/DD/YYYY' date={props.dateUploaded} />
+               </p>
           </Card>
      );
 };
