@@ -39,7 +39,7 @@ export const addNewPicture = (album_id, formData) => async (dispatch) => {
      console.log('line 39');
      try {
           console.log('line 41');
-          // dispatch(loadingPost());
+          dispatch(loadingPost());
           const res = await axios.post(
                `/api/pictures/${album_id}`,
                formData,
