@@ -36,9 +36,10 @@ export const addNewPicture = (album_id, formData) => async (dispatch) => {
                mode: 'no-cors',
           },
      };
-
+     console.log('line 39');
      try {
-          dispatch(loadingPost());
+          console.log('line 41');
+          // dispatch(loadingPost());
           const res = await axios.post(
                `/api/pictures/${album_id}`,
                formData,
