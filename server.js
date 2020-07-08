@@ -35,7 +35,7 @@ if (process.env.NODE_ENV === 'production') {
 // app.use(express.static(__dirname, '/public'));
 
 // DB configuration
-var MONGODB_URI = `mongodb://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@ds117899.mlab.com:17899/heroku_28bkr9pp`;
+var MONGODB_URI = `mongodb://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_HOST}/${process.env.MONGODB_DB_NAME}`;
 mongoose
      .connect(MONGODB_URI, {
           useNewUrlParser: true,
@@ -61,6 +61,10 @@ app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/albums', require('./routes/api/albums'));
 app.use('/api/pictures', require('./routes/api/pictures'));
 app.use('/api/prompts', require('./routes/api/prompts'));
+
+app.get('*', (req, res) => {
+     res.sendFile(__dirname + '/client/build/index.html');
+});
 
 app.listen(PORT, () => {
      console.log('App running on localhost:' + PORT);

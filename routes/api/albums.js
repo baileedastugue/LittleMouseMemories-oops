@@ -16,7 +16,11 @@ router.get('/', auth, async (req, res) => {
           const user_id = req.user.id;
           const album = await Album.find({
                user: user_id,
-          }).populate('user', ['firstName', 'lastName', '_id']);
+          })
+               .sort({
+                    date: -1,
+               })
+               .populate('user', ['firstName', 'lastName', '_id']);
 
           if (!album) {
                res.status(400).json({
