@@ -5,15 +5,30 @@
 [Deployed Page](https://elephantsmemory.herokuapp.com/)
 
 *Goal of this application:*
-- Create a trivia game with timed questions
-- Keep track of how many questions the player answered (correctly or incorrectly) or left unanswered
+- A digital memory album with collaborative capabilities, password protection, and multiple post formats
+- MVP:
+  - Multiple users can contribute to a single album
+  - Uploading both pictures with captions and text prompts to an album
+  - Ability to add/remove an album password
+
 
 *Future developments:*
-- Prevent YouTube videos from playing during next question
-- Have timer start without any lag time
+- Password reset + email verification through Nodemailer
+- Ability to add tags
+- Search functionality
+- Filter + refine albums by date, by post type, or by uploader
+- View all pictures, text posts, or memories
+- Ability to add videos
+- Ability to add Spotify samples
+- Testing
+- Full responsiveness
+
 
 *Skills utilized:*
-- jQuery 
-- JavaScript
-- HTML
-- CSS
+- React + Redux 
+- Mongoose + MongoDB
+- Node.js
+- Express.js
+- CSS, CSS animations, Reactstrap + Bootstrap
+- Cloudinary (sending photos)
+- BCrypt + JSON Web Tokens (user authentication)
