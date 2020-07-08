@@ -82,7 +82,12 @@ router.post(
                cloudinary.uploader.upload(
                     image.tempFilePath,
                     async (err, result) => {
-                         const uploadedPicture = result.url;
+                         let uploadedPicture = result.secure_url;
+                         console.log(uploadedPicture);
+                         // uploadedPicture = uploadedPicture.replace(
+                         //      'http',
+                         //      'https'
+                         // );
                          const newPicture = await new Picture({
                               image: uploadedPicture,
                               caption: req.body.caption,
@@ -139,14 +144,14 @@ router.delete('/:picture_id', auth, async (req, res) => {
           //      { multi: true }
           // );
           if (!picture) {
-               return res.status(404).json({ msg: 'Image not found' });
+               return res.status(404).json({ msg: 'Image not found!!' });
           }
 
           res.json({ msg: 'Picture deleted' });
      } catch (err) {
           console.error(err.message);
           if (err.kind === 'ObjectId') {
-               return res.status(404).json({ msg: 'Image not found' });
+               return res.status(404).json({ msg: 'Image not found!' });
           }
           res.status(500).send('Server error');
      }
