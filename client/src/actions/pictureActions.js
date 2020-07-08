@@ -29,6 +29,7 @@ export const getPictures = (album_id) => async (dispatch) => {
 };
 
 export const addNewPicture = (album_id, formData) => async (dispatch) => {
+     console.log('line 32');
      const config = {
           headers: {
                'Content-Type': 'multipart/form-data',
@@ -43,10 +44,13 @@ export const addNewPicture = (album_id, formData) => async (dispatch) => {
                formData,
                config
           );
+          console.log('line 47');
+          console.log(res);
           dispatch({
                type: ADD_PICTURE_SUCCESS,
                payload: res.data,
           });
+          console.log('line 53');
           dispatch(getPictures(album_id));
           dispatch(getAlbum(album_id));
      } catch (err) {
