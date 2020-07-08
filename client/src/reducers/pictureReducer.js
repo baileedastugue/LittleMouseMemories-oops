@@ -23,7 +23,7 @@ export default function (state = initialState, action) {
                     picture: action.payload,
                     pictureAdded: true,
                     album: action.payload.album,
-                    pictureLoading: true,
+                    pictureLoading: false,
                };
           case DELETE_PICTURE_SUCCESS:
           case GET_PICTURES_SUCCESS:

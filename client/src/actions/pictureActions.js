@@ -10,9 +10,9 @@ import {
 } from './types';
 import { getAlbum, loadingPost } from './albumActions';
 
-export const getPictures = (id) => async (dispatch) => {
+export const getPictures = (album_id) => async (dispatch) => {
      try {
-          const res = await axios.get(`/api/pictures/album/${id}`);
+          const res = await axios.get(`/api/pictures/album/${album_id}`);
           dispatch({
                type: GET_PICTURES_SUCCESS,
                payload: res.data,
