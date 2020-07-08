@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-import './CSS/reset.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import './CSS/reset.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Welcome from './pages/Welcome';
 import Dashboard from './pages/Dashboard';
