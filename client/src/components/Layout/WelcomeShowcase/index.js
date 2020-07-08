@@ -92,7 +92,7 @@ function WelcomeShowcase() {
                                    alt='scrolling example'
                               />
                          </div>
-                         <div className='box prompt'>Indy's first walk</div>
+                         <div className='box prompt'>Indie's first walk</div>
                     </Row>
                     <Row>
                          <div className='box prompt'>Your favorite food</div>
