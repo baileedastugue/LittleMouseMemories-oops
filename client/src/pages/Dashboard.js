@@ -37,7 +37,7 @@ const Dashboard = ({ isAuth, auth }) => {
                     </PageTitle>
                     <AlertDiv />
                </Container>
-               <Row>
+               <Row className='centered-squares'>
                     <AlbumList />
                </Row>
 

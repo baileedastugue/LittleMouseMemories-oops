@@ -16,8 +16,8 @@ div.mixedPostPrompt.card {
   padding: 0px;
   position: relative;
   cursor: pointer;
-  height: 400px;
-  width: 400px;
+  height: 350px;
+  width: 350px;
   background-color: $abundant-color;
   color: $focus-color;
   font-size: 1.4vw;
@@ -32,8 +32,8 @@ div.mixedPostPrompt.card {
     bottom: -1px;
     left: -1px;
     right: -1px;
-    height: 402px;
-    width: 402px;
+    height: 352px;
+    width: 352px;
     opacity: 0;
     transition: .5s ease;
     background-color: $muted-color;

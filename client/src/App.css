@@ -7,6 +7,17 @@ button.close {
   padding: 1vw;
 }
 
+.centered-squares {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: initial;
+      -ms-flex-pack: initial;
+          justify-content: initial;
+  margin: 0;
+  padding-left: 2.1vw;
+}
+
 button.submit-btn.btn.btn-secondary {
   background-color: #3282b8;
   border-color: #3282b8;

@@ -6,8 +6,8 @@ div.card {
 }
 
 div.card div.card-body.flip-card {
-  width: 400px;
-  height: 400px;
+  width: 350px;
+  height: 350px;
   background-color: transparent;
   -webkit-perspective: 1000px;
           perspective: 1000px;

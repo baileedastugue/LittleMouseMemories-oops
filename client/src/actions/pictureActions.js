@@ -29,29 +29,23 @@ export const getPictures = (album_id) => async (dispatch) => {
 };
 
 export const addNewPicture = (album_id, formData) => async (dispatch) => {
-     console.log('line 32');
      const config = {
           headers: {
                'Content-Type': 'multipart/form-data',
                mode: 'no-cors',
           },
      };
-     console.log('line 39');
      try {
-          console.log('line 41');
           dispatch(loadingPost());
           const res = await axios.post(
                `/api/pictures/${album_id}`,
                formData,
                config
           );
-          console.log('line 47');
-          console.log(res);
           dispatch({
                type: ADD_PICTURE_SUCCESS,
                payload: res.data,
           });
-          console.log('line 53');
           dispatch(getPictures(album_id));
           dispatch(getAlbum(album_id));
      } catch (err) {

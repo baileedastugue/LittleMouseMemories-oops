@@ -18,6 +18,14 @@ button.close {
   padding: 1vw;
 }
 
+.centered-squares {
+  display: flex;
+  justify-content:initial; 
+  margin: 0;
+  padding-left: 2.1vw;
+}
+
+
 button.submit-btn.btn.btn-secondary {
   background-color: $focus-color;
   border-color: $focus-color;

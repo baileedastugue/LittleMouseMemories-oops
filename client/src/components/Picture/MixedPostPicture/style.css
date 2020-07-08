@@ -14,8 +14,8 @@
 
 .card.mixedPostPicture .image {
   border-radius: 0;
-  height: 400px;
-  width: 400px;
+  height: 350px;
+  width: 350px;
   -o-object-fit: contain;
      object-fit: contain;
   background-color: #252525;
@@ -27,8 +27,8 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 400px;
-  width: 400px;
+  height: 350px;
+  width: 350px;
   opacity: 0;
   -webkit-transition: .6s ease;
   transition: .6s ease;

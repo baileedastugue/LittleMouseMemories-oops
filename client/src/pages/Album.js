@@ -197,7 +197,7 @@ const Album = ({
                          </Fragment>
                          {album.album.length > 0 ? (
                               <>
-                                   <Row>
+                                   <Row className='centered-squares'>
                                         {album.album.map((post, index) => (
                                              <Fragment key={post._id}>
                                                   {'image' in post ? (
