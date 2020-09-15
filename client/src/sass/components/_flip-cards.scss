@@ -1,0 +1,55 @@
+.flipCard {
+ @include squareCard;
+ @include center;
+  &--container {
+    width: 350px;
+    height: 350px;
+    background-color: transparent;
+    perspective: 1000px;
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    font-family: $secondary-text;
+    font-weight: 300;
+    color: white;
+    font-size: 1.5vw;
+  }
+  &--inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    &--front {
+      background-color: $focus-color;
+      color: white;
+      padding: 0.5vw;
+    }
+    &--back {
+      background-color: $secondary-color;
+      color: white;
+      transform: rotateX(180deg);
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      font-family: $secondary-text;
+      font-weight: 300;
+      vertical-align: center;
+    } 
+  }
+  .flipCard-container:hover .flipCard-inner {
+    transform: rotateX(180deg);
+    cursor: pointer;
+  }
+  .flipCard-inner--front, .flipCard-inner--back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }     
+}  
+
+
+

@@ -1,17 +1,4 @@
-$focus-color: #3282b8;
-$secondary-color: #0f4c75;
-$highlight-color: #bbe1fa;
-$muted-color: #dfdfdf;
-$dark-color: #252525;
-$abundant-color: white;
-$danger: #c40018;
 
-$focus-text: 'Vidaloka', serif;
-$secondary-text: 'Roboto', sans-serif;
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: $focus-text;
-}
 
 button.close {
   margin: 0;
@@ -297,32 +284,3 @@ div#welcomePage.container {
   }
 }
 
-div#pageNotFound {
-  margin-top: 5vw;
-  height: 20vw;
-  width: 50vw;
-  background-color: $focus-color;
-  padding: 2vw;
-  h1 {
-    font-size: 6vw;
-  }
-  p {
-    font-family: $secondary-text;
-    font-weight: 300;
-    font-size: 2vw;
-    a {
-      color: $dark-color;
-      span {
-        padding-bottom: 1vw;
-      }
-    }
-    a:hover {
-      text-decoration: none;
-      font-style: italic;
-    }
-  }
-}
-
-// .carousel-control-prev-icon {
-//   background-image: url();
-// }

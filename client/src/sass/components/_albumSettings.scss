@@ -1,0 +1,12 @@
+.albumSettings {
+  height: 50px;
+  background-color: $dark-color;
+  border: none;
+  border-radius: 0;
+  text-align: right;
+  &:hover {
+    background-color: $dark-color;
+    cursor: pointer;
+    color: $highlight-color;
+}
+}

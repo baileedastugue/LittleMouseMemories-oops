@@ -1,0 +1,25 @@
+.pageNotFound {
+  margin-top: 5vw;
+  height: 20vw;
+  width: 50vw;
+  background-color: $focus-color;
+  padding: 2vw;
+  &-header {
+    font-size: 6vw;
+  }
+  p {
+    font-family: $secondary-text;
+    font-weight: 300;
+    font-size: 2vw;
+    a {
+      color: $dark-color;
+      span {
+        padding-bottom: 1vw;
+      }
+    }
+    a:hover {
+      text-decoration: none;
+      font-style: italic;
+    }
+  }
+}

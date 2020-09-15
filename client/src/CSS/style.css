@@ -1,0 +1,29 @@
+/* line 1, src/sass/base/_typography.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Vidaloka", serif; }
+
+/* line 1, src/sass/pages/_pageNotFound.scss */
+.pageNotFound {
+  margin-top: 5vw;
+  height: 20vw;
+  width: 50vw;
+  background-color: #3282b8;
+  padding: 2vw; }
+  /* line 7, src/sass/pages/_pageNotFound.scss */
+  .pageNotFound-header {
+    font-size: 6vw; }
+  /* line 10, src/sass/pages/_pageNotFound.scss */
+  .pageNotFound p {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-size: 2vw; }
+    /* line 14, src/sass/pages/_pageNotFound.scss */
+    .pageNotFound p a {
+      color: #252525; }
+      /* line 16, src/sass/pages/_pageNotFound.scss */
+      .pageNotFound p a span {
+        padding-bottom: 1vw; }
+    /* line 20, src/sass/pages/_pageNotFound.scss */
+    .pageNotFound p a:hover {
+      text-decoration: none;
+      font-style: italic; }

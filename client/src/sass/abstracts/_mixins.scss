@@ -1,0 +1,16 @@
+@mixin squareCard {
+  margin: 1vw;
+  border-radius: 0;
+  border: none;
+  outline: none;
+}
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// @mixin displayCard {
+
+// }
