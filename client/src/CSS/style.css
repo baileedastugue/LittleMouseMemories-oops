@@ -393,7 +393,7 @@ form#changePasswordForm.form input.form-control {
     /* line 35, src/sass/components/_formContainer.scss */
     .authForms-form h3 {
       font-size: 3.2rem; }
-    /* line 40, src/sass/components/_formContainer.scss */
+    /* line 39, src/sass/components/_formContainer.scss */
     .authForms-form .alert {
       display: inline-flex;
       width: 100%;
@@ -512,55 +512,56 @@ div.mixedPostPrompt.card {
   cursor: pointer; }
 
 /* line 1, src/sass/components/_navbar.scss */
-.navbar {
-  background-color: #252525;
-  padding: 1.8vw; }
-  /* line 4, src/sass/components/_navbar.scss */
-  .navbar-brand {
-    margin: 0vw;
-    padding-left: 0vw;
-    line-height: 2vw;
-    text-align: right; }
-    /* line 9, src/sass/components/_navbar.scss */
-    .navbar-brand:hover {
-      text-decoration: none;
-      font-style: normal;
-      text-shadow: -2px 0px 0px white; }
-    /* line 14, src/sass/components/_navbar.scss */
-    .navbar-brand:visited {
-      color: #3282b8; }
-    /* line 17, src/sass/components/_navbar.scss */
-    .navbar-brand img {
-      height: 8vw;
-      min-height: 6vw;
-      padding: 0px;
-      margin: 0px;
-      display: block;
-      right: 2vw;
-      top: .7vw;
-      position: absolute;
-      z-index: 10;
-      -ms-transform: rotate(10deg);
-      /* IE 9 */
-      transform: rotate(10deg); }
-    /* line 30, src/sass/components/_navbar.scss */
-    .navbar-brand span {
-      margin-right: 9vw;
-      font-size: 3.1vw;
-      color: #3282b8;
-      font-family: "Vidaloka", serif; }
-  /* line 37, src/sass/components/_navbar.scss */
-  .navbar a {
+.nav {
+  padding-bottom: 1vh; }
+  /* line 3, src/sass/components/_navbar.scss */
+  .nav-link {
     color: #dfdfdf;
     font-family: "Roboto", sans-serif;
-    font-weight: 300; }
-    /* line 41, src/sass/components/_navbar.scss */
-    .navbar a:visited {
+    font-weight: 300;
+    font-size: 1.4rem; }
+    /* line 8, src/sass/components/_navbar.scss */
+    .nav-link:visited {
       color: #dfdfdf; }
-    /* line 44, src/sass/components/_navbar.scss */
-    .navbar a:hover {
+    /* line 11, src/sass/components/_navbar.scss */
+    .nav-link:hover {
       font-style: none;
-      cursor: pointer; }
+      cursor: pointer;
+      color: #3282b8; }
+  /* line 17, src/sass/components/_navbar.scss */
+  .navbar {
+    background-color: #252525; }
+    /* line 19, src/sass/components/_navbar.scss */
+    .navbar-brand {
+      margin: 0vw;
+      padding-left: 0vw;
+      line-height: 2vw;
+      text-align: right; }
+      /* line 24, src/sass/components/_navbar.scss */
+      .navbar-brand:hover {
+        text-decoration: none;
+        font-style: normal;
+        text-shadow: -2px 0px 0px white; }
+      /* line 29, src/sass/components/_navbar.scss */
+      .navbar-brand img {
+        height: 8vw;
+        min-height: 6vw;
+        padding: 0px;
+        margin: 0px;
+        display: block;
+        right: 2vw;
+        top: .7vw;
+        position: absolute;
+        z-index: 10;
+        -ms-transform: rotate(10deg);
+        /* IE 9 */
+        transform: rotate(10deg); }
+      /* line 42, src/sass/components/_navbar.scss */
+      .navbar-brand h1 {
+        margin-right: 10vw;
+        font-size: 5.5rem;
+        color: #3282b8;
+        font-family: "Vidaloka", serif; }
 
 /* line 1, src/sass/components/_noContent.scss */
 div#noContent {

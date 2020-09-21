@@ -39,12 +39,12 @@ const AppNavbar = ({ logout, auth }) => {
                     {!auth.isAuthenticated ? (
                          <NavbarBrand href='/'>
                               <img src={logo} alt='two elephants hugging' />
-                              <span>Elephant's Memory</span>
+                              <h1>Elephant's Memory</h1>
                          </NavbarBrand>
                     ) : (
                          <NavbarBrand href='/dashboard'>
                               <img src={logo} alt='two elephants hugging' />
-                              <span>Elephant's Memory</span>
+                              <h1>Elephant's Memory</h1>
                          </NavbarBrand>
                     )}
                </Navbar>
