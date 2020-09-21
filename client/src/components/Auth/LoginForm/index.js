@@ -29,7 +29,6 @@ const LoginForm = (props) => {
           }
      };
 
-     // Redirect if logged in
      if (props.isAuth) {
           return <Redirect to='/dashboard' />;
      }
@@ -51,7 +50,6 @@ const LoginForm = (props) => {
                               id='emailInput'
                               onChange={(event) => onChange(event)}
                               value={email}
-                              // required
                          />
                     </FormGroup>
                     <FormGroup>
@@ -63,7 +61,6 @@ const LoginForm = (props) => {
                               id='passwordInput'
                               onChange={(event) => onChange(event)}
                               value={password}
-                              // required
                          />
                     </FormGroup>
                     <AuthButton type='submit' value='login' className='btn'>
@@ -75,7 +72,6 @@ const LoginForm = (props) => {
      );
 };
 
-// login is a prop
 LoginForm.propTypes = {
      login: PropTypes.func.isRequired,
      isAuth: PropTypes.bool.isRequired,

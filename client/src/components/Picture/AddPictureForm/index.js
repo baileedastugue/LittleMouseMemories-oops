@@ -8,7 +8,6 @@ import AlertDiv from '../../Layout/AlertDiv';
 import SubmitButton from '../../Buttons/SubmitBtn';
 
 const AddPictureForm = ({ setAlert, addNewPicture, toggle }) => {
-     // using the UseState hook from react
      const [caption, setCaption] = useState('');
      const [uploadedBy, setUploadedBy] = useState('');
      const [dateRecorded, setDateRecorded] = useState('');
@@ -123,7 +122,6 @@ AddPictureForm.propTypes = {
      isAuth: PropTypes.bool,
      setAlert: PropTypes.func.isRequired,
      addNewPicture: PropTypes.func.isRequired,
-     // uploadPicture: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

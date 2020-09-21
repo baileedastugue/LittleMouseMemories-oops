@@ -290,6 +290,13 @@ Button.modalButton {
     margin: 0 auto;
     height: 35vw; }
 
+/* line 1, src/sass/components/_centeredSquares.scss */
+.centered-squares {
+  display: flex;
+  justify-content: initial;
+  margin: 0;
+  padding-left: 2.1vw; }
+
 /* line 2, src/sass/components/_changePasswordForm.scss */
 form#changePasswordForm.form input.form-control {
   display: block;
@@ -686,40 +693,33 @@ div#noContent {
       font-style: italic; }
 
 /* line 21, src/sass/main.scss */
-.centered-squares {
-  display: flex;
-  justify-content: initial;
-  margin: 0;
-  padding-left: 2.1vw; }
-
-/* line 29, src/sass/main.scss */
 button.submit-btn.btn.btn-secondary {
   background-color: #3282b8;
   border-color: #3282b8;
   float: right; }
 
-/* line 35, src/sass/main.scss */
+/* line 27, src/sass/main.scss */
 button.submit-btn.btn.btn-secondary:hover {
   background-color: transparent;
   color: #3282b8;
   border-color: #3282b8; }
 
-/* line 42, src/sass/main.scss */
+/* line 34, src/sass/main.scss */
 button.close, button.close:active, button.close:focus, button.close::after {
   border: none;
   outline: none; }
 
-/* line 47, src/sass/main.scss */
+/* line 39, src/sass/main.scss */
 div.modal-content {
   border-radius: 0; }
 
-/* line 50, src/sass/main.scss */
+/* line 42, src/sass/main.scss */
 div.caroModal.modal-header.justify-content-md-end {
   border-bottom: none;
   padding: 1vw 1vw 0vw 0vw;
   border-radius: 0; }
 
-/* line 56, src/sass/main.scss */
+/* line 48, src/sass/main.scss */
 .mixedPost-footer.modal-footer {
   border-radius: 0;
   height: 2.9vw;
@@ -731,14 +731,14 @@ div.caroModal.modal-header.justify-content-md-end {
   color: #c40018;
   font-family: "Roboto", sans-serif; }
 
-/* line 68, src/sass/main.scss */
+/* line 60, src/sass/main.scss */
 .mixedPost-footer.modal-footer:hover {
   border-radius: 0;
   border: 2.5px solid #c40018;
   cursor: pointer;
   text-align: center; }
 
-/* line 76, src/sass/main.scss */
+/* line 68, src/sass/main.scss */
 div#root {
   background-color: #252525;
   box-sizing: border-box;
@@ -746,7 +746,7 @@ div#root {
   color: white;
   position: relative; }
 
-/* line 86, src/sass/main.scss */
+/* line 78, src/sass/main.scss */
 .buttonContainer {
   z-index: 1000;
   position: fixed;
@@ -754,57 +754,57 @@ div#root {
   -webkit-transform: translateX(85vw);
   -ms-transform: translateX(85vw);
   transform: translateX(85vw); }
-  /* line 93, src/sass/main.scss */
+  /* line 85, src/sass/main.scss */
   .buttonContainer .modalButton.albumButton {
     position: sticky;
     right: 4vw;
     bottom: 0vw; }
-  /* line 98, src/sass/main.scss */
+  /* line 90, src/sass/main.scss */
   .buttonContainer .modalButton.promptButton {
     position: sticky;
     right: 4vw;
     margin-top: 2vw; }
-  /* line 103, src/sass/main.scss */
+  /* line 95, src/sass/main.scss */
   .buttonContainer .modalButton.photoButton {
     position: sticky;
     bottom: 2vw;
     display: block; }
-  /* line 108, src/sass/main.scss */
+  /* line 100, src/sass/main.scss */
   .buttonContainer button.albumButton {
     padding-top: 15px;
     padding-left: 0px; }
 
-/* line 114, src/sass/main.scss */
+/* line 106, src/sass/main.scss */
 button.btn-danger {
   background-color: #c40018;
   border-color: #c40018; }
 
-/* line 119, src/sass/main.scss */
+/* line 111, src/sass/main.scss */
 button.btn-danger:hover {
   background-color: transparent;
   border-color: #c40018;
   color: #c40018; }
 
-/* line 125, src/sass/main.scss */
+/* line 117, src/sass/main.scss */
 ul.nav.nav-tabs {
   border-bottom: 2px solid #3282b8;
   z-index: 10; }
-  /* line 128, src/sass/main.scss */
+  /* line 120, src/sass/main.scss */
   ul.nav.nav-tabs a.nav-link {
     color: #dfdfdf; }
-  /* line 131, src/sass/main.scss */
+  /* line 123, src/sass/main.scss */
   ul.nav.nav-tabs a.active.nav-link {
     background-color: transparent;
     border-radius: 0;
     border: 2px solid #3282b8;
     color: white; }
 
-/* line 139, src/sass/main.scss */
+/* line 131, src/sass/main.scss */
 label {
   font-family: "Roboto", sans-serif;
   font-weight: 300; }
 
-/* line 144, src/sass/main.scss */
+/* line 136, src/sass/main.scss */
 div#accountSettings {
   width: 70%;
   margin: 0 auto; }

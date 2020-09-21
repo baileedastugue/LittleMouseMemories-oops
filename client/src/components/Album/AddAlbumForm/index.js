@@ -9,7 +9,6 @@ import SubmitButton from '../../Buttons/SubmitBtn';
 import AlertDiv from '../../Layout/AlertDiv';
 
 const AddAlbumForm = ({ setAlert, addNewAlbum, toggle, isAuth }) => {
-     // using the UseState hook from react
      const [formData, setFormData] = useState({
           title: '',
           password: '',
@@ -19,7 +18,6 @@ const AddAlbumForm = ({ setAlert, addNewAlbum, toggle, isAuth }) => {
 
      const { title, password } = formData;
 
-     // handler to update the data
      const onChange = (event) => {
           setFormData({ ...formData, [event.target.name]: event.target.value });
      };

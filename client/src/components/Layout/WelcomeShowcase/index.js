@@ -5,7 +5,6 @@ function WelcomeShowcase() {
      return (
           <div className='showcase'>
                <div className='showcase-movingArea'>
-                    {/* First set */}
                     <Row>
                          <div className='showcase-box showcase-box--image'>
                               <img
