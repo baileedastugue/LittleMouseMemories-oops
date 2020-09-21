@@ -8,9 +8,14 @@ const AboutSection = () => {
                <div className='about-background--square'></div>
                <div className='about-background--triangle'></div>
                <div className='about-info'>
-                    <div className='about-info--primary'>
-                         <h1>Memories worth sharing</h1>
-                         <h1>Privacy worth keeping</h1>
+                    <div>
+                         <h2 className='about-info--primary'>
+                              Memories worth sharing,
+                         </h2>
+
+                         <h2 className='about-info--primary'>
+                              privacy worth keeping
+                         </h2>
                     </div>
                     <div className='about-info--secondary'>
                          Post photos and write your own memories,

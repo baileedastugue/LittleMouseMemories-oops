@@ -74,14 +74,14 @@ h1, h2, h3, h4, h5, h6 {
     left: 5vw; }
     /* line 28, src/sass/components/_aboutSection.scss */
     .about-info--primary {
-      font-size: 3rem;
+      font-size: 5.6rem;
       letter-spacing: 0.3vw;
       margin-bottom: 0.4vw; }
     /* line 33, src/sass/components/_aboutSection.scss */
     .about-info--secondary {
       font-family: "Roboto", sans-serif;
       font-weight: 100;
-      font-size: 3rem; }
+      font-size: 2.8rem; }
 
 /* line 1, src/sass/components/_buttons.scss */
 .deleteButton {
@@ -576,18 +576,18 @@ div#noContent {
   width: 30vw;
   padding: 5vw 0vw 0vw 5vw;
   font-family: "Roboto", sans-serif;
-  font-size: 1.5vw;
+  font-size: 2.7rem;
   z-index: 1000; }
   /* line 28, src/sass/components/_openCloseForm.scss */
   .signIn-text--authLink {
     z-index: 1000;
     color: #252525;
-    font-weight: 300; }
+    font-weight: unset; }
     /* line 32, src/sass/components/_openCloseForm.scss */
     .signIn-text--authLink:hover {
       z-index: 1000;
-      font-weight: unset;
       text-decoration: none;
+      font-weight: 300;
       cursor: pointer; }
 
 /* line 1, src/sass/components/_pageTitle.scss */
@@ -608,13 +608,7 @@ div#noContent {
   /* line 9, src/sass/components/_showcase.scss */
   .showcase-movingArea {
     animation: verticalScroll 60s linear infinite; }
-
-@keyframes verticalScroll {
-  0% {
-    transform: translate3d(0, -220vw, 0); }
-  100% {
-    transform: translate3d(0, 0vw, 0); } }
-    /* line 20, src/sass/components/_showcase.scss */
+    /* line 11, src/sass/components/_showcase.scss */
     .showcase-movingArea .row {
       left: -50px;
       margin: 0px;
@@ -622,13 +616,13 @@ div#noContent {
       border-radius: 0;
       flex-direction: row;
       position: relative; }
-  /* line 29, src/sass/components/_showcase.scss */
+  /* line 20, src/sass/components/_showcase.scss */
   .showcase-box {
     display: inline-block;
     height: 20vw;
     width: 20vw;
     margin: 1vw; }
-    /* line 34, src/sass/components/_showcase.scss */
+    /* line 25, src/sass/components/_showcase.scss */
     .showcase-box--prompt {
       margin: 1vw;
       background-color: white;
@@ -638,7 +632,7 @@ div#noContent {
       color: #3282b8;
       font-size: 1.5vw;
       font-family: "Roboto", sans-serif; }
-    /* line 45, src/sass/components/_showcase.scss */
+    /* line 36, src/sass/components/_showcase.scss */
     .showcase-box--image img {
       border-radius: 0;
       height: 20vw;
