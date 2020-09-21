@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Form, FormGroup, Label, Input } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
-import AuthButton from '../../Buttons/AuthBtn';
 import { login } from '../../../actions/authActions';
+
+import AuthButton from '../../Buttons/AuthBtn';
 import AlertDiv from '../../Layout/AlertDiv';
 
 const LoginForm = (props) => {
@@ -33,13 +34,12 @@ const LoginForm = (props) => {
           return <Redirect to='/dashboard' />;
      }
      return (
-          <div>
+          <div className='authForms-form'>
                <Form
-                    id='loginForm'
-                    className='form'
+                    className='form authForms-form--login'
                     onSubmit={(event) => onSubmit(event)}
                >
-                    <h1>Welcome back</h1>
+                    <h3>Welcome back</h3>
                     {props.closeBtn}
 
                     <FormGroup>

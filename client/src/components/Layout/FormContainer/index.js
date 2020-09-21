@@ -6,14 +6,14 @@ const FormContainer = (props) => {
      return (
           <div>
                {props.formType === 'login' ? (
-                    <Fragment>
-                         <div id='logInTriangle'>
+                    <Fragment className='authForms-background'>
+                         <div className='authForms-background--login'>
                               <LoginForm closeBtn={props.closeBtn} />
                          </div>
                     </Fragment>
                ) : (
-                    <Fragment>
-                         <div id='registerTriangle'>
+                    <Fragment className='authForms-background'>
+                         <div className='authForms-background--register'>
                               <RegistrationForm closeBtn={props.closeBtn} />
                          </div>
                     </Fragment>

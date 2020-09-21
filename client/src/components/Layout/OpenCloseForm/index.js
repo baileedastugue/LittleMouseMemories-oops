@@ -25,7 +25,7 @@ function OpenCloseForm() {
           ({ style }) => (
                <animated.div
                     style={{ ...style, display: 'flex' }}
-                    id='formContainer'
+                    className='authForms'
                >
                     <FormContainer
                          formType={formType}
@@ -57,7 +57,7 @@ function OpenCloseForm() {
                icon='arrow_forward'
                color='white'
                size='large'
-               id='authArrowCloseBtn'
+               id='btn-authForms--close'
                onClick={formDivClose}
           />
      );

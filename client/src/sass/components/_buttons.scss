@@ -1,3 +1,34 @@
+#btn {
+  &-authForms {
+    &--close {
+      position: absolute;
+      bottom: 1vw;
+      left: 4vw;
+      &:hover {
+        cursor: pointer;
+        opacity: .8;
+      }
+    }
+  }
+}
+
+Button.btn {
+  font-size: 1.5rem;
+  &-auth {
+    margin-top: 1vh;
+    width: 100%;
+    background-color: $abundant-color;
+    border-color: $abundant-color;
+    color: $dark-color;
+    &:hover, &:active, &::after, &:focus {
+      background-color: transparent;
+      color: $abundant-color;
+      border-color: $abundant-color;
+    }
+  }
+}
+
+
 .deleteButton {
   color: $highlight-color;
   cursor: pointer;

@@ -83,7 +83,33 @@ h1, h2, h3, h4, h5, h6 {
       font-weight: 100;
       font-size: 2.8rem; }
 
-/* line 1, src/sass/components/_buttons.scss */
+/* line 3, src/sass/components/_buttons.scss */
+#btn-authForms--close {
+  position: absolute;
+  bottom: 1vw;
+  left: 4vw; }
+  /* line 7, src/sass/components/_buttons.scss */
+  #btn-authForms--close:hover {
+    cursor: pointer;
+    opacity: .8; }
+
+/* line 15, src/sass/components/_buttons.scss */
+Button.btn {
+  font-size: 1.5rem; }
+  /* line 17, src/sass/components/_buttons.scss */
+  Button.btn-auth {
+    margin-top: 1vh;
+    width: 100%;
+    background-color: white;
+    border-color: white;
+    color: #252525; }
+    /* line 23, src/sass/components/_buttons.scss */
+    Button.btn-auth:hover, Button.btn-auth:active, Button.btn-auth::after, Button.btn-auth:focus {
+      background-color: transparent;
+      color: white;
+      border-color: white; }
+
+/* line 32, src/sass/components/_buttons.scss */
 .deleteButton {
   color: #bbe1fa;
   cursor: pointer;
@@ -92,12 +118,12 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 10%;
   text-align: center; }
 
-/* line 11, src/sass/components/_buttons.scss */
+/* line 42, src/sass/components/_buttons.scss */
 button.close {
   margin: 0;
   padding: 1vw; }
 
-/* line 16, src/sass/components/_buttons.scss */
+/* line 47, src/sass/components/_buttons.scss */
 Button.modalButton {
   width: 90px;
   height: 90px;
@@ -109,11 +135,11 @@ Button.modalButton {
   float: right;
   border: none;
   outline: none; }
-  /* line 27, src/sass/components/_buttons.scss */
+  /* line 58, src/sass/components/_buttons.scss */
   Button.modalButton:hover {
     background-color: white;
     outline: none; }
-  /* line 31, src/sass/components/_buttons.scss */
+  /* line 62, src/sass/components/_buttons.scss */
   Button.modalButton:focus, Button.modalButton:active, Button.modalButton::after {
     background-color: #bbe1fa;
     border: none;
@@ -328,58 +354,50 @@ form#changePasswordForm.form input.form-control {
     backface-visibility: hidden; }
 
 /* line 1, src/sass/components/_formContainer.scss */
-div#formContainer {
-  will-change: transform, opacity;
-  overflow: hidden;
-  position: absolute;
-  right: -2vw;
+.authForms {
+  background-color: transparent;
+  z-index: 100;
+  right: -1vw;
   top: 30vw;
-  min-width: 40vw; }
-  /* line 8, src/sass/components/_formContainer.scss */
-  div#formContainer button {
-    margin: 0; }
-  /* line 11, src/sass/components/_formContainer.scss */
-  div#formContainer i#authArrowCloseBtn {
-    position: absolute;
-    bottom: 1vw;
-    left: 4vw; }
-  /* line 16, src/sass/components/_formContainer.scss */
-  div#formContainer i#authArrowCloseBtn:hover {
-    cursor: pointer;
-    opacity: .8; }
-  /* line 20, src/sass/components/_formContainer.scss */
-  div#formContainer div#logInTriangle {
-    padding-right: 2vw;
-    margin-right: 0vw;
-    height: 19vw;
-    width: 38vw;
-    border-bottom: 19vw solid #0f4c75;
-    border-left: 19vw solid transparent; }
-    /* line 28, src/sass/components/_formContainer.scss */
-    div#formContainer div#logInTriangle #loginForm h1 {
-      padding-top: 1vw; }
+  position: absolute; }
+  /* line 7, src/sass/components/_formContainer.scss */
+  .authForms-background {
+    will-change: transform, opacity;
+    overflow: hidden;
+    min-width: 40vw; }
+    /* line 11, src/sass/components/_formContainer.scss */
+    .authForms-background--login {
+      padding-right: 2vw;
+      margin-right: 0vw;
+      height: 19vw;
+      width: 38vw;
+      border-bottom: 19vw solid #0f4c75;
+      border-left: 19vw solid transparent; }
+    /* line 19, src/sass/components/_formContainer.scss */
+    .authForms-background--register {
+      padding-right: 4vw;
+      margin-right: 0vw;
+      height: 24vw;
+      width: 48vw;
+      border-bottom: 24vw solid #0f4c75;
+      border-left: 24vw solid transparent; }
+  /* line 28, src/sass/components/_formContainer.scss */
+  .authForms-form {
+    padding: 1.5vw 0vw 0vw 0vw; }
+    /* line 29, src/sass/components/_formContainer.scss */
+    .authForms-form label {
+      font-size: 2rem; }
     /* line 32, src/sass/components/_formContainer.scss */
-    div#formContainer div#logInTriangle #loginForm .formArea {
-      padding-bottom: 1vw; }
-    /* line 36, src/sass/components/_formContainer.scss */
-    div#formContainer div#logInTriangle .alert {
-      margin-top: 1vw;
+    .authForms-form input {
+      font-size: 1.8rem; }
+    /* line 35, src/sass/components/_formContainer.scss */
+    .authForms-form h3 {
+      font-size: 3.2rem; }
+    /* line 40, src/sass/components/_formContainer.scss */
+    .authForms-form .alert {
+      display: inline-flex;
       width: 100%;
-      display: inline-flex; }
-  /* line 43, src/sass/components/_formContainer.scss */
-  div#formContainer div#registerTriangle {
-    padding-right: 4vw;
-    margin-right: 0vw;
-    height: 24vw;
-    width: 48vw;
-    border-bottom: 24vw solid #0f4c75;
-    border-left: 24vw solid transparent; }
-    /* line 50, src/sass/components/_formContainer.scss */
-    div#formContainer div#registerTriangle #registrationForm {
-      padding: 1.5vw 0vw 1vw 0vw; }
-      /* line 52, src/sass/components/_formContainer.scss */
-      div#formContainer div#registerTriangle #registrationForm .alert {
-        padding-left: 1vw; }
+      margin-top: 1vh; }
 
 /* line 1, src/sass/components/_loading.scss */
 div.spinnerOverlay {
@@ -685,35 +703,22 @@ button.submit-btn.btn.btn-secondary:hover {
   color: #3282b8;
   border-color: #3282b8; }
 
-/* line 41, src/sass/main.scss */
-button.auth-btn.btn.btn-secondary {
-  background-color: white;
-  border-color: white;
-  color: #252525;
-  float: right; }
-
-/* line 48, src/sass/main.scss */
-button.auth-btn.btn.btn-secondary:hover {
-  background-color: transparent;
-  color: white;
-  border-color: white; }
-
-/* line 55, src/sass/main.scss */
+/* line 42, src/sass/main.scss */
 button.close, button.close:active, button.close:focus, button.close::after {
   border: none;
   outline: none; }
 
-/* line 60, src/sass/main.scss */
+/* line 47, src/sass/main.scss */
 div.modal-content {
   border-radius: 0; }
 
-/* line 63, src/sass/main.scss */
+/* line 50, src/sass/main.scss */
 div.caroModal.modal-header.justify-content-md-end {
   border-bottom: none;
   padding: 1vw 1vw 0vw 0vw;
   border-radius: 0; }
 
-/* line 69, src/sass/main.scss */
+/* line 56, src/sass/main.scss */
 .mixedPost-footer.modal-footer {
   border-radius: 0;
   height: 2.9vw;
@@ -725,14 +730,14 @@ div.caroModal.modal-header.justify-content-md-end {
   color: #c40018;
   font-family: "Roboto", sans-serif; }
 
-/* line 81, src/sass/main.scss */
+/* line 68, src/sass/main.scss */
 .mixedPost-footer.modal-footer:hover {
   border-radius: 0;
   border: 2.5px solid #c40018;
   cursor: pointer;
   text-align: center; }
 
-/* line 89, src/sass/main.scss */
+/* line 76, src/sass/main.scss */
 div#root {
   background-color: #252525;
   box-sizing: border-box;
@@ -740,7 +745,7 @@ div#root {
   color: white;
   position: relative; }
 
-/* line 99, src/sass/main.scss */
+/* line 86, src/sass/main.scss */
 .buttonContainer {
   z-index: 1000;
   position: fixed;
@@ -748,57 +753,57 @@ div#root {
   -webkit-transform: translateX(85vw);
   -ms-transform: translateX(85vw);
   transform: translateX(85vw); }
-  /* line 106, src/sass/main.scss */
+  /* line 93, src/sass/main.scss */
   .buttonContainer .modalButton.albumButton {
     position: sticky;
     right: 4vw;
     bottom: 0vw; }
-  /* line 111, src/sass/main.scss */
+  /* line 98, src/sass/main.scss */
   .buttonContainer .modalButton.promptButton {
     position: sticky;
     right: 4vw;
     margin-top: 2vw; }
-  /* line 116, src/sass/main.scss */
+  /* line 103, src/sass/main.scss */
   .buttonContainer .modalButton.photoButton {
     position: sticky;
     bottom: 2vw;
     display: block; }
-  /* line 121, src/sass/main.scss */
+  /* line 108, src/sass/main.scss */
   .buttonContainer button.albumButton {
     padding-top: 15px;
     padding-left: 0px; }
 
-/* line 127, src/sass/main.scss */
+/* line 114, src/sass/main.scss */
 button.btn-danger {
   background-color: #c40018;
   border-color: #c40018; }
 
-/* line 132, src/sass/main.scss */
+/* line 119, src/sass/main.scss */
 button.btn-danger:hover {
   background-color: transparent;
   border-color: #c40018;
   color: #c40018; }
 
-/* line 138, src/sass/main.scss */
+/* line 125, src/sass/main.scss */
 ul.nav.nav-tabs {
   border-bottom: 2px solid #3282b8;
   z-index: 10; }
-  /* line 141, src/sass/main.scss */
+  /* line 128, src/sass/main.scss */
   ul.nav.nav-tabs a.nav-link {
     color: #dfdfdf; }
-  /* line 144, src/sass/main.scss */
+  /* line 131, src/sass/main.scss */
   ul.nav.nav-tabs a.active.nav-link {
     background-color: transparent;
     border-radius: 0;
     border: 2px solid #3282b8;
     color: white; }
 
-/* line 152, src/sass/main.scss */
+/* line 139, src/sass/main.scss */
 label {
   font-family: "Roboto", sans-serif;
   font-weight: 300; }
 
-/* line 157, src/sass/main.scss */
+/* line 144, src/sass/main.scss */
 div#accountSettings {
   width: 70%;
   margin: 0 auto; }

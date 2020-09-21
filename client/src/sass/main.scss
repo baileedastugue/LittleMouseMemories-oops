@@ -38,19 +38,6 @@ button.submit-btn.btn.btn-secondary:hover  {
   border-color: $focus-color;
 }
 
-button.auth-btn.btn.btn-secondary {
-  background-color: $abundant-color;
-  border-color: $abundant-color;
-  color: $dark-color;
-  float: right;
-}
-
-button.auth-btn.btn.btn-secondary:hover  {
-  background-color: transparent;
-  color: $abundant-color;
-  border-color: $abundant-color;
-}
-
 
 button.close, button.close:active, button.close:focus, button.close::after {
   border: none;
