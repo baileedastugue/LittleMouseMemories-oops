@@ -8,7 +8,6 @@ import ChangePasswordForm from '../components/Settings/ChangePasswordForm';
 import DeleteUser from '../components/Settings/DeleteUser';
 import AlertDiv from '../components/Layout/AlertDiv';
 import Loading from '../components/Layout/Loading';
-import '../App.css';
 
 const AccountSettings = ({ auth }) => {
      return auth.isLoading ? (

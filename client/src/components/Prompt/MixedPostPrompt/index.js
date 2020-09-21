@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
-import './style.css';
 import Moment from 'react-moment';
 
 const MixedPostPrompt = (props) => {

@@ -1,6 +1,650 @@
+@keyframes verticalScroll {
+  0% {
+    transform: translate3d(0, -220vw, 0); }
+  100% {
+    transform: translate3d(0, 0vw, 0); } }
+
+/* line 1, src/sass/base/_base.scss */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+/* line 9, src/sass/base/_base.scss */
+html {
+  font-size: 62.5%; }
+
+/* line 13, src/sass/base/_base.scss */
+body {
+  box-sizing: border-box; }
+
 /* line 1, src/sass/base/_typography.scss */
 h1, h2, h3, h4, h5, h6 {
   font-family: "Vidaloka", serif; }
+
+/* line 1, src/sass/base/_utilities.scss */
+.wrapper {
+  background-color: #252525;
+  margin: 0vw 5%;
+  height: 89%;
+  flex: 1 0 auto;
+  overflow-x: hidden; }
+
+/* line 1, src/sass/components/_albumSettings.scss */
+.albumSettings {
+  height: 50px;
+  background-color: #252525;
+  border: none;
+  border-radius: 0;
+  text-align: right; }
+  /* line 7, src/sass/components/_albumSettings.scss */
+  .albumSettings:hover {
+    background-color: #252525;
+    cursor: pointer;
+    color: #bbe1fa; }
+
+/* line 1, src/sass/components/_aboutSection.scss */
+.about {
+  overflow-x: hidden;
+  z-index: 200; }
+  /* line 5, src/sass/components/_aboutSection.scss */
+  .about-background--square {
+    height: 50vw;
+    width: 26vw;
+    left: -10vw;
+    position: absolute;
+    padding: 10vw;
+    background-color: #0f4c75;
+    z-index: 0; }
+  /* line 14, src/sass/components/_aboutSection.scss */
+  .about-background--triangle {
+    width: 30vw;
+    height: 50vw;
+    position: absolute;
+    left: 16vw;
+    border-top: 50vw solid #0f4c75;
+    border-right: 50vw solid transparent;
+    z-index: 0; }
+  /* line 24, src/sass/components/_aboutSection.scss */
+  .about-info {
+    position: absolute;
+    top: 10vw;
+    left: 5vw; }
+    /* line 28, src/sass/components/_aboutSection.scss */
+    .about-info--primary {
+      font-size: 3rem;
+      letter-spacing: 0.3vw;
+      margin-bottom: 0.4vw; }
+    /* line 33, src/sass/components/_aboutSection.scss */
+    .about-info--secondary {
+      font-family: "Roboto", sans-serif;
+      font-weight: 100;
+      font-size: 3rem; }
+
+/* line 1, src/sass/components/_buttons.scss */
+.deleteButton {
+  color: #bbe1fa;
+  cursor: pointer;
+  font-style: "Roboto", sans-serif;
+  font-size: 1vw;
+  padding-bottom: 10%;
+  text-align: center; }
+
+/* line 11, src/sass/components/_buttons.scss */
+button.close {
+  margin: 0;
+  padding: 1vw; }
+
+/* line 16, src/sass/components/_buttons.scss */
+Button.modalButton {
+  width: 90px;
+  height: 90px;
+  padding: 0px 0px 10px 0px;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 2.5vw;
+  background-color: #bbe1fa;
+  float: right;
+  border: none;
+  outline: none; }
+  /* line 27, src/sass/components/_buttons.scss */
+  Button.modalButton:hover {
+    background-color: white;
+    outline: none; }
+  /* line 31, src/sass/components/_buttons.scss */
+  Button.modalButton:focus, Button.modalButton:active, Button.modalButton::after {
+    background-color: #bbe1fa;
+    border: none;
+    outline: none; }
+
+/* line 1, src/sass/components/_carouselPicture.scss */
+.card.carouselPicture {
+  border-radius: 0;
+  width: 100%;
+  height: 45vw;
+  font-size: inherit;
+  background-color: white;
+  color: black;
+  border: none;
+  margin-left: 0vw; }
+  /* line 11, src/sass/components/_carouselPicture.scss */
+  .card.carouselPicture .card-title {
+    margin-left: 1vw;
+    padding: 1vw;
+    height: 3vw; }
+    /* line 15, src/sass/components/_carouselPicture.scss */
+    .card.carouselPicture .card-title time {
+      font-family: "Vidaloka", serif;
+      font-size: 1.4vw;
+      color: #3282b8;
+      letter-spacing: 0.9vw; }
+  /* line 22, src/sass/components/_carouselPicture.scss */
+  .card.carouselPicture .card-subtitle {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    padding-left: 10%;
+    height: 1vw;
+    margin-bottom: .3vw; }
+  /* line 29, src/sass/components/_carouselPicture.scss */
+  .card.carouselPicture .card-body {
+    height: 8vw;
+    margin-bottom: 1vw;
+    overflow-y: auto;
+    white-space: normal;
+    padding: 0px 10%; }
+    /* line 35, src/sass/components/_carouselPicture.scss */
+    .card.carouselPicture .card-body p.card-text {
+      font-size: 0.9vw;
+      font-family: "Roboto", sans-serif;
+      font-weight: 300; }
+  /* line 41, src/sass/components/_carouselPicture.scss */
+  .card.carouselPicture div.memoryArea {
+    background-color: #252525; }
+    /* line 44, src/sass/components/_carouselPicture.scss */
+    .card.carouselPicture div.memoryArea .card-img {
+      justify-content: center;
+      align-items: center;
+      object-fit: contain;
+      height: 33vw;
+      background-color: transparent; }
+  /* line 53, src/sass/components/_carouselPicture.scss */
+  .card.carouselPicture .vertical-center {
+    display: inline-block;
+    vertical-align: middle;
+    height: 33vw;
+    text-align: center; }
+  /* line 59, src/sass/components/_carouselPicture.scss */
+  .card.carouselPicture span#caption {
+    margin-left: 1vw;
+    color: #0f4c75;
+    font-size: 0.95vw;
+    font-family: "Roboto", sans-serif; }
+  /* line 65, src/sass/components/_carouselPicture.scss */
+  .card.carouselPicture p.recordedDate {
+    font-size: 0.9vw;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    margin-right: 3.5vw;
+    margin-bottom: 0vw;
+    text-align: right; }
+
+/* line 1, src/sass/components/_carouselPrompt.scss */
+.card.carouselPrompt {
+  border-radius: 0;
+  padding: 0px;
+  height: 45vw;
+  font-size: inherit;
+  background-color: white;
+  color: black;
+  border: none; }
+  /* line 9, src/sass/components/_carouselPrompt.scss */
+  .card.carouselPrompt .card-title {
+    margin-left: 1vw;
+    padding: 1vw;
+    height: 3vw; }
+    /* line 13, src/sass/components/_carouselPrompt.scss */
+    .card.carouselPrompt .card-title time {
+      font-family: "Vidaloka", serif;
+      font-size: 1.4vw;
+      color: #3282b8;
+      letter-spacing: 0.9vw; }
+  /* line 20, src/sass/components/_carouselPrompt.scss */
+  .card.carouselPrompt .card-subtitle {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    padding-left: 10%;
+    height: 1vw;
+    margin-bottom: .3vw; }
+  /* line 27, src/sass/components/_carouselPrompt.scss */
+  .card.carouselPrompt div.card-body {
+    height: 5vw;
+    overflow-y: auto;
+    white-space: normal;
+    padding: 1vw 0%;
+    text-align: right; }
+    /* line 33, src/sass/components/_carouselPrompt.scss */
+    .card.carouselPrompt div.card-body time {
+      padding: 0px; }
+    /* line 36, src/sass/components/_carouselPrompt.scss */
+    .card.carouselPrompt div.card-body p.card-text {
+      font-size: 0.9vw;
+      font-family: "Roboto", sans-serif;
+      font-weight: 300; }
+  /* line 42, src/sass/components/_carouselPrompt.scss */
+  .card.carouselPrompt div.memoryArea {
+    height: 37vw;
+    width: 35vw;
+    background-color: #3282b8;
+    color: red;
+    font-size: 1.7vw;
+    overflow-y: auto;
+    overflow-x: hidden;
+    white-space: normal;
+    position: relative; }
+    /* line 52, src/sass/components/_carouselPrompt.scss */
+    .card.carouselPrompt div.memoryArea span.memoryText {
+      position: absolute;
+      float: left;
+      padding: 1vw; }
+    /* line 57, src/sass/components/_carouselPrompt.scss */
+    .card.carouselPrompt div.memoryArea span.prompt {
+      color: #0f4c75;
+      font-family: "Vidaloka", serif;
+      font-weight: 300; }
+    /* line 62, src/sass/components/_carouselPrompt.scss */
+    .card.carouselPrompt div.memoryArea span.response {
+      color: white;
+      font-weight: 300; }
+  /* line 67, src/sass/components/_carouselPrompt.scss */
+  .card.carouselPrompt .center {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 auto;
+    height: 35vw; }
+
+/* line 2, src/sass/components/_changePasswordForm.scss */
+form#changePasswordForm.form input.form-control {
+  display: block;
+  width: 100%; }
+
+/* line 1, src/sass/components/_flip-cards.scss */
+.flipCard {
+  margin: 1vw;
+  border-radius: 0;
+  border: none;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  /* line 4, src/sass/components/_flip-cards.scss */
+  .flipCard--container {
+    width: 350px;
+    height: 350px;
+    background-color: transparent;
+    perspective: 1000px;
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    color: white;
+    font-size: 1.5vw; }
+  /* line 17, src/sass/components/_flip-cards.scss */
+  .flipCard--inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    transition: transform 0.6s;
+    transform-style: preserve-3d; }
+    /* line 24, src/sass/components/_flip-cards.scss */
+    .flipCard--inner--front {
+      background-color: #3282b8;
+      color: white;
+      padding: 0.5vw; }
+    /* line 29, src/sass/components/_flip-cards.scss */
+    .flipCard--inner--back {
+      background-color: #0f4c75;
+      color: white;
+      transform: rotateX(180deg);
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      font-family: "Roboto", sans-serif;
+      font-weight: 300;
+      vertical-align: center; }
+  /* line 41, src/sass/components/_flip-cards.scss */
+  .flipCard .flipCard-container:hover .flipCard-inner {
+    transform: rotateX(180deg);
+    cursor: pointer; }
+  /* line 45, src/sass/components/_flip-cards.scss */
+  .flipCard .flipCard-inner--front, .flipCard .flipCard-inner--back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden; }
+
+/* line 1, src/sass/components/_formContainer.scss */
+div#formContainer {
+  will-change: transform, opacity;
+  overflow: hidden;
+  position: absolute;
+  right: -2vw;
+  top: 30vw;
+  min-width: 40vw; }
+  /* line 8, src/sass/components/_formContainer.scss */
+  div#formContainer button {
+    margin: 0; }
+  /* line 11, src/sass/components/_formContainer.scss */
+  div#formContainer i#authArrowCloseBtn {
+    position: absolute;
+    bottom: 1vw;
+    left: 4vw; }
+  /* line 16, src/sass/components/_formContainer.scss */
+  div#formContainer i#authArrowCloseBtn:hover {
+    cursor: pointer;
+    opacity: .8; }
+  /* line 20, src/sass/components/_formContainer.scss */
+  div#formContainer div#logInTriangle {
+    padding-right: 2vw;
+    margin-right: 0vw;
+    height: 19vw;
+    width: 38vw;
+    border-bottom: 19vw solid #0f4c75;
+    border-left: 19vw solid transparent; }
+    /* line 28, src/sass/components/_formContainer.scss */
+    div#formContainer div#logInTriangle #loginForm h1 {
+      padding-top: 1vw; }
+    /* line 32, src/sass/components/_formContainer.scss */
+    div#formContainer div#logInTriangle #loginForm .formArea {
+      padding-bottom: 1vw; }
+    /* line 36, src/sass/components/_formContainer.scss */
+    div#formContainer div#logInTriangle .alert {
+      margin-top: 1vw;
+      width: 100%;
+      display: inline-flex; }
+  /* line 43, src/sass/components/_formContainer.scss */
+  div#formContainer div#registerTriangle {
+    padding-right: 4vw;
+    margin-right: 0vw;
+    height: 24vw;
+    width: 48vw;
+    border-bottom: 24vw solid #0f4c75;
+    border-left: 24vw solid transparent; }
+    /* line 50, src/sass/components/_formContainer.scss */
+    div#formContainer div#registerTriangle #registrationForm {
+      padding: 1.5vw 0vw 1vw 0vw; }
+      /* line 52, src/sass/components/_formContainer.scss */
+      div#formContainer div#registerTriangle #registrationForm .alert {
+        padding-left: 1vw; }
+
+/* line 1, src/sass/components/_loading.scss */
+div.spinnerOverlay {
+  background-color: #252525;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  opacity: 80%; }
+  /* line 8, src/sass/components/_loading.scss */
+  div.spinnerOverlay .spinner-border {
+    position: fixed;
+    top: 50%;
+    left: 50%; }
+
+/* line 1, src/sass/components/_mixedPostPicture.scss */
+.card.mixedPostPicture {
+  border-radius: 0;
+  display: inline-block;
+  flex-direction: row;
+  margin: 1vw;
+  padding: 0px;
+  position: relative;
+  cursor: pointer;
+  border: none; }
+  /* line 11, src/sass/components/_mixedPostPicture.scss */
+  .card.mixedPostPicture .image {
+    border-radius: 0;
+    height: 350px;
+    width: 350px;
+    object-fit: contain;
+    background-color: #252525; }
+  /* line 18, src/sass/components/_mixedPostPicture.scss */
+  .card.mixedPostPicture .overlay.card-body {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 350px;
+    width: 350px;
+    opacity: 0;
+    transition: .6s ease;
+    background-color: #bbe1fa; }
+  /* line 33, src/sass/components/_mixedPostPicture.scss */
+  .card.mixedPostPicture .text {
+    color: #252525;
+    font-size: 20px;
+    position: absolute;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center; }
+
+/* line 48, src/sass/components/_mixedPostPicture.scss */
+.mixedPostPicture.card:hover .overlay {
+  opacity: 1; }
+
+/* line 1, src/sass/components/_mixedPostPrompt.scss */
+div.mixedPostPrompt.card {
+  border-radius: 0;
+  display: inline-block;
+  flex-direction: row;
+  margin: 1vw;
+  padding: 0px;
+  position: relative;
+  cursor: pointer;
+  height: 350px;
+  width: 350px;
+  background-color: white;
+  color: #3282b8;
+  font-size: 1.4vw;
+  font-family: "Roboto", sans-serif; }
+  /* line 15, src/sass/components/_mixedPostPrompt.scss */
+  div.mixedPostPrompt.card p.card-text {
+    overflow: hidden;
+    display: block; }
+  /* line 19, src/sass/components/_mixedPostPrompt.scss */
+  div.mixedPostPrompt.card .overlay {
+    position: absolute;
+    top: -1px;
+    bottom: -1px;
+    left: -1px;
+    right: -1px;
+    height: 352px;
+    width: 352px;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #dfdfdf; }
+  /* line 32, src/sass/components/_mixedPostPrompt.scss */
+  div.mixedPostPrompt.card .text {
+    color: #252525;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center; }
+
+/* line 44, src/sass/components/_mixedPostPrompt.scss */
+.mixedPostPrompt.card:hover .overlay {
+  opacity: 1; }
+
+/* line 48, src/sass/components/_mixedPostPrompt.scss */
+.overlay {
+  cursor: pointer; }
+
+/* line 1, src/sass/components/_navbar.scss */
+.navbar {
+  background-color: #252525;
+  padding: 1.8vw; }
+  /* line 4, src/sass/components/_navbar.scss */
+  .navbar-brand {
+    margin: 0vw;
+    padding-left: 0vw;
+    line-height: 2vw;
+    text-align: right; }
+    /* line 9, src/sass/components/_navbar.scss */
+    .navbar-brand:hover {
+      text-decoration: none;
+      font-style: normal;
+      text-shadow: -2px 0px 0px white; }
+    /* line 14, src/sass/components/_navbar.scss */
+    .navbar-brand:visited {
+      color: #3282b8; }
+    /* line 17, src/sass/components/_navbar.scss */
+    .navbar-brand img {
+      height: 8vw;
+      min-height: 6vw;
+      padding: 0px;
+      margin: 0px;
+      display: block;
+      right: 2vw;
+      top: .7vw;
+      position: absolute;
+      z-index: 10;
+      -ms-transform: rotate(10deg);
+      /* IE 9 */
+      transform: rotate(10deg); }
+    /* line 30, src/sass/components/_navbar.scss */
+    .navbar-brand span {
+      margin-right: 9vw;
+      font-size: 3.1vw;
+      color: #3282b8;
+      font-family: "Vidaloka", serif; }
+  /* line 37, src/sass/components/_navbar.scss */
+  .navbar a {
+    color: #dfdfdf;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300; }
+    /* line 41, src/sass/components/_navbar.scss */
+    .navbar a:visited {
+      color: #dfdfdf; }
+    /* line 44, src/sass/components/_navbar.scss */
+    .navbar a:hover {
+      font-style: none;
+      cursor: pointer; }
+
+/* line 1, src/sass/components/_noContent.scss */
+div#noContent {
+  margin: 2vw 0vw;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 1.2vw; }
+
+/* line 3, src/sass/components/_openCloseForm.scss */
+.signIn-background--square {
+  position: absolute;
+  top: 35vw;
+  left: 0vw;
+  height: 15vw;
+  width: 20vw;
+  background-color: #3282b8;
+  z-index: 1000; }
+
+/* line 12, src/sass/components/_openCloseForm.scss */
+.signIn-background--triangle {
+  position: absolute;
+  left: 20vw;
+  top: 35vw;
+  width: 15vw;
+  height: 15vw;
+  border-top: 15vw solid #3282b8;
+  border-right: 15vw solid transparent; }
+
+/* line 22, src/sass/components/_openCloseForm.scss */
+.signIn-text {
+  width: 30vw;
+  padding: 5vw 0vw 0vw 5vw;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5vw;
+  z-index: 1000; }
+  /* line 28, src/sass/components/_openCloseForm.scss */
+  .signIn-text--authLink {
+    z-index: 1000;
+    color: #252525;
+    font-weight: 300; }
+    /* line 32, src/sass/components/_openCloseForm.scss */
+    .signIn-text--authLink:hover {
+      z-index: 1000;
+      font-weight: unset;
+      text-decoration: none;
+      cursor: pointer; }
+
+/* line 1, src/sass/components/_pageTitle.scss */
+.pageTitle {
+  font-family: "Vidaloka", serif;
+  color: #dfdfdf;
+  padding-left: 5vw; }
+
+/* line 1, src/sass/components/_showcase.scss */
+.showcase {
+  height: 40vw;
+  width: 80vw;
+  position: absolute;
+  right: 0vw;
+  top: 12vw;
+  z-index: -100;
+  overflow: hidden; }
+  /* line 9, src/sass/components/_showcase.scss */
+  .showcase-movingArea {
+    animation: verticalScroll 60s linear infinite; }
+
+@keyframes verticalScroll {
+  0% {
+    transform: translate3d(0, -220vw, 0); }
+  100% {
+    transform: translate3d(0, 0vw, 0); } }
+    /* line 20, src/sass/components/_showcase.scss */
+    .showcase-movingArea .row {
+      left: -50px;
+      margin: 0px;
+      width: 160vw;
+      border-radius: 0;
+      flex-direction: row;
+      position: relative; }
+  /* line 29, src/sass/components/_showcase.scss */
+  .showcase-box {
+    display: inline-block;
+    height: 20vw;
+    width: 20vw;
+    margin: 1vw; }
+    /* line 34, src/sass/components/_showcase.scss */
+    .showcase-box--prompt {
+      margin: 1vw;
+      background-color: white;
+      padding: 1vw;
+      height: 20vw;
+      width: 20vw;
+      color: #3282b8;
+      font-size: 1.5vw;
+      font-family: "Roboto", sans-serif; }
+    /* line 45, src/sass/components/_showcase.scss */
+    .showcase-box--image img {
+      border-radius: 0;
+      height: 20vw;
+      width: 20vw;
+      object-fit: contain;
+      background-color: #252525; }
 
 /* line 1, src/sass/pages/_pageNotFound.scss */
 .pageNotFound {
@@ -27,3 +671,140 @@ h1, h2, h3, h4, h5, h6 {
     .pageNotFound p a:hover {
       text-decoration: none;
       font-style: italic; }
+
+/* line 21, src/sass/main.scss */
+.centered-squares {
+  display: flex;
+  justify-content: initial;
+  margin: 0;
+  padding-left: 2.1vw; }
+
+/* line 29, src/sass/main.scss */
+button.submit-btn.btn.btn-secondary {
+  background-color: #3282b8;
+  border-color: #3282b8;
+  float: right; }
+
+/* line 35, src/sass/main.scss */
+button.submit-btn.btn.btn-secondary:hover {
+  background-color: transparent;
+  color: #3282b8;
+  border-color: #3282b8; }
+
+/* line 41, src/sass/main.scss */
+button.auth-btn.btn.btn-secondary {
+  background-color: white;
+  border-color: white;
+  color: #252525;
+  float: right; }
+
+/* line 48, src/sass/main.scss */
+button.auth-btn.btn.btn-secondary:hover {
+  background-color: transparent;
+  color: white;
+  border-color: white; }
+
+/* line 55, src/sass/main.scss */
+button.close, button.close:active, button.close:focus, button.close::after {
+  border: none;
+  outline: none; }
+
+/* line 60, src/sass/main.scss */
+div.modal-content {
+  border-radius: 0; }
+
+/* line 63, src/sass/main.scss */
+div.caroModal.modal-header.justify-content-md-end {
+  border-bottom: none;
+  padding: 1vw 1vw 0vw 0vw;
+  border-radius: 0; }
+
+/* line 69, src/sass/main.scss */
+.mixedPost-footer.modal-footer {
+  border-radius: 0;
+  height: 2.9vw;
+  background-color: white;
+  border: none;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  color: #c40018;
+  font-family: "Roboto", sans-serif; }
+
+/* line 81, src/sass/main.scss */
+.mixedPost-footer.modal-footer:hover {
+  border-radius: 0;
+  border: 2.5px solid #c40018;
+  cursor: pointer;
+  text-align: center; }
+
+/* line 89, src/sass/main.scss */
+div#root {
+  background-color: #252525;
+  box-sizing: border-box;
+  height: 100%;
+  color: white;
+  position: relative; }
+
+/* line 99, src/sass/main.scss */
+.buttonContainer {
+  z-index: 1000;
+  position: fixed;
+  top: 75%;
+  -webkit-transform: translateX(85vw);
+  -ms-transform: translateX(85vw);
+  transform: translateX(85vw); }
+  /* line 106, src/sass/main.scss */
+  .buttonContainer .modalButton.albumButton {
+    position: sticky;
+    right: 4vw;
+    bottom: 0vw; }
+  /* line 111, src/sass/main.scss */
+  .buttonContainer .modalButton.promptButton {
+    position: sticky;
+    right: 4vw;
+    margin-top: 2vw; }
+  /* line 116, src/sass/main.scss */
+  .buttonContainer .modalButton.photoButton {
+    position: sticky;
+    bottom: 2vw;
+    display: block; }
+  /* line 121, src/sass/main.scss */
+  .buttonContainer button.albumButton {
+    padding-top: 15px;
+    padding-left: 0px; }
+
+/* line 127, src/sass/main.scss */
+button.btn-danger {
+  background-color: #c40018;
+  border-color: #c40018; }
+
+/* line 132, src/sass/main.scss */
+button.btn-danger:hover {
+  background-color: transparent;
+  border-color: #c40018;
+  color: #c40018; }
+
+/* line 138, src/sass/main.scss */
+ul.nav.nav-tabs {
+  border-bottom: 2px solid #3282b8;
+  z-index: 10; }
+  /* line 141, src/sass/main.scss */
+  ul.nav.nav-tabs a.nav-link {
+    color: #dfdfdf; }
+  /* line 144, src/sass/main.scss */
+  ul.nav.nav-tabs a.active.nav-link {
+    background-color: transparent;
+    border-radius: 0;
+    border: 2px solid #3282b8;
+    color: white; }
+
+/* line 152, src/sass/main.scss */
+label {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300; }
+
+/* line 157, src/sass/main.scss */
+div#accountSettings {
+  width: 70%;
+  margin: 0 auto; }

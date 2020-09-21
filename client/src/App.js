@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-// import './CSS/reset.css';
+// import './css/reset.css';
+import './sass/main.scss';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Welcome from './pages/Welcome';
@@ -13,8 +14,6 @@ import AppNavbar from './components/Layout/AppNavbar/index';
 import PrivateRoute from './components/Auth/PrivateRoute';
 import PageNotFound from './pages/PageNotFound';
 import Wrapper from './components/Layout/Wrapper';
-
-import './App.css';
 
 // import global header
 import setAuthToken from './utils/setAuthToken';

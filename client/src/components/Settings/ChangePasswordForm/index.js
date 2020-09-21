@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import SubmitButton from '../../Buttons/SubmitBtn';
-import './style.css';
 
 const ChangePasswordForm = (props) => {
      const [formData, setFormData] = useState({

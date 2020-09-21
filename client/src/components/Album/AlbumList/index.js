@@ -13,7 +13,6 @@ import {
 import {
      Card,
      CardBody,
-     CardText,
      CardFooter,
      Modal,
      ModalBody,
@@ -28,7 +27,6 @@ import AlbumPassword from '../../Settings/AlbumPassword';
 import SubmitButton from '../../Buttons/SubmitBtn';
 import Loading from '../../Layout/Loading';
 import NoContent from '../../Layout/NoContent';
-import './style.css';
 
 const AlbumList = ({
      albums,
@@ -91,14 +89,17 @@ const AlbumList = ({
      ) : !albumLoading ? (
           <Fragment>
                {albums.albums.map((album) => (
-                    <Card key={album._id}>
+                    <Card className='flipCard' key={album._id}>
                          <Link to={`/album/${album._id}`}>
-                              <CardBody className='flip-card' key={album._id}>
-                                   <div className='flip-card-inner'>
-                                        <div className='flip-card-front'>
+                              <CardBody
+                                   className='flipCard-container'
+                                   key={album._id}
+                              >
+                                   <div className='flipCard-inner'>
+                                        <div className='flipCard-inner--front'>
                                              {album.title}
                                         </div>
-                                        <div className='flip-card-back center'>
+                                        <div className='flipCard-inner--back center'>
                                              <div>
                                                   Created on: <br />
                                                   <Moment
@@ -111,7 +112,7 @@ const AlbumList = ({
                               </CardBody>
                          </Link>
                          <CardFooter
-                              className='albumListBelow'
+                              className='albumSettings'
                               id={album._id}
                               onClick={(event) => settingsToggle(event, album)}
                          >

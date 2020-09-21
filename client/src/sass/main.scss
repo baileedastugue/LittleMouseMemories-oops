@@ -14,3 +14,147 @@
 @import "./pages/album";
 @import "./pages/settings";
 @import "./pages/pageNotFound";
+
+
+
+
+.centered-squares {
+  display: flex;
+  justify-content:initial; 
+  margin: 0;
+  padding-left: 2.1vw;
+}
+
+
+button.submit-btn.btn.btn-secondary {
+  background-color: $focus-color;
+  border-color: $focus-color;
+  float: right;
+}
+
+button.submit-btn.btn.btn-secondary:hover  {
+  background-color: transparent;
+  color: $focus-color;
+  border-color: $focus-color;
+}
+
+button.auth-btn.btn.btn-secondary {
+  background-color: $abundant-color;
+  border-color: $abundant-color;
+  color: $dark-color;
+  float: right;
+}
+
+button.auth-btn.btn.btn-secondary:hover  {
+  background-color: transparent;
+  color: $abundant-color;
+  border-color: $abundant-color;
+}
+
+
+button.close, button.close:active, button.close:focus, button.close::after {
+  border: none;
+  outline: none;
+}
+
+div.modal-content {
+  border-radius: 0;
+}
+div.caroModal.modal-header.justify-content-md-end {
+  border-bottom: none;
+  padding: 1vw 1vw 0vw 0vw;
+  border-radius: 0;
+}
+
+.mixedPost-footer.modal-footer {
+  border-radius: 0;
+  height: 2.9vw;
+  background-color: $abundant-color;
+  border: none;
+  display: block;
+  margin: 0 auto;
+  text-align: center; 
+  color: $danger;
+  font-family: $secondary-text;
+
+}
+.mixedPost-footer.modal-footer:hover {
+  border-radius: 0;
+  // background-color: $secondary-color;
+  border: 2.5px solid $danger;
+  cursor: pointer;
+  text-align: center;
+}
+
+div#root {
+  background-color: $dark-color;
+  box-sizing: border-box;
+  height: 100%;
+  color: $abundant-color;
+  position: relative;
+  
+}
+
+
+.buttonContainer {
+  z-index: 1000;
+  position: fixed;
+  top: 75%;
+  -webkit-transform: translateX(85vw);
+  -ms-transform: translateX(85vw);
+  transform: translateX(85vw);
+  .modalButton.albumButton {
+    position: sticky;
+    right: 4vw;
+    bottom: 0vw;
+  }
+  .modalButton.promptButton {
+    position: sticky;
+    right: 4vw;
+    margin-top: 2vw;
+  }
+  .modalButton.photoButton {
+    position: sticky;
+    bottom: 2vw;
+    display: block;
+  }
+  button.albumButton {
+    padding-top: 15px;
+    padding-left: 0px;
+  }
+}
+
+button.btn-danger {
+  background-color: $danger;
+  border-color: $danger;
+}
+
+button.btn-danger:hover {
+  background-color: transparent;
+  border-color: $danger;
+  color: $danger;
+}
+
+ul.nav.nav-tabs {
+  border-bottom: 2px solid $focus-color;
+  z-index: 10;
+  a.nav-link {
+    color: $muted-color;
+  }
+  a.active.nav-link {
+    background-color: transparent;
+    border-radius: 0;
+    border: 2px solid $focus-color;
+    color: $abundant-color;
+  }
+}
+
+label {
+  font-family: $secondary-text;
+  font-weight: 300;
+}
+
+div#accountSettings {
+  width: 70%;
+  margin: 0 auto;
+}

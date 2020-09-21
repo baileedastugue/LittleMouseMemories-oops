@@ -6,7 +6,6 @@ import { register } from '../../../actions/authActions';
 import { Form, FormGroup, Row, Col, Label, Input } from 'reactstrap';
 import AuthButton from '../../Buttons/AuthBtn';
 import PropTypes from 'prop-types';
-import './style.css';
 import AlertDiv from '../../Layout/AlertDiv';
 
 const RegistrationForm = (props) => {

@@ -2,8 +2,6 @@ import React from 'react';
 import { Card, CardText, CardTitle, CardSubtitle, CardBody } from 'reactstrap';
 import Moment from 'react-moment';
 
-import './style.css';
-
 const CarouselPrompt = (props) => {
      return (
           <Card className='carouselPrompt' style={Card.CarouselPicture}>

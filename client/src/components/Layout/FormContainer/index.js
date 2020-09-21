@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import LoginForm from '../../Auth/LoginForm';
 import RegistrationForm from '../../Auth/RegistrationForm';
-import './style.css';
 
 const FormContainer = (props) => {
      return (

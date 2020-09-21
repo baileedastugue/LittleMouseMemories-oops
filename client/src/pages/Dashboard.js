@@ -13,8 +13,6 @@ import ModalButton from '../components/Buttons/ModalButton';
 import AlertDiv from '../components/Layout/AlertDiv';
 import Loading from '../components/Layout/Loading';
 
-import '../App.css';
-
 const Dashboard = ({ isAuth, auth }) => {
      const addIcon = <MaterialIcon icon='add' color='#252525' size='large' />;
 

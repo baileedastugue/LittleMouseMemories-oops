@@ -7,7 +7,6 @@ import {
      CardSubtitle,
      CardBody,
 } from 'reactstrap';
-import './style.css';
 import Moment from 'react-moment';
 
 const CarouselPicture = (props) => {

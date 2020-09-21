@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container } from 'reactstrap';
 import PropTypes from 'prop-types';
-import './style.css';
 
 const NoContent = (props) => {
      return (

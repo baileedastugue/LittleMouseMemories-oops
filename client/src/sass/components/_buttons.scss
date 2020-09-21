@@ -1,0 +1,36 @@
+.deleteButton {
+  color: $highlight-color;
+  cursor: pointer;
+  font-style: $secondary-text;
+  font-size: 1vw;
+  padding-bottom: 10%;
+  text-align: center;
+}
+
+
+button.close {
+  margin: 0;
+  padding: 1vw;
+}
+
+Button.modalButton {
+  width: 90px; 
+  height: 90px; 
+  padding: 0px 0px 10px 0px; 
+  border-radius:50px; 
+  text-align: center; 
+  font-size: 2.5vw;
+  background-color: $highlight-color;
+  float: right;
+  border: none;
+  outline: none;
+  &:hover {
+    background-color: $abundant-color;
+    outline: none;
+  }
+  &:focus, &:active, &::after {
+    background-color: $highlight-color;
+    border: none;
+    outline: none;
+  }
+}
