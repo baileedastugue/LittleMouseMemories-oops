@@ -5,10 +5,20 @@
   outline: none;
 }
 
+@mixin cardSize {
+  width: 35rem;
+  height: 35rem;
+}
+
 @mixin center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@mixin thinFont {
+  font-family: $secondary-text;
+  font-weight: 300;
 }
 
 @mixin flip180FrontBack {

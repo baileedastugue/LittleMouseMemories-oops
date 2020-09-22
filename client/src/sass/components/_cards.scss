@@ -2,30 +2,29 @@ div.card {
   &-square {
     @include squareCard;
     &--footer {
-      height: 50px;
-      background-color: $dark-color;
+      height: 5vh;
+      font-size: 1.6rem;
+      background-color: $color-dark;
       border: none;
       border-radius: 0;
       text-align: right;
       &:hover {
-        background-color: $dark-color;
+        background-color: $color-dark;
         cursor: pointer;
-        color: $highlight-color;
+        color: $color-highlight;
       }
     }
   }
   &-flip {
-    width: 350px;
-    height: 350px;
+    @include cardSize;
+    @include thinFont;
+    font-size: 2.6rem;
+    color: $color-white;
     background-color: transparent;
     perspective: 1000px;
     box-sizing: border-box;
     position: relative;
     display: inline-block;
-    font-family: $secondary-text;
-    font-weight: 300;
-    color: white;
-    font-size: 1.5vw;
     &:hover {
       .card-flip--inner {
         transform: rotateX(180deg);
@@ -47,14 +46,12 @@ div.card {
       @include flip180FrontBack;
     }
     &--back {
+      @include thinFont;
+      color: $color-white;
+      font-size: 2rem;
       background-color: $secondary-color;
-      color: white;
       transform: rotateX(180deg);
       text-align: center;
-      color: white;
-      font-size: 20px;
-      font-family: $secondary-text;
-      font-weight: 300;
       vertical-align: center;
       @include center;
       @include flip180FrontBack;
