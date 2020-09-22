@@ -55,8 +55,8 @@ const Dashboard = ({ isAuth, auth }) => {
 };
 
 AddAlbumForm.propTypes = {
-     isAuth: PropTypes.bool.isRequired,
-     auth: PropTypes.object.isRequired,
+     isAuth: PropTypes.bool,
+     auth: PropTypes.object,
 };
 
 Container.propTypes = {

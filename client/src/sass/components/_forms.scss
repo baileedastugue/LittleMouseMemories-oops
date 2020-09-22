@@ -13,7 +13,7 @@
       margin-right: 0vw;
       height: 19vw;
       width: 38vw;
-      border-bottom: 19vw solid $secondary-color;
+      border-bottom: 19vw solid $color-secondary;
       border-left: 19vw solid transparent;
     }
     &--register {
@@ -21,7 +21,7 @@
       margin-right: 0vw;
       height: 24vw;
       width: 48vw;
-      border-bottom: 24vw solid $secondary-color;
+      border-bottom: 24vw solid $color-secondary;
       border-left: 24vw solid transparent;
     }
   }
@@ -42,4 +42,8 @@
       margin-top: 1vh;
     }
   } 
+}
+
+label {
+  @include thinFont;
 }

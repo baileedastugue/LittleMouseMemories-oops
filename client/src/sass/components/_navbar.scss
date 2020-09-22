@@ -1,17 +1,16 @@
 .nav {
   padding-bottom: 1vh;
   &-link {
-    color: $muted-color;
-    font-family: $secondary-text;
-    font-weight: 300;
+    color: $color-white;
+    @include thinFont;
     font-size: 1.4rem;
     &:visited {
-      color: $muted-color;
+      color: $color-white;
     }
     &:hover{
       font-style: none;
       cursor: pointer;
-      color: $focus-color;
+      color: $color-highlight;
     }
   }
   &bar {
