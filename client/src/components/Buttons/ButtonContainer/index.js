@@ -5,9 +5,9 @@ import MaterialIcon from 'material-icons-react';
 
 const ButtonContainer = (props) => {
      return (
-          <div className='buttonContainer'>
+          <div className='btnContainer'>
                <ModalButton
-                    className='photoButton modalButton'
+                    className='btn-photo btn-modal'
                     action={
                          <MaterialIcon
                               icon='add_a_photo'
@@ -17,11 +17,9 @@ const ButtonContainer = (props) => {
                     }
                     onClick={props.photoToggle}
                />
-               <br />
-               <br />
-               <br />
+               <div className='btnContainer-spacing' />
                <ModalButton
-                    className='promptButton modalButton'
+                    className='btn-prompt btn-modal'
                     action={
                          <MaterialIcon
                               icon='create'

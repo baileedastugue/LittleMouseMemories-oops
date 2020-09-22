@@ -1,18 +1,21 @@
-@import 'albumSettings';
+@import './cards/albumCards';
+@import './cards/cards';
+
+@import './carousel/carouselPicture';
+@import './carousel/carouselPrompt';
+@import './carousel/carouselModal';
+
+@import './forms/changePasswordForm';
+@import './forms/forms';
+@import './forms/openCloseForm';
+@import './forms/registrationForm';
+
+@import './layout/loading';
+@import './layout/navbar';
+@import './layout/noContent';
+@import './layout/pageTitle';
+@import './layout/showcase';
+
 @import 'aboutSection';
+@import 'albumSettings';
 @import 'buttons';
-@import 'cards';
-@import 'carouselPicture';
-@import 'carouselPrompt';
-@import 'centeredSquares';
-@import 'changePasswordForm';
-@import 'forms';
-@import 'loading';
-@import 'mixedPostPicture';
-@import 'mixedPostPrompt';
-@import 'navbar';
-@import 'noContent';
-@import 'openCloseForm';
-@import 'pageTitle';
-@import 'registrationForm';
-@import 'showcase';

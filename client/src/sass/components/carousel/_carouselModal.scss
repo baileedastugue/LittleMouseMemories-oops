@@ -1,0 +1,21 @@
+.carousel-modal{
+  border-bottom: none;
+  padding: 1vw 1vw 0vw 0vw;
+  &--footer {
+    border-radius: 0;
+    height: 2.9vw;
+    background-color: $color-white;
+    border: none;
+    display: block;
+    margin: 0 auto;
+    text-align: center; 
+    color: $color-danger;
+    font-family: $secondary-text;
+    &:hover {
+      border-radius: 0;
+      border: 2.5px solid $color-danger;
+      cursor: pointer;
+      text-align: center;
+    }
+  }
+}

@@ -40,7 +40,7 @@ const AlbumCarousel = (props) => {
                size='lg'
                close={closeBtn}
           >
-               <ModalHeader className='caroModal justify-content-md-end'>
+               <ModalHeader className='carousel-modal justify-content-md-end'>
                     {closeBtn}
                </ModalHeader>
                <Carousel
@@ -71,7 +71,7 @@ const AlbumCarousel = (props) => {
 
                               {props.isAuth ? (
                                    <ModalFooter
-                                        className='mixedPost-footer center'
+                                        className='carousel-modal--footer center'
                                         onClick={props.deleteClick}
                                         data-id={post._id}
                                    >

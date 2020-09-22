@@ -18,11 +18,11 @@ import AlbumCarousel from '../components/Album/AlbumCarousel';
 
 import AddPictureForm from '../components/Picture/AddPictureForm';
 import AddPictureModal from '../components/Picture/AddPictureModal';
-import MixedPostPicture from '../components/Picture/MixedPostPicture';
+import AlbumPicture from '../components/Picture/AlbumPicture';
 
 import AddPromptForm from '../components/Prompt/AddPromptForm';
 import AddPromptModal from '../components/Prompt/AddPromptModal';
-import MixedPostPrompt from '../components/Prompt/MixedPostPrompt';
+import AlbumPrompt from '../components/Prompt/AlbumPrompt';
 
 const Album = ({
      getAlbum,
@@ -150,7 +150,7 @@ const Album = ({
                                                             {picture.pictureLoading ? (
                                                                  <Loading />
                                                             ) : null}
-                                                            <MixedPostPicture
+                                                            <AlbumPicture
                                                                  type='picture'
                                                                  key={post._id}
                                                                  id={post._id}
@@ -181,7 +181,7 @@ const Album = ({
                                                             />
                                                        </Fragment>
                                                   ) : (
-                                                       <MixedPostPrompt
+                                                       <AlbumPrompt
                                                             type='prompt'
                                                             key={post._id}
                                                             id={post._id}
@@ -208,7 +208,7 @@ const Album = ({
                                                                  );
                                                             }}
                                                             index={index}
-                                                       ></MixedPostPrompt>
+                                                       ></AlbumPrompt>
                                                   )}
                                              </Fragment>
                                         ))}

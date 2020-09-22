@@ -42,9 +42,9 @@ const Dashboard = ({ isAuth, auth }) => {
                <AddAlbumModal toggle={toggle} isOpen={modal}>
                     <AddAlbumForm toggle={toggle} />
                </AddAlbumModal>
-               <div className='buttonContainer'>
+               <div className='btnContainer'>
                     <ModalButton
-                         className='albumButton modalButton'
+                         className='btn-album btn-modal'
                          action={addIcon}
                          onClick={toggle}
                          style={{ padding: '15px' }}

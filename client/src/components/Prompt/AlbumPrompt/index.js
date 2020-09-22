@@ -2,22 +2,26 @@ import React, { Fragment } from 'react';
 import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
 import Moment from 'react-moment';
 
-const MixedPostPrompt = (props) => {
+const AlbumPrompt = (props) => {
      return (
           <Card
                onClick={props.onClick}
                data-id={props.id}
                type='prompt'
-               className='mixedPostPrompt'
+               className='album-prompt album-card'
           >
                <CardBody data-id={props.id} type='prompt'>
                     <CardText data-id={props.id} type='prompt'>
                          {props.prompt}. . .
                          <br />
                     </CardText>
-                    <div className='overlay' data-id={props.id} type='prompt'>
+                    <div
+                         className='album-prompt--overlay'
+                         data-id={props.id}
+                         type='prompt'
+                    >
                          <CardTitle
-                              className='text'
+                              className='album-card--text'
                               data-id={props.id}
                               type='prompt'
                          >
@@ -38,4 +42,4 @@ const MixedPostPrompt = (props) => {
      );
 };
 
-export default MixedPostPrompt;
+export default AlbumPrompt;

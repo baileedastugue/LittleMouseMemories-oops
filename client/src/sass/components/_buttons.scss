@@ -54,36 +54,47 @@ Button.btn {
     }
   }
   &-close {
+    @include noFraming;
     background-color: transparent;
-    border: none;
-    outline: none;
     padding-right: .8rem;
     font-size: 2rem;
     &:hover {
       cursor: pointer;
     }
   }
+  &-modal {
+    width: 9rem; 
+    height: 9rem; 
+    border-radius: 50rem; 
+    font-size: 2rem;
+    text-align: center; 
+    background-color: $color-white;
+    @include noFraming;
+    &:hover {
+      background-color: $color-highlight;
+      outline: none;
+    }
+    &:focus, &:active, &::after {
+      background-color: $color-white;
+      @include noFraming;
+    }
+    &.btn-prompt {
+      position: sticky;
+      margin-top: 2vw;
+    }
+    &.btn-photo, &.btn-album {
+      position: sticky;
+      bottom: 2vw;
+      display: block;
+    }
+  }
 }
 
-
-Button.modalButton {
-  width: 90px; 
-  height: 90px; 
-  padding: 0px 0px 10px 0px; 
-  border-radius:50px; 
-  text-align: center; 
-  font-size: 2.5vw;
-  background-color: $color-white;
-  float: right;
-  border: none;
-  outline: none;
-  &:hover {
-    background-color: $color-highlight;
-    outline: none;
-  }
-  &:focus, &:active, &::after {
-    background-color: $color-white;
-    border: none;
-    outline: none;
-  }
+.btnContainer {
+  z-index: 1000;
+  position: fixed;
+  top: 75%;
+  -webkit-transform: translateX(85vw);
+  -ms-transform: translateX(85vw);
+  transform: translateX(85vw);
 }

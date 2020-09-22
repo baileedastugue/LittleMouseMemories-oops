@@ -13,3 +13,11 @@ html {
 body {
   box-sizing: border-box;
 }
+
+#root {
+  background-color: $dark-color;
+  box-sizing: border-box;
+  height: 100%;
+  color: $abundant-color;
+  position: relative;
+}

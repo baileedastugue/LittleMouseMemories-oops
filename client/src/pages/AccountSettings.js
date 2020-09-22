@@ -4,10 +4,11 @@ import { Container } from 'reactstrap';
 import { connect } from 'react-redux';
 
 import PageTitle from '../components/Layout/PageTitle';
-import ChangePasswordForm from '../components/Settings/ChangePasswordForm';
-import DeleteUser from '../components/Settings/DeleteUser';
 import AlertDiv from '../components/Layout/AlertDiv';
 import Loading from '../components/Layout/Loading';
+
+import ChangePasswordForm from '../components/Settings/ChangePasswordForm';
+import DeleteUser from '../components/Settings/DeleteUser';
 
 const AccountSettings = ({ auth }) => {
      return auth.isLoading ? (
@@ -18,7 +19,7 @@ const AccountSettings = ({ auth }) => {
                     <PageTitle>Your Settings</PageTitle>
                </Container>
 
-               <div id='accountSettings'>
+               <div className='accountSettings'>
                     <div className='center'>
                          <AlertDiv />
                          <hr />

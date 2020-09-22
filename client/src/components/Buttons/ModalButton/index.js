@@ -4,7 +4,7 @@ import { Button } from 'reactstrap';
 const ModalButton = (props) => {
      return (
           <Button
-               className='modalButton'
+               className='btn-modal'
                {...props}
                onClick={props.onClick}
                action={props.action}
