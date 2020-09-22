@@ -1,39 +1,28 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import {
-     Container,
-     CarouselControl,
-     CarouselItem,
-     Carousel,
-     Modal,
-     ModalFooter,
-     Row,
-     ModalHeader,
-} from 'reactstrap';
+import { Container, Row } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
-import AddPictureForm from '../components/Picture/AddPictureForm';
-import AddPictureModal from '../components/Picture/AddPictureModal';
-import AddPromptForm from '../components/Prompt/AddPromptForm';
-import AddPromptModal from '../components/Prompt/AddPromptModal';
 import { getAlbum, albumAuth } from '../actions/albumActions';
-import MixedPostPicture from '../components/Picture/MixedPostPicture';
-import MixedPostPrompt from '../components/Prompt/MixedPostPrompt';
-import PageTitle from '../components/Layout/PageTitle';
-import CarouselPicture from '../components/Picture/CarouselPicture';
-import CarouselPrompt from '../components/Prompt/CarouselPrompt';
-import { deletePicture } from '../actions/pictureActions';
 import { deletePrompt } from '../actions/promptActions';
-import Loading from '../components/Layout/Loading';
-import NoContent from '../components/Layout/NoContent';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { deletePicture } from '../actions/pictureActions';
 import { setAlert } from '../actions/alertActions';
 
+import PageTitle from '../components/Layout/PageTitle';
+import Loading from '../components/Layout/Loading';
+import NoContent from '../components/Layout/NoContent';
 import AlbumPassword from '../components/Album/AlbumPassword';
 import ButtonContainer from '../components/Buttons/ButtonContainer';
 import AlbumCarousel from '../components/Album/AlbumCarousel';
+
+import AddPictureForm from '../components/Picture/AddPictureForm';
+import AddPictureModal from '../components/Picture/AddPictureModal';
+import MixedPostPicture from '../components/Picture/MixedPostPicture';
+
+import AddPromptForm from '../components/Prompt/AddPromptForm';
+import AddPromptModal from '../components/Prompt/AddPromptModal';
+import MixedPostPrompt from '../components/Prompt/MixedPostPrompt';
 
 const Album = ({
      getAlbum,
@@ -74,18 +63,6 @@ const Album = ({
           type: '',
      });
 
-     const next = () => {
-          const nextIndex =
-               activeIndex === album.album.length - 1 ? 0 : activeIndex + 1;
-          setActiveIndex(nextIndex);
-     };
-
-     const previous = () => {
-          const nextIndex =
-               activeIndex === 0 ? album.album.length - 1 : activeIndex - 1;
-          setActiveIndex(nextIndex);
-     };
-
      const onClick = (event, data) => {
           setActiveIndex(data);
           setCurrentPost({
@@ -94,12 +71,6 @@ const Album = ({
           });
           carouselToggle();
      };
-
-     const closeBtn = (
-          <button className='close' onClick={carouselToggle}>
-               &times;
-          </button>
-     );
 
      const deleteClick = async (event) => {
           event.preventDefault();
@@ -138,7 +109,6 @@ const Album = ({
      album.validAlbum ? (
           <Fragment>
                {/* if the album is found, load the title */}
-               {/* <Loading/> */}
                <Container fluid={true}>
                     <PageTitle>
                          {album.albums[0].title} by{' '}

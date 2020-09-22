@@ -1,10 +1,12 @@
 import React, { useState, Fragment } from 'react';
 import { connect } from 'react-redux';
+import { Form, FormGroup, Label, Input, Col, Row } from 'reactstrap';
+import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 import { setAlert } from '../../../actions/alertActions';
 import { addNewAlbum } from '../../../actions/albumActions';
-import { Form, FormGroup, Label, Input, Col, Row } from 'reactstrap';
-import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
+
 import SubmitButton from '../../Buttons/SubmitBtn';
 import AlertDiv from '../../Layout/AlertDiv';
 

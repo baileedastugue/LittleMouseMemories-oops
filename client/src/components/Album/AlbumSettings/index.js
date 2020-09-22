@@ -20,8 +20,11 @@ import {
 
 import AlbumPassword from '../../Settings/AlbumPassword';
 import SubmitButton from '../../Buttons/SubmitBtn';
+import CloseBtn from '../../Buttons/CloseBtn';
 
 const AlbumSettings = (props) => {
+     const closeBtn = <CloseBtn onClick={props.closeSettings} />;
+
      const deleteClick = async (event) => {
           event.preventDefault();
           const album_id = event.target.getAttribute('id');
@@ -50,7 +53,7 @@ const AlbumSettings = (props) => {
      return (
           <div>
                <Modal isOpen={props.isOpen} toggle={props.closeSettings}>
-                    <ModalHeader toggle={props.closeSettings}>
+                    <ModalHeader close={closeBtn}>
                          {props.currentAlbum.title}
                          <AlertDiv />
                     </ModalHeader>

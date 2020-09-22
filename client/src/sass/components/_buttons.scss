@@ -53,9 +53,15 @@ Button.btn {
       text-align: center;
     }
   }
-  .close {
-    margin: 0;
-    padding: 1vw;
+  &-close {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding-right: .8rem;
+    font-size: 2rem;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 

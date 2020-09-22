@@ -14,6 +14,8 @@ import CarouselPrompt from '../../Prompt/CarouselPrompt';
 import CloseBtn from '../../Buttons/CloseBtn';
 
 const AlbumCarousel = (props) => {
+     const closeBtn = <CloseBtn onClick={props.carouselToggle} />;
+
      const next = () => {
           const nextIndex =
                props.activeIndex === props.album.length - 1
@@ -36,10 +38,10 @@ const AlbumCarousel = (props) => {
                isOpen={props.carouselModal}
                centered={true}
                size='lg'
-               close={CloseBtn}
+               close={closeBtn}
           >
                <ModalHeader className='caroModal justify-content-md-end'>
-                    {CloseBtn}
+                    {closeBtn}
                </ModalHeader>
                <Carousel
                     activeIndex={props.activeIndex}

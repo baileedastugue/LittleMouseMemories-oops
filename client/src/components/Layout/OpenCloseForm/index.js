@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTransition, animated } from 'react-spring';
-import MaterialIcon from 'material-icons-react';
 import FormContainer from '../FormContainer';
+import CloseArrowBtn from '../../Buttons/CloseArrowBtn';
 
 function OpenCloseForm() {
      const [formDivIndex, setFormDivIndex] = useState(0);
@@ -52,15 +52,8 @@ function OpenCloseForm() {
           },
      });
 
-     const closeBtn = (
-          <MaterialIcon
-               icon='arrow_forward'
-               color='white'
-               size='large'
-               id='btn-authForms--close'
-               onClick={formDivClose}
-          />
-     );
+     const closeBtn = <CloseArrowBtn onClick={formDivClose} />;
+
      return (
           <>
                <div className='signIn-background--square'>
