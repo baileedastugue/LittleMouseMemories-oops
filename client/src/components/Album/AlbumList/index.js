@@ -44,17 +44,14 @@ const AlbumList = ({ album, albums, getAllAlbums, getAlbumSettings }) => {
      ) : !albumLoading ? (
           <Fragment>
                {albums.albums.map((album) => (
-                    <Card className='flipCard' key={album._id}>
+                    <Card className='card-square' key={album._id}>
                          <Link to={`/album/${album._id}`}>
-                              <CardBody
-                                   className='flipCard-container'
-                                   key={album._id}
-                              >
-                                   <div className='flipCard-inner'>
-                                        <div className='flipCard-inner--front'>
+                              <CardBody className='card-flip' key={album._id}>
+                                   <div className='card-flip--inner'>
+                                        <div className='card-flip--front'>
                                              {album.title}
                                         </div>
-                                        <div className='flipCard-inner--back center'>
+                                        <div className='card-flip--back'>
                                              <div>
                                                   Created on: <br />
                                                   <Moment
@@ -67,7 +64,7 @@ const AlbumList = ({ album, albums, getAllAlbums, getAlbumSettings }) => {
                               </CardBody>
                          </Link>
                          <CardFooter
-                              className='albumSettings'
+                              className='card-square--footer'
                               id={album._id}
                               onClick={(event) => settingsToggle(event, album)}
                          >

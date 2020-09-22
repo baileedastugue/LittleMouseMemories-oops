@@ -163,6 +163,80 @@ Button.modalButton {
     border: none;
     outline: none; }
 
+/* line 2, src/sass/components/_cards.scss */
+div.card-square {
+  margin: 1vw;
+  border-radius: 0;
+  border: none;
+  outline: none; }
+  /* line 4, src/sass/components/_cards.scss */
+  div.card-square--footer {
+    height: 50px;
+    background-color: #252525;
+    border: none;
+    border-radius: 0;
+    text-align: right; }
+    /* line 10, src/sass/components/_cards.scss */
+    div.card-square--footer:hover {
+      background-color: #252525;
+      cursor: pointer;
+      color: #bbe1fa; }
+
+/* line 17, src/sass/components/_cards.scss */
+div.card-flip {
+  width: 350px;
+  height: 350px;
+  background-color: transparent;
+  perspective: 1000px;
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: white;
+  font-size: 1.5vw; }
+  /* line 30, src/sass/components/_cards.scss */
+  div.card-flip:hover .card-flip--inner {
+    transform: rotateX(180deg);
+    cursor: pointer; }
+  /* line 35, src/sass/components/_cards.scss */
+  div.card-flip--inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    transition: transform 0.6s;
+    transform-style: preserve-3d; }
+  /* line 43, src/sass/components/_cards.scss */
+  div.card-flip--front {
+    background-color: #3282b8;
+    color: white;
+    padding: 0.5vw;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden; }
+  /* line 49, src/sass/components/_cards.scss */
+  div.card-flip--back {
+    background-color: #0f4c75;
+    color: white;
+    transform: rotateX(180deg);
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    vertical-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden; }
+
 /* line 1, src/sass/components/_carouselPicture.scss */
 .card.carouselPicture {
   border-radius: 0;
@@ -319,63 +393,6 @@ Button.modalButton {
 form#changePasswordForm.form input.form-control {
   display: block;
   width: 100%; }
-
-/* line 1, src/sass/components/_flip-cards.scss */
-.flipCard {
-  margin: 1vw;
-  border-radius: 0;
-  border: none;
-  outline: none;
-  width: 20vw;
-  height: 20vw; }
-  /* line 4, src/sass/components/_flip-cards.scss */
-  .flipCard--container {
-    width: 20vw;
-    height: 40vw;
-    background-color: transparent;
-    perspective: 1000px;
-    box-sizing: border-box;
-    position: relative;
-    display: inline-block;
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    color: white;
-    font-size: 1.5vw; }
-  /* line 17, src/sass/components/_flip-cards.scss */
-  .flipCard--inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: left;
-    transition: transform 0.6s;
-    transform-style: preserve-3d; }
-    /* line 24, src/sass/components/_flip-cards.scss */
-    .flipCard--inner--front {
-      background-color: #3282b8;
-      color: white;
-      padding: 0.5vw; }
-    /* line 29, src/sass/components/_flip-cards.scss */
-    .flipCard--inner--back {
-      background-color: #0f4c75;
-      color: white;
-      transform: rotateX(180deg);
-      text-align: center;
-      color: white;
-      font-size: 20px;
-      font-family: "Roboto", sans-serif;
-      font-weight: 300;
-      vertical-align: center; }
-  /* line 41, src/sass/components/_flip-cards.scss */
-  .flipCard-container:hover, .flipCard-inner {
-    transform: rotateX(180deg);
-    cursor: pointer; }
-  /* line 45, src/sass/components/_flip-cards.scss */
-  .flipCard-inner--front, .flipCard-inner--back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden; }
 
 /* line 1, src/sass/components/_formContainer.scss */
 .authForms {
