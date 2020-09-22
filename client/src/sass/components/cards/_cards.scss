@@ -40,8 +40,8 @@ div.card {
       transform-style: preserve-3d;
     }
     &--front {
-      background-color: $focus-color;
-      color: white;
+      background-color: $color-focus;
+      color: $color-white;
       padding: 0.5vw;
       @include flip180FrontBack;
     }
@@ -49,7 +49,7 @@ div.card {
       @include thinFont;
       color: $color-white;
       font-size: 2rem;
-      background-color: $secondary-color;
+      background-color: $color-secondary;
       transform: rotateX(180deg);
       text-align: center;
       vertical-align: center;

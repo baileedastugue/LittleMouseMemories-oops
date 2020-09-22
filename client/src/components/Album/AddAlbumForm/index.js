@@ -54,7 +54,7 @@ const AddAlbumForm = ({ setAlert, addNewAlbum, toggle, isAuth }) => {
      return (
           <Fragment>
                <AlertDiv />
-               <Form className='form clearfix' onSubmit={onSubmit}>
+               <Form className='form' onSubmit={onSubmit}>
                     <Row form>
                          <Col md={12}>
                               <FormGroup>
@@ -76,7 +76,6 @@ const AddAlbumForm = ({ setAlert, addNewAlbum, toggle, isAuth }) => {
                                         <Input
                                              type='checkbox'
                                              name='addPassword'
-                                             // value={addPassword}
                                              onChange={handleCheckboxChange}
                                              isChecked={passwordRequired}
                                         />

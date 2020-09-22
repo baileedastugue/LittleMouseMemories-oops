@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Button, FormGroup } from 'reactstrap';
 import AlertDiv from '../../Layout/AlertDiv';
 
-const AlbumPassword = (props) => {
+const AlbumPasswordInput = (props) => {
      return (
           <Form className='form' onSubmit={props.onSubmit}>
                <AlertDiv />
@@ -23,4 +23,4 @@ const AlbumPassword = (props) => {
      );
 };
 
-export default AlbumPassword;
+export default AlbumPasswordInput;

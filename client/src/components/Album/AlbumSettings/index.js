@@ -59,7 +59,7 @@ const AlbumSettings = (props) => {
                     </ModalHeader>
                     <ModalBody>
                          <Form
-                              className='form clearfix'
+                              className='form'
                               onSubmit={(event) => submitAlbumTitle(event)}
                          >
                               <FormGroup>

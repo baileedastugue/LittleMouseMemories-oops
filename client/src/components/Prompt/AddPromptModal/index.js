@@ -6,7 +6,7 @@ const AddPromptModal = (props) => {
      const closeBtn = <CloseBtn onClick={props.toggle} />;
      return (
           <div>
-               <Modal isOpen={props.isOpen} className='addModal'>
+               <Modal isOpen={props.isOpen}>
                     <ModalHeader close={closeBtn}>
                          Add a New Memory Post
                     </ModalHeader>

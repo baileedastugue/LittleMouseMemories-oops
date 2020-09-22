@@ -7,7 +7,7 @@ const AddAlbumModal = (props) => {
 
      return (
           <div>
-               <Modal isOpen={props.isOpen} className='addModal'>
+               <Modal isOpen={props.isOpen}>
                     <ModalHeader close={closeBtn}>Add a New Album</ModalHeader>
                     <ModalBody>{props.children}</ModalBody>
                </Modal>

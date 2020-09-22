@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { setAlert } from '../../../actions/alertActions';
 import { albumPasswordChange } from '../../../actions/albumActions';
 import SubmitButton from '../../Buttons/SubmitBtn';
-import { Form, FormGroup, Label, Input, FormText, Button } from 'reactstrap';
+import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 const AlbumPassword = (props) => {
      const [newPassword, setNewPassword] = useState('');

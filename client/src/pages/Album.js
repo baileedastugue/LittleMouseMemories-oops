@@ -12,7 +12,7 @@ import { setAlert } from '../actions/alertActions';
 import PageTitle from '../components/Layout/PageTitle';
 import Loading from '../components/Layout/Loading';
 import NoContent from '../components/Layout/NoContent';
-import AlbumPassword from '../components/Album/AlbumPassword';
+import AlbumPasswordInput from '../components/Album/AlbumPasswordInput';
 import ButtonContainer from '../components/Buttons/ButtonContainer';
 import AlbumCarousel from '../components/Album/AlbumCarousel';
 
@@ -232,7 +232,7 @@ const Album = ({
                     </>
                ) : (
                     // if you are not authorized, give option to submit a password
-                    <AlbumPassword
+                    <AlbumPasswordInput
                          onSubmit={onSubmit}
                          onChange={onChange}
                          value={password}
