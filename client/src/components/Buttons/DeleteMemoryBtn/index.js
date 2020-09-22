@@ -1,10 +1,9 @@
 import React from 'react';
-import './style.css';
 
-const DeleteBtn = (props) => {
+const DeleteMemoryBtn = (props) => {
      return (
           <span
-               className='deleteButton'
+               className='btn-delete--memory btn'
                data-id={props.id}
                onClick={props.deleteClick}
           >
@@ -13,4 +12,4 @@ const DeleteBtn = (props) => {
      );
 };
 
-export default DeleteBtn;
+export default DeleteMemoryBtn;

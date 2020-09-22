@@ -26,17 +26,37 @@ Button.btn {
       border-color: $abundant-color;
     }
   }
+  &-submit {
+    background-color: $focus-color;
+    border-color: $focus-color;
+    float: right;
+    &:hover  {
+      background-color: transparent;
+      color: $focus-color;
+      border-color: $focus-color;
+    }
+  }
+  &-delete{
+    background-color: $danger;
+    border-color: $danger;
+    &:hover {
+      background-color: transparent;
+      border-color: $danger;
+      color: $danger;
+    }
+    &--memory {
+      color: $highlight-color;
+      cursor: pointer;
+      font-style: $secondary-text;
+      font-size: 1vw;
+      padding-bottom: 10%;
+      text-align: center;
+    }
+  }
 }
 
 
-.deleteButton {
-  color: $highlight-color;
-  cursor: pointer;
-  font-style: $secondary-text;
-  font-size: 1vw;
-  padding-bottom: 10%;
-  text-align: center;
-}
+
 
 
 button.close {

@@ -6,7 +6,6 @@ import Moment from 'react-moment';
 
 import {
      getAllAlbums,
-     deleteAlbum,
      getAlbumSettings,
      albumNameChange,
 } from '../../../actions/albumActions';
@@ -25,12 +24,9 @@ const AlbumList = ({ album, albums, getAllAlbums, getAlbumSettings }) => {
      let albumLoading = albums.isLoading;
 
      const settingsToggle = async (event, data) => {
-          console.log('i bla');
           event.preventDefault();
           if (data) {
-               console.log('line 26');
                await getAlbumSettings(data._id);
-
                setSettingsModal(true);
                console.log(settingsModal);
           }

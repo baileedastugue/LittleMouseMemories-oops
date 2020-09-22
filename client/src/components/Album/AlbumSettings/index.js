@@ -92,7 +92,7 @@ const AlbumSettings = (props) => {
                          <Button
                               id={props.currentAlbum._id}
                               onClick={deleteClick}
-                              className='mx-auto btn-danger'
+                              className='mx-auto btn-delete'
                          >
                               Delete Album
                          </Button>

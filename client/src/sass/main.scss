@@ -17,20 +17,6 @@
 
 
 
-
-button.submit-btn.btn.btn-secondary {
-  background-color: $focus-color;
-  border-color: $focus-color;
-  float: right;
-}
-
-button.submit-btn.btn.btn-secondary:hover  {
-  background-color: transparent;
-  color: $focus-color;
-  border-color: $focus-color;
-}
-
-
 button.close, button.close:active, button.close:focus, button.close::after {
   border: none;
   outline: none;
@@ -100,31 +86,6 @@ div#root {
   button.albumButton {
     padding-top: 15px;
     padding-left: 0px;
-  }
-}
-
-button.btn-danger {
-  background-color: $danger;
-  border-color: $danger;
-}
-
-button.btn-danger:hover {
-  background-color: transparent;
-  border-color: $danger;
-  color: $danger;
-}
-
-ul.nav.nav-tabs {
-  border-bottom: 2px solid $focus-color;
-  z-index: 10;
-  a.nav-link {
-    color: $muted-color;
-  }
-  a.active.nav-link {
-    background-color: transparent;
-    border-radius: 0;
-    border: 2px solid $focus-color;
-    color: $abundant-color;
   }
 }
 

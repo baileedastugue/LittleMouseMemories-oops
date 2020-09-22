@@ -108,22 +108,40 @@ Button.btn {
       background-color: transparent;
       color: white;
       border-color: white; }
+  /* line 29, src/sass/components/_buttons.scss */
+  Button.btn-submit {
+    background-color: #3282b8;
+    border-color: #3282b8;
+    float: right; }
+    /* line 33, src/sass/components/_buttons.scss */
+    Button.btn-submit:hover {
+      background-color: transparent;
+      color: #3282b8;
+      border-color: #3282b8; }
+  /* line 39, src/sass/components/_buttons.scss */
+  Button.btn-delete {
+    background-color: #c40018;
+    border-color: #c40018; }
+    /* line 42, src/sass/components/_buttons.scss */
+    Button.btn-delete:hover {
+      background-color: transparent;
+      border-color: #c40018;
+      color: #c40018; }
+    /* line 47, src/sass/components/_buttons.scss */
+    Button.btn-delete--memory {
+      color: #bbe1fa;
+      cursor: pointer;
+      font-style: "Roboto", sans-serif;
+      font-size: 1vw;
+      padding-bottom: 10%;
+      text-align: center; }
 
-/* line 32, src/sass/components/_buttons.scss */
-.deleteButton {
-  color: #bbe1fa;
-  cursor: pointer;
-  font-style: "Roboto", sans-serif;
-  font-size: 1vw;
-  padding-bottom: 10%;
-  text-align: center; }
-
-/* line 42, src/sass/components/_buttons.scss */
+/* line 62, src/sass/components/_buttons.scss */
 button.close {
   margin: 0;
   padding: 1vw; }
 
-/* line 47, src/sass/components/_buttons.scss */
+/* line 67, src/sass/components/_buttons.scss */
 Button.modalButton {
   width: 90px;
   height: 90px;
@@ -135,11 +153,11 @@ Button.modalButton {
   float: right;
   border: none;
   outline: none; }
-  /* line 58, src/sass/components/_buttons.scss */
+  /* line 78, src/sass/components/_buttons.scss */
   Button.modalButton:hover {
     background-color: white;
     outline: none; }
-  /* line 62, src/sass/components/_buttons.scss */
+  /* line 82, src/sass/components/_buttons.scss */
   Button.modalButton:focus, Button.modalButton:active, Button.modalButton::after {
     background-color: #bbe1fa;
     border: none;
@@ -308,13 +326,12 @@ form#changePasswordForm.form input.form-control {
   border-radius: 0;
   border: none;
   outline: none;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
+  width: 20vw;
+  height: 20vw; }
   /* line 4, src/sass/components/_flip-cards.scss */
   .flipCard--container {
-    width: 350px;
-    height: 350px;
+    width: 20vw;
+    height: 40vw;
     background-color: transparent;
     perspective: 1000px;
     box-sizing: border-box;
@@ -349,11 +366,11 @@ form#changePasswordForm.form input.form-control {
       font-weight: 300;
       vertical-align: center; }
   /* line 41, src/sass/components/_flip-cards.scss */
-  .flipCard .flipCard-container:hover .flipCard-inner {
+  .flipCard-container:hover, .flipCard-inner {
     transform: rotateX(180deg);
     cursor: pointer; }
   /* line 45, src/sass/components/_flip-cards.scss */
-  .flipCard .flipCard-inner--front, .flipCard .flipCard-inner--back {
+  .flipCard-inner--front, .flipCard-inner--back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -692,34 +709,22 @@ div#noContent {
       text-decoration: none;
       font-style: italic; }
 
-/* line 21, src/sass/main.scss */
-button.submit-btn.btn.btn-secondary {
-  background-color: #3282b8;
-  border-color: #3282b8;
-  float: right; }
-
-/* line 27, src/sass/main.scss */
-button.submit-btn.btn.btn-secondary:hover {
-  background-color: transparent;
-  color: #3282b8;
-  border-color: #3282b8; }
-
-/* line 34, src/sass/main.scss */
+/* line 20, src/sass/main.scss */
 button.close, button.close:active, button.close:focus, button.close::after {
   border: none;
   outline: none; }
 
-/* line 39, src/sass/main.scss */
+/* line 25, src/sass/main.scss */
 div.modal-content {
   border-radius: 0; }
 
-/* line 42, src/sass/main.scss */
+/* line 28, src/sass/main.scss */
 div.caroModal.modal-header.justify-content-md-end {
   border-bottom: none;
   padding: 1vw 1vw 0vw 0vw;
   border-radius: 0; }
 
-/* line 48, src/sass/main.scss */
+/* line 34, src/sass/main.scss */
 .mixedPost-footer.modal-footer {
   border-radius: 0;
   height: 2.9vw;
@@ -731,14 +736,14 @@ div.caroModal.modal-header.justify-content-md-end {
   color: #c40018;
   font-family: "Roboto", sans-serif; }
 
-/* line 60, src/sass/main.scss */
+/* line 46, src/sass/main.scss */
 .mixedPost-footer.modal-footer:hover {
   border-radius: 0;
   border: 2.5px solid #c40018;
   cursor: pointer;
   text-align: center; }
 
-/* line 68, src/sass/main.scss */
+/* line 54, src/sass/main.scss */
 div#root {
   background-color: #252525;
   box-sizing: border-box;
@@ -746,7 +751,7 @@ div#root {
   color: white;
   position: relative; }
 
-/* line 78, src/sass/main.scss */
+/* line 64, src/sass/main.scss */
 .buttonContainer {
   z-index: 1000;
   position: fixed;
@@ -754,57 +759,32 @@ div#root {
   -webkit-transform: translateX(85vw);
   -ms-transform: translateX(85vw);
   transform: translateX(85vw); }
-  /* line 85, src/sass/main.scss */
+  /* line 71, src/sass/main.scss */
   .buttonContainer .modalButton.albumButton {
     position: sticky;
     right: 4vw;
     bottom: 0vw; }
-  /* line 90, src/sass/main.scss */
+  /* line 76, src/sass/main.scss */
   .buttonContainer .modalButton.promptButton {
     position: sticky;
     right: 4vw;
     margin-top: 2vw; }
-  /* line 95, src/sass/main.scss */
+  /* line 81, src/sass/main.scss */
   .buttonContainer .modalButton.photoButton {
     position: sticky;
     bottom: 2vw;
     display: block; }
-  /* line 100, src/sass/main.scss */
+  /* line 86, src/sass/main.scss */
   .buttonContainer button.albumButton {
     padding-top: 15px;
     padding-left: 0px; }
 
-/* line 106, src/sass/main.scss */
-button.btn-danger {
-  background-color: #c40018;
-  border-color: #c40018; }
-
-/* line 111, src/sass/main.scss */
-button.btn-danger:hover {
-  background-color: transparent;
-  border-color: #c40018;
-  color: #c40018; }
-
-/* line 117, src/sass/main.scss */
-ul.nav.nav-tabs {
-  border-bottom: 2px solid #3282b8;
-  z-index: 10; }
-  /* line 120, src/sass/main.scss */
-  ul.nav.nav-tabs a.nav-link {
-    color: #dfdfdf; }
-  /* line 123, src/sass/main.scss */
-  ul.nav.nav-tabs a.active.nav-link {
-    background-color: transparent;
-    border-radius: 0;
-    border: 2px solid #3282b8;
-    color: white; }
-
-/* line 131, src/sass/main.scss */
+/* line 92, src/sass/main.scss */
 label {
   font-family: "Roboto", sans-serif;
   font-weight: 300; }
 
-/* line 136, src/sass/main.scss */
+/* line 97, src/sass/main.scss */
 div#accountSettings {
   width: 70%;
   margin: 0 auto; }
