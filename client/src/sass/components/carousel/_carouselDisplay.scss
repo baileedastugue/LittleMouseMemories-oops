@@ -37,7 +37,8 @@
   }
   &-prompt {
     &--background {
-      height: 37vw;
+      height: 70vh;
+      margin-bottom: 1vh;
       width: 35vw;
       background-color: $color-focus;
       overflow-y: auto;
@@ -60,12 +61,11 @@
       color: $color-white;
       font-size: 2.8rem;
     }
-
   }
-
   &-picture {
     &--imgContainer {
       background-color: $color-dark;
+      width: 100%;
     }
     &--image {
       justify-content: center;

@@ -29,7 +29,8 @@ Button.btn {
   &-submit {
     background-color: $focus-color;
     border-color: $focus-color;
-    float: right;
+    // justify-content: center;
+    // display: block;
     &:hover  {
       background-color: transparent;
       color: $focus-color;
@@ -37,12 +38,12 @@ Button.btn {
     }
   }
   &-delete{
-    background-color: $danger;
-    border-color: $danger;
+    background-color: $color-danger;
+    border-color: $color-danger;
     &:hover {
       background-color: transparent;
-      border-color: $danger;
-      color: $danger;
+      border-color: $color-danger;
+      color: $color-danger;
     }
     &--memory {
       color: $highlight-color;

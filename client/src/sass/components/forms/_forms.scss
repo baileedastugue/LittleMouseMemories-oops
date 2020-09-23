@@ -47,3 +47,36 @@
 label {
   @include thinFont;
 }
+
+.forms, label {
+  font-size: 1.6rem;
+}
+.form-control {
+  height: 4rem;
+  font-size: 1.6rem;
+}
+
+.modal-header {
+  @include noFraming;
+}
+
+.modal-title {
+  font-size: 2.2rem;
+}
+
+// .form-check input{
+//   margin-right: 2rem;
+//   // width: 20rem;
+//   display: block;
+//   font-size: 2rem;
+// }
+
+.form-check label {
+  margin-left: 1rem;
+}
+
+form {
+  h5 {
+    font-size: 2rem;
+  }
+}

@@ -25,11 +25,12 @@ const AlbumCarousel = (props) => {
      };
 
      const previous = () => {
-          const nextIndex =
+          const prevIndex =
                props.activeIndex === 0
-                    ? props.length - 1
+                    ? props.album.length - 1
                     : props.activeIndex - 1;
-          props.setActiveIndex(nextIndex);
+          console.log(prevIndex);
+          props.setActiveIndex(prevIndex);
      };
 
      return (

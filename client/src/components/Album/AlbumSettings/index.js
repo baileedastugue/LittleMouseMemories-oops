@@ -19,7 +19,7 @@ import {
 } from '../../../actions/albumActions';
 
 import AlbumPassword from '../../Settings/AlbumPassword';
-import SubmitButton from '../../Buttons/SubmitBtn';
+import AlbumTitle from '../../Settings/AlbumTitle';
 import CloseBtn from '../../Buttons/CloseBtn';
 
 const AlbumSettings = (props) => {
@@ -58,26 +58,13 @@ const AlbumSettings = (props) => {
                          <AlertDiv />
                     </ModalHeader>
                     <ModalBody>
-                         <Form
-                              className='form'
+                         <AlbumTitle
+                              newTitle={newTitle}
+                              onAlbumTitleChange={onAlbumTitleChange}
                               onSubmit={(event) => submitAlbumTitle(event)}
-                         >
-                              <FormGroup>
-                                   <h5>Change album title</h5>
-                                   <Label htmlFor='newTitle'>
-                                        New album title
-                                   </Label>
-                                   <Input
-                                        type='text'
-                                        name='newTitle'
-                                        value={newTitle}
-                                        onChange={onAlbumTitleChange}
-                                   />
-                              </FormGroup>
-                              <SubmitButton>Change title</SubmitButton>
-                         </Form>
+                         />
                          <hr />
-                         <h5>Change password settings</h5>
+
                          <AlbumPassword
                               id={props.currentAlbum._id}
                               passwordRequired={
@@ -86,19 +73,23 @@ const AlbumSettings = (props) => {
                               closeSettings={props.closeSettings}
                          />
                          <hr />
-                         <h5>Delete album</h5>
-                         <p>
-                              Deleting this album will permanently delete the
-                              album and all posts within this album. This action
-                              cannot be undone - click carefully!
-                         </p>
-                         <Button
-                              id={props.currentAlbum._id}
-                              onClick={deleteClick}
-                              className='mx-auto btn-delete'
-                         >
-                              Delete Album
-                         </Button>
+                         <Form>
+                              <h5>Delete album</h5>
+
+                              <Label>
+                                   Deleting this album will permanently delete
+                                   the album and all posts within this album.
+                                   This action cannot be undone - click
+                                   carefully!
+                              </Label>
+                              <Button
+                                   id={props.currentAlbum._id}
+                                   onClick={deleteClick}
+                                   className='mx-auto btn-delete'
+                              >
+                                   Delete Album
+                              </Button>
+                         </Form>
                     </ModalBody>
                </Modal>
           </div>

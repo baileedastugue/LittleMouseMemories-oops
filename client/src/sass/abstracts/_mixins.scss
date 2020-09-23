@@ -10,13 +10,18 @@
   height: 35rem;
 }
 
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
 @mixin center {
   display: flex;
   justify-content: center;
   align-items: center;
-  // display: inline-block;
-  // vertical-align: middle;
-  // text-align: center; 
 }
 
 @mixin thinFont {

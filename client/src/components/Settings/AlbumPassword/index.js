@@ -52,23 +52,24 @@ const AlbumPassword = (props) => {
                onSubmit={onPasswordSubmit}
                id={props.id}
           >
+               <h5>Change password settings</h5>
                {!props.passwordRequired ? (
-                    <p>No password currently required to view this album</p>
-               ) : (
-                    <p>Password is required to view this album</p>
-               )}
-               <FormGroup className='ml-4'>
                     <Label>
-                         <Input
-                              type='checkbox'
-                              name='newPassword'
-                              value={newPassword}
-                              onChange={handleCheckboxChange}
-                              defaultChecked={props.passwordRequired}
-                              isChecked={passwordRequired}
-                         />
-                         Require password
+                         No password currently required to view this album
                     </Label>
+               ) : (
+                    <Label>Password is required to view this album</Label>
+               )}
+               <FormGroup check className='ml-4'>
+                    <Input
+                         type='checkbox'
+                         name='newPassword'
+                         value={newPassword}
+                         onChange={handleCheckboxChange}
+                         defaultChecked={props.passwordRequired}
+                         isChecked={passwordRequired}
+                    />
+                    <Label check>Require password</Label>
                </FormGroup>
 
                {passwordRequired ? (

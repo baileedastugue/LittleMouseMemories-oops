@@ -72,13 +72,14 @@ const AddAlbumForm = ({ setAlert, addNewAlbum, toggle, isAuth }) => {
                     <Row form>
                          <Col md={6}>
                               <FormGroup check className='mb-5 mt-3'>
+                                   <Input
+                                        type='checkbox'
+                                        name='addPassword'
+                                        onChange={handleCheckboxChange}
+                                        isChecked={passwordRequired}
+                                   />
+
                                    <Label check>
-                                        <Input
-                                             type='checkbox'
-                                             name='addPassword'
-                                             onChange={handleCheckboxChange}
-                                             isChecked={passwordRequired}
-                                        />
                                         Add password to this album
                                    </Label>
                               </FormGroup>

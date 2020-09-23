@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Button, FormGroup } from 'reactstrap';
+import { Form, Button, FormGroup, Label, Input } from 'reactstrap';
 import AlertDiv from '../../Layout/AlertDiv';
 
 const AlbumPasswordInput = (props) => {
@@ -7,8 +7,8 @@ const AlbumPasswordInput = (props) => {
           <Form className='form' onSubmit={props.onSubmit}>
                <AlertDiv />
                <FormGroup>
-                    <label htmlFor='inputPassword'>Album Password</label>
-                    <input
+                    <Label htmlFor='inputPassword'>Album Password</Label>
+                    <Input
                          type='password'
                          name='password'
                          className='form-control'
