@@ -8,7 +8,7 @@
       left: -10vw;
       position: absolute;
       padding: 10vw;
-      background-color: $secondary-color;
+      background-color: $color-secondary;
       z-index: 0;
     }
     &--triangle {
@@ -16,7 +16,7 @@
       height: 50vw;
       position: absolute;
       left: 16vw;
-      border-top: 50vw solid $secondary-color;
+      border-top: 50vw solid $color-secondary;
       border-right: 50vw solid transparent;
       z-index: 0;
     }

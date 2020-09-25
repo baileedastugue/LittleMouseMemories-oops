@@ -23,6 +23,7 @@ import AlbumPicture from '../components/Picture/AlbumPicture';
 import AddPromptForm from '../components/Prompt/AddPromptForm';
 import AddPromptModal from '../components/Prompt/AddPromptModal';
 import AlbumPrompt from '../components/Prompt/AlbumPrompt';
+import CenteredContent from '../components/Layout/CenteredContent';
 
 const Album = ({
      getAlbum,
@@ -141,8 +142,8 @@ const Album = ({
                               />
                          </Fragment>
                          {album.album.length > 0 ? (
-                              <>
-                                   <Row className='centered-squares'>
+                              <CenteredContent>
+                                   <Row className='stretch-squares'>
                                         {album.album.map((post, index) => (
                                              <Fragment key={post._id}>
                                                   {'image' in post ? (
@@ -222,7 +223,7 @@ const Album = ({
                                         setActiveIndex={setActiveIndex}
                                         isAuth={isAuth}
                                    />
-                              </>
+                              </CenteredContent>
                          ) : (
                               <NoContent>
                                    No posts in this album yet! Use the buttons

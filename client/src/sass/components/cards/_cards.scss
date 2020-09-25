@@ -1,13 +1,15 @@
 div.card {
   &-square {
     @include squareCard;
+    @include noFraming;
+    border-radius: 0px;
+    border-color: transparent;
     &--footer {
       height: 5vh;
       font-size: 1.6rem;
       background-color: $color-dark;
-      border: none;
-      border-radius: 0;
       text-align: right;
+      @include noFraming;
       &:hover {
         background-color: $color-dark;
         cursor: pointer;

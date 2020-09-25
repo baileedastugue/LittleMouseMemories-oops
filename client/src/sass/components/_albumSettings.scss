@@ -1,12 +1,11 @@
 .albumSettings {
   height: 50px;
-  background-color: $dark-color;
-  border: none;
-  border-radius: 0;
+  background-color: $color-dark;
+  @include noFraming;
   text-align: right;
   &:hover {
-    background-color: $dark-color;
+    background-color: $color-dark;
     cursor: pointer;
-    color: $highlight-color;
+    color: $color-highlight;
 }
 }

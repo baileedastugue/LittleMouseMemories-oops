@@ -6,7 +6,7 @@
       left: 0vw;
       height: 15vw;
       width: 20vw;
-      background-color: $focus-color;
+      background-color: $color-focus;
       z-index: 1000;
     }
     &--triangle {
@@ -15,7 +15,7 @@
       top: 35vw;
       width: 15vw;
       height: 15vw;
-      border-top: 15vw solid $focus-color;
+      border-top: 15vw solid $color-focus;
       border-right: 15vw solid transparent;
     }
   }
@@ -27,7 +27,7 @@
     z-index: 1000;
     &--authLink {
         z-index: 1000;
-        color: $dark-color;
+        color: $color-dark;
         font-weight: unset;
         &:hover {
           z-index: 1000;

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, CardText, CardTitle, CardSubtitle, CardBody } from 'reactstrap';
+import { Card, CardTitle, CardSubtitle } from 'reactstrap';
+import CenteredContent from '../../Layout/CenteredContent';
 import Moment from 'react-moment';
 
 const CarouselPrompt = (props) => {
@@ -14,7 +15,7 @@ const CarouselPrompt = (props) => {
                <CardSubtitle className='carousel-card--subtitle'>
                     Uploaded by {props.uploadedBy}
                </CardSubtitle>
-               <div className='center'>
+               <CenteredContent>
                     <div className='carousel-prompt--background'>
                          <span className='carousel-prompt--promptContainer'>
                               <span className='carousel-prompt--prompt'>
@@ -26,7 +27,7 @@ const CarouselPrompt = (props) => {
                               </span>
                          </span>
                     </div>
-               </div>
+               </CenteredContent>
                <p className='carousel-card--recordedDate'>
                     Memory uploaded on{' '}
                     <Moment format='MM/DD/YYYY' date={props.dateUploaded} />

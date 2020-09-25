@@ -1,13 +1,15 @@
 @mixin squareCard {
-  margin: 1vw;
-  border-radius: 0;
+  margin: $gutter-horizontal;
+  border-radius: 0px;
   border: none;
   outline: none;
+  float: left;
 }
 
 @mixin cardSize {
-  width: 35rem;
-  height: 35rem;
+  // width: calc($grid-width - (3 * $gutter-horizontal) / 4)
+  width: $card-size;
+  height: $card-size;
 }
 
 @mixin clearfix {
@@ -40,4 +42,53 @@
 @mixin noFraming {
   border: none;
   outline: none;
+}
+
+@mixin engageMovement {
+  &:hover {
+    transform: translateY(-.3rem);
+    box-shadow: 0 1rem 2rem rgba($color-dark,.2);
+    &::after {
+      transform: scaleX(1.1);
+      opacity: 0;
+    }
+  }
+  &:active {
+    transform: translateY(-.1rem);
+    box-shadow: 0 .5rem 1rem rgba($color-dark,.2);
+  }
+}
+
+ // Media query manager
+ /*
+ 0 - 600 px:        Phone
+ 600 - 900 px:      Tablet portrait
+ 900 - 1200 px:     Tablet landscape
+
+ 1200 - 1800 px:    Normal styles apply
+ 
+ 1800px + :         Big desktop
+
+$breakpoint argument choices:
+  - phone
+  - tab-port
+  - tab-land
+  - big-desktop
+
+  1em = 16px
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) { @content }; // 600px
+  }
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) { @content }; // 900px
+  }
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) { @content }; // 1200px
+  }
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) { @content }; // 1800px
+  }
 }

@@ -1,14 +1,25 @@
 .wrapper {
-  background-color: $dark-color;
+  background-color: $color-dark;
   margin: 0vw 5%;
   height: 89%;
   flex: 1 0 auto;
   overflow-x: hidden;
 }
 
-.centered-squares {
+.stretch-squares {
   display: flex;
-  justify-content:initial; 
-  margin: 0;
-  padding-left: 2.1vw;
+  justify-content: start;
+  max-width: calc(#{$card-size}* 4 + #{$gutter-horizontal}* 8);
+  margin: 0 auto;
+  
+  @include respond(tab-land) {
+    width: calc(#{$card-size}* 3 + #{$gutter-horizontal}* 6);
+  }
+  @include respond(tab-port) {
+    width: calc(#{$card-size}* 2 + #{$gutter-horizontal}* 4);
+  }
+  @include respond(phone) {
+    width: calc(#{$card-size}*1 + #{$gutter-horizontal}* 2);
+  }
+  // @include center;
 }
