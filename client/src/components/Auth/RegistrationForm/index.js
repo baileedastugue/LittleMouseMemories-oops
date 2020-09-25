@@ -1,12 +1,12 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { setAlert } from '../../../actions/alertActions';
 import { register } from '../../../actions/authActions';
 import { Form, FormGroup, Row, Col, Label, Input } from 'reactstrap';
-import AuthButton from '../../Buttons/AuthBtn';
 import PropTypes from 'prop-types';
-import './style.css';
+
+import AuthButton from '../../Buttons/AuthBtn';
 import AlertDiv from '../../Layout/AlertDiv';
 
 const RegistrationForm = (props) => {
@@ -50,13 +50,12 @@ const RegistrationForm = (props) => {
      }
 
      return (
-          <Fragment>
+          <div className='authForms-form'>
                <Form
-                    className='form'
-                    id='registrationForm'
+                    className='form authForms-form--register'
                     onSubmit={(event) => onSubmit(event)}
                >
-                    <h1>Welcome</h1>
+                    <h3>Welcome</h3>
                     {props.closeBtn}
                     <Row>
                          <Col md={6}>
@@ -71,7 +70,6 @@ const RegistrationForm = (props) => {
                                         id='firstNameInput'
                                         onChange={(event) => onChange(event)}
                                         value={firstName}
-                                        // required
                                    />
                               </FormGroup>
                          </Col>
@@ -85,7 +83,6 @@ const RegistrationForm = (props) => {
                                         id='lastNameInput'
                                         onChange={(event) => onChange(event)}
                                         value={lastName}
-                                        // required
                                    />
                               </FormGroup>
                          </Col>
@@ -101,7 +98,6 @@ const RegistrationForm = (props) => {
                                         id='emailInput'
                                         onChange={(event) => onChange(event)}
                                         value={email}
-                                        // required
                                    />
                               </FormGroup>
                          </Col>
@@ -119,8 +115,6 @@ const RegistrationForm = (props) => {
                                         id='newPasswordInput'
                                         onChange={(event) => onChange(event)}
                                         value={password}
-                                        // minLength='6'
-                                        // required
                                    />
                               </FormGroup>
                          </Col>
@@ -136,8 +130,6 @@ const RegistrationForm = (props) => {
                                         id='newPasswordInput2'
                                         onChange={(event) => onChange(event)}
                                         value={password2}
-                                        // minLength='6'
-                                        // required
                                    />
                               </FormGroup>
                          </Col>
@@ -147,7 +139,7 @@ const RegistrationForm = (props) => {
                     </AuthButton>
                </Form>
                <AlertDiv />
-          </Fragment>
+          </div>
      );
 };
 

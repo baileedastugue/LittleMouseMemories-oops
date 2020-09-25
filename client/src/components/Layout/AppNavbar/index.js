@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { logout } from '../../../actions/authActions';
 import { Redirect } from 'react-router-dom';
 import logo from '../../../img/logo.png';
-import './style.css';
 
 const AppNavbar = ({ logout, auth }) => {
      const logoutUser = () => {
@@ -29,13 +28,7 @@ const AppNavbar = ({ logout, auth }) => {
           </Nav>
      );
 
-     const loggedOutLinks =
-          // <Nav>
-          //      <NavItem>
-          //           <NavLink href='/'>Homepage</NavLink>
-          //      </NavItem>
-          // </Nav>
-          null;
+     const loggedOutLinks = null;
      const loading = auth.isLoading;
      return (
           <div>
@@ -46,12 +39,12 @@ const AppNavbar = ({ logout, auth }) => {
                     {!auth.isAuthenticated ? (
                          <NavbarBrand href='/'>
                               <img src={logo} alt='two elephants hugging' />
-                              <span>Elephant's Memory</span>
+                              <h1>Elephant's Memory</h1>
                          </NavbarBrand>
                     ) : (
                          <NavbarBrand href='/dashboard'>
                               <img src={logo} alt='two elephants hugging' />
-                              <span>Elephant's Memory</span>
+                              <h1>Elephant's Memory</h1>
                          </NavbarBrand>
                     )}
                </Navbar>

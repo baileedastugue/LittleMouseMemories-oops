@@ -23,7 +23,6 @@ import {
 export const getAllAlbums = () => async (dispatch) => {
      try {
           dispatch({ type: LOADING_POST });
-          // knows which album to load from the token sent that contains the user id
           const res = await axios.get('api/albums/');
           dispatch({
                type: GET_ALBUMS_SUCCESS,
@@ -99,7 +98,6 @@ export const getAlbumSettings = (album_id) => async (dispatch) => {
 };
 
 export const getAlbum = (album_id) => async (dispatch) => {
-     // dispatch({ type: LOADING_POST });
      try {
           const res = await axios.get(`/api/albums/${album_id}`);
           let posts = [];

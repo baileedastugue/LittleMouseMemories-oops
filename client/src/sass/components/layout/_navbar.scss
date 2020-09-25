@@ -1,0 +1,55 @@
+.nav {
+  z-index: 0;
+  padding-bottom: 1vh;
+  &-link {
+    color: $color-white;
+    @include thinFont;
+    font-size: 1.6rem;
+    &:visited {
+      color: $color-white;
+    }
+    &:hover{
+      font-style: none;
+      cursor: pointer;
+      color: $color-highlight;
+    }
+  }
+  &bar {
+    background-color: $color-dark;
+    &-brand {
+      margin: 0vw;
+      padding-left: 0vw;
+      line-height:2vw;
+      text-align: right;
+      &:hover {
+        text-decoration: none;
+        font-style: normal;
+        text-shadow: -2px 0px 0px $color-white;
+      }
+      &:active {
+        text-shadow: unset;
+      }
+      h1 {
+        z-index: 1000;
+        margin-right: 10vw;
+        font-size: 5.5rem;
+        color: $color-focus;
+        font-family: $focus-text;
+      }
+      img {
+        height: 14rem;
+        min-height: 11rem;
+        padding: 0px;
+        margin: 0px;
+        right: 0%;
+        top: .7vw;
+        position: absolute;
+        z-index: 1;
+        -ms-transform: rotate(10deg); /* IE 9 */
+        transform: rotate(10deg);
+      }
+     
+    }
+   
+  }
+}

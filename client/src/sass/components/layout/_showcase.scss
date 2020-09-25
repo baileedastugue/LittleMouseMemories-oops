@@ -1,0 +1,45 @@
+.showcase {
+  height: 40vw;
+  width: 80vw;
+  position: absolute;
+  right: 0vw;
+  top: 12vw;
+  z-index: -100;
+  overflow: hidden;
+  &-movingArea {
+    animation: verticalScroll 60s linear infinite;
+    .row {
+      left: -50px;
+      margin: 0px;
+      width: 160vw;
+      border-radius: 0;
+      flex-direction: row;
+      position: relative;
+    }
+  }
+  &-box {
+    display: inline-block;
+    height: 20vw;
+    width: 20vw;
+    margin: 1vw;
+    &--prompt {
+      margin: 1vw;
+      background-color: $color-white;
+      padding: 1vw;
+      height: 20vw;
+      width: 20vw;
+      color: $color-focus;
+      font-size: 1.5vw;
+      font-family: $secondary-text;
+    }
+    &--image {
+      img {
+        border-radius: 0;
+        height: 20vw;
+        width: 20vw;
+        object-fit: contain;
+        background-color: $color-dark;
+      }
+    }
+  }
+}

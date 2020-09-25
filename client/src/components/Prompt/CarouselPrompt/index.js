@@ -1,34 +1,37 @@
 import React from 'react';
-import { Card, CardText, CardTitle, CardSubtitle, CardBody } from 'reactstrap';
+import { Card, CardTitle, CardSubtitle } from 'reactstrap';
+import CenteredContent from '../../Layout/CenteredContent';
 import Moment from 'react-moment';
-
-import './style.css';
 
 const CarouselPrompt = (props) => {
      return (
-          <Card className='carouselPrompt' style={Card.CarouselPicture}>
-               <CardTitle>
+          <Card
+               className='carousel-card carousel-prompt'
+               style={Card.CarouselPicture}
+          >
+               <CardTitle className='carousel-card--title'>
                     <Moment format='MM/DD/YYYY' date={props.dateRecorded} />
                </CardTitle>
-               <CardSubtitle>Uploaded by {props.uploadedBy}</CardSubtitle>
-               <div className='center'>
-                    <div className='memoryArea'>
-                         <span className='memoryText'>
-                              <span className='prompt'>{props.prompt}</span>
+               <CardSubtitle className='carousel-card--subtitle'>
+                    Uploaded by {props.uploadedBy}
+               </CardSubtitle>
+               <CenteredContent>
+                    <div className='carousel-prompt--background'>
+                         <span className='carousel-prompt--promptContainer'>
+                              <span className='carousel-prompt--prompt'>
+                                   {props.prompt}
+                              </span>
                               <br />
-                              <span className='response'>{props.response}</span>
+                              <span className='carousel-prompt--response'>
+                                   {props.response}
+                              </span>
                          </span>
                     </div>
-                    <CardBody>
-                         <CardText>
-                              Memory uploaded on{' '}
-                              <Moment
-                                   format='MM/DD/YYYY'
-                                   date={props.dateUploaded}
-                              />
-                         </CardText>
-                    </CardBody>
-               </div>
+               </CenteredContent>
+               <p className='carousel-card--recordedDate'>
+                    Memory uploaded on{' '}
+                    <Moment format='MM/DD/YYYY' date={props.dateUploaded} />
+               </p>
           </Card>
      );
 };

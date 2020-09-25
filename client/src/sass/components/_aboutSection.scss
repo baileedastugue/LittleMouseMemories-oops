@@ -1,0 +1,39 @@
+.about {
+  overflow-x: hidden;
+  z-index: 200;
+  &-background{
+    &--square {
+      height: 50vw;
+      width: 26vw;
+      left: -10vw;
+      position: absolute;
+      padding: 10vw;
+      background-color: $color-secondary;
+      z-index: 0;
+    }
+    &--triangle {
+      width: 30vw;
+      height: 50vw;
+      position: absolute;
+      left: 16vw;
+      border-top: 50vw solid $color-secondary;
+      border-right: 50vw solid transparent;
+      z-index: 0;
+    }
+  }
+  &-info {
+    position: absolute;
+    top: 10vw;
+    left: 5vw;
+    &--primary {
+      font-size: 5.6rem;
+      letter-spacing: 0.3vw;
+      margin-bottom: 0.4vw;
+    }
+    &--secondary {
+      font-family: $secondary-text;
+      font-weight: 100;
+      font-size: 2.8rem;
+    }
+  }
+}

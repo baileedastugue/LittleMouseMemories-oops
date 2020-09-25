@@ -7,10 +7,9 @@ import AlertDiv from '../components/Layout/AlertDiv';
 
 const PageNotFound = ({ isAuth, isLoading }) => {
      return (
-          <Container id='pageNotFound'>
+          <Container className='pageNotFound'>
                <AlertDiv />
-               <h1>Whoops!</h1>
-               {/* <div className='center'> */}
+               <h4 className='pageNotFound-header'>Whoops!</h4>
                <p>We can't seem to find the page you're looking for</p>
                <p>
                     <a href={isAuth ? '/dashboard' : '/'}>

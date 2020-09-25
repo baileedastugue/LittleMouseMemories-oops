@@ -1,0 +1,82 @@
+.authForms {
+  background-color: transparent;
+  z-index: 100;
+  right: -1vw;
+  top: 30vw;
+  position: absolute;
+  &-background {
+    will-change: transform, opacity;
+    overflow: hidden;
+    min-width: 40vw;
+    &--login {
+      padding-right: 2vw;
+      margin-right: 0vw;
+      height: 19vw;
+      width: 38vw;
+      border-bottom: 19vw solid $color-secondary;
+      border-left: 19vw solid transparent;
+    }
+    &--register {
+      padding-right: 4vw;
+      margin-right: 0vw;
+      height: 24vw;
+      width: 48vw;
+      border-bottom: 24vw solid $color-secondary;
+      border-left: 24vw solid transparent;
+    }
+  }
+  &-form {
+    label {
+      font-size: 2rem;
+    }
+    input {
+      font-size: 1.8rem;
+    }
+    h3 {
+      font-size: 3.2rem;
+    }
+    padding: 1.5vw 0vw 0vw 0vw;
+    .alert {
+      display: inline-flex;
+      width: 100%;
+      margin-top: 1vh;
+    }
+  } 
+}
+
+label {
+  @include thinFont;
+}
+
+.forms, label {
+  font-size: 1.6rem;
+}
+.form-control {
+  height: 4rem;
+  font-size: 1.6rem;
+}
+
+.modal-header {
+  @include noFraming;
+}
+
+.modal-title {
+  font-size: 2.2rem;
+}
+
+// .form-check input{
+//   margin-right: 2rem;
+//   // width: 20rem;
+//   display: block;
+//   font-size: 2rem;
+// }
+
+.form-check label {
+  margin-left: 1rem;
+}
+
+form {
+  h5 {
+    font-size: 2rem;
+  }
+}

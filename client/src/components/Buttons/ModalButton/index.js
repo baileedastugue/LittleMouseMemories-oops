@@ -1,11 +1,10 @@
 import React from 'react';
 import { Button } from 'reactstrap';
-import './style.css';
 
 const ModalButton = (props) => {
      return (
           <Button
-               className='modalButton'
+               className='btn-modal'
                {...props}
                onClick={props.onClick}
                action={props.action}

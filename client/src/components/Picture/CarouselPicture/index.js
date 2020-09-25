@@ -7,24 +7,34 @@ import {
      CardSubtitle,
      CardBody,
 } from 'reactstrap';
-import './style.css';
 import Moment from 'react-moment';
 
 const CarouselPicture = (props) => {
      return (
-          <Card className='carouselPicture' style={Card.CarouselPicture}>
-               <CardTitle>
+          <Card
+               className='carousel-card carousel-picture'
+               style={Card.CarouselPicture}
+          >
+               <CardTitle className='carousel-card--title'>
                     <Moment format='MM/DD/YYYY' date={props.dateRecorded} />
                </CardTitle>
-               <CardSubtitle>Uploaded by {props.uploadedBy}</CardSubtitle>
-               <div className='memoryArea vertical-center'>
-                    <CardImg src={props.image} alt={props.caption} />
+               <CardSubtitle className='carousel-card--subtitle'>
+                    Uploaded by {props.uploadedBy}
+               </CardSubtitle>
+               <div className='carousel-picture--imgContainer center'>
+                    <CardImg
+                         src={props.image}
+                         alt={props.caption}
+                         className='carousel-picture--image'
+                    />
                </div>
-               <span id='caption'>Caption:</span>
-               <CardBody>
-                    <CardText>{props.caption}</CardText>
+               <span className='carousel-picture--label'>Caption:</span>
+               <CardBody className='carousel-picture--captionContainer'>
+                    <CardText className='carousel-picture--caption'>
+                         {props.caption}
+                    </CardText>
                </CardBody>
-               <p className='recordedDate'>
+               <p className='carousel-card--recordedDate'>
                     Memory uploaded on{' '}
                     <Moment format='MM/DD/YYYY' date={props.dateUploaded} />
                </p>

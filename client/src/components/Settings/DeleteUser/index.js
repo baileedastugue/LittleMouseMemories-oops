@@ -15,7 +15,7 @@ const DeleteUser = ({ deleteAccount }) => {
           }
      };
      return (
-          <Button className='btn btn-danger' onClick={onClick}>
+          <Button className='btn btn-delete' onClick={onClick}>
                Delete Account
           </Button>
      );

@@ -1,23 +1,22 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import LoginForm from '../../Auth/LoginForm';
 import RegistrationForm from '../../Auth/RegistrationForm';
-import './style.css';
 
 const FormContainer = (props) => {
      return (
           <div>
                {props.formType === 'login' ? (
-                    <Fragment>
-                         <div id='logInTriangle'>
+                    <div className='authForms-background'>
+                         <div className='authForms-background--login'>
                               <LoginForm closeBtn={props.closeBtn} />
                          </div>
-                    </Fragment>
+                    </div>
                ) : (
-                    <Fragment>
-                         <div id='registerTriangle'>
+                    <div className='authForms-background'>
+                         <div className='authForms-background--register'>
                               <RegistrationForm closeBtn={props.closeBtn} />
                          </div>
-                    </Fragment>
+                    </div>
                )}
           </div>
      );

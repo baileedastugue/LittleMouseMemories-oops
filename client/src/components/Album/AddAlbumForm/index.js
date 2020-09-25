@@ -1,15 +1,16 @@
 import React, { useState, Fragment } from 'react';
 import { connect } from 'react-redux';
+import { Form, FormGroup, Label, Input, Col, Row } from 'reactstrap';
+import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 import { setAlert } from '../../../actions/alertActions';
 import { addNewAlbum } from '../../../actions/albumActions';
-import { Form, FormGroup, Label, Input, Col, Row } from 'reactstrap';
-import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
+
 import SubmitButton from '../../Buttons/SubmitBtn';
 import AlertDiv from '../../Layout/AlertDiv';
 
 const AddAlbumForm = ({ setAlert, addNewAlbum, toggle, isAuth }) => {
-     // using the UseState hook from react
      const [formData, setFormData] = useState({
           title: '',
           password: '',
@@ -19,7 +20,6 @@ const AddAlbumForm = ({ setAlert, addNewAlbum, toggle, isAuth }) => {
 
      const { title, password } = formData;
 
-     // handler to update the data
      const onChange = (event) => {
           setFormData({ ...formData, [event.target.name]: event.target.value });
      };
@@ -54,7 +54,7 @@ const AddAlbumForm = ({ setAlert, addNewAlbum, toggle, isAuth }) => {
      return (
           <Fragment>
                <AlertDiv />
-               <Form className='form clearfix' onSubmit={onSubmit}>
+               <Form className='form' onSubmit={onSubmit}>
                     <Row form>
                          <Col md={12}>
                               <FormGroup>
@@ -72,14 +72,14 @@ const AddAlbumForm = ({ setAlert, addNewAlbum, toggle, isAuth }) => {
                     <Row form>
                          <Col md={6}>
                               <FormGroup check className='mb-5 mt-3'>
+                                   <Input
+                                        type='checkbox'
+                                        name='addPassword'
+                                        onChange={handleCheckboxChange}
+                                        isChecked={passwordRequired}
+                                   />
+
                                    <Label check>
-                                        <Input
-                                             type='checkbox'
-                                             name='addPassword'
-                                             // value={addPassword}
-                                             onChange={handleCheckboxChange}
-                                             isChecked={passwordRequired}
-                                        />
                                         Add password to this album
                                    </Label>
                               </FormGroup>

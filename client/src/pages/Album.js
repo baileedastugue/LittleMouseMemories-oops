@@ -1,41 +1,29 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import {
-     Container,
-     CarouselControl,
-     CarouselItem,
-     Carousel,
-     Form,
-     Button,
-     FormGroup,
-     Modal,
-     ModalFooter,
-     Row,
-     ModalHeader,
-} from 'reactstrap';
-import MaterialIcon from 'material-icons-react';
+import { Container, Row } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
-import AddPictureForm from '../components/Picture/AddPictureForm';
-import AddPictureModal from '../components/Picture/AddPictureModal';
-import AddPromptForm from '../components/Prompt/AddPromptForm';
-import AddPromptModal from '../components/Prompt/AddPromptModal';
-import ModalButton from '../components/Buttons/ModalButton';
 import { getAlbum, albumAuth } from '../actions/albumActions';
-import MixedPostPicture from '../components/Picture/MixedPostPicture';
-import MixedPostPrompt from '../components/Prompt/MixedPostPrompt';
-import PageTitle from '../components/Layout/PageTitle';
-import CarouselPicture from '../components/Picture/CarouselPicture';
-import CarouselPrompt from '../components/Prompt/CarouselPrompt';
-import { deletePicture } from '../actions/pictureActions';
 import { deletePrompt } from '../actions/promptActions';
+import { deletePicture } from '../actions/pictureActions';
+import { setAlert } from '../actions/alertActions';
+
+import PageTitle from '../components/Layout/PageTitle';
 import Loading from '../components/Layout/Loading';
 import NoContent from '../components/Layout/NoContent';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import AlbumPasswordInput from '../components/Album/AlbumPasswordInput';
+import ButtonContainer from '../components/Buttons/ButtonContainer';
+import AlbumCarousel from '../components/Album/AlbumCarousel';
 
-import AlertDiv from '../components/Layout/AlertDiv';
-import { setAlert } from '../actions/alertActions';
+import AddPictureForm from '../components/Picture/AddPictureForm';
+import AddPictureModal from '../components/Picture/AddPictureModal';
+import AlbumPicture from '../components/Picture/AlbumPicture';
+
+import AddPromptForm from '../components/Prompt/AddPromptForm';
+import AddPromptModal from '../components/Prompt/AddPromptModal';
+import AlbumPrompt from '../components/Prompt/AlbumPrompt';
+import CenteredContent from '../components/Layout/CenteredContent';
 
 const Album = ({
      getAlbum,
@@ -76,18 +64,6 @@ const Album = ({
           type: '',
      });
 
-     const next = () => {
-          const nextIndex =
-               activeIndex === album.album.length - 1 ? 0 : activeIndex + 1;
-          setActiveIndex(nextIndex);
-     };
-
-     const previous = () => {
-          const nextIndex =
-               activeIndex === 0 ? album.album.length - 1 : activeIndex - 1;
-          setActiveIndex(nextIndex);
-     };
-
      const onClick = (event, data) => {
           setActiveIndex(data);
           setCurrentPost({
@@ -96,12 +72,6 @@ const Album = ({
           });
           carouselToggle();
      };
-
-     const closeBtn = (
-          <button className='close' onClick={carouselToggle}>
-               &times;
-          </button>
-     );
 
      const deleteClick = async (event) => {
           event.preventDefault();
@@ -140,7 +110,6 @@ const Album = ({
      album.validAlbum ? (
           <Fragment>
                {/* if the album is found, load the title */}
-               {/* <Loading/> */}
                <Container fluid={true}>
                     <PageTitle>
                          {album.albums[0].title} by{' '}
@@ -167,37 +136,14 @@ const Album = ({
                               >
                                    <AddPromptForm toggle={promptToggle} />
                               </AddPromptModal>
-                              <div className='buttonContainer'>
-                                   <ModalButton
-                                        className='photoButton modalButton'
-                                        action={
-                                             <MaterialIcon
-                                                  icon='add_a_photo'
-                                                  color='#252525'
-                                                  size='medium'
-                                             />
-                                        }
-                                        onClick={photoToggle}
-                                   />
-                                   <br />
-                                   <br />
-                                   <br />
-                                   <ModalButton
-                                        className='promptButton modalButton'
-                                        action={
-                                             <MaterialIcon
-                                                  icon='create'
-                                                  color='#252525'
-                                                  size='medium'
-                                             />
-                                        }
-                                        onClick={promptToggle}
-                                   />
-                              </div>
+                              <ButtonContainer
+                                   photoToggle={photoToggle}
+                                   promptToggle={promptToggle}
+                              />
                          </Fragment>
                          {album.album.length > 0 ? (
-                              <>
-                                   <Row className='centered-squares'>
+                              <CenteredContent>
+                                   <Row className='stretch-squares'>
                                         {album.album.map((post, index) => (
                                              <Fragment key={post._id}>
                                                   {'image' in post ? (
@@ -205,7 +151,7 @@ const Album = ({
                                                             {picture.pictureLoading ? (
                                                                  <Loading />
                                                             ) : null}
-                                                            <MixedPostPicture
+                                                            <AlbumPicture
                                                                  type='picture'
                                                                  key={post._id}
                                                                  id={post._id}
@@ -236,7 +182,7 @@ const Album = ({
                                                             />
                                                        </Fragment>
                                                   ) : (
-                                                       <MixedPostPrompt
+                                                       <AlbumPrompt
                                                             type='prompt'
                                                             key={post._id}
                                                             id={post._id}
@@ -263,100 +209,21 @@ const Album = ({
                                                                  );
                                                             }}
                                                             index={index}
-                                                       ></MixedPostPrompt>
+                                                       ></AlbumPrompt>
                                                   )}
                                              </Fragment>
                                         ))}
                                    </Row>
-                                   <Modal
-                                        toggle={carouselToggle}
-                                        isOpen={carouselModal}
-                                        centered={true}
-                                        size='lg'
-                                        close={closeBtn}
-                                   >
-                                        <ModalHeader className='caroModal justify-content-md-end'>
-                                             {closeBtn}
-                                        </ModalHeader>
-                                        <Carousel
-                                             activeIndex={activeIndex}
-                                             next={next}
-                                             previous={previous}
-                                             interval={false}
-                                        >
-                                             {album.album.map((post) => (
-                                                  <CarouselItem key={post._id}>
-                                                       {'image' in post ? (
-                                                            <CarouselPicture
-                                                                 image={
-                                                                      post.image
-                                                                 }
-                                                                 caption={
-                                                                      post.caption
-                                                                 }
-                                                                 dateRecorded={
-                                                                      post.dateRecorded
-                                                                 }
-                                                                 uploadedBy={
-                                                                      post.uploadedBy
-                                                                 }
-                                                                 dateUploaded={
-                                                                      post.dateUploaded
-                                                                 }
-                                                            />
-                                                       ) : (
-                                                            <CarouselPrompt
-                                                                 response={
-                                                                      post.response
-                                                                 }
-                                                                 prompt={
-                                                                      post.prompt
-                                                                 }
-                                                                 dateRecorded={
-                                                                      post.dateRecorded
-                                                                 }
-                                                                 uploadedBy={
-                                                                      post.uploadedBy
-                                                                 }
-                                                                 dateUploaded={
-                                                                      post.dateUploaded
-                                                                 }
-                                                            />
-                                                       )}
-
-                                                       {isAuth ? (
-                                                            <ModalFooter
-                                                                 className='mixedPost-footer center'
-                                                                 onClick={
-                                                                      deleteClick
-                                                                 }
-                                                                 data-id={
-                                                                      post._id
-                                                                 }
-                                                            >
-                                                                 <div>
-                                                                      {' '}
-                                                                      Delete
-                                                                      this post
-                                                                 </div>
-                                                            </ModalFooter>
-                                                       ) : null}
-                                                  </CarouselItem>
-                                             ))}
-
-                                             <CarouselControl
-                                                  direction='prev'
-                                                  directionText='Previous'
-                                                  onClickHandler={previous}
-                                             />
-                                             <CarouselControl
-                                                  direction='next'
-                                                  directionText='Next'
-                                                  onClickHandler={next}
-                                             />
-                                        </Carousel>
-                                   </Modal>
-                              </>
+                                   <AlbumCarousel
+                                        carouselToggle={carouselToggle}
+                                        carouselModal={carouselModal}
+                                        activeIndex={activeIndex}
+                                        album={album.album}
+                                        deleteClick={deleteClick}
+                                        setActiveIndex={setActiveIndex}
+                                        isAuth={isAuth}
+                                   />
+                              </CenteredContent>
                          ) : (
                               <NoContent>
                                    No posts in this album yet! Use the buttons
@@ -366,24 +233,11 @@ const Album = ({
                     </>
                ) : (
                     // if you are not authorized, give option to submit a password
-                    <Form className='form' onSubmit={onSubmit}>
-                         <AlertDiv />
-                         <FormGroup>
-                              <label htmlFor='inputPassword'>
-                                   Album Password
-                              </label>
-                              <input
-                                   type='password'
-                                   name='password'
-                                   className='form-control'
-                                   onChange={onChange}
-                                   value={password}
-                              />
-                         </FormGroup>
-                         <Button type='submit' value='albumAuth'>
-                              Submit
-                         </Button>
-                    </Form>
+                    <AlbumPasswordInput
+                         onSubmit={onSubmit}
+                         onChange={onChange}
+                         value={password}
+                    />
                )}
           </Fragment>
      ) : (
@@ -400,7 +254,7 @@ Album.propTypes = {
      deletePicture: PropTypes.func.isRequired,
      deletePrompt: PropTypes.func.isRequired,
      albumAuth: PropTypes.func.isRequired,
-     picture: PropTypes.func.isRequired,
+     picture: PropTypes.object.isRequired,
 };
 
 Container.propTypes = {

@@ -12,8 +12,7 @@ import AddAlbumModal from '../components/Album/AddAlbumModal';
 import ModalButton from '../components/Buttons/ModalButton';
 import AlertDiv from '../components/Layout/AlertDiv';
 import Loading from '../components/Layout/Loading';
-
-import '../App.css';
+import CenteredContent from '../components/Layout/CenteredContent';
 
 const Dashboard = ({ isAuth, auth }) => {
      const addIcon = <MaterialIcon icon='add' color='#252525' size='large' />;
@@ -37,16 +36,18 @@ const Dashboard = ({ isAuth, auth }) => {
                     </PageTitle>
                     <AlertDiv />
                </Container>
-               <Row className='centered-squares'>
-                    <AlbumList />
-               </Row>
+               <CenteredContent>
+                    <Row className='stretch-squares'>
+                         <AlbumList />
+                    </Row>
+               </CenteredContent>
 
                <AddAlbumModal toggle={toggle} isOpen={modal}>
                     <AddAlbumForm toggle={toggle} />
                </AddAlbumModal>
-               <div className='buttonContainer'>
+               <div className='btnContainer'>
                     <ModalButton
-                         className='albumButton modalButton'
+                         className='btn-album btn-modal'
                          action={addIcon}
                          onClick={toggle}
                          style={{ padding: '15px' }}
@@ -57,8 +58,8 @@ const Dashboard = ({ isAuth, auth }) => {
 };
 
 AddAlbumForm.propTypes = {
-     isAuth: PropTypes.bool.isRequired,
-     auth: PropTypes.object.isRequired,
+     isAuth: PropTypes.bool,
+     auth: PropTypes.object,
 };
 
 Container.propTypes = {
