@@ -15,7 +15,7 @@ const CarouselPrompt = (props) => {
                <CardSubtitle className='carousel-card--subtitle'>
                     Uploaded by {props.uploadedBy}
                </CardSubtitle>
-               <CenteredContent>
+               <div className='center'>
                     <div className='carousel-prompt--background'>
                          <span className='carousel-prompt--promptContainer'>
                               <span className='carousel-prompt--prompt'>
@@ -27,7 +27,7 @@ const CarouselPrompt = (props) => {
                               </span>
                          </span>
                     </div>
-               </CenteredContent>
+               </div>
                <p className='carousel-card--recordedDate'>
                     Memory uploaded on{' '}
                     <Moment format='MM/DD/YYYY' date={props.dateUploaded} />

@@ -148,7 +148,7 @@ h1, h2, h3, h4, h5, h6 {
 .album-prompt {
   background-color: white;
   color: #3282b8;
-  font-size: 1.4vw;
+  font-size: 2.4rem;
   font-family: "Roboto", sans-serif; }
   /* line 52, src/sass/components/cards/_albumCards.scss */
   .album-prompt .card-text {
@@ -161,14 +161,13 @@ h1, h2, h3, h4, h5, h6 {
     bottom: -1px;
     left: -1px;
     right: -1px;
-    height: 352px;
     width: 35rem;
     height: 35rem;
     opacity: 0;
     transition: .5s ease;
     cursor: pointer;
     background-color: #dfdfdf; }
-  /* line 70, src/sass/components/cards/_albumCards.scss */
+  /* line 69, src/sass/components/cards/_albumCards.scss */
   .album-prompt:hover .album-prompt--overlay {
     opacity: 1; }
 
