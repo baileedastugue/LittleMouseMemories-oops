@@ -1,23 +1,14 @@
 .signIn {
   &-background {
-    &--square {
       position: absolute;
-      top: 35vw;
+      top: 50vh;
       left: 0vw;
-      height: 15vw;
-      width: 20vw;
+      height: 26vh;
+      width: 40vw;
       background-color: $color-focus;
       z-index: 1000;
-    }
-    &--triangle {
-      position: absolute;
-      left: 20vw;
-      top: 35vw;
-      width: 15vw;
-      height: 15vw;
-      border-top: 15vw solid $color-focus;
-      border-right: 15vw solid transparent;
-    }
+      clip-path: polygon(0 0, 85% 0%, 50% 100%, 0 100%);
+    
   }
   &-text {
     width: 30vw;
@@ -32,7 +23,7 @@
         &:hover {
           z-index: 1000;
           text-decoration: none;
-          font-weight: 300;
+          color: $color-secondary;
           cursor: pointer;  
       }
     }

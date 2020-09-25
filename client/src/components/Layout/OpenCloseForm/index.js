@@ -56,7 +56,7 @@ function OpenCloseForm() {
 
      return (
           <>
-               <div className='signIn-background--square'>
+               <div className='signIn-background'>
                     <p className='signIn-text'>
                          New user?{' '}
                          <span
@@ -77,7 +77,6 @@ function OpenCloseForm() {
                          </span>
                     </p>
                </div>
-               <div className='signIn-background--triangle'></div>
 
                {transitions.map(({ item, props, key }) => {
                     const FormDiv = formDivs[item];

@@ -28,7 +28,7 @@ const CarouselPicture = (props) => {
                          className='carousel-picture--image'
                     />
                </div>
-               <span className='carousel-picture--label'>Caption:</span>
+               {/* <span className='carousel-picture--label'>Caption:</span> */}
                <CardBody className='carousel-picture--captionContainer'>
                     <CardText className='carousel-picture--caption'>
                          {props.caption}

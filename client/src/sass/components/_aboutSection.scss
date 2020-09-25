@@ -2,33 +2,23 @@
   overflow-x: hidden;
   z-index: 200;
   &-background{
-    &--square {
-      height: 50vw;
-      width: 26vw;
-      left: -10vw;
+      height: 78vh;
+      width: 60vw;
+      left: 0vw;
       position: absolute;
-      padding: 10vw;
+      padding: 10rem;
       background-color: $color-secondary;
       z-index: 0;
-    }
-    &--triangle {
-      width: 30vw;
-      height: 50vw;
-      position: absolute;
-      left: 16vw;
-      border-top: 50vw solid $color-secondary;
-      border-right: 50vw solid transparent;
-      z-index: 0;
-    }
+      clip-path: polygon(0 0, 100% 0%, 30% 100%, 0 100%);
   }
   &-info {
     position: absolute;
-    top: 10vw;
-    left: 5vw;
+    top: 15vh;
+    left: 4vw;
     &--primary {
       font-size: 5.6rem;
-      letter-spacing: 0.3vw;
-      margin-bottom: 0.4vw;
+      letter-spacing: 0.4rem;
+      margin-bottom: 0.4rem;
     }
     &--secondary {
       font-family: $secondary-text;

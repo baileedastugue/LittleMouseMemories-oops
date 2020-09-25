@@ -35,6 +35,9 @@
         font-size: 5.5rem;
         color: $color-focus;
         font-family: $focus-text;
+        @include respond(tab-land) {
+          margin-right: 2vw;
+        }
       }
       img {
         height: 14rem;
@@ -47,6 +50,12 @@
         z-index: 1;
         -ms-transform: rotate(10deg); /* IE 9 */
         transform: rotate(10deg);
+        @include respond(tab-land) {
+          display: none;
+        }
+        @include respond(phone) {
+          display: none;
+        }
       }
      
     }

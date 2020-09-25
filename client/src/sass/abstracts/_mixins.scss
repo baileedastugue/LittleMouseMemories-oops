@@ -4,10 +4,10 @@
   border: none;
   outline: none;
   float: left;
+
 }
 
 @mixin cardSize {
-  // width: calc($grid-width - (3 * $gutter-horizontal) / 4)
   width: $card-size;
   height: $card-size;
 }
@@ -76,6 +76,8 @@ $breakpoint argument choices:
   - big-desktop
 
   1em = 16px
+
+  ORDER: base + typography > general layout + grid > page layout > components
 */
 
 @mixin respond($breakpoint) {
