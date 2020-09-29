@@ -1,10 +1,9 @@
 import React from 'react';
-import { Container } from 'reactstrap';
 import OpenCloseForm from '../OpenCloseForm';
 
 const AboutSection = () => {
      return (
-          <Container className='about'>
+          <div className='about'>
                <div className='about-background'></div>
                <div className='about-info'>
                     <div>
@@ -24,10 +23,9 @@ const AboutSection = () => {
                          and protect your albums with a password
                          <br />
                     </div>
+                    <OpenCloseForm />
                </div>
-
-               <OpenCloseForm />
-          </Container>
+          </div>
      );
 };
 

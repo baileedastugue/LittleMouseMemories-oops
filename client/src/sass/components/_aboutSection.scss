@@ -1,29 +1,67 @@
 .about {
   overflow-x: hidden;
-  z-index: 200;
-  &-background{
-      height: 78vh;
+  position: relative;
+  // margin-top: 10vh;
+  height: 90vh;
+  width: 100vw;
+  overflow-y: scroll;
+  &-background {
+    height: 60vh;
+    width: 60vw;
+    left: 0vw;
+    top: 5vh;
+    position: absolute;
+    background-color: $color-secondary;
+    clip-path: polygon(0 0, 100% 0%, 70% 100%, 0 100%);
+    @include respond(tab-land) {
+      height: 40vw;
       width: 60vw;
-      left: 0vw;
-      position: absolute;
-      padding: 10rem;
-      background-color: $color-secondary;
-      z-index: 0;
-      clip-path: polygon(0 0, 100% 0%, 30% 100%, 0 100%);
+      background-color: $color-focus;
+      clip-path: unset;
+    }
+    @include respond(tab-port) {
+      height: 40vh;
+      width: 100vw;
+    }
   }
   &-info {
     position: absolute;
-    top: 15vh;
-    left: 4vw;
+    margin-top: 7vh;
+    margin-left: 2vw;
+    z-index: 100;
+    @include respond(tab-land) {
+      width: 60vw;
+    }
+    @include respond(tab-port) {
+      width: 100vw;
+    }
     &--primary {
-      font-size: 5.6rem;
+      font-size: 5.5rem;
       letter-spacing: 0.4rem;
-      margin-bottom: 0.4rem;
+      margin-bottom: 2rem;
+      @media (max-width: 87.5em) {
+        font-size: 4.5rem;
+      } 
+      @include respond(tab-port) {
+        // font-size: 4rem;
+        margin-bottom: 1rem;
+      }
+      @include respond(phone) {
+        font-size: 3rem; 
+      }
     }
     &--secondary {
       font-family: $secondary-text;
       font-weight: 100;
       font-size: 2.8rem;
+      margin: 6rem 0vw;
+      @media (max-width: 87.5em) {
+        font-size: 2.4rem;
+      } 
+      @include respond(tab-land) {
+        font-size: 2rem;
+        margin: 1rem 0rem;
+      }
     }
   }
 }

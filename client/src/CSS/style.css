@@ -399,108 +399,139 @@ form#changePasswordForm.form input.form-control {
 
 /* line 1, src/sass/components/forms/_forms.scss */
 .authForms {
-  position: absolute;
   background-color: transparent;
   z-index: 100;
-  right: 0vw;
-  top: 60vh; }
-  /* line 7, src/sass/components/forms/_forms.scss */
+  width: 100vw;
+  position: relative; }
+  /* line 6, src/sass/components/forms/_forms.scss */
   .authForms-background {
     will-change: transform, opacity; }
-    /* line 9, src/sass/components/forms/_forms.scss */
+    /* line 8, src/sass/components/forms/_forms.scss */
     .authForms-background--login {
-      padding: 0vh 2vw 2vh 26vw;
-      height: fit-content;
-      min-width: 45vw;
-      width: fit-content;
-      clip-path: polygon(57% 0%, 100% 0%, 100% 100%, 10% 100%);
-      background-color: #0f4c75;
-      position: relative; }
-    /* line 18, src/sass/components/forms/_forms.scss */
+      position: absolute;
+      padding: 0vh 2vw 5vh 15vw;
+      right: -98vw;
+      top: 0vh;
+      width: 40vw;
+      clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
+      background-color: #0f4c75; }
+      @media (max-width: 75em) {
+        /* line 8, src/sass/components/forms/_forms.scss */
+        .authForms-background--login {
+          clip-path: unset;
+          width: 50vw;
+          padding: 0vh 8vw 5vh 10vw;
+          top: 20vh; } }
+      @media (max-width: 56.25em) {
+        /* line 8, src/sass/components/forms/_forms.scss */
+        .authForms-background--login {
+          width: 100vw;
+          padding: 0vh 10vw 5vh 10vw; } }
+      @media (max-width: 37.5em) {
+        /* line 8, src/sass/components/forms/_forms.scss */
+        .authForms-background--login {
+          padding: 0vh 10vw 5vh 13vw; } }
+    /* line 30, src/sass/components/forms/_forms.scss */
     .authForms-background--register {
-      padding-right: 4vw;
-      margin-right: 0vw;
-      height: 24vw;
-      width: 48vw;
-      border-bottom: 24vw solid #0f4c75;
-      border-left: 24vw solid transparent; }
-  /* line 27, src/sass/components/forms/_forms.scss */
+      padding: 0vh 1vw 2vh 15vw;
+      width: 50vw;
+      right: -98vw;
+      top: -15vh;
+      position: absolute;
+      background-color: #0f4c75;
+      clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%); }
+      @media (max-width: 75em) {
+        /* line 30, src/sass/components/forms/_forms.scss */
+        .authForms-background--register {
+          clip-path: unset;
+          padding: 0vh 5vw 5vh 10vw;
+          top: 10vh; } }
+      @media (max-width: 56.25em) {
+        /* line 30, src/sass/components/forms/_forms.scss */
+        .authForms-background--register {
+          width: 100vw;
+          top: 15vh;
+          padding: 0vh 10vw 5vh 10vw; } }
+      @media (max-width: 37.5em) {
+        /* line 30, src/sass/components/forms/_forms.scss */
+        .authForms-background--register {
+          top: 20vh; } }
+  /* line 53, src/sass/components/forms/_forms.scss */
   .authForms-form {
     padding: 1.5vw 0vw 0vw 0vw; }
-    /* line 28, src/sass/components/forms/_forms.scss */
+    /* line 54, src/sass/components/forms/_forms.scss */
     .authForms-form label {
       font-size: 2rem; }
-    /* line 31, src/sass/components/forms/_forms.scss */
+    /* line 57, src/sass/components/forms/_forms.scss */
     .authForms-form input {
       font-size: 1.8rem; }
-    /* line 34, src/sass/components/forms/_forms.scss */
+    /* line 60, src/sass/components/forms/_forms.scss */
     .authForms-form h3 {
       font-size: 3.2rem; }
-    /* line 38, src/sass/components/forms/_forms.scss */
+    /* line 64, src/sass/components/forms/_forms.scss */
     .authForms-form .alert {
       display: inline-flex;
       width: 100%;
       margin-top: 1vh; }
 
-/* line 46, src/sass/components/forms/_forms.scss */
+/* line 72, src/sass/components/forms/_forms.scss */
 label {
   font-family: "Roboto", sans-serif;
   font-weight: 300; }
 
-/* line 50, src/sass/components/forms/_forms.scss */
+/* line 76, src/sass/components/forms/_forms.scss */
 .forms, label {
   font-size: 1.6rem; }
 
-/* line 53, src/sass/components/forms/_forms.scss */
+/* line 79, src/sass/components/forms/_forms.scss */
 .form-control {
   height: 4rem;
   font-size: 1.6rem; }
 
-/* line 58, src/sass/components/forms/_forms.scss */
+/* line 84, src/sass/components/forms/_forms.scss */
 .modal-header {
   border: none;
   outline: none; }
 
-/* line 62, src/sass/components/forms/_forms.scss */
+/* line 88, src/sass/components/forms/_forms.scss */
 .modal-title {
   font-size: 2.2rem; }
 
-/* line 73, src/sass/components/forms/_forms.scss */
+/* line 92, src/sass/components/forms/_forms.scss */
 .form-check label {
   margin-left: 1rem; }
 
-/* line 78, src/sass/components/forms/_forms.scss */
+/* line 97, src/sass/components/forms/_forms.scss */
 form h5 {
   font-size: 2rem; }
 
-/* line 2, src/sass/components/forms/_openCloseForm.scss */
-.signIn-background {
+/* line 3, src/sass/components/forms/_openCloseForm.scss */
+.about .signIn-text {
   position: absolute;
-  top: 50vh;
+  top: 45vh;
   left: 0vw;
-  height: 26vh;
-  width: 40vw;
-  background-color: #3282b8;
-  z-index: 1000;
-  clip-path: polygon(0 0, 85% 0%, 50% 100%, 0 100%); }
-
-/* line 13, src/sass/components/forms/_openCloseForm.scss */
-.signIn-text {
-  width: 30vw;
-  padding: 5vw 0vw 0vw 5vw;
   font-family: "Roboto", sans-serif;
   font-size: 2.7rem;
   z-index: 1000; }
-  /* line 19, src/sass/components/forms/_openCloseForm.scss */
-  .signIn-text--authLink {
+  @media (max-width: 75em) {
+    /* line 3, src/sass/components/forms/_openCloseForm.scss */
+    .about .signIn-text {
+      font-size: 2.2rem;
+      top: 33vh; } }
+  @media (max-width: 56.25em) {
+    /* line 3, src/sass/components/forms/_openCloseForm.scss */
+    .about .signIn-text {
+      top: 25vh; } }
+  /* line 20, src/sass/components/forms/_openCloseForm.scss */
+  .about .signIn-text--authLink {
     z-index: 1000;
     color: #252525;
     font-weight: unset; }
-    /* line 23, src/sass/components/forms/_openCloseForm.scss */
-    .signIn-text--authLink:hover {
+    /* line 24, src/sass/components/forms/_openCloseForm.scss */
+    .about .signIn-text--authLink:hover {
       z-index: 1000;
       text-decoration: none;
-      color: #0f4c75;
+      color: white;
       cursor: pointer; }
 
 /* line 1, src/sass/components/layout/_alert.scss */
@@ -523,7 +554,7 @@ div.spinnerOverlay {
 
 /* line 1, src/sass/components/layout/_navbar.scss */
 .nav {
-  z-index: 0;
+  background-color: #252525;
   padding-bottom: 1vh; }
   /* line 4, src/sass/components/layout/_navbar.scss */
   .nav-link {
@@ -605,17 +636,27 @@ div#noContent {
 
 /* line 1, src/sass/components/layout/_showcase.scss */
 .showcase {
-  height: 70vh;
+  height: 80vh;
   width: 80vw;
   position: absolute;
   right: 0vw;
-  top: 12vw;
-  z-index: -100;
+  margin-top: 2vh;
+  z-index: 0;
   overflow: hidden; }
-  /* line 9, src/sass/components/layout/_showcase.scss */
+  @media (max-width: 56.25em) {
+    /* line 1, src/sass/components/layout/_showcase.scss */
+    .showcase {
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90vw; } }
+  @media (max-width: 75em) {
+    /* line 1, src/sass/components/layout/_showcase.scss */
+    .showcase {
+      height: 100vh; } }
+  /* line 17, src/sass/components/layout/_showcase.scss */
   .showcase-movingArea {
     animation: verticalScroll 60s linear infinite; }
-    /* line 11, src/sass/components/layout/_showcase.scss */
+    /* line 19, src/sass/components/layout/_showcase.scss */
     .showcase-movingArea .row {
       left: -50px;
       margin: 0px;
@@ -623,13 +664,17 @@ div#noContent {
       border-radius: 0;
       flex-direction: row;
       position: relative; }
-  /* line 20, src/sass/components/layout/_showcase.scss */
+      @media (max-width: 56.25em) {
+        /* line 19, src/sass/components/layout/_showcase.scss */
+        .showcase-movingArea .row {
+          left: 0; } }
+  /* line 31, src/sass/components/layout/_showcase.scss */
   .showcase-box {
     display: inline-block;
     height: 20vw;
     width: 20vw;
     margin: 1vw; }
-    /* line 25, src/sass/components/layout/_showcase.scss */
+    /* line 36, src/sass/components/layout/_showcase.scss */
     .showcase-box--prompt {
       margin: 1vw;
       background-color: white;
@@ -639,7 +684,7 @@ div#noContent {
       color: #3282b8;
       font-size: 1.5vw;
       font-family: "Roboto", sans-serif; }
-    /* line 36, src/sass/components/layout/_showcase.scss */
+    /* line 47, src/sass/components/layout/_showcase.scss */
     .showcase-box--image img {
       border-radius: 0;
       height: 20vw;
@@ -650,32 +695,77 @@ div#noContent {
 /* line 1, src/sass/components/_aboutSection.scss */
 .about {
   overflow-x: hidden;
-  z-index: 200; }
-  /* line 4, src/sass/components/_aboutSection.scss */
+  position: relative;
+  height: 90vh;
+  width: 100vw;
+  overflow-y: scroll; }
+  /* line 8, src/sass/components/_aboutSection.scss */
   .about-background {
-    height: 78vh;
+    height: 60vh;
     width: 60vw;
     left: 0vw;
+    top: 5vh;
     position: absolute;
-    padding: 10rem;
     background-color: #0f4c75;
-    z-index: 0;
-    clip-path: polygon(0 0, 100% 0%, 30% 100%, 0 100%); }
-  /* line 14, src/sass/components/_aboutSection.scss */
+    clip-path: polygon(0 0, 100% 0%, 70% 100%, 0 100%); }
+    @media (max-width: 75em) {
+      /* line 8, src/sass/components/_aboutSection.scss */
+      .about-background {
+        height: 40vw;
+        width: 60vw;
+        background-color: #3282b8;
+        clip-path: unset; } }
+    @media (max-width: 56.25em) {
+      /* line 8, src/sass/components/_aboutSection.scss */
+      .about-background {
+        height: 40vh;
+        width: 100vw; } }
+  /* line 27, src/sass/components/_aboutSection.scss */
   .about-info {
     position: absolute;
-    top: 15vh;
-    left: 4vw; }
-    /* line 18, src/sass/components/_aboutSection.scss */
+    margin-top: 7vh;
+    margin-left: 2vw;
+    z-index: 100; }
+    @media (max-width: 75em) {
+      /* line 27, src/sass/components/_aboutSection.scss */
+      .about-info {
+        width: 60vw; } }
+    @media (max-width: 56.25em) {
+      /* line 27, src/sass/components/_aboutSection.scss */
+      .about-info {
+        width: 100vw; } }
+    /* line 38, src/sass/components/_aboutSection.scss */
     .about-info--primary {
-      font-size: 5.6rem;
+      font-size: 5.5rem;
       letter-spacing: 0.4rem;
-      margin-bottom: 0.4rem; }
-    /* line 23, src/sass/components/_aboutSection.scss */
+      margin-bottom: 2rem; }
+      @media (max-width: 87.5em) {
+        /* line 38, src/sass/components/_aboutSection.scss */
+        .about-info--primary {
+          font-size: 4.5rem; } }
+      @media (max-width: 56.25em) {
+        /* line 38, src/sass/components/_aboutSection.scss */
+        .about-info--primary {
+          margin-bottom: 1rem; } }
+      @media (max-width: 37.5em) {
+        /* line 38, src/sass/components/_aboutSection.scss */
+        .about-info--primary {
+          font-size: 3rem; } }
+    /* line 53, src/sass/components/_aboutSection.scss */
     .about-info--secondary {
       font-family: "Roboto", sans-serif;
       font-weight: 100;
-      font-size: 2.8rem; }
+      font-size: 2.8rem;
+      margin: 6rem 0vw; }
+      @media (max-width: 87.5em) {
+        /* line 53, src/sass/components/_aboutSection.scss */
+        .about-info--secondary {
+          font-size: 2.4rem; } }
+      @media (max-width: 75em) {
+        /* line 53, src/sass/components/_aboutSection.scss */
+        .about-info--secondary {
+          font-size: 2rem;
+          margin: 1rem 0rem; } }
 
 /* line 1, src/sass/components/_albumSettings.scss */
 .albumSettings {
@@ -693,12 +783,20 @@ div#noContent {
 /* line 3, src/sass/components/_buttons.scss */
 #btn-authForms--close {
   position: absolute;
-  bottom: 1vw;
-  right: 33vw; }
+  bottom: 1vh;
+  left: 18%; }
   /* line 7, src/sass/components/_buttons.scss */
   #btn-authForms--close:hover {
     cursor: pointer;
     opacity: .8; }
+  @media (max-width: 75em) {
+    /* line 3, src/sass/components/_buttons.scss */
+    #btn-authForms--close {
+      left: 5%; } }
+  @media (max-width: 56.25em) {
+    /* line 3, src/sass/components/_buttons.scss */
+    #btn-authForms--close {
+      left: 2%; } }
   /* line 48, src/sass/abstracts/_mixins.scss */
   #btn-authForms--close:hover {
     transform: translateY(-0.3rem);
@@ -712,7 +810,7 @@ div#noContent {
     transform: translateY(-0.1rem);
     box-shadow: 0 0.5rem 1rem rgba(37, 37, 37, 0.2); }
 
-/* line 16, src/sass/components/_buttons.scss */
+/* line 22, src/sass/components/_buttons.scss */
 Button.btn {
   font-size: 1.5rem; }
   /* line 48, src/sass/abstracts/_mixins.scss */
@@ -727,37 +825,37 @@ Button.btn {
   Button.btn:active {
     transform: translateY(-0.1rem);
     box-shadow: 0 0.5rem 1rem rgba(37, 37, 37, 0.2); }
-  /* line 19, src/sass/components/_buttons.scss */
+  /* line 25, src/sass/components/_buttons.scss */
   Button.btn-auth {
     margin-top: 1vh;
     width: 100%;
     background-color: white;
     border-color: white;
     color: #252525; }
-    /* line 25, src/sass/components/_buttons.scss */
+    /* line 31, src/sass/components/_buttons.scss */
     Button.btn-auth:hover, Button.btn-auth:active, Button.btn-auth::after, Button.btn-auth:focus {
       background-color: transparent;
       color: white;
       border-color: white; }
-  /* line 31, src/sass/components/_buttons.scss */
+  /* line 37, src/sass/components/_buttons.scss */
   Button.btn-submit {
     background-color: #3282b8;
     border-color: #3282b8; }
-    /* line 34, src/sass/components/_buttons.scss */
+    /* line 40, src/sass/components/_buttons.scss */
     Button.btn-submit:hover {
       background-color: transparent;
       color: #3282b8;
       border-color: #3282b8; }
-  /* line 40, src/sass/components/_buttons.scss */
+  /* line 46, src/sass/components/_buttons.scss */
   Button.btn-delete {
     background-color: #c40018;
     border-color: #c40018; }
-    /* line 43, src/sass/components/_buttons.scss */
+    /* line 49, src/sass/components/_buttons.scss */
     Button.btn-delete:hover {
       background-color: transparent;
       border-color: #c40018;
       color: #c40018; }
-    /* line 48, src/sass/components/_buttons.scss */
+    /* line 54, src/sass/components/_buttons.scss */
     Button.btn-delete--memory {
       color: #bbe1fa;
       cursor: pointer;
@@ -765,17 +863,17 @@ Button.btn {
       font-size: 1vw;
       padding-bottom: 10%;
       text-align: center; }
-  /* line 58, src/sass/components/_buttons.scss */
+  /* line 64, src/sass/components/_buttons.scss */
   Button.btn-close {
     border: none;
     outline: none;
     background-color: transparent;
     padding-right: .8rem;
     font-size: 2rem; }
-    /* line 63, src/sass/components/_buttons.scss */
+    /* line 69, src/sass/components/_buttons.scss */
     Button.btn-close:hover {
       cursor: pointer; }
-  /* line 67, src/sass/components/_buttons.scss */
+  /* line 73, src/sass/components/_buttons.scss */
   Button.btn-modal {
     width: 9rem;
     height: 9rem;
@@ -785,26 +883,26 @@ Button.btn {
     background-color: white;
     border: none;
     outline: none; }
-    /* line 75, src/sass/components/_buttons.scss */
+    /* line 81, src/sass/components/_buttons.scss */
     Button.btn-modal:hover {
       background-color: #bbe1fa;
       outline: none; }
-    /* line 79, src/sass/components/_buttons.scss */
+    /* line 85, src/sass/components/_buttons.scss */
     Button.btn-modal:focus, Button.btn-modal:active, Button.btn-modal::after {
       background-color: white;
       border: none;
       outline: none; }
-    /* line 83, src/sass/components/_buttons.scss */
+    /* line 89, src/sass/components/_buttons.scss */
     Button.btn-modal.btn-prompt {
       position: sticky;
       margin-top: 2vw; }
-    /* line 87, src/sass/components/_buttons.scss */
+    /* line 93, src/sass/components/_buttons.scss */
     Button.btn-modal.btn-photo, Button.btn-modal.btn-album {
       position: sticky;
       bottom: 2vw;
       display: block; }
 
-/* line 95, src/sass/components/_buttons.scss */
+/* line 101, src/sass/components/_buttons.scss */
 .btnContainer {
   z-index: 1000;
   position: fixed;

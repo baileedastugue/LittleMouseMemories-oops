@@ -1,11 +1,19 @@
 .showcase {
-  height: 70vh;
+  height: 80vh;
   width: 80vw;
   position: absolute;
   right: 0vw;
-  top: 12vw;
-  z-index: -100;
+  margin-top: 2vh;
+  z-index: 0;
   overflow: hidden;
+  @include respond(tab-port) {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90vw;
+  }
+  @include respond(tab-land) {
+    height: 100vh;
+  }
   &-movingArea {
     animation: verticalScroll 60s linear infinite;
     .row {
@@ -15,6 +23,9 @@
       border-radius: 0;
       flex-direction: row;
       position: relative;
+      @include respond(tab-port) {
+        left: 0;
+      }
     }
   }
   &-box {

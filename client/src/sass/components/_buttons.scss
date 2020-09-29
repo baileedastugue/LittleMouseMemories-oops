@@ -2,11 +2,17 @@
   &-authForms {
     &--close {
       position: absolute;
-      bottom: 1vw;
-      right: 33vw;
+      bottom: 1vh;
+      left: 18%;
       &:hover {
         cursor: pointer;
         opacity: .8;
+      }
+      @include respond(tab-land) {
+        left: 5%;
+      }
+      @include respond(tab-port) {
+        left: 2%;
       }
       @include engageMovement;
     }
