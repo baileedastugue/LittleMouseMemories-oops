@@ -521,13 +521,18 @@ form h5 {
   @media (max-width: 56.25em) {
     /* line 3, src/sass/components/forms/_openCloseForm.scss */
     .about .signIn-text {
-      top: 25vh; } }
-  /* line 20, src/sass/components/forms/_openCloseForm.scss */
+      top: 30vh; } }
+  @media (max-width: 37.5em) {
+    /* line 3, src/sass/components/forms/_openCloseForm.scss */
+    .about .signIn-text {
+      top: 25vh;
+      font-size: 1.6rem; } }
+  /* line 21, src/sass/components/forms/_openCloseForm.scss */
   .about .signIn-text--authLink {
     z-index: 1000;
     color: #252525;
     font-weight: unset; }
-    /* line 24, src/sass/components/forms/_openCloseForm.scss */
+    /* line 25, src/sass/components/forms/_openCloseForm.scss */
     .about .signIn-text--authLink:hover {
       z-index: 1000;
       text-decoration: none;
@@ -711,61 +716,73 @@ div#noContent {
     @media (max-width: 75em) {
       /* line 8, src/sass/components/_aboutSection.scss */
       .about-background {
-        height: 40vw;
+        height: 50vh;
         width: 60vw;
         background-color: #3282b8;
         clip-path: unset; } }
     @media (max-width: 56.25em) {
       /* line 8, src/sass/components/_aboutSection.scss */
       .about-background {
-        height: 40vh;
         width: 100vw; } }
-  /* line 27, src/sass/components/_aboutSection.scss */
+    @media (max-width: 37.5em) {
+      /* line 8, src/sass/components/_aboutSection.scss */
+      .about-background {
+        height: 40vh; } }
+  /* line 34, src/sass/components/_aboutSection.scss */
   .about-info {
     position: absolute;
     margin-top: 7vh;
     margin-left: 2vw;
     z-index: 100; }
     @media (max-width: 75em) {
-      /* line 27, src/sass/components/_aboutSection.scss */
+      /* line 34, src/sass/components/_aboutSection.scss */
       .about-info {
         width: 60vw; } }
     @media (max-width: 56.25em) {
-      /* line 27, src/sass/components/_aboutSection.scss */
+      /* line 34, src/sass/components/_aboutSection.scss */
       .about-info {
         width: 100vw; } }
-    /* line 38, src/sass/components/_aboutSection.scss */
+    /* line 45, src/sass/components/_aboutSection.scss */
     .about-info--primary {
       font-size: 5.5rem;
       letter-spacing: 0.4rem;
       margin-bottom: 2rem; }
       @media (max-width: 87.5em) {
-        /* line 38, src/sass/components/_aboutSection.scss */
+        /* line 45, src/sass/components/_aboutSection.scss */
         .about-info--primary {
           font-size: 4.5rem; } }
       @media (max-width: 56.25em) {
-        /* line 38, src/sass/components/_aboutSection.scss */
+        /* line 45, src/sass/components/_aboutSection.scss */
         .about-info--primary {
           margin-bottom: 1rem; } }
       @media (max-width: 37.5em) {
-        /* line 38, src/sass/components/_aboutSection.scss */
+        /* line 45, src/sass/components/_aboutSection.scss */
         .about-info--primary {
           font-size: 3rem; } }
-    /* line 53, src/sass/components/_aboutSection.scss */
+      @media (max-width: 380px) {
+        /* line 45, src/sass/components/_aboutSection.scss */
+        .about-info--primary {
+          font-size: 2rem; } }
+    /* line 63, src/sass/components/_aboutSection.scss */
     .about-info--secondary {
       font-family: "Roboto", sans-serif;
       font-weight: 100;
       font-size: 2.8rem;
       margin: 6rem 0vw; }
       @media (max-width: 87.5em) {
-        /* line 53, src/sass/components/_aboutSection.scss */
+        /* line 63, src/sass/components/_aboutSection.scss */
         .about-info--secondary {
           font-size: 2.4rem; } }
       @media (max-width: 75em) {
-        /* line 53, src/sass/components/_aboutSection.scss */
+        /* line 63, src/sass/components/_aboutSection.scss */
         .about-info--secondary {
           font-size: 2rem;
           margin: 1rem 0rem; } }
+      @media (max-width: 56.25em) {
+        /* line 63, src/sass/components/_aboutSection.scss */
+        .about-info--secondary {
+          font-size: 1.6rem;
+          margin: 0rem 0rem; } }
 
 /* line 1, src/sass/components/_albumSettings.scss */
 .albumSettings {

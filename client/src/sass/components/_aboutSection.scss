@@ -14,15 +14,22 @@
     background-color: $color-secondary;
     clip-path: polygon(0 0, 100% 0%, 70% 100%, 0 100%);
     @include respond(tab-land) {
-      height: 40vw;
+      height: 50vh;
       width: 60vw;
       background-color: $color-focus;
       clip-path: unset;
     }
     @include respond(tab-port) {
-      height: 40vh;
       width: 100vw;
     }
+    @include respond(phone) {
+      height: 40vh;
+    }
+    // @include respond(xsm) {
+    //   background-color: red;
+    //   // height: 60vh;
+    // }
+
   }
   &-info {
     position: absolute;
@@ -49,6 +56,9 @@
       @include respond(phone) {
         font-size: 3rem; 
       }
+      @include respond(xsm) {
+        font-size: 2rem; 
+      }
     }
     &--secondary {
       font-family: $secondary-text;
@@ -61,6 +71,10 @@
       @include respond(tab-land) {
         font-size: 2rem;
         margin: 1rem 0rem;
+      }
+      @include respond(tab-port) {
+        font-size: 1.6rem;
+        margin: 0rem 0rem;
       }
     }
   }
