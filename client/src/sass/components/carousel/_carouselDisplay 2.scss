@@ -1,0 +1,107 @@
+.carousel{
+  &-card {
+    border-radius: 0;
+    width: 100%;
+    height: 82vh;
+    background-color: $color-white;
+    color: black;
+    margin-left: 0vw;
+ 
+    @include noFraming;
+    &--title {
+      margin-left: 1vw;
+      padding: 1rem;
+      height: 5vh;
+      time {
+        font-family: $focus-text;
+        font-size: 2.6rem;
+        color: $color-focus;
+        letter-spacing: 1.2rem;
+      }
+    }
+    &--subtitle {
+      @include thinFont;
+      font-size: 1.6rem;
+      padding-left: 5vw;
+      height: 2vh;
+      margin-bottom: 1vh;
+    }
+    &--recordedDate{
+      height: 2rem;
+      font-size: 1.6rem;
+      right: 3.5vw;
+      bottom: 0;
+      text-align: right;
+      position: absolute;
+      @include thinFont;
+     
+    }
+  }
+  &-prompt {
+    &--background {
+      height: 70vh;
+      margin-bottom: 1vh;
+      // width: 10vw;
+      background-color: $color-focus;
+      overflow-y: auto;
+      overflow-x: hidden;
+      white-space: normal;
+      position: relative;
+      padding: 2rem 5rem;
+      @include respond(tab-land) {
+        padding: 2rem;
+      }
+     
+    }
+    &--promptContainer {
+      width: 100%;
+    }
+    &--prompt {
+      color: $color-secondary;
+      font-family: $focus-text;
+      font-weight: 300;
+      font-size: 3rem;
+    }
+    &--response {
+      @include thinFont;
+      color: $color-white;
+      font-size: 2.8rem;
+    }
+  }
+  &-picture {
+    &--imgContainer {
+      background-color: $color-dark;
+      width: 100%;
+    }
+    &--image {
+      justify-content: center;
+      align-items: center;
+      object-fit: contain;
+      height: 60vh;
+      background-color: transparent;
+    }
+    &--label {
+        margin-left: 1vw;
+        height: 2vh;
+        color: $color-secondary;
+        font-size: 0.95vw;
+        font-family: $secondary-text;
+    }
+    &--caption {
+      font-size: 1.6rem;
+      @include thinFont;
+    }
+    &--captionContainer {
+      height: 8vh;
+      margin-bottom: 1vh;
+      overflow-y: auto;
+      white-space: normal;
+      padding: 1rem 10%;
+    }
+  }
+  .center {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 auto;
+  }
+}

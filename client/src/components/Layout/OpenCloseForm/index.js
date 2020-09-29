@@ -38,16 +38,16 @@ function OpenCloseForm() {
      const transitions = useTransition(formDivIndex, (p) => p, {
           from: {
                opacity: 0,
-               // transform: 'translate3d(10vw,0vw,0)',
+               transform: 'translate3d(10vw,0vw,0)',
                overflowx: 'hidden',
           },
           enter: {
                opacity: 1,
-               // transform: 'translate3d(0%,0vw,0)',
+               transform: 'translate3d(0%,0vw,0)',
           },
           leave: {
                opacity: 0,
-               // transform: 'translate3d(10vw,0vw,0)',
+               transform: 'translate3d(10vw,0vw,0)',
                overflowx: 'hidden',
           },
      });
