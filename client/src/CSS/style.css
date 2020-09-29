@@ -33,7 +33,9 @@ $breakpoint argument choices:
 
 /* line 9, src/sass/base/_base.scss */
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  height: 100%;
+  width: 100%; }
   @media (max-width: 56.25em) {
     /* line 9, src/sass/base/_base.scss */
     html {
@@ -47,16 +49,14 @@ html {
     html {
       font-size: 65%; } }
 
-/* line 24, src/sass/base/_base.scss */
+/* line 25, src/sass/base/_base.scss */
 body {
   box-sizing: border-box; }
 
-/* line 28, src/sass/base/_base.scss */
+/* line 29, src/sass/base/_base.scss */
 #root {
   background-color: #252525;
   box-sizing: border-box;
-  height: 100%;
-  width: 100%;
   color: white;
   position: relative; }
 
@@ -413,8 +413,8 @@ form#changePasswordForm.form input.form-control {
       right: -98vw;
       top: 0vh;
       width: 45vw;
-      clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
-      background-color: #0f4c75; }
+      clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0% 100%, 25% 50%, 0% 0%);
+      background-color: #3282b8; }
       @media (max-width: 75em) {
         /* line 8, src/sass/components/forms/_forms.scss */
         .authForms-background--login {
@@ -438,8 +438,8 @@ form#changePasswordForm.form input.form-control {
       right: -98vw;
       top: 0vh;
       position: absolute;
-      background-color: #0f4c75;
-      clip-path: polygon(23% 0%, 100% 0%, 100% 100%, 0% 100%); }
+      background-color: #3282b8;
+      clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0% 100%, 25% 50%, 0% 0%); }
       @media (max-width: 75em) {
         /* line 30, src/sass/components/forms/_forms.scss */
         .authForms-background--register {
@@ -456,52 +456,52 @@ form#changePasswordForm.form input.form-control {
         /* line 30, src/sass/components/forms/_forms.scss */
         .authForms-background--register {
           top: 20vh; } }
-  /* line 53, src/sass/components/forms/_forms.scss */
+  /* line 54, src/sass/components/forms/_forms.scss */
   .authForms-form {
     padding: 1.5vw 0vw 0vw 0vw; }
-    /* line 54, src/sass/components/forms/_forms.scss */
+    /* line 55, src/sass/components/forms/_forms.scss */
     .authForms-form label {
       font-size: 2rem; }
-    /* line 57, src/sass/components/forms/_forms.scss */
+    /* line 58, src/sass/components/forms/_forms.scss */
     .authForms-form input {
       font-size: 1.8rem; }
-    /* line 60, src/sass/components/forms/_forms.scss */
+    /* line 61, src/sass/components/forms/_forms.scss */
     .authForms-form h3 {
       font-size: 3.2rem; }
-    /* line 64, src/sass/components/forms/_forms.scss */
+    /* line 65, src/sass/components/forms/_forms.scss */
     .authForms-form .alert {
       display: inline-flex;
       width: 100%;
       margin-top: 1vh; }
 
-/* line 72, src/sass/components/forms/_forms.scss */
+/* line 73, src/sass/components/forms/_forms.scss */
 label {
   font-family: "Roboto", sans-serif;
   font-weight: 300; }
 
-/* line 76, src/sass/components/forms/_forms.scss */
+/* line 77, src/sass/components/forms/_forms.scss */
 .forms, label {
   font-size: 1.6rem; }
 
-/* line 79, src/sass/components/forms/_forms.scss */
+/* line 80, src/sass/components/forms/_forms.scss */
 .form-control {
   height: 4rem;
   font-size: 1.6rem; }
 
-/* line 84, src/sass/components/forms/_forms.scss */
+/* line 85, src/sass/components/forms/_forms.scss */
 .modal-header {
   border: none;
   outline: none; }
 
-/* line 88, src/sass/components/forms/_forms.scss */
+/* line 89, src/sass/components/forms/_forms.scss */
 .modal-title {
   font-size: 2.2rem; }
 
-/* line 92, src/sass/components/forms/_forms.scss */
+/* line 93, src/sass/components/forms/_forms.scss */
 .form-check label {
   margin-left: 1rem; }
 
-/* line 97, src/sass/components/forms/_forms.scss */
+/* line 98, src/sass/components/forms/_forms.scss */
 form h5 {
   font-size: 2rem; }
 
@@ -603,7 +603,11 @@ div.spinnerOverlay {
           /* line 32, src/sass/components/layout/_navbar.scss */
           .navbar-brand h1 {
             margin-right: 2vw; } }
-      /* line 42, src/sass/components/layout/_navbar.scss */
+        @media (max-width: 380px) {
+          /* line 32, src/sass/components/layout/_navbar.scss */
+          .navbar-brand h1 {
+            margin-right: 4rem; } }
+      /* line 45, src/sass/components/layout/_navbar.scss */
       .navbar-brand img {
         height: 14rem;
         min-height: 11rem;
@@ -617,11 +621,11 @@ div.spinnerOverlay {
         /* IE 9 */
         transform: rotate(10deg); }
         @media (max-width: 75em) {
-          /* line 42, src/sass/components/layout/_navbar.scss */
+          /* line 45, src/sass/components/layout/_navbar.scss */
           .navbar-brand img {
             display: none; } }
         @media (max-width: 37.5em) {
-          /* line 42, src/sass/components/layout/_navbar.scss */
+          /* line 45, src/sass/components/layout/_navbar.scss */
           .navbar-brand img {
             display: none; } }
 
@@ -712,13 +716,12 @@ div#noContent {
     top: 5vh;
     position: absolute;
     background-color: #0f4c75;
-    clip-path: polygon(0 0, 100% 0%, 70% 100%, 0 100%); }
+    clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%); }
     @media (max-width: 75em) {
       /* line 8, src/sass/components/_aboutSection.scss */
       .about-background {
         height: 50vh;
         width: 60vw;
-        background-color: #3282b8;
         clip-path: unset; } }
     @media (max-width: 56.25em) {
       /* line 8, src/sass/components/_aboutSection.scss */
@@ -744,7 +747,7 @@ div#noContent {
         width: 100vw; } }
     /* line 45, src/sass/components/_aboutSection.scss */
     .about-info--primary {
-      font-size: 5.5rem;
+      font-size: 5rem;
       letter-spacing: 0.4rem;
       margin-bottom: 2rem; }
       @media (max-width: 87.5em) {

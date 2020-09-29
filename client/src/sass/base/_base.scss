@@ -8,7 +8,8 @@
 
 html {
   font-size: 62.5%; // 1 rem = 10px; 10/16 = 62.5%
-
+  height: 100%;
+  width: 100%;
 
   @include respond(tab-port) {
     font-size: 50%; // 1 rem = 8px; 8/16 = 50%
@@ -28,8 +29,7 @@ body {
 #root {
   background-color: $color-dark;
   box-sizing: border-box;
-  height: 100%;
-  width: 100%;
+  
   color: $color-white;
   position: relative;
 }

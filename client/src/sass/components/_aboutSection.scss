@@ -12,11 +12,11 @@
     top: 5vh;
     position: absolute;
     background-color: $color-secondary;
-    clip-path: polygon(0 0, 100% 0%, 70% 100%, 0 100%);
+    clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
     @include respond(tab-land) {
       height: 50vh;
       width: 60vw;
-      background-color: $color-focus;
+      // background-color: $color-focus;
       clip-path: unset;
     }
     @include respond(tab-port) {
@@ -43,7 +43,7 @@
       width: 100vw;
     }
     &--primary {
-      font-size: 5.5rem;
+      font-size: 5rem;
       letter-spacing: 0.4rem;
       margin-bottom: 2rem;
       @media (max-width: 87.5em) {

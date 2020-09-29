@@ -38,6 +38,9 @@
         @include respond(tab-land) {
           margin-right: 2vw;
         }
+        @include respond(xsm) {
+          margin-right: 4rem;
+        }
       }
       img {
         height: 14rem;
@@ -57,8 +60,6 @@
           display: none;
         }
       }
-     
     }
-   
   }
 }
