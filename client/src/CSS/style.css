@@ -412,8 +412,8 @@ form#changePasswordForm.form input.form-control {
       padding: 0vh 2vw 5vh 15vw;
       right: -98vw;
       top: 0vh;
-      width: 40vw;
-      clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
+      width: 45vw;
+      clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
       background-color: #0f4c75; }
       @media (max-width: 75em) {
         /* line 8, src/sass/components/forms/_forms.scss */
@@ -436,10 +436,10 @@ form#changePasswordForm.form input.form-control {
       padding: 0vh 1vw 2vh 15vw;
       width: 50vw;
       right: -98vw;
-      top: -15vh;
+      top: 0vh;
       position: absolute;
       background-color: #0f4c75;
-      clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%); }
+      clip-path: polygon(23% 0%, 100% 0%, 100% 100%, 0% 100%); }
       @media (max-width: 75em) {
         /* line 30, src/sass/components/forms/_forms.scss */
         .authForms-background--register {
@@ -784,7 +784,7 @@ div#noContent {
 #btn-authForms--close {
   position: absolute;
   bottom: 1vh;
-  left: 18%; }
+  left: 10%; }
   /* line 7, src/sass/components/_buttons.scss */
   #btn-authForms--close:hover {
     cursor: pointer;

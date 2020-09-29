@@ -10,8 +10,8 @@
         padding: 0vh 2vw 5vh 15vw;
         right: -98vw;
         top: 0vh;
-        width: 40vw;
-        clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
+        width: 45vw;
+        clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
         background-color: $color-secondary;
         @include respond(tab-land) {
           clip-path: unset;
@@ -31,10 +31,10 @@
         padding: 0vh 1vw 2vh 15vw;
         width: 50vw;
         right: -98vw;
-        top: -15vh;
+        top: 0vh;
         position: absolute;
         background-color: $color-secondary;
-        clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
+        clip-path: polygon(23% 0%, 100% 0%, 100% 100%, 0% 100%);
         @include respond(tab-land) {
           clip-path: unset;
           padding: 0vh 5vw 5vh 10vw;
