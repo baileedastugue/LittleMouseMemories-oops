@@ -38,16 +38,16 @@ function OpenCloseForm() {
      const transitions = useTransition(formDivIndex, (p) => p, {
           from: {
                opacity: 0,
-               transform: 'translate3d(10vw,0vw,0)',
+               // transform: 'translate3d(10vw,0vw,0)',
                overflowx: 'hidden',
           },
           enter: {
                opacity: 1,
-               transform: 'translate3d(0%,0vw,0)',
+               // transform: 'translate3d(0%,0vw,0)',
           },
           leave: {
                opacity: 0,
-               transform: 'translate3d(10vw,0vw,0)',
+               // transform: 'translate3d(10vw,0vw,0)',
                overflowx: 'hidden',
           },
      });
@@ -56,7 +56,7 @@ function OpenCloseForm() {
 
      return (
           <>
-               <div className='signIn-background--square'>
+               <div className='signIn-background'>
                     <p className='signIn-text'>
                          New user?{' '}
                          <span
@@ -77,7 +77,6 @@ function OpenCloseForm() {
                          </span>
                     </p>
                </div>
-               <div className='signIn-background--triangle'></div>
 
                {transitions.map(({ item, props, key }) => {
                     const FormDiv = formDivs[item];

@@ -1,9 +1,10 @@
 .wrapper {
   background-color: $color-dark;
-  margin: 0vw 5%;
-  height: 89%;
-  flex: 1 0 auto;
-  overflow-x: hidden;
+  // margin: 0vw 5%;
+  // height: 89%;s
+  // width: 110%;
+  // flex: 1 0 auto;
+  overflow-x: clip;
 }
 
 .stretch-squares {
@@ -11,10 +12,11 @@
   justify-content: start;
   max-width: calc(#{$card-size}* 4 + #{$gutter-horizontal}* 8);
   margin: 0 auto;
-  
-  @include respond(tab-land) {
+  @media (max-width: 94.38em) { 
     width: calc(#{$card-size}* 3 + #{$gutter-horizontal}* 6);
-  }
+  }; 
+  // @include respond(tab-land) {
+  // }
   @include respond(tab-port) {
     width: calc(#{$card-size}* 2 + #{$gutter-horizontal}* 4);
   }

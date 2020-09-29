@@ -58,7 +58,7 @@ const RegistrationForm = (props) => {
                     <h3>Welcome</h3>
                     {props.closeBtn}
                     <Row>
-                         <Col md={6}>
+                         <Col sm={6}>
                               <FormGroup>
                                    <Label htmlFor='fNameInput'>
                                         First Name
@@ -73,7 +73,7 @@ const RegistrationForm = (props) => {
                                    />
                               </FormGroup>
                          </Col>
-                         <Col md={6}>
+                         <Col sm={6}>
                               <FormGroup>
                                    <Label htmlFor='lNameInput'>Last Name</Label>
                                    <Input
@@ -88,7 +88,7 @@ const RegistrationForm = (props) => {
                          </Col>
                     </Row>
                     <Row>
-                         <Col md={12}>
+                         <Col sm={12}>
                               <FormGroup>
                                    <Label htmlFor='emailInput'>Email</Label>
                                    <Input
@@ -103,7 +103,7 @@ const RegistrationForm = (props) => {
                          </Col>
                     </Row>
                     <Row>
-                         <Col md={6}>
+                         <Col sm={6}>
                               <FormGroup>
                                    <Label htmlFor='newPasswordInput'>
                                         Password
@@ -118,7 +118,7 @@ const RegistrationForm = (props) => {
                                    />
                               </FormGroup>
                          </Col>
-                         <Col md={6}>
+                         <Col sm={6}>
                               <FormGroup>
                                    <Label htmlFor='newPasswordInput'>
                                         Confirm Password

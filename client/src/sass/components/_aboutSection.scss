@@ -1,39 +1,67 @@
 .about {
   overflow-x: hidden;
-  z-index: 200;
-  &-background{
-    &--square {
-      height: 50vw;
-      width: 26vw;
-      left: -10vw;
-      position: absolute;
-      padding: 10vw;
-      background-color: $color-secondary;
-      z-index: 0;
+  position: relative;
+  // margin-top: 10vh;
+  height: 90vh;
+  width: 100vw;
+  overflow-y: scroll;
+  &-background {
+    height: 60vh;
+    width: 60vw;
+    left: 0vw;
+    top: 5vh;
+    position: absolute;
+    background-color: $color-secondary;
+    clip-path: polygon(0 0, 100% 0%, 70% 100%, 0 100%);
+    @include respond(tab-land) {
+      height: 40vw;
+      width: 60vw;
+      background-color: $color-focus;
+      clip-path: unset;
     }
-    &--triangle {
-      width: 30vw;
-      height: 50vw;
-      position: absolute;
-      left: 16vw;
-      border-top: 50vw solid $color-secondary;
-      border-right: 50vw solid transparent;
-      z-index: 0;
+    @include respond(tab-port) {
+      height: 40vh;
+      width: 100vw;
     }
   }
   &-info {
     position: absolute;
-    top: 10vw;
-    left: 5vw;
+    margin-top: 7vh;
+    margin-left: 2vw;
+    z-index: 100;
+    @include respond(tab-land) {
+      width: 60vw;
+    }
+    @include respond(tab-port) {
+      width: 100vw;
+    }
     &--primary {
-      font-size: 5.6rem;
-      letter-spacing: 0.3vw;
-      margin-bottom: 0.4vw;
+      font-size: 5.5rem;
+      letter-spacing: 0.4rem;
+      margin-bottom: 2rem;
+      @media (max-width: 87.5em) {
+        font-size: 4.5rem;
+      } 
+      @include respond(tab-port) {
+        // font-size: 4rem;
+        margin-bottom: 1rem;
+      }
+      @include respond(phone) {
+        font-size: 3rem; 
+      }
     }
     &--secondary {
       font-family: $secondary-text;
       font-weight: 100;
       font-size: 2.8rem;
+      margin: 6rem 0vw;
+      @media (max-width: 87.5em) {
+        font-size: 2.4rem;
+      } 
+      @include respond(tab-land) {
+        font-size: 2rem;
+        margin: 1rem 0rem;
+      }
     }
   }
 }

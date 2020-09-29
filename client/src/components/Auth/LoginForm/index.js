@@ -39,6 +39,7 @@ const LoginForm = (props) => {
                     onSubmit={(event) => onSubmit(event)}
                >
                     <h3>Welcome back</h3>
+                    <AlertDiv />
                     {props.closeBtn}
 
                     <FormGroup>
@@ -67,7 +68,6 @@ const LoginForm = (props) => {
                          Login
                     </AuthButton>
                </Form>
-               <AlertDiv />
           </div>
      );
 };

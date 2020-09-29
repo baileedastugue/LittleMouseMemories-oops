@@ -9,8 +9,8 @@ import WelcomeShowcase from '../components/Layout/WelcomeShowcase';
 const Welcome = ({ isAuth, isLoading }) => {
      return isLoading || !isAuth ? (
           <>
-               <AboutSection />
                <WelcomeShowcase />
+               <AboutSection />
           </>
      ) : (
           <Redirect to='/dashboard' />

@@ -1,39 +1,32 @@
-.signIn {
-  &-background {
-    &--square {
+.about {
+  .signIn {
+    &-text {
       position: absolute;
-      top: 35vw;
+      top: 45vh;
       left: 0vw;
-      height: 15vw;
-      width: 20vw;
-      background-color: $color-focus;
+      font-family: $secondary-text;
+      font-size: 2.7rem;
       z-index: 1000;
-    }
-    &--triangle {
-      position: absolute;
-      left: 20vw;
-      top: 35vw;
-      width: 15vw;
-      height: 15vw;
-      border-top: 15vw solid $color-focus;
-      border-right: 15vw solid transparent;
-    }
-  }
-  &-text {
-    width: 30vw;
-    padding: 5vw 0vw 0vw 5vw;
-    font-family: $secondary-text;
-    font-size: 2.7rem;
-    z-index: 1000;
-    &--authLink {
+      @include respond(tab-land) {
+        font-size: 2.2rem;
+        top: 33vh;
+      }
+      @include respond(tab-port) {
+        top: 25vh;
+      }
+      @include respond(phone) {
+        // top: 20vh;
+      }
+      &--authLink {
         z-index: 1000;
         color: $color-dark;
         font-weight: unset;
         &:hover {
           z-index: 1000;
           text-decoration: none;
-          font-weight: 300;
+          color: $color-white;
           cursor: pointer;  
+        }
       }
     }
   }
