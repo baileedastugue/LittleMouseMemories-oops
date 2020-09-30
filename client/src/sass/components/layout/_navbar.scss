@@ -38,8 +38,15 @@
         @include respond(tab-land) {
           margin-right: 2vw;
         }
+        @include respond(tab-port) {
+          font-size: 5rem;
+        }
+        @include respond(phone) {
+          font-size: 4.5rem;
+        }
         @include respond(xsm) {
           margin-right: 3rem;
+          font-size: 3rem;;
         }
       }
       img {

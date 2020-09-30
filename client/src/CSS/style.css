@@ -410,7 +410,8 @@ form#changePasswordForm.form input.form-control {
     position: fixed;
     padding: 0vh 2vw 5vh 15vw;
     right: 0vw;
-    bottom: 10vw;
+    bottom: 40vh;
+    transform: translateY(100%);
     width: 45vw;
     clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0% 100%, 25% 50%, 0% 0%);
     background-color: #3282b8; }
@@ -419,13 +420,12 @@ form#changePasswordForm.form input.form-control {
       .authForms-background--login {
         clip-path: unset;
         width: 50vw;
-        padding: 0vh 8vw 5vh 10vw;
-        bottom: 20vh; } }
+        padding: 0vh 8vw 5vh 10vw; } }
     @media (max-width: 56.25em) {
       /* line 10, src/sass/components/forms/_forms.scss */
       .authForms-background--login {
         width: 100vw;
-        bottom: 0vh;
+        bottom: 40vh;
         padding: 0vh 10vw 5vh 10vw; } }
     @media (max-width: 37.5em) {
       /* line 10, src/sass/components/forms/_forms.scss */
@@ -436,7 +436,8 @@ form#changePasswordForm.form input.form-control {
     padding: 0vh 2vw 2vh 15vw;
     width: 50vw;
     right: 0vw;
-    bottom: 10vw;
+    bottom: 48vh;
+    transform: translateY(100%);
     position: fixed;
     background-color: #3282b8;
     clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0% 100%, 25% 50%, 0% 0%); }
@@ -445,98 +446,136 @@ form#changePasswordForm.form input.form-control {
       .authForms-background--register {
         clip-path: unset;
         padding: 0vh 5vw 5vh 10vw;
-        bottom: 20vh; } }
+        bottom: 45vh; } }
     @media (max-width: 56.25em) {
       /* line 33, src/sass/components/forms/_forms.scss */
       .authForms-background--register {
         width: 100vw;
-        bottom: 0vh;
+        bottom: 40vh;
         padding: 0vh 10vw 5vh 10vw; } }
-  /* line 56, src/sass/components/forms/_forms.scss */
+    @media (max-width: 37.5em) {
+      /* line 33, src/sass/components/forms/_forms.scss */
+      .authForms-background--register {
+        bottom: 45vh; } }
+    @media (max-width: 24em) {
+      /* line 33, src/sass/components/forms/_forms.scss */
+      .authForms-background--register {
+        bottom: 58vh; } }
+  /* line 60, src/sass/components/forms/_forms.scss */
   .authForms-form {
     padding: 1.5vw 0vw 0vw 0vw; }
-    /* line 57, src/sass/components/forms/_forms.scss */
+    /* line 61, src/sass/components/forms/_forms.scss */
     .authForms-form label {
       font-size: 2rem; }
-    /* line 60, src/sass/components/forms/_forms.scss */
+      @media (max-width: 37.5em) {
+        /* line 61, src/sass/components/forms/_forms.scss */
+        .authForms-form label {
+          font-size: 1.6rem; } }
+    /* line 67, src/sass/components/forms/_forms.scss */
     .authForms-form input {
       font-size: 1.8rem; }
-    /* line 63, src/sass/components/forms/_forms.scss */
+    /* line 70, src/sass/components/forms/_forms.scss */
     .authForms-form h3 {
       font-size: 3.2rem; }
-    /* line 67, src/sass/components/forms/_forms.scss */
+      @media (max-width: 37.5em) {
+        /* line 70, src/sass/components/forms/_forms.scss */
+        .authForms-form h3 {
+          font-size: 2.2rem; } }
+    /* line 77, src/sass/components/forms/_forms.scss */
     .authForms-form .alert {
       display: inline-flex;
       width: 100%;
       margin-top: 1vh; }
 
-/* line 75, src/sass/components/forms/_forms.scss */
+/* line 85, src/sass/components/forms/_forms.scss */
 label {
   font-family: "Roboto", sans-serif;
   font-weight: 300; }
 
-/* line 79, src/sass/components/forms/_forms.scss */
+/* line 89, src/sass/components/forms/_forms.scss */
 .forms, label {
   font-size: 1.6rem; }
 
-/* line 82, src/sass/components/forms/_forms.scss */
+/* line 92, src/sass/components/forms/_forms.scss */
 .form-control {
   height: 4rem;
   font-size: 1.6rem; }
 
-/* line 87, src/sass/components/forms/_forms.scss */
+/* line 97, src/sass/components/forms/_forms.scss */
 .modal-header {
   border: none;
   outline: none; }
 
-/* line 91, src/sass/components/forms/_forms.scss */
+/* line 101, src/sass/components/forms/_forms.scss */
 .modal-title {
   font-size: 2.2rem; }
 
-/* line 95, src/sass/components/forms/_forms.scss */
+/* line 105, src/sass/components/forms/_forms.scss */
 .form-check label {
   margin-left: 1rem; }
 
-/* line 100, src/sass/components/forms/_forms.scss */
+/* line 110, src/sass/components/forms/_forms.scss */
 form h5 {
   font-size: 2rem; }
 
 /* line 2, src/sass/components/forms/_openCloseForm.scss */
 .signIn-text {
+  background-color: white;
+  clip-path: polygon(0 0, 100% 0%, 82% 100%, 0% 100%);
+  z-index: 10;
+  padding-left: 3vw;
+  padding-top: 6vh;
+  height: 20vh;
+  width: 55vw;
   position: absolute;
-  bottom: 30vh;
-  left: 2.5vw;
+  color: #252525;
+  top: 49vh;
+  margin-top: 1vh;
   font-family: "Roboto", sans-serif;
-  font-size: 2.7rem;
-  z-index: 1000; }
+  font-weight: 300;
+  font-size: 2.7rem; }
+  @media (max-width: 87.5em) {
+    /* line 2, src/sass/components/forms/_openCloseForm.scss */
+    .signIn-text {
+      top: 51vh; } }
   @media (max-width: 75em) {
     /* line 2, src/sass/components/forms/_openCloseForm.scss */
     .signIn-text {
       font-size: 2.2rem;
-      bottom: 38vh; } }
+      top: 48vh;
+      width: 60vw;
+      padding-top: 4vh;
+      clip-path: unset;
+      height: 15vh; } }
   @media (max-width: 56.25em) {
     /* line 2, src/sass/components/forms/_openCloseForm.scss */
     .signIn-text {
-      bottom: 51vh; } }
+      font-size: 1.9rem;
+      top: 37vh;
+      height: 10vh;
+      padding-top: 2.3vh;
+      width: 100vw; } }
   @media (max-width: 37.5em) {
     /* line 2, src/sass/components/forms/_openCloseForm.scss */
     .signIn-text {
-      bottom: 53vh; } }
-  @media (max-width: 56.25em) {
+      top: 36vh;
+      padding-top: .5vh;
+      height: 8vh; } }
+  @media (max-width: 24em) {
     /* line 2, src/sass/components/forms/_openCloseForm.scss */
     .signIn-text {
-      bottom: 60vh;
-      font-size: 1.6rem; } }
-  /* line 24, src/sass/components/forms/_openCloseForm.scss */
+      top: 26vh;
+      padding-top: 1vh; } }
+  /* line 44, src/sass/components/forms/_openCloseForm.scss */
   .signIn-text--authLink {
     z-index: 1000;
-    color: #252525;
+    color: #3282b8;
     font-weight: unset; }
-    /* line 28, src/sass/components/forms/_openCloseForm.scss */
+    /* line 48, src/sass/components/forms/_openCloseForm.scss */
     .signIn-text--authLink:hover {
       z-index: 1000;
       text-decoration: none;
-      color: white;
+      color: #0f4c75;
       cursor: pointer; }
 
 /* line 1, src/sass/components/layout/_alert.scss */
@@ -603,11 +642,20 @@ div.spinnerOverlay {
           /* line 32, src/sass/components/layout/_navbar.scss */
           .navbar-brand h1 {
             margin-right: 2vw; } }
+        @media (max-width: 56.25em) {
+          /* line 32, src/sass/components/layout/_navbar.scss */
+          .navbar-brand h1 {
+            font-size: 5rem; } }
+        @media (max-width: 37.5em) {
+          /* line 32, src/sass/components/layout/_navbar.scss */
+          .navbar-brand h1 {
+            font-size: 4.5rem; } }
         @media (max-width: 24em) {
           /* line 32, src/sass/components/layout/_navbar.scss */
           .navbar-brand h1 {
-            margin-right: 3rem; } }
-      /* line 45, src/sass/components/layout/_navbar.scss */
+            margin-right: 3rem;
+            font-size: 3rem; } }
+      /* line 52, src/sass/components/layout/_navbar.scss */
       .navbar-brand img {
         height: 14rem;
         min-height: 11rem;
@@ -621,11 +669,11 @@ div.spinnerOverlay {
         /* IE 9 */
         transform: rotate(10deg); }
         @media (max-width: 75em) {
-          /* line 45, src/sass/components/layout/_navbar.scss */
+          /* line 52, src/sass/components/layout/_navbar.scss */
           .navbar-brand img {
             display: none; } }
         @media (max-width: 37.5em) {
-          /* line 45, src/sass/components/layout/_navbar.scss */
+          /* line 52, src/sass/components/layout/_navbar.scss */
           .navbar-brand img {
             display: none; } }
 
@@ -707,8 +755,9 @@ div#noContent {
   position: relative;
   height: 90vh;
   width: 100vw;
-  overflow-y: scroll; }
-  /* line 7, src/sass/components/_aboutSection.scss */
+  overflow-y: scroll;
+  padding: 0vh 1vw; }
+  /* line 8, src/sass/components/_aboutSection.scss */
   .about-background {
     height: 60vh;
     width: 60vw;
@@ -718,49 +767,49 @@ div#noContent {
     background-color: #0f4c75;
     clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%); }
     @media (max-width: 75em) {
-      /* line 7, src/sass/components/_aboutSection.scss */
+      /* line 8, src/sass/components/_aboutSection.scss */
       .about-background {
         height: 50vh;
         width: 60vw;
         clip-path: unset; } }
     @media (max-width: 56.25em) {
-      /* line 7, src/sass/components/_aboutSection.scss */
+      /* line 8, src/sass/components/_aboutSection.scss */
       .about-background {
         top: 0;
         width: 100vw;
         height: 40vh; } }
     @media (max-width: 37.5em) {
-      /* line 7, src/sass/components/_aboutSection.scss */
+      /* line 8, src/sass/components/_aboutSection.scss */
       .about-background {
         height: 40vh; } }
     @media (max-width: 24em) {
-      /* line 7, src/sass/components/_aboutSection.scss */
+      /* line 8, src/sass/components/_aboutSection.scss */
       .about-background {
         height: 30vh; } }
-  /* line 32, src/sass/components/_aboutSection.scss */
+  /* line 33, src/sass/components/_aboutSection.scss */
   .about-info {
     position: absolute;
     margin-top: 9vh;
-    margin-left: 2vw;
     z-index: 100; }
     @media (max-width: 75em) {
-      /* line 32, src/sass/components/_aboutSection.scss */
+      /* line 33, src/sass/components/_aboutSection.scss */
       .about-info {
         width: 60vw; } }
     @media (max-width: 56.25em) {
-      /* line 32, src/sass/components/_aboutSection.scss */
+      /* line 33, src/sass/components/_aboutSection.scss */
       .about-info {
         width: 100vw;
         margin-top: 2vh; } }
     /* line 44, src/sass/components/_aboutSection.scss */
     .about-info--primary {
+      margin-left: 2vw;
       font-size: 5rem;
       letter-spacing: 0.4rem;
       margin-bottom: 2rem; }
       @media (max-width: 87.5em) {
         /* line 44, src/sass/components/_aboutSection.scss */
         .about-info--primary {
-          font-size: 4.5rem; } }
+          font-size: 4.2rem; } }
       @media (max-width: 56.25em) {
         /* line 44, src/sass/components/_aboutSection.scss */
         .about-info--primary {
@@ -768,33 +817,41 @@ div#noContent {
       @media (max-width: 37.5em) {
         /* line 44, src/sass/components/_aboutSection.scss */
         .about-info--primary {
-          font-size: 3rem; } }
+          font-size: 3rem;
+          margin-bottom: 0rem; } }
       @media (max-width: 24em) {
         /* line 44, src/sass/components/_aboutSection.scss */
         .about-info--primary {
           font-size: 2rem; } }
-    /* line 62, src/sass/components/_aboutSection.scss */
+    /* line 63, src/sass/components/_aboutSection.scss */
     .about-info--secondary {
       font-family: "Roboto", sans-serif;
-      font-weight: 100;
-      font-size: 2.8rem; }
+      font-weight: 300;
+      padding-top: 1vh;
+      font-size: 2.8rem;
+      width: 50vw; }
       @media (max-width: 87.5em) {
-        /* line 62, src/sass/components/_aboutSection.scss */
+        /* line 63, src/sass/components/_aboutSection.scss */
         .about-info--secondary {
           font-size: 2.4rem; } }
       @media (max-width: 75em) {
-        /* line 62, src/sass/components/_aboutSection.scss */
+        /* line 63, src/sass/components/_aboutSection.scss */
         .about-info--secondary {
           margin: 1rem 0rem; } }
       @media (max-width: 56.25em) {
-        /* line 62, src/sass/components/_aboutSection.scss */
+        /* line 63, src/sass/components/_aboutSection.scss */
         .about-info--secondary {
           font-size: 2.2rem;
-          margin: 0rem 0rem; } }
-      @media (max-width: 24em) {
-        /* line 62, src/sass/components/_aboutSection.scss */
+          margin: 0;
+          width: 70vw; } }
+      @media (max-width: 37.5em) {
+        /* line 63, src/sass/components/_aboutSection.scss */
         .about-info--secondary {
-          font-size: 1.6rem; } }
+          width: 90vw; } }
+      @media (max-width: 24em) {
+        /* line 63, src/sass/components/_aboutSection.scss */
+        .about-info--secondary {
+          font-size: 1.4rem; } }
 
 /* line 1, src/sass/components/_albumSettings.scss */
 .albumSettings {

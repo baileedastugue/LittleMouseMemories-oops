@@ -19,12 +19,11 @@ const AboutSection = () => {
                               </h2>
                          </Row>
                          <Row className='about-info--secondary'>
-                              Post photos and write your own memories,
-                              <br />
-                              easily collaborate with friends and family,
-                              <br />
-                              and protect your albums with a password
-                              <br />
+                              <p>
+                                   Post photos and write your own memories,
+                                   easily collaborate with friends and family,
+                                   and protect your albums with a password
+                              </p>
                          </Row>
                     </Container>
                </Container>
