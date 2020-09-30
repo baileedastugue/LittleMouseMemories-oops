@@ -72,7 +72,7 @@ h1, h2, h3, h4, h5, h6 {
 /* line 10, src/sass/base/_utilities.scss */
 .stretch-squares {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   max-width: calc(35rem* 4 + 1rem* 8);
   margin: 0 auto; }
   @media (max-width: 94.38em) {
@@ -956,40 +956,45 @@ Button.btn {
     outline: none;
     background-color: transparent;
     padding-right: .8rem;
-    font-size: 2rem; }
-    /* line 69, src/sass/components/_buttons.scss */
+    font-size: 2rem;
+    right: 2vw; }
+    /* line 70, src/sass/components/_buttons.scss */
     Button.btn-close:hover {
       cursor: pointer; }
-  /* line 73, src/sass/components/_buttons.scss */
+    @media (max-width: 56.25em) {
+      /* line 64, src/sass/components/_buttons.scss */
+      Button.btn-close {
+        float: center; } }
+  /* line 78, src/sass/components/_buttons.scss */
   Button.btn-modal {
     width: 9rem;
     height: 9rem;
     border-radius: 50rem;
     font-size: 2rem;
     text-align: center;
-    background-color: white;
+    background-color: #dfdfdf;
     border: none;
     outline: none; }
-    /* line 81, src/sass/components/_buttons.scss */
+    /* line 86, src/sass/components/_buttons.scss */
     Button.btn-modal:hover {
       background-color: #bbe1fa;
       outline: none; }
-    /* line 85, src/sass/components/_buttons.scss */
+    /* line 90, src/sass/components/_buttons.scss */
     Button.btn-modal:focus, Button.btn-modal:active, Button.btn-modal::after {
       background-color: white;
       border: none;
       outline: none; }
-    /* line 89, src/sass/components/_buttons.scss */
+    /* line 94, src/sass/components/_buttons.scss */
     Button.btn-modal.btn-prompt {
       position: sticky;
       margin-top: 2vw; }
-    /* line 93, src/sass/components/_buttons.scss */
+    /* line 98, src/sass/components/_buttons.scss */
     Button.btn-modal.btn-photo, Button.btn-modal.btn-album {
       position: sticky;
       bottom: 2vw;
       display: block; }
 
-/* line 101, src/sass/components/_buttons.scss */
+/* line 106, src/sass/components/_buttons.scss */
 .btnContainer {
   z-index: 1000;
   position: fixed;
@@ -997,6 +1002,12 @@ Button.btn {
   -webkit-transform: translateX(88vw);
   -ms-transform: translateX(88vw);
   transform: translateX(88vw); }
+  @media (max-width: 37.5em) {
+    /* line 106, src/sass/components/_buttons.scss */
+    .btnContainer {
+      -webkit-transform: translateX(80vw);
+      -ms-transform: translateX(80vw);
+      transform: translateX(80vw); } }
 
 /* line 1, src/sass/pages/_settings.scss */
 .accountSettings {

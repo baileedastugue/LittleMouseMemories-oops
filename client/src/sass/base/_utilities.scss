@@ -9,7 +9,7 @@
 
 .stretch-squares {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   max-width: calc(#{$card-size}* 4 + #{$gutter-horizontal}* 8);
   margin: 0 auto;
   @media (max-width: 94.38em) { 

@@ -66,9 +66,14 @@ Button.btn {
     background-color: transparent;
     padding-right: .8rem;
     font-size: 2rem;
+    right: 2vw;
     &:hover {
       cursor: pointer;
     }
+    @include respond (tab-port) {
+      float: center;
+    }
+
   }
   &-modal {
     width: 9rem; 
@@ -76,7 +81,7 @@ Button.btn {
     border-radius: 50rem; 
     font-size: 2rem;
     text-align: center; 
-    background-color: $color-white;
+    background-color: $color-muted;
     @include noFraming;
     &:hover {
       background-color: $color-highlight;
@@ -105,4 +110,9 @@ Button.btn {
   -webkit-transform: translateX(88vw);
   -ms-transform: translateX(88vw);
   transform: translateX(88vw);
+  @include respond(phone) {
+    -webkit-transform: translateX(80vw);
+  -ms-transform: translateX(80vw);
+  transform: translateX(80vw);
+  }
 }

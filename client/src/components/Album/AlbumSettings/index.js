@@ -2,16 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import AlertDiv from '../../Layout/AlertDiv';
 import PropTypes from 'prop-types';
-import {
-     Modal,
-     ModalBody,
-     ModalHeader,
-     Button,
-     Form,
-     FormGroup,
-     Label,
-     Input,
-} from 'reactstrap';
+import { Modal, ModalBody, ModalHeader, Button, Form, Label } from 'reactstrap';
 import {
      deleteAlbum,
      albumNameChange,

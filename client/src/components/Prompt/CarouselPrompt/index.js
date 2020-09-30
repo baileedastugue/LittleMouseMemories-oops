@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, CardTitle, CardSubtitle } from 'reactstrap';
-import CenteredContent from '../../Layout/CenteredContent';
 import Moment from 'react-moment';
 
 const CarouselPrompt = (props) => {
