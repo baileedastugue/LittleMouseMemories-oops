@@ -1,12 +1,11 @@
 .carousel{
   &-card {
     border-radius: 0;
-    width: 100%;
+    position: relative;
     height: 82vh;
     background-color: $color-white;
     color: black;
     margin-left: 0vw;
- 
     @include noFraming;
     &--title {
       margin-left: 1vw;
@@ -29,6 +28,7 @@
     &--recordedDate{
       height: 2rem;
       font-size: 1.6rem;
+      margin: 1vh 0;
       right: 3.5vw;
       bottom: 0;
       text-align: right;
@@ -41,12 +41,12 @@
     &--background {
       height: 70vh;
       margin-bottom: 1vh;
-      // width: 10vw;
+      width: 100%;
       background-color: $color-focus;
       overflow-y: auto;
       overflow-x: hidden;
       white-space: normal;
-      position: relative;
+      position: absolute;
       padding: 2rem 5rem;
       @include respond(tab-land) {
         padding: 2rem;
@@ -102,6 +102,6 @@
   .center {
     display: inline-block;
     vertical-align: middle;
-    margin: 0 auto;
+    // margin: 0 auto;
   }
 }

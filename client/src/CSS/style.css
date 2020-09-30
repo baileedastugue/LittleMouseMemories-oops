@@ -252,25 +252,25 @@ div.card-flip {
 /* line 2, src/sass/components/carousel/_carouselDisplay.scss */
 .carousel-card {
   border-radius: 0;
-  width: 100%;
+  position: relative;
   height: 82vh;
   background-color: white;
   color: black;
   margin-left: 0vw;
   border: none;
   outline: none; }
-  /* line 11, src/sass/components/carousel/_carouselDisplay.scss */
+  /* line 10, src/sass/components/carousel/_carouselDisplay.scss */
   .carousel-card--title {
     margin-left: 1vw;
     padding: 1rem;
     height: 5vh; }
-    /* line 15, src/sass/components/carousel/_carouselDisplay.scss */
+    /* line 14, src/sass/components/carousel/_carouselDisplay.scss */
     .carousel-card--title time {
       font-family: "Vidaloka", serif;
       font-size: 2.6rem;
       color: #3282b8;
       letter-spacing: 1.2rem; }
-  /* line 22, src/sass/components/carousel/_carouselDisplay.scss */
+  /* line 21, src/sass/components/carousel/_carouselDisplay.scss */
   .carousel-card--subtitle {
     font-family: "Roboto", sans-serif;
     font-weight: 300;
@@ -278,10 +278,11 @@ div.card-flip {
     padding-left: 5vw;
     height: 2vh;
     margin-bottom: 1vh; }
-  /* line 29, src/sass/components/carousel/_carouselDisplay.scss */
+  /* line 28, src/sass/components/carousel/_carouselDisplay.scss */
   .carousel-card--recordedDate {
     height: 2rem;
     font-size: 1.6rem;
+    margin: 1vh 0;
     right: 3.5vw;
     bottom: 0;
     text-align: right;
@@ -293,11 +294,12 @@ div.card-flip {
 .carousel-prompt--background {
   height: 70vh;
   margin-bottom: 1vh;
+  width: 100%;
   background-color: #3282b8;
   overflow-y: auto;
   overflow-x: hidden;
   white-space: normal;
-  position: relative;
+  position: absolute;
   padding: 2rem 5rem; }
   @media (max-width: 75em) {
     /* line 41, src/sass/components/carousel/_carouselDisplay.scss */
@@ -360,8 +362,7 @@ div.card-flip {
 /* line 102, src/sass/components/carousel/_carouselDisplay.scss */
 .carousel .center {
   display: inline-block;
-  vertical-align: middle;
-  margin: 0 auto; }
+  vertical-align: middle; }
 
 /* line 1, src/sass/components/carousel/_carouselModal.scss */
 .carousel-modal {
