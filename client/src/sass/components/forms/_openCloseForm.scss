@@ -1,22 +1,25 @@
-.about {
   .signIn {
     &-text {
       position: absolute;
-      top: 45vh;
-      left: 0vw;
+      bottom: 30vh;
+      left: 2.5vw;
       font-family: $secondary-text;
       font-size: 2.7rem;
       z-index: 1000;
       @include respond(tab-land) {
         font-size: 2.2rem;
-        top: 33vh;
+        bottom: 38vh;
       }
       @include respond(tab-port) {
-        top: 30vh;
+        bottom: 51vh;
       }
       @include respond(phone) {
-        top: 25vh;
+        bottom: 53vh;
+      }
+      @include respond(tab-port) {
+        bottom: 60vh;
         font-size: 1.6rem;
+
       }
       &--authLink {
         z-index: 1000;
@@ -31,4 +34,3 @@
       }
     }
   }
-}

@@ -1,7 +1,6 @@
 .about {
   overflow-x: hidden;
   position: relative;
-  // margin-top: 10vh;
   height: 90vh;
   width: 100vw;
   overflow-y: scroll;
@@ -16,24 +15,23 @@
     @include respond(tab-land) {
       height: 50vh;
       width: 60vw;
-      // background-color: $color-focus;
       clip-path: unset;
     }
     @include respond(tab-port) {
+      top: 0;
       width: 100vw;
+      height: 40vh;
     }
     @include respond(phone) {
       height: 40vh;
     }
-    // @include respond(xsm) {
-    //   background-color: red;
-    //   // height: 60vh;
-    // }
-
+    @include respond(xsm) {
+      height: 30vh;
+    }
   }
   &-info {
     position: absolute;
-    margin-top: 7vh;
+    margin-top: 9vh;
     margin-left: 2vw;
     z-index: 100;
     @include respond(tab-land) {
@@ -41,6 +39,7 @@
     }
     @include respond(tab-port) {
       width: 100vw;
+      margin-top: 2vh;
     }
     &--primary {
       font-size: 5rem;
@@ -64,17 +63,20 @@
       font-family: $secondary-text;
       font-weight: 100;
       font-size: 2.8rem;
-      margin: 6rem 0vw;
+      // margin: 6rem 0vw;
       @media (max-width: 87.5em) {
         font-size: 2.4rem;
       } 
       @include respond(tab-land) {
-        font-size: 2rem;
+        // font-size: 2.2rem;
         margin: 1rem 0rem;
       }
       @include respond(tab-port) {
-        font-size: 1.6rem;
+        font-size: 2.2rem;
         margin: 0rem 0rem;
+      }
+      @include respond(xsm) {
+        font-size: 1.6rem; 
       }
     }
   }

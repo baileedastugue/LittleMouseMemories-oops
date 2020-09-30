@@ -1,15 +1,17 @@
   .authForms {
-    background-color: transparent;
+    background-color: red;
     z-index: 100;
     width: 100vw;
     position: relative;
+    margin: auto 0 auto;
+    justify-content: right;
     &-background {
-      will-change: transform, opacity;
+      // will-change: transform, opacity;
       &--login {
-        position: absolute;
+        position: fixed;
         padding: 0vh 2vw 5vh 15vw;
-        right: -98vw;
-        top: 0vh;
+        right: 0vw;
+        bottom: 10vw;
         width: 45vw;
         clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0% 100%, 25% 50%, 0% 0%);
         background-color: $color-focus;
@@ -17,10 +19,11 @@
           clip-path: unset;
           width: 50vw;
           padding: 0vh 8vw 5vh 10vw;
-          top: 20vh;
+          bottom: 20vh;
         }
         @include respond(tab-port) {
           width: 100vw;
+          bottom: 0vh;
           padding: 0vh 10vw 5vh 10vw;
         }
         @include respond(phone) {
@@ -28,26 +31,25 @@
         }
       }
       &--register {
-        padding: 0vh 1vw 2vh 15vw;
+        padding: 0vh 2vw 2vh 15vw;
         width: 50vw;
-        right: -98vw;
-        top: 0vh;
-        position: absolute;
+        right: 0vw;
+        bottom: 10vw;
+        position: fixed;
         background-color: $color-focus;
         clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0% 100%, 25% 50%, 0% 0%);
-
         @include respond(tab-land) {
           clip-path: unset;
           padding: 0vh 5vw 5vh 10vw;
-          top: 10vh;
+          bottom: 20vh;
         }
         @include respond(tab-port) {
           width: 100vw;
-          top: 15vh;
+          bottom: 0vh;
           padding: 0vh 10vw 5vh 10vw;
         }
         @include respond(phone) {
-          top: 20vh;
+          // top: 20vh;
         }
       }
     }

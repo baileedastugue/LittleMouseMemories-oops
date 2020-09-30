@@ -12,7 +12,7 @@
     width: 90vw;
   }
   @include respond(tab-land) {
-    height: 100vh;
+    height: 80vh;
   }
   &-movingArea {
     animation: verticalScroll 60s linear infinite;

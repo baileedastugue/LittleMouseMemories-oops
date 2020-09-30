@@ -82,7 +82,7 @@ $breakpoint argument choices:
 
 @mixin respond($breakpoint) {
   @if $breakpoint == xsm {
-    @media (max-width: 380px) { @content }; // 600px
+    @media (max-width: 24em) { @content }; //
   }
   @if $breakpoint == phone {
     @media (max-width: 37.5em) { @content }; // 600px

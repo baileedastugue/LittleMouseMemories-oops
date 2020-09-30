@@ -399,141 +399,141 @@ form#changePasswordForm.form input.form-control {
 
 /* line 1, src/sass/components/forms/_forms.scss */
 .authForms {
-  background-color: transparent;
+  background-color: red;
   z-index: 100;
   width: 100vw;
-  position: relative; }
-  /* line 6, src/sass/components/forms/_forms.scss */
-  .authForms-background {
-    will-change: transform, opacity; }
-    /* line 8, src/sass/components/forms/_forms.scss */
-    .authForms-background--login {
-      position: absolute;
-      padding: 0vh 2vw 5vh 15vw;
-      right: -98vw;
-      top: 0vh;
-      width: 45vw;
-      clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0% 100%, 25% 50%, 0% 0%);
-      background-color: #3282b8; }
-      @media (max-width: 75em) {
-        /* line 8, src/sass/components/forms/_forms.scss */
-        .authForms-background--login {
-          clip-path: unset;
-          width: 50vw;
-          padding: 0vh 8vw 5vh 10vw;
-          top: 20vh; } }
-      @media (max-width: 56.25em) {
-        /* line 8, src/sass/components/forms/_forms.scss */
-        .authForms-background--login {
-          width: 100vw;
-          padding: 0vh 10vw 5vh 10vw; } }
-      @media (max-width: 37.5em) {
-        /* line 8, src/sass/components/forms/_forms.scss */
-        .authForms-background--login {
-          padding: 0vh 10vw 5vh 13vw; } }
-    /* line 30, src/sass/components/forms/_forms.scss */
-    .authForms-background--register {
-      padding: 0vh 1vw 2vh 15vw;
-      width: 50vw;
-      right: -98vw;
-      top: 0vh;
-      position: absolute;
-      background-color: #3282b8;
-      clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0% 100%, 25% 50%, 0% 0%); }
-      @media (max-width: 75em) {
-        /* line 30, src/sass/components/forms/_forms.scss */
-        .authForms-background--register {
-          clip-path: unset;
-          padding: 0vh 5vw 5vh 10vw;
-          top: 10vh; } }
-      @media (max-width: 56.25em) {
-        /* line 30, src/sass/components/forms/_forms.scss */
-        .authForms-background--register {
-          width: 100vw;
-          top: 15vh;
-          padding: 0vh 10vw 5vh 10vw; } }
-      @media (max-width: 37.5em) {
-        /* line 30, src/sass/components/forms/_forms.scss */
-        .authForms-background--register {
-          top: 20vh; } }
-  /* line 54, src/sass/components/forms/_forms.scss */
+  position: relative;
+  margin: auto 0 auto;
+  justify-content: right; }
+  /* line 10, src/sass/components/forms/_forms.scss */
+  .authForms-background--login {
+    position: fixed;
+    padding: 0vh 2vw 5vh 15vw;
+    right: 0vw;
+    bottom: 10vw;
+    width: 45vw;
+    clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0% 100%, 25% 50%, 0% 0%);
+    background-color: #3282b8; }
+    @media (max-width: 75em) {
+      /* line 10, src/sass/components/forms/_forms.scss */
+      .authForms-background--login {
+        clip-path: unset;
+        width: 50vw;
+        padding: 0vh 8vw 5vh 10vw;
+        bottom: 20vh; } }
+    @media (max-width: 56.25em) {
+      /* line 10, src/sass/components/forms/_forms.scss */
+      .authForms-background--login {
+        width: 100vw;
+        bottom: 0vh;
+        padding: 0vh 10vw 5vh 10vw; } }
+    @media (max-width: 37.5em) {
+      /* line 10, src/sass/components/forms/_forms.scss */
+      .authForms-background--login {
+        padding: 0vh 10vw 5vh 13vw; } }
+  /* line 33, src/sass/components/forms/_forms.scss */
+  .authForms-background--register {
+    padding: 0vh 2vw 2vh 15vw;
+    width: 50vw;
+    right: 0vw;
+    bottom: 10vw;
+    position: fixed;
+    background-color: #3282b8;
+    clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0% 100%, 25% 50%, 0% 0%); }
+    @media (max-width: 75em) {
+      /* line 33, src/sass/components/forms/_forms.scss */
+      .authForms-background--register {
+        clip-path: unset;
+        padding: 0vh 5vw 5vh 10vw;
+        bottom: 20vh; } }
+    @media (max-width: 56.25em) {
+      /* line 33, src/sass/components/forms/_forms.scss */
+      .authForms-background--register {
+        width: 100vw;
+        bottom: 0vh;
+        padding: 0vh 10vw 5vh 10vw; } }
+  /* line 56, src/sass/components/forms/_forms.scss */
   .authForms-form {
     padding: 1.5vw 0vw 0vw 0vw; }
-    /* line 55, src/sass/components/forms/_forms.scss */
+    /* line 57, src/sass/components/forms/_forms.scss */
     .authForms-form label {
       font-size: 2rem; }
-    /* line 58, src/sass/components/forms/_forms.scss */
+    /* line 60, src/sass/components/forms/_forms.scss */
     .authForms-form input {
       font-size: 1.8rem; }
-    /* line 61, src/sass/components/forms/_forms.scss */
+    /* line 63, src/sass/components/forms/_forms.scss */
     .authForms-form h3 {
       font-size: 3.2rem; }
-    /* line 65, src/sass/components/forms/_forms.scss */
+    /* line 67, src/sass/components/forms/_forms.scss */
     .authForms-form .alert {
       display: inline-flex;
       width: 100%;
       margin-top: 1vh; }
 
-/* line 73, src/sass/components/forms/_forms.scss */
+/* line 75, src/sass/components/forms/_forms.scss */
 label {
   font-family: "Roboto", sans-serif;
   font-weight: 300; }
 
-/* line 77, src/sass/components/forms/_forms.scss */
+/* line 79, src/sass/components/forms/_forms.scss */
 .forms, label {
   font-size: 1.6rem; }
 
-/* line 80, src/sass/components/forms/_forms.scss */
+/* line 82, src/sass/components/forms/_forms.scss */
 .form-control {
   height: 4rem;
   font-size: 1.6rem; }
 
-/* line 85, src/sass/components/forms/_forms.scss */
+/* line 87, src/sass/components/forms/_forms.scss */
 .modal-header {
   border: none;
   outline: none; }
 
-/* line 89, src/sass/components/forms/_forms.scss */
+/* line 91, src/sass/components/forms/_forms.scss */
 .modal-title {
   font-size: 2.2rem; }
 
-/* line 93, src/sass/components/forms/_forms.scss */
+/* line 95, src/sass/components/forms/_forms.scss */
 .form-check label {
   margin-left: 1rem; }
 
-/* line 98, src/sass/components/forms/_forms.scss */
+/* line 100, src/sass/components/forms/_forms.scss */
 form h5 {
   font-size: 2rem; }
 
-/* line 3, src/sass/components/forms/_openCloseForm.scss */
-.about .signIn-text {
+/* line 2, src/sass/components/forms/_openCloseForm.scss */
+.signIn-text {
   position: absolute;
-  top: 45vh;
-  left: 0vw;
+  bottom: 30vh;
+  left: 2.5vw;
   font-family: "Roboto", sans-serif;
   font-size: 2.7rem;
   z-index: 1000; }
   @media (max-width: 75em) {
-    /* line 3, src/sass/components/forms/_openCloseForm.scss */
-    .about .signIn-text {
+    /* line 2, src/sass/components/forms/_openCloseForm.scss */
+    .signIn-text {
       font-size: 2.2rem;
-      top: 33vh; } }
+      bottom: 38vh; } }
   @media (max-width: 56.25em) {
-    /* line 3, src/sass/components/forms/_openCloseForm.scss */
-    .about .signIn-text {
-      top: 30vh; } }
+    /* line 2, src/sass/components/forms/_openCloseForm.scss */
+    .signIn-text {
+      bottom: 51vh; } }
   @media (max-width: 37.5em) {
-    /* line 3, src/sass/components/forms/_openCloseForm.scss */
-    .about .signIn-text {
-      top: 25vh;
+    /* line 2, src/sass/components/forms/_openCloseForm.scss */
+    .signIn-text {
+      bottom: 53vh; } }
+  @media (max-width: 56.25em) {
+    /* line 2, src/sass/components/forms/_openCloseForm.scss */
+    .signIn-text {
+      bottom: 60vh;
       font-size: 1.6rem; } }
-  /* line 21, src/sass/components/forms/_openCloseForm.scss */
-  .about .signIn-text--authLink {
+  /* line 24, src/sass/components/forms/_openCloseForm.scss */
+  .signIn-text--authLink {
     z-index: 1000;
     color: #252525;
     font-weight: unset; }
-    /* line 25, src/sass/components/forms/_openCloseForm.scss */
-    .about .signIn-text--authLink:hover {
+    /* line 28, src/sass/components/forms/_openCloseForm.scss */
+    .signIn-text--authLink:hover {
       z-index: 1000;
       text-decoration: none;
       color: white;
@@ -603,10 +603,10 @@ div.spinnerOverlay {
           /* line 32, src/sass/components/layout/_navbar.scss */
           .navbar-brand h1 {
             margin-right: 2vw; } }
-        @media (max-width: 380px) {
+        @media (max-width: 24em) {
           /* line 32, src/sass/components/layout/_navbar.scss */
           .navbar-brand h1 {
-            margin-right: 4rem; } }
+            margin-right: 3rem; } }
       /* line 45, src/sass/components/layout/_navbar.scss */
       .navbar-brand img {
         height: 14rem;
@@ -661,7 +661,7 @@ div#noContent {
   @media (max-width: 75em) {
     /* line 1, src/sass/components/layout/_showcase.scss */
     .showcase {
-      height: 100vh; } }
+      height: 80vh; } }
   /* line 17, src/sass/components/layout/_showcase.scss */
   .showcase-movingArea {
     animation: verticalScroll 60s linear infinite; }
@@ -708,7 +708,7 @@ div#noContent {
   height: 90vh;
   width: 100vw;
   overflow-y: scroll; }
-  /* line 8, src/sass/components/_aboutSection.scss */
+  /* line 7, src/sass/components/_aboutSection.scss */
   .about-background {
     height: 60vh;
     width: 60vw;
@@ -718,74 +718,83 @@ div#noContent {
     background-color: #0f4c75;
     clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%); }
     @media (max-width: 75em) {
-      /* line 8, src/sass/components/_aboutSection.scss */
+      /* line 7, src/sass/components/_aboutSection.scss */
       .about-background {
         height: 50vh;
         width: 60vw;
         clip-path: unset; } }
     @media (max-width: 56.25em) {
-      /* line 8, src/sass/components/_aboutSection.scss */
+      /* line 7, src/sass/components/_aboutSection.scss */
       .about-background {
-        width: 100vw; } }
+        top: 0;
+        width: 100vw;
+        height: 40vh; } }
     @media (max-width: 37.5em) {
-      /* line 8, src/sass/components/_aboutSection.scss */
+      /* line 7, src/sass/components/_aboutSection.scss */
       .about-background {
         height: 40vh; } }
-  /* line 34, src/sass/components/_aboutSection.scss */
+    @media (max-width: 24em) {
+      /* line 7, src/sass/components/_aboutSection.scss */
+      .about-background {
+        height: 30vh; } }
+  /* line 32, src/sass/components/_aboutSection.scss */
   .about-info {
     position: absolute;
-    margin-top: 7vh;
+    margin-top: 9vh;
     margin-left: 2vw;
     z-index: 100; }
     @media (max-width: 75em) {
-      /* line 34, src/sass/components/_aboutSection.scss */
+      /* line 32, src/sass/components/_aboutSection.scss */
       .about-info {
         width: 60vw; } }
     @media (max-width: 56.25em) {
-      /* line 34, src/sass/components/_aboutSection.scss */
+      /* line 32, src/sass/components/_aboutSection.scss */
       .about-info {
-        width: 100vw; } }
-    /* line 45, src/sass/components/_aboutSection.scss */
+        width: 100vw;
+        margin-top: 2vh; } }
+    /* line 44, src/sass/components/_aboutSection.scss */
     .about-info--primary {
       font-size: 5rem;
       letter-spacing: 0.4rem;
       margin-bottom: 2rem; }
       @media (max-width: 87.5em) {
-        /* line 45, src/sass/components/_aboutSection.scss */
+        /* line 44, src/sass/components/_aboutSection.scss */
         .about-info--primary {
           font-size: 4.5rem; } }
       @media (max-width: 56.25em) {
-        /* line 45, src/sass/components/_aboutSection.scss */
+        /* line 44, src/sass/components/_aboutSection.scss */
         .about-info--primary {
           margin-bottom: 1rem; } }
       @media (max-width: 37.5em) {
-        /* line 45, src/sass/components/_aboutSection.scss */
+        /* line 44, src/sass/components/_aboutSection.scss */
         .about-info--primary {
           font-size: 3rem; } }
-      @media (max-width: 380px) {
-        /* line 45, src/sass/components/_aboutSection.scss */
+      @media (max-width: 24em) {
+        /* line 44, src/sass/components/_aboutSection.scss */
         .about-info--primary {
           font-size: 2rem; } }
-    /* line 63, src/sass/components/_aboutSection.scss */
+    /* line 62, src/sass/components/_aboutSection.scss */
     .about-info--secondary {
       font-family: "Roboto", sans-serif;
       font-weight: 100;
-      font-size: 2.8rem;
-      margin: 6rem 0vw; }
+      font-size: 2.8rem; }
       @media (max-width: 87.5em) {
-        /* line 63, src/sass/components/_aboutSection.scss */
+        /* line 62, src/sass/components/_aboutSection.scss */
         .about-info--secondary {
           font-size: 2.4rem; } }
       @media (max-width: 75em) {
-        /* line 63, src/sass/components/_aboutSection.scss */
+        /* line 62, src/sass/components/_aboutSection.scss */
         .about-info--secondary {
-          font-size: 2rem;
           margin: 1rem 0rem; } }
       @media (max-width: 56.25em) {
-        /* line 63, src/sass/components/_aboutSection.scss */
+        /* line 62, src/sass/components/_aboutSection.scss */
         .about-info--secondary {
-          font-size: 1.6rem;
+          font-size: 2.2rem;
           margin: 0rem 0rem; } }
+      @media (max-width: 24em) {
+        /* line 62, src/sass/components/_aboutSection.scss */
+        .about-info--secondary {
+          font-size: 1.6rem; } }
 
 /* line 1, src/sass/components/_albumSettings.scss */
 .albumSettings {
