@@ -28,9 +28,10 @@ if (localStorage.token) {
 }
 
 const App = () => {
+     console.log(localStorage.token);
      useEffect(() => {
           store.dispatch(loadUser());
-     }, []);
+     });
 
      return (
           <Provider store={store}>

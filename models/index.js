@@ -1,4 +1,4 @@
-// exports an object containing both models
+// exports an object containing models
 
 module.exports = {
      User: require('./User'),

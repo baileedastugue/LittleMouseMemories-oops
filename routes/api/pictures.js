@@ -81,13 +81,9 @@ router.post(
           try {
                cloudinary.uploader.upload(
                     image.tempFilePath,
+                    { format: 'jpg' },
                     async (err, result) => {
                          let uploadedPicture = result.secure_url;
-                         console.log(uploadedPicture);
-                         // uploadedPicture = uploadedPicture.replace(
-                         //      'http',
-                         //      'https'
-                         // );
                          const newPicture = await new Picture({
                               image: uploadedPicture,
                               caption: req.body.caption,
